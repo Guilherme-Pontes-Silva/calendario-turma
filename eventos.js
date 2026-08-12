@@ -49,7 +49,7 @@ const CALENDARIO = {
       data: "2026-08-20", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Betioli, Introdução ao Direito — Lição IV",
       descricao: "Resumo manuscrito da Lição IV (“Leis físicas, culturais e éticas”) de BETIOLI, Antonio Bento. Introdução ao Direito. 16ª ed. São Paulo: Saraiva, 2023.",
-      oQueFazer: "Ler a Lição IV e entregar o resumo manuscrito em sala, na aula de TGD. Não é entrega pelo Moodle."
+      oQueFazer: "Ler a Lição IV, escrever o resumo à mão e enviar a digitalização pelo Moodle. Atenção: até 12/08 a seção “Entregas dos manuscritos para avaliação”, na sala de TGD, estava vazia, sem nenhuma tarefa aberta para envio. Se continuar assim perto do dia, cobre o professor."
     },
     {
       data: "2026-08-24", hora: null, disciplina: "Prát. Ext.", tipo: "EVENTO",
@@ -61,7 +61,7 @@ const CALENDARIO = {
       data: "2026-08-24", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Betioli — Lição V",
       descricao: "Resumo manuscrito da Lição V (“notas distintivas do direito”) do Betioli, Introdução ao Direito, 16ª ed., Saraiva, 2023.",
-      oQueFazer: "Entregar em sala. Atenção: cai no mesmo dia da Semana Jurídica, então confirme com o professor como fica a entrega."
+      oQueFazer: "Escrever à mão e enviar a digitalização pelo Moodle. Cai no mesmo dia da Semana Jurídica, que substitui a aula normal — mas o prazo é no Moodle e não depende de ter aula."
     },
     {
       data: "2026-08-26", hora: null, disciplina: "Prát. Ext.", tipo: "EVENTO",
@@ -79,13 +79,13 @@ const CALENDARIO = {
       data: "2026-08-27", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Montoro, Introdução à Ciência do Direito — cap. 1",
       descricao: "Resumo manuscrito do capítulo 1 (“Conceito de direito”) de MONTORO, André Franco. Introdução à ciência do direito.",
-      oQueFazer: "Entregar em sala. Cai no mesmo dia do Encontro de Direitos Humanos — confirme com o professor como fica a entrega."
+      oQueFazer: "Escrever à mão e enviar a digitalização pelo Moodle. Cai no mesmo dia do Encontro Internacional de Direitos Humanos, que substitui a aula."
     },
     {
       data: "2026-08-31", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Betioli — Lição XI",
       descricao: "Resumo manuscrito da Lição XI (“a norma jurídica”) do Betioli, Introdução ao Direito, 16ª ed., Saraiva, 2023.",
-      oQueFazer: "Ler a Lição XI antes e entregar em sala, na aula de TGD."
+      oQueFazer: "Ler a Lição XI, escrever à mão e enviar a digitalização pelo Moodle."
     },
 
     /* ---------------- SETEMBRO DE 2026 ---------------- */
@@ -93,7 +93,7 @@ const CALENDARIO = {
       data: "2026-09-03", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Kelsen, Teoria Pura do Direito — cap. 1",
       descricao: "Resumo manuscrito do capítulo 1 (“Direito e natureza”) de KELSEN, Hans. Teoria pura do direito — versão condensada pelo autor.",
-      oQueFazer: "Atenção à edição: o cronograma pede a versão condensada pelo autor, não a versão completa. É o primeiro de uma sequência de manuscritos sobre o Kelsen."
+      oQueFazer: "Atenção à edição: o cronograma pede a versão condensada pelo autor, não a completa. Escrever à mão e enviar a digitalização pelo Moodle. É o primeiro de uma sequência de manuscritos sobre o Kelsen."
     },
     {
       data: "2026-09-07", hora: null, disciplina: "Geral", tipo: "FERIADO",
@@ -110,7 +110,7 @@ const CALENDARIO = {
       data: "2026-09-10", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Kelsen — caps. 2 e 3",
       descricao: "Resumo manuscrito de dois capítulos do Kelsen (versão condensada): capítulo 2 (“Direito e moral”) e capítulo 3 (“o conceito de direito e a proposição jurídica”).",
-      oQueFazer: "São dois capítulos, não um. Entregar em sala. Cai no mesmo dia do prazo do arquivo do seminário — não confunda as duas entregas."
+      oQueFazer: "São dois capítulos, não um. Escrever à mão e enviar a digitalização pelo Moodle. Cai no mesmo dia do prazo do arquivo do seminário — são duas entregas diferentes, não confunda."
     },
     {
       data: "2026-09-10", hora: "23:59", disciplina: "TGD", tipo: "TAREFA",
@@ -121,8 +121,8 @@ const CALENDARIO = {
     {
       data: "2026-09-14", hora: null, disciplina: "TGD", tipo: "PROVA",
       titulo: "Prova A1 (N1)",
-      descricao: "Prova de Teoria Geral do Direito correspondente à nota N1.",
-      oQueFazer: "Estudar o conteúdo dos manuscritos entregues até aqui: Betioli (Lições IV, V e XI), Montoro (cap. 1) e Kelsen (caps. 1 a 3)."
+      descricao: "Prova dissertativa de Teoria Geral do Direito. Pelo plano de aula, a nota A1 se compõe de três instrumentos: a prova, com peso 7; o seminário, com peso 2; e os manuscritos, com peso 1. Cada um é pontuado de 0 a 10.",
+      oQueFazer: "É de longe o que mais pesa na nota. Estudar o conteúdo dos manuscritos entregues até aqui: Betioli (Lições IV, V e XI), Montoro (cap. 1) e Kelsen (caps. 1 a 3)."
     },
     {
       data: "2026-09-16", hora: null, disciplina: "Prát. Ext.", tipo: "ENTREGA",
@@ -152,7 +152,7 @@ const CALENDARIO = {
       data: "2026-09-24", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Betioli — Lição sobre o ordenamento jurídico",
       descricao: "Resumo manuscrito da lição do Betioli sobre “ordenamento jurídico” (Introdução ao Direito, 16ª ed., Saraiva, 2023). O cronograma não numera esta lição.",
-      oQueFazer: "Entregar em sala, na aula de TGD."
+      oQueFazer: "Escrever o resumo à mão, você mesmo, e enviar a digitalização pelo Moodle."
     },
     {
       data: "2026-09-30", hora: null, disciplina: "Econ. Pol.", tipo: "AVALIACAO",
@@ -166,7 +166,7 @@ const CALENDARIO = {
       data: "2026-10-01", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Kelsen — caps. 4 e 5",
       descricao: "Resumo manuscrito de dois capítulos do Kelsen (versão condensada): capítulo 4 (“Dualismo da teoria do direito e sua dominação”) e capítulo 5 (“Ordenamento jurídico e seu escalonamento”).",
-      oQueFazer: "São dois capítulos. Entregar em sala, na aula de TGD."
+      oQueFazer: "São dois capítulos. Escrever à mão e enviar a digitalização pelo Moodle."
     },
     {
       data: "2026-10-05", hora: null, disciplina: "TGD", tipo: "COMPETICAO",
@@ -202,7 +202,7 @@ const CALENDARIO = {
       data: "2026-10-08", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Kelsen — cap. 6 (Interpretação)",
       descricao: "Resumo manuscrito do capítulo 6 (“Interpretação”) do Kelsen, versão condensada pelo autor. É o último capítulo da sequência do Kelsen.",
-      oQueFazer: "Entregar em sala. Cai no mesmo dia do Hackathon — confirme com o professor como fica a entrega."
+      oQueFazer: "Escrever à mão e enviar a digitalização pelo Moodle. Cai no mesmo dia do Hackathon, que substitui a aula."
     },
     {
       data: "2026-10-12", hora: null, disciplina: "Geral", tipo: "FERIADO",
@@ -213,19 +213,19 @@ const CALENDARIO = {
       data: "2026-10-15", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Betioli — Lição XXX",
       descricao: "Resumo manuscrito da Lição XXX (“Hermenêutica jurídica”) do Betioli, Introdução ao Direito, 16ª ed., Saraiva, 2023.",
-      oQueFazer: "Entregar em sala. Começa aqui o bloco de hermenêutica e interpretação, que continua em 22/10."
+      oQueFazer: "Escrever à mão e enviar a digitalização pelo Moodle. Começa aqui o bloco de hermenêutica e interpretação, que continua em 22/10."
     },
     {
       data: "2026-10-22", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Betioli — Lição XXXI",
       descricao: "Resumo manuscrito da Lição XXXI (“escolas de interpretação”) do Betioli, Introdução ao Direito, 16ª ed., Saraiva, 2023.",
-      oQueFazer: "Entregar em sala, na aula de TGD."
+      oQueFazer: "Escrever o resumo à mão, você mesmo, e enviar a digitalização pelo Moodle."
     },
     {
       data: "2026-10-29", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Barroso — Neoconstitucionalismo",
       descricao: "Resumo manuscrito do texto de BARROSO, Luiz Roberto, sobre neoconstitucionalismo. É o único item do cronograma que não sai de livro: o texto é postado no Moodle.",
-      oQueFazer: "Baixar o texto na sala de TGD no Moodle, ler e entregar o manuscrito em sala."
+      oQueFazer: "Baixar o texto na sala de TGD no Moodle, ler, escrever o resumo à mão e enviar a digitalização pelo Moodle."
     },
 
     /* ---------------- NOVEMBRO DE 2026 ---------------- */
@@ -250,12 +250,12 @@ const CALENDARIO = {
       data: "2026-11-05", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Betioli — Lição XLI",
       descricao: "Resumo manuscrito da Lição XLI (“A teoria da justiça”) do Betioli, Introdução ao Direito, 16ª ed., Saraiva, 2023.",
-      oQueFazer: "Entregar em sala. É o último manuscrito do cronograma: depois dele só vem a prova A2."
+      oQueFazer: "Escrever à mão e enviar a digitalização pelo Moodle. É o último manuscrito do cronograma: depois dele só vem a prova A2."
     },
     {
       data: "2026-11-09", hora: null, disciplina: "TGD", tipo: "PROVA",
       titulo: "Prova A2 (N2)",
-      descricao: "Prova de Teoria Geral do Direito correspondente à nota N2.",
+      descricao: "Prova dissertativa de Teoria Geral do Direito. A nota A2 segue a mesma composição da A1: prova com peso 7, seminário com peso 2 e manuscritos com peso 1.",
       oQueFazer: "Estudar o conteúdo da segunda metade: Kelsen (caps. 4 a 6), hermenêutica e escolas de interpretação (Betioli XXX e XXXI), Barroso e teorias da justiça (Betioli XLI)."
     },
     {
@@ -386,6 +386,10 @@ const CALENDARIO = {
     {
       titulo: "Introdução ao Direito Privado — Trabalhos N1 e N2",
       texto: "As duas tarefas continuam abertas na sala do Moodle com prazos de 08/04 e 26/05 de 2026, anteriores a este semestre, provavelmente herdados da configuração antiga da sala. Os enunciados tratam de direitos morais de autor e do domicílio da pessoa natural. Confirmar com o professor se valem para 2026/2 e com que prazo. Por não terem data válida para este semestre, não entraram na lista acima."
+    },
+    {
+      titulo: "TGD — não existe onde enviar os manuscritos",
+      texto: "O plano de aula da disciplina é explícito: a nota se compõe de prova, seminário e “a entrega realizada no moodle de digitalização de MANUSCRITO pelo(a) próprio(a) aluno(a), conforme cronograma”. Ou seja, o resumo é escrito à mão pelo aluno e a digitalização é enviada pelo Moodle. Só que a sala de TGD tem uma seção chamada “ENTREGAS DOS MANUSCRITOS PARA AVALIAÇÃO” que está completamente vazia, sem nenhuma tarefa aberta, e o fórum de avisos não tem nenhuma publicação. Conferido em 12/08/2026. O primeiro manuscrito é 20/08, então vale cobrar do professor a abertura da entrega antes disso, e confirmar se aceita foto ou só PDF."
     },
     {
       titulo: "Cinco disciplinas não têm nenhuma data publicada",
