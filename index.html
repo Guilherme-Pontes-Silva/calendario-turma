@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calendário da Turma — Direito 1º período noturno</title>
+<meta name="description" content="Calendário online da turma de Direito, 1º período noturno, com contagem regressiva ao vivo para provas, entregas e eventos.">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:title" content="Calendário da Turma — Direito 1º período noturno">
+<meta property="og:description" content="Provas, entregas e eventos do semestre, com o tempo restante atualizado ao vivo.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230a0a0a'/><rect x='14' y='24' width='72' height='62' rx='8' fill='none' stroke='%23f5b301' stroke-width='8'/><path d='M14 44h72M34 14v20M66 14v20' stroke='%23f5b301' stroke-width='8' stroke-linecap='round'/></svg>">
+
+<style>
+:root{
+  --bg:#0a0a0a;
+  --surface:#131417;
+  --surface-2:#191b1f;
+  --line:#2a2d33;
+  --line-soft:#212429;
+  --text:#e8e6e1;
+  --muted:#9aa0aa;
+  --muted-2:#6f757f;
+  --accent:#f5b301;
+  --prova:#e5484d;
+  --entrega:#f5b301;
+  --evento:#4c9aff;
+  --feriado:#3dd68c;
+  --radius:14px;
+  --shadow:0 1px 0 rgba(255,255,255,.03), 0 8px 24px rgba(0,0,0,.45);
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,"Cascadia Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit}
+
+.wrap{max-width:900px;margin:0 auto;padding:0 18px 72px}
+
+/* ---------- cabeçalho ---------- */
+.top{padding:36px 0 22px;border-bottom:1px solid var(--line-soft)}
+.eyebrow{
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted-2);margin:0 0 10px;font-weight:600;
+}
+h1{
+  margin:0;font-size:clamp(26px,6.4vw,40px);line-height:1.1;
+  font-weight:800;letter-spacing:-.02em;
+}
+h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:14px;border-radius:2px}
+.sub{margin:14px 0 0;color:var(--muted);font-size:14.5px}
+.stamp{margin:6px 0 0;color:var(--muted-2);font-size:12.5px}
+.stamp b{color:var(--muted);font-weight:600}
+
+.acoes{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.btn{
+  appearance:none;border:1px solid var(--line);background:var(--surface);
+  color:var(--text);font:inherit;font-size:13px;font-weight:600;
+  padding:9px 14px;border-radius:999px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:7px;
+  transition:border-color .15s,background .15s,transform .1s;
+  text-decoration:none;
+}
+.btn:hover{border-color:#3c4048;background:var(--surface-2)}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#141200}
+.btn.primary:hover{background:#ffc21f;border-color:#ffc21f}
+
+/* ---------- faixa "hoje" ---------- */
+.hoje{
+  margin:22px 0 0;padding:13px 16px;border-radius:var(--radius);
+  background:rgba(245,179,1,.09);border:1px solid rgba(245,179,1,.28);
+  display:flex;gap:11px;align-items:baseline;flex-wrap:wrap;
+  font-size:14px;line-height:1.5;
+}
+.hoje-tag{
+  flex:0 0 auto;font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:800;color:#141200;background:var(--accent);
+  padding:3px 9px;border-radius:5px;
+}
+.hoje b{color:#f7c948;font-weight:700}
+
+/* ---------- destaque: próximo compromisso ---------- */
+.hero{
+  margin:26px 0 0;padding:22px;border-radius:var(--radius);
+  background:linear-gradient(180deg,var(--surface),#101114);
+  border:1px solid var(--line);box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--accent);
+}
+.hero .label{
+  font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin:0 0 12px;
+}
+.hero h2{margin:0;font-size:clamp(19px,4.6vw,26px);line-height:1.25;font-weight:700;letter-spacing:-.01em}
+.hero .meta{margin:10px 0 0;color:var(--muted);font-size:13.5px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+
+.relogio{display:flex;gap:8px;margin:20px 0 0;flex-wrap:wrap}
+.unid{
+  flex:1 1 0;min-width:64px;text-align:center;
+  background:#0d0e10;border:1px solid var(--line-soft);border-radius:11px;padding:12px 6px 9px;
+}
+.unid .n{
+  display:block;font-family:var(--mono);font-size:clamp(24px,7vw,34px);
+  font-weight:700;line-height:1;color:var(--text);font-variant-numeric:tabular-nums;
+}
+.unid .l{
+  display:block;margin-top:7px;font-size:9.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted-2);font-weight:600;
+}
+.hero.urgente::before{background:var(--prova)}
+.hero.urgente .label{color:var(--prova)}
+.hero.urgente .unid .n{color:#ff8a8d}
+.hero.vazio .relogio{display:none}
+
+/* ---------- números do semestre ---------- */
+.placar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 0}
+.placar div{
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:11px;
+  padding:12px 10px;text-align:center;
+}
+.placar b{display:block;font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.placar span{display:block;margin-top:5px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);font-weight:600;line-height:1.35}
+.placar .c-prova b{color:var(--prova)}
+.placar .c-entrega b{color:var(--entrega)}
+.placar .c-evento b{color:var(--evento)}
+.placar .c-feriado b{color:var(--feriado)}
+
+/* ---------- filtros ---------- */
+.filtros{margin:30px 0 0;position:sticky;top:0;z-index:20;background:var(--bg);padding:12px 0 10px}
+.filtros::after{content:"";display:block;height:1px;background:var(--line-soft);margin-top:12px}
+.busca{position:relative;margin-bottom:10px}
+.busca input{
+  width:100%;background:var(--surface);border:1px solid var(--line);color:var(--text);
+  font:inherit;font-size:14.5px;padding:11px 14px 11px 38px;border-radius:10px;
+}
+.busca input::placeholder{color:var(--muted-2)}
+.busca input:focus{outline:none;border-color:var(--accent)}
+.busca svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted-2)}
+
+.chips{display:flex;gap:7px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  flex:0 0 auto;appearance:none;border:1px solid var(--line);background:transparent;
+  color:var(--muted);font:inherit;font-size:12.5px;font-weight:600;
+  padding:7px 13px;border-radius:999px;cursor:pointer;white-space:nowrap;
+  transition:.15s;
+}
+.chip:hover{color:var(--text);border-color:#3c4048}
+.chip[aria-pressed="true"]{background:var(--text);border-color:var(--text);color:#0a0a0a}
+.chip .cnt{opacity:.55;margin-left:5px;font-variant-numeric:tabular-nums}
+
+.linha2{display:flex;gap:8px;margin-top:9px;align-items:center;flex-wrap:wrap}
+select{
+  background:var(--surface);border:1px solid var(--line);color:var(--text);
+  font:inherit;font-size:12.5px;font-weight:600;padding:7px 11px;border-radius:999px;cursor:pointer;
+}
+select:focus{outline:none;border-color:var(--accent)}
+.toggle{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);cursor:pointer;user-select:none;font-weight:600}
+.toggle input{accent-color:var(--accent);width:15px;height:15px;cursor:pointer}
+
+/* ---------- lista ---------- */
+.mes{
+  margin:30px 0 14px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted-2);font-weight:700;display:flex;align-items:center;gap:12px;
+}
+.mes::after{content:"";flex:1;height:1px;background:var(--line-soft)}
+
+.card{
+  display:grid;grid-template-columns:58px 1fr;gap:14px;
+  padding:15px;margin-bottom:8px;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius);
+  position:relative;transition:border-color .15s;
+}
+.card:hover{border-color:var(--line)}
+.card.passado{opacity:.42}
+.card.hoje{border-color:var(--accent);background:#16140c}
+
+.data{text-align:center;padding-top:2px}
+.data .d{display:block;font-size:23px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.data .m{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);margin-top:4px;font-weight:700}
+.data .s{display:block;font-size:10.5px;color:var(--muted-2);margin-top:3px;text-transform:lowercase}
+
+.corpo{min-width:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;align-items:center}
+.tag{
+  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  padding:3px 8px;border-radius:5px;line-height:1.5;white-space:nowrap;
+}
+.tag.disc{background:#212429;color:var(--muted);letter-spacing:.05em;text-transform:none;font-size:10.5px;font-weight:600}
+.t-PROVA,.t-AVALIACAO{background:rgba(229,72,77,.15);color:#ff8a8d}
+.t-ENTREGA,.t-TAREFA,.t-MANUSCRITO{background:rgba(245,179,1,.14);color:#f7c948}
+.t-EVENTO,.t-AULA,.t-COMPETICAO,.t-APRESENTACAO{background:rgba(76,154,255,.14);color:#7fb4ff}
+.t-FERIADO{background:rgba(61,214,140,.14);color:#5fdfa3}
+
+.card h3{margin:0;font-size:15.5px;font-weight:700;line-height:1.35;letter-spacing:-.005em}
+.card p{margin:6px 0 0;font-size:13.5px;color:var(--muted);line-height:1.5}
+.card p.fazer{
+  margin-top:9px;padding:9px 12px;border-radius:9px;
+  background:rgba(255,255,255,.035);border-left:2px solid var(--accent);
+  color:var(--text);font-size:13px;
+}
+.card p.fazer::before{
+  content:"O que fazer";display:block;font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:3px;
+}
+.card p.fonte{margin-top:8px;font-size:11.5px;color:var(--muted-2);font-style:italic}
+
+.rodape-card{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-top:11px}
+.falta{
+  font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;
+  color:var(--muted);display:inline-flex;align-items:center;gap:6px;
+}
+.falta::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--muted-2)}
+.falta.perto{color:var(--accent)}
+.falta.perto::before{background:var(--accent)}
+.falta.agora{color:#ff8a8d}
+.falta.agora::before{background:var(--prova);animation:pulso 1.6s ease-in-out infinite}
+@keyframes pulso{0%,100%{opacity:1}50%{opacity:.25}}
+.falta.fim{color:var(--muted-2)}
+.falta.fim::before{background:#3c4048}
+
+.add{
+  font-size:11.5px;font-weight:600;color:var(--muted-2);text-decoration:none;
+  border-bottom:1px dotted var(--line);padding-bottom:1px;
+}
+.add:hover{color:var(--accent);border-color:var(--accent)}
+
+.aviso{
+  display:inline-flex;align-items:center;gap:5px;margin-top:9px;
+  font-size:11.5px;font-weight:600;color:#f7c948;
+  background:rgba(245,179,1,.09);border:1px solid rgba(245,179,1,.22);
+  padding:4px 9px;border-radius:6px;
+}
+
+.vazio-lista{text-align:center;padding:44px 20px;color:var(--muted-2);font-size:14px}
+
+/* ---------- pendências ---------- */
+.pend{margin-top:46px;padding-top:26px;border-top:1px solid var(--line-soft)}
+.pend h2{
+  margin:0 0 4px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:#f7c948;font-weight:700;
+}
+.pend .intro{margin:0 0 18px;font-size:13px;color:var(--muted-2)}
+.pend details{
+  background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:11px;margin-bottom:8px;overflow:hidden;
+}
+.pend summary{
+  padding:13px 15px;cursor:pointer;font-size:14px;font-weight:600;
+  list-style:none;display:flex;gap:10px;align-items:flex-start;
+}
+.pend summary::-webkit-details-marker{display:none}
+.pend summary::before{content:"?";flex:0 0 auto;color:#f7c948;font-weight:700;line-height:1.5}
+.pend summary:hover{background:var(--surface-2)}
+.pend details[open] summary{border-bottom:1px solid var(--line-soft)}
+.pend p{margin:0;padding:13px 15px 15px;font-size:13.5px;color:var(--muted);line-height:1.6}
+
+/* ---------- rodapé ---------- */
+footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--muted-2);line-height:1.65}
+footer p{margin:0 0 8px}
+footer b{color:var(--muted);font-weight:600}
+
+.toast{
+  position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);
+  background:var(--text);color:#0a0a0a;font-size:13px;font-weight:700;
+  padding:11px 18px;border-radius:999px;opacity:0;pointer-events:none;
+  transition:opacity .2s,transform .2s;z-index:50;box-shadow:0 8px 30px rgba(0,0,0,.5);
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:560px){
+  .wrap{padding:0 14px 60px}
+  .placar{grid-template-columns:repeat(2,1fr)}
+  .card{grid-template-columns:48px 1fr;gap:11px;padding:13px}
+  .data .d{font-size:20px}
+  .hero{padding:18px}
+  .unid{min-width:0;padding:10px 4px 8px}
+}
+
+@media print{
+  body{background:#fff;color:#000}
+  .filtros,.acoes,.toast,.add,.hero .relogio{display:none}
+  .card{break-inside:avoid;border-color:#ccc}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="top">
+    <p class="eyebrow" id="eyebrow">Direito · 1º período noturno</p>
+    <h1>Calendário da Turma<span class="bar"></span></h1>
+    <p class="sub" id="sub"></p>
+    <p class="stamp" id="stamp"></p>
+    <div class="acoes">
+      <button class="btn primary" id="btn-ics">Adicionar ao meu celular (.ics)</button>
+      <button class="btn" id="btn-share">Compartilhar link</button>
+      <button class="btn" id="btn-print">Imprimir / PDF</button>
+    </div>
+  </header>
+
+  <section class="hoje" id="hoje" hidden>
+    <span class="hoje-tag">Hoje</span>
+    <span id="hoje-itens"></span>
+  </section>
+
+  <section class="hero vazio" id="hero" aria-live="polite">
+    <p class="label" id="hero-label">Próximo compromisso</p>
+    <h2 id="hero-titulo">—</h2>
+    <p class="meta" id="hero-meta"></p>
+    <div class="relogio" id="relogio">
+      <div class="unid"><span class="n" id="u-d">--</span><span class="l">dias</span></div>
+      <div class="unid"><span class="n" id="u-h">--</span><span class="l">horas</span></div>
+      <div class="unid"><span class="n" id="u-m">--</span><span class="l">min</span></div>
+      <div class="unid"><span class="n" id="u-s">--</span><span class="l">seg</span></div>
+    </div>
+  </section>
+
+  <div class="placar" id="placar"></div>
+
+  <div class="filtros">
+    <div class="busca">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+      <input type="search" id="busca" placeholder="Buscar por título, matéria ou assunto…" autocomplete="off">
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="linha2">
+      <select id="disciplina"><option value="">Todas as matérias</option></select>
+      <label class="toggle"><input type="checkbox" id="passados"> Mostrar o que já passou</label>
+    </div>
+  </div>
+
+  <main id="lista"></main>
+
+  <section class="pend" id="pend">
+    <h2>Pontos a confirmar com o professor</h2>
+    <p class="intro">Datas que ainda não estão fechadas. Não trate como definitivo.</p>
+    <div id="pend-lista"></div>
+  </section>
+
+  <footer>
+    <p>Este calendário reúne, em uma única lista, tudo o que tem data marcada no semestre para a turma: provas, avaliações, entregas, manuscritos, aulas especiais, eventos da universidade e feriados. As datas foram tiradas do calendário do Moodle, dos enunciados das tarefas, dos avisos e dos cronogramas e planos de aula publicados pelos professores.</p>
+    <p>O documento é <b>da turma</b> e não traz nota, falta nem situação de entrega de ninguém. <b>Confira sempre no Moodle antes de contar com a data.</b></p>
+    <p id="foot-stamp"></p>
+  </footer>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="eventos.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  var TZ = (CALENDARIO.fusoHorario || "-03:00");
+  var MESES = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+  var MES_ABREV = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+  var DIAS = ["dom","seg","ter","qua","qui","sex","sáb"];
+
+  var ROTULO = {
+    PROVA:"Prova", AVALIACAO:"Avaliação", ENTREGA:"Entrega", TAREFA:"Tarefa",
+    MANUSCRITO:"Manuscrito", APRESENTACAO:"Apresentação", COMPETICAO:"Competição",
+    EVENTO:"Evento", AULA:"Aula", FERIADO:"Feriado"
+  };
+
+  var GRUPOS = [
+    { id:"",         nome:"Tudo",              tipos:null },
+    { id:"provas",   nome:"Provas",            tipos:["PROVA","AVALIACAO"] },
+    { id:"entregas", nome:"Entregas",          tipos:["ENTREGA","TAREFA","MANUSCRITO"] },
+    { id:"eventos",  nome:"Aulas e eventos",   tipos:["AULA","EVENTO","COMPETICAO","APRESENTACAO"] },
+    { id:"feriados", nome:"Feriados",          tipos:["FERIADO"] }
+  ];
+
+  /* "até 23h59" para prazo de entrega; "às 18h30" para hora de começar. */
+  var PRAZO = ["TAREFA", "ENTREGA"];
+  function rotuloHora(ev){
+    return (PRAZO.indexOf(ev.tipo) >= 0 ? "até " : "às ") + ev.hora.replace(":", "h");
+  }
+
+  /* Horário usado quando o item não tem hora marcada.
+     Aula noturna começa 19h; feriado conta a partir da meia-noite. */
+  function horaAlvo(ev){
+    if (ev.hora) return ev.hora;
+    return ev.tipo === "FERIADO" ? "00:00" : "19:00";
+  }
+
+  /* Monta a data SEMPRE no fuso de Campinas, para o tempo restante
+     ficar certo mesmo se o celular estiver com outro fuso. */
+  function montar(data, hora){
+    return new Date(data + "T" + hora + ":00" + TZ);
+  }
+
+  var eventos = CALENDARIO.eventos.map(function(ev, i){
+    var e = Object.create(ev);
+    e.__i = i;
+    e.alvo = montar(ev.data, horaAlvo(ev));
+    e.fim  = ev.hora ? e.alvo : montar(ev.data, "23:59");
+    var p = ev.data.split("-");
+    e.ano = +p[0]; e.mes = +p[1]-1; e.dia = +p[2];
+    e.semana = DIAS[e.alvo.getDay()];
+    e.busca = (ev.titulo+" "+ev.descricao+" "+ev.disciplina+" "+(ROTULO[ev.tipo]||ev.tipo)).toLowerCase();
+    return e;
+  }).sort(function(a,b){ return a.alvo - b.alvo; });
+
+  var filtro = { grupo:"", disciplina:"", texto:"", passados:false };
+
+  var $ = function(id){ return document.getElementById(id); };
+
+  /* ---------------- textos de tempo ---------------- */
+  function diasCorridos(ate){
+    var hoje = new Date(); hoje.setHours(0,0,0,0);
+    var alvo = new Date(ate.getFullYear(), ate.getMonth(), ate.getDate());
+    return Math.round((alvo - hoje) / 86400000);
+  }
+
+  function textoFalta(ev){
+    var agora = new Date();
+    if (agora > ev.fim) return { txt:"já passou", cls:"fim" };
+
+    var ms = ev.alvo - agora;
+    if (ms <= 0) return { txt:"acontecendo agora", cls:"agora" };
+
+    var horas = ms/3600000;
+    if (horas < 1)  return { txt:"faltam " + Math.max(1, Math.round(ms/60000)) + " min", cls:"agora" };
+    if (horas < 24) return { txt:"faltam " + Math.floor(horas) + "h" + (ev.hora ? " " + Math.floor(ms%3600000/60000) + "min" : ""), cls:"agora" };
+
+    var d = diasCorridos(ev.alvo);
+    if (d === 0) return { txt:"é hoje", cls:"agora" };
+    if (d === 1) return { txt:"é amanhã", cls:"perto" };
+    if (d <= 7)  return { txt:"faltam " + d + " dias", cls:"perto" };
+    if (d <= 30) return { txt:"faltam " + d + " dias", cls:"" };
+    var sem = Math.round(d/7);
+    return { txt:"faltam " + d + " dias (" + sem + " semanas)", cls:"" };
+  }
+
+  /* ---------------- contagem regressiva ---------------- */
+  /* O destaque conta para o próximo item que AINDA não começou.
+     O que já está rolando hoje vai para a faixa "Hoje", acima. */
+  function proximo(){
+    var agora = new Date();
+    for (var i=0;i<eventos.length;i++) if (eventos[i].alvo > agora) return eventos[i];
+    return null;
+  }
+
+  function emCurso(){
+    var agora = new Date();
+    return eventos.filter(function(e){ return e.alvo <= agora && e.fim > agora; });
+  }
+
+  function pintarHoje(){
+    var itens = emCurso();
+    var faixa = $("hoje");
+    if (!itens.length){ faixa.hidden = true; return; }
+    faixa.hidden = false;
+    $("hoje-itens").innerHTML = itens.map(function(e){
+      return "<b>" + esc(e.titulo) + "</b> <span style='color:var(--muted)'>· "
+           + esc(e.disciplina) + " · " + (ROTULO[e.tipo]||e.tipo).toLowerCase() + "</span>";
+    }).join(" &nbsp;·&nbsp; ");
+  }
+
+  var heroEv = null;
+
+  function pintarHero(){
+    var ev = proximo();
+    heroEv = ev;
+    var hero = $("hero");
+
+    if (!ev){
+      hero.className = "hero vazio";
+      $("hero-label").textContent = "Semestre encerrado";
+      $("hero-titulo").textContent = "Não há mais compromissos na lista.";
+      $("hero-meta").textContent = "";
+      return;
+    }
+
+    var horas = (ev.alvo - new Date()) / 3600000;
+    hero.className = "hero" + (horas < 48 ? " urgente" : "");
+    $("hero-label").textContent = horas < 48 ? "É agora" : "Próximo compromisso";
+    $("hero-titulo").textContent = ev.titulo;
+
+    var partes = [
+      ev.semana + ", " + ev.dia + " de " + MESES[ev.mes],
+      ev.disciplina,
+      ROTULO[ev.tipo] || ev.tipo
+    ];
+    if (ev.hora) partes.splice(1, 0, rotuloHora(ev));
+    $("hero-meta").textContent = partes.join(" · ");
+  }
+
+  function tick(){
+    if (!heroEv || heroEv.alvo <= new Date()){
+      pintarHoje();
+      pintarHero();
+      pintarPlacar();
+      pintarLista();
+      if (!heroEv) return;
+    }
+
+    var ms = heroEv.alvo - new Date();
+    if (ms < 0) ms = 0;
+
+    var d = Math.floor(ms/86400000);
+    var h = Math.floor(ms%86400000/3600000);
+    var m = Math.floor(ms%3600000/60000);
+    var s = Math.floor(ms%60000/1000);
+
+    $("u-d").textContent = d;
+    $("u-h").textContent = String(h).padStart(2,"0");
+    $("u-m").textContent = String(m).padStart(2,"0");
+    $("u-s").textContent = String(s).padStart(2,"0");
+
+    document.title = (d > 0 ? d + "d" : h > 0 ? h + "h" : m + "min") + " — " + heroEv.titulo;
+
+    // atualiza os "faltam X" da lista sem redesenhar tudo
+    var marcas = document.querySelectorAll("[data-falta]");
+    for (var i=0;i<marcas.length;i++){
+      var t = textoFalta(eventos[+marcas[i].getAttribute("data-falta")]);
+      if (marcas[i].textContent !== t.txt){
+        marcas[i].textContent = t.txt;
+        marcas[i].className = "falta " + t.cls;
+      }
+    }
+  }
+
+  /* ---------------- placar ---------------- */
+  function pintarPlacar(){
+    var agora = new Date();
+    var futuros = eventos.filter(function(e){ return e.fim > agora; });
+    var cont = function(tipos){
+      return futuros.filter(function(e){ return tipos.indexOf(e.tipo) >= 0; }).length;
+    };
+    var dados = [
+      { cls:"c-prova",   n:cont(["PROVA","AVALIACAO"]),                        l:"provas e avaliações" },
+      { cls:"c-entrega", n:cont(["ENTREGA","TAREFA","MANUSCRITO"]),            l:"entregas e trabalhos" },
+      { cls:"c-evento",  n:cont(["AULA","EVENTO","COMPETICAO","APRESENTACAO"]),l:"aulas e eventos" },
+      { cls:"c-feriado", n:cont(["FERIADO"]),                                  l:"feriados" }
+    ];
+    $("placar").innerHTML = dados.map(function(x){
+      return '<div class="'+x.cls+'"><b>'+x.n+'</b><span>'+x.l+' restantes</span></div>';
+    }).join("");
+  }
+
+  /* ---------------- filtros ---------------- */
+  function pintarChips(){
+    var agora = new Date();
+    $("chips").innerHTML = GRUPOS.map(function(g){
+      var n = eventos.filter(function(e){
+        return (filtro.passados || e.fim > agora) && (!g.tipos || g.tipos.indexOf(e.tipo) >= 0);
+      }).length;
+      return '<button class="chip" data-grupo="'+g.id+'" aria-pressed="'+(filtro.grupo===g.id)+'">'
+           + g.nome + '<span class="cnt">'+n+'</span></button>';
+    }).join("");
+  }
+
+  function pintarDisciplinas(){
+    var vistas = [];
+    eventos.forEach(function(e){ if (vistas.indexOf(e.disciplina) < 0) vistas.push(e.disciplina); });
+    var sel = $("disciplina");
+    sel.innerHTML = '<option value="">Todas as matérias</option>'
+      + vistas.map(function(d){ return '<option value="'+d+'">'+d+'</option>'; }).join("");
+    sel.value = filtro.disciplina;
+  }
+
+  function filtrados(){
+    var agora = new Date();
+    var g = GRUPOS.filter(function(x){ return x.id === filtro.grupo; })[0];
+    return eventos.filter(function(e){
+      if (!filtro.passados && e.fim <= agora) return false;
+      if (g && g.tipos && g.tipos.indexOf(e.tipo) < 0) return false;
+      if (filtro.disciplina && e.disciplina !== filtro.disciplina) return false;
+      if (filtro.texto && e.busca.indexOf(filtro.texto) < 0) return false;
+      return true;
+    });
+  }
+
+  /* ---------------- lista ---------------- */
+  function esc(s){
+    return String(s).replace(/[&<>"]/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];
+    });
+  }
+
+  function linkGoogle(ev){
+    var ini, fim;
+    if (ev.hora){
+      ini = iso(ev.alvo);
+      fim = iso(new Date(ev.alvo.getTime() + 3600000));
+    } else {
+      var d = ev.data.replace(/-/g,"");
+      var prox = new Date(ev.alvo.getFullYear(), ev.alvo.getMonth(), ev.alvo.getDate()+1);
+      var pd = prox.getFullYear() + String(prox.getMonth()+1).padStart(2,"0") + String(prox.getDate()).padStart(2,"0");
+      ini = d; fim = pd;
+    }
+    var titulo = (ROTULO[ev.tipo]||ev.tipo) + " · " + ev.disciplina + " — " + ev.titulo;
+    return "https://calendar.google.com/calendar/render?action=TEMPLATE"
+         + "&text=" + encodeURIComponent(titulo)
+         + "&dates=" + ini + "/" + fim
+         + "&details=" + encodeURIComponent(ev.descricao)
+         + "&ctz=America/Sao_Paulo";
+  }
+
+  function iso(dt){
+    return dt.getUTCFullYear()
+      + String(dt.getUTCMonth()+1).padStart(2,"0")
+      + String(dt.getUTCDate()).padStart(2,"0") + "T"
+      + String(dt.getUTCHours()).padStart(2,"0")
+      + String(dt.getUTCMinutes()).padStart(2,"0") + "00Z";
+  }
+
+  function pintarLista(){
+    var lista = filtrados();
+    var alvo = $("lista");
+
+    if (!lista.length){
+      alvo.innerHTML = '<p class="vazio-lista">Nada encontrado com esses filtros.<br>Tente limpar a busca ou marcar “mostrar o que já passou”.</p>';
+      return;
+    }
+
+    var agora = new Date();
+    var hojeStr = new Date().toISOString().slice(0,10);
+    var html = "";
+    var mesAtual = "";
+
+    lista.forEach(function(ev){
+      var chave = ev.ano + "-" + ev.mes;
+      if (chave !== mesAtual){
+        mesAtual = chave;
+        html += '<h2 class="mes">' + MESES[ev.mes] + " de " + ev.ano + "</h2>";
+      }
+
+      var passou = ev.fim <= agora;
+      var t = textoFalta(ev);
+      var eHoje = ev.data === hojeStr;
+
+      html += '<article class="card' + (passou ? " passado" : "") + (eHoje && !passou ? " hoje" : "") + '">'
+        + '<div class="data">'
+          + '<span class="d">' + String(ev.dia).padStart(2,"0") + '</span>'
+          + '<span class="m">' + MES_ABREV[ev.mes] + '</span>'
+          + '<span class="s">' + ev.semana + '</span>'
+        + '</div>'
+        + '<div class="corpo">'
+          + '<div class="tags">'
+            + '<span class="tag t-' + ev.tipo + '">' + (ROTULO[ev.tipo] || ev.tipo) + '</span>'
+            + '<span class="tag disc">' + esc(ev.disciplina) + '</span>'
+            + (ev.hora ? '<span class="tag disc">' + rotuloHora(ev) + '</span>' : "")
+          + '</div>'
+          + '<h3>' + esc(ev.titulo) + '</h3>'
+          + '<p>' + esc(ev.descricao) + '</p>'
+          + (ev.oQueFazer ? '<p class="fazer">' + esc(ev.oQueFazer) + '</p>' : "")
+          + (ev.fonte ? '<p class="fonte">Origem da data: ' + esc(ev.fonte) + '</p>' : "")
+          + (ev.confirmar ? '<span class="aviso">Data ainda não confirmada pelo professor</span>' : "")
+          + '<div class="rodape-card">'
+            + '<span class="falta ' + t.cls + '" data-falta="' + eventos.indexOf(ev) + '">' + t.txt + '</span>'
+            + (passou ? "" : '<a class="add" href="' + linkGoogle(ev) + '" target="_blank" rel="noopener">+ Google Agenda</a>')
+          + '</div>'
+        + '</div>'
+      + '</article>';
+    });
+
+    alvo.innerHTML = html;
+  }
+
+  /* ---------------- arquivo .ics ---------------- */
+  function gerarICS(){
+    var linhas = [
+      "BEGIN:VCALENDAR","VERSION:2.0",
+      "PRODID:-//Calendario da Turma//Direito 1P Noturno//PT-BR",
+      "CALSCALE:GREGORIAN","METHOD:PUBLISH",
+      "X-WR-CALNAME:Calendário da Turma — Direito 1P Noturno",
+      "X-WR-TIMEZONE:America/Sao_Paulo"
+    ];
+
+    var carimbo = iso(new Date());
+
+    eventos.forEach(function(ev, i){
+      var uid = "turma-1p-" + ev.data.replace(/-/g,"") + "-" + i + "@calendario-turma";
+      linhas.push("BEGIN:VEVENT");
+      linhas.push("UID:" + uid);
+      linhas.push("DTSTAMP:" + carimbo);
+
+      if (ev.hora){
+        linhas.push("DTSTART:" + iso(ev.alvo));
+        linhas.push("DTEND:"   + iso(new Date(ev.alvo.getTime() + 3600000)));
+        linhas.push("BEGIN:VALARM","TRIGGER:-P1D","ACTION:DISPLAY",
+                    dobrar("DESCRIPTION:Amanhã vence: " + ev.titulo),
+                    "END:VALARM");
+      } else {
+        var d = ev.data.replace(/-/g,"");
+        var prox = new Date(ev.alvo.getFullYear(), ev.alvo.getMonth(), ev.alvo.getDate()+1);
+        var pd = prox.getFullYear() + String(prox.getMonth()+1).padStart(2,"0") + String(prox.getDate()).padStart(2,"0");
+        linhas.push("DTSTART;VALUE=DATE:" + d);
+        linhas.push("DTEND;VALUE=DATE:" + pd);
+      }
+
+      linhas.push(dobrar("SUMMARY:" + (ROTULO[ev.tipo]||ev.tipo) + " · " + ev.disciplina + " — " + ev.titulo));
+      linhas.push(dobrar("DESCRIPTION:" + ev.descricao + (ev.confirmar ? " [DATA A CONFIRMAR COM O PROFESSOR]" : "")));
+      linhas.push("CATEGORIES:" + (ROTULO[ev.tipo]||ev.tipo).toUpperCase());
+      linhas.push("END:VEVENT");
+    });
+
+    linhas.push("END:VCALENDAR");
+    return linhas.join("\r\n");
+  }
+
+  // escapa e quebra linhas longas conforme o RFC 5545.
+  // O limite é de 75 OCTETOS, não de caracteres — por isso conta em bytes,
+  // senão uma linha cheia de acentos estoura o limite.
+  function dobrar(txt){
+    txt = txt.replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
+
+    var bytes = function(s){ return unescape(encodeURIComponent(s)).length; };
+    var partes = [], atual = "", limite = 73;
+
+    for (var i=0;i<txt.length;i++){
+      var c = txt[i];
+      if (bytes(atual + c) > limite){
+        partes.push(atual);
+        atual = c;
+        limite = 72; // as linhas seguintes começam com um espaço
+      } else {
+        atual += c;
+      }
+    }
+    partes.push(atual);
+    return partes.join("\r\n ");
+  }
+
+  function baixarICS(){
+    var blob = new Blob(["\uFEFF" + gerarICS()], { type:"text/calendar;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "calendario-turma-direito-1p.ics";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+    aviso("Arquivo baixado. Abra para importar no seu calendário.");
+  }
+
+  /* ---------------- utilidades de tela ---------------- */
+  var timerToast;
+  function aviso(msg){
+    var t = $("toast");
+    t.textContent = msg;
+    t.classList.add("on");
+    clearTimeout(timerToast);
+    timerToast = setTimeout(function(){ t.classList.remove("on"); }, 2600);
+  }
+
+  function compartilhar(){
+    var dados = {
+      title: "Calendário da Turma — Direito 1º período noturno",
+      text: "Provas, entregas e eventos do semestre, com o tempo restante ao vivo.",
+      url: location.href
+    };
+    if (navigator.share){
+      navigator.share(dados).catch(function(){});
+    } else if (navigator.clipboard){
+      navigator.clipboard.writeText(location.href).then(function(){
+        aviso("Link copiado.");
+      }, function(){ aviso(location.href); });
+    } else {
+      aviso(location.href);
+    }
+  }
+
+  /* ---------------- início ---------------- */
+  function iniciar(){
+    $("eyebrow").textContent = CALENDARIO.turma;
+    $("sub").textContent = CALENDARIO.turma + " · " + CALENDARIO.semestre;
+
+    var at = new Date(CALENDARIO.atualizadoEm);
+    var carimbo = "Atualizado em <b>" + String(at.getDate()).padStart(2,"0") + "/"
+                + String(at.getMonth()+1).padStart(2,"0") + "/" + at.getFullYear()
+                + "</b>, extraído do " + CALENDARIO.fonte + ".";
+    $("stamp").innerHTML = carimbo;
+    $("foot-stamp").innerHTML = carimbo + " Quando duas fontes discordam de uma data, o item vai para “pontos a confirmar”.";
+
+    $("pend-lista").innerHTML = (CALENDARIO.pendencias || []).map(function(p){
+      return "<details><summary>" + esc(p.titulo) + "</summary><p>" + esc(p.texto) + "</p></details>";
+    }).join("");
+
+    pintarDisciplinas();
+    pintarChips();
+    pintarPlacar();
+    pintarHoje();
+    pintarHero();
+    pintarLista();
+    tick();
+    setInterval(tick, 1000);
+
+    $("chips").addEventListener("click", function(e){
+      var b = e.target.closest(".chip");
+      if (!b) return;
+      filtro.grupo = b.getAttribute("data-grupo");
+      pintarChips();
+      pintarLista();
+    });
+
+    $("disciplina").addEventListener("change", function(e){
+      filtro.disciplina = e.target.value;
+      pintarLista();
+    });
+
+    $("busca").addEventListener("input", function(e){
+      filtro.texto = e.target.value.trim().toLowerCase();
+      pintarLista();
+    });
+
+    $("passados").addEventListener("change", function(e){
+      filtro.passados = e.target.checked;
+      pintarChips();
+      pintarLista();
+    });
+
+    $("btn-ics").addEventListener("click", baixarICS);
+    $("btn-share").addEventListener("click", compartilhar);
+    $("btn-print").addEventListener("click", function(){ window.print(); });
+  }
+
+  if (document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", iniciar);
+  } else {
+    iniciar();
+  }
+})();
+</script>
+</body>
+</html>
