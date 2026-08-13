@@ -21,11 +21,13 @@
   --text:#e8e6e1;
   --muted:#9aa0aa;
   --muted-2:#6f757f;
-  --accent:#f5b301;
-  --prova:#e5484d;
-  --entrega:#f5b301;
-  --evento:#4c9aff;
-  --feriado:#3dd68c;
+  /* Cor viva só nos detalhes. O fundo e o texto continuam neutros. */
+  --accent:#f0a500;    /* dourado */
+  --prova:#f0304c;     /* vinho */
+  --entrega:#f0a500;
+  --evento:#4d8bff;    /* safira */
+  --feriado:#17c97e;   /* esmeralda */
+  --neutro:#3c4048;    /* marcador sem alerta */
   --radius:14px;
   --shadow:0 1px 0 rgba(255,255,255,.03), 0 8px 24px rgba(0,0,0,.45);
   --mono:ui-monospace,"SF Mono",SFMono-Regular,"Cascadia Mono","Roboto Mono",Menlo,Consolas,monospace;
@@ -74,22 +76,26 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
 }
 .btn:hover{border-color:#3c4048;background:var(--surface-2)}
 .btn:active{transform:translateY(1px)}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:#141200}
-.btn.primary:hover{background:#ffc21f;border-color:#ffc21f}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#1a1200}
+.btn.primary:hover{background:#ffb81c;border-color:#ffb81c}
 
 /* ---------- faixa "hoje" ---------- */
 .hoje{
   margin:22px 0 0;padding:13px 16px;border-radius:var(--radius);
-  background:rgba(245,179,1,.09);border:1px solid rgba(245,179,1,.28);
+  background:rgba(201,138,5,.15);border:1px solid rgba(240,165,0,.45);
   display:flex;gap:11px;align-items:baseline;flex-wrap:wrap;
   font-size:14px;line-height:1.5;
 }
+/* Sem esta linha a classe vence o [hidden] do navegador e sobra
+   uma tarja vazia nos dias em que nada acontece. */
+.hoje[hidden]{display:none}
 .hoje-tag{
   flex:0 0 auto;font-size:10px;letter-spacing:.16em;text-transform:uppercase;
   font-weight:800;color:#141200;background:var(--accent);
   padding:3px 9px;border-radius:5px;
 }
-.hoje b{color:#f7c948;font-weight:700}
+.hoje-tag{color:#1a1200}
+.hoje b{color:var(--accent);font-weight:700}
 
 /* ---------- destaque: próximo compromisso ---------- */
 .hero{
@@ -99,11 +105,11 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
   position:relative;overflow:hidden;
 }
 .hero::before{
-  content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--accent);
+  content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--neutro);
 }
 .hero .label{
   font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--accent);font-weight:700;margin:0 0 12px;
+  color:var(--muted-2);font-weight:700;margin:0 0 12px;
 }
 .hero h2{margin:0;font-size:clamp(19px,4.6vw,26px);line-height:1.25;font-weight:700;letter-spacing:-.01em}
 .hero .meta{margin:10px 0 0;color:var(--muted);font-size:13.5px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
@@ -121,9 +127,14 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
   display:block;margin-top:7px;font-size:9.5px;letter-spacing:.13em;
   text-transform:uppercase;color:var(--muted-2);font-weight:600;
 }
-.hero.urgente::before{background:var(--prova)}
-.hero.urgente .label{color:var(--prova)}
-.hero.urgente .unid .n{color:#ff8a8d}
+/* Escada de alerta: a cor avisa quanto tempo sobrou.
+   1 dia ou menos = vinho · exatamente 2 dias = dourado · 3 ou mais = branco */
+.hero[data-alerta="alerta"]::before{background:var(--accent)}
+.hero[data-alerta="alerta"] .label,
+.hero[data-alerta="alerta"] .unid .n{color:var(--accent)}
+.hero[data-alerta="critico"]::before{background:var(--prova)}
+.hero[data-alerta="critico"] .label,
+.hero[data-alerta="critico"] .unid .n{color:var(--prova)}
 .hero.vazio .relogio{display:none}
 
 /* ---------- números do semestre ---------- */
@@ -201,10 +212,10 @@ select:focus{outline:none;border-color:var(--accent)}
   padding:3px 8px;border-radius:5px;line-height:1.5;white-space:nowrap;
 }
 .tag.disc{background:#212429;color:var(--muted);letter-spacing:.05em;text-transform:none;font-size:10.5px;font-weight:600}
-.t-PROVA,.t-AVALIACAO{background:rgba(229,72,77,.15);color:#ff8a8d}
-.t-ENTREGA,.t-TAREFA,.t-MANUSCRITO{background:rgba(245,179,1,.14);color:#f7c948}
-.t-EVENTO,.t-AULA,.t-COMPETICAO,.t-APRESENTACAO{background:rgba(76,154,255,.14);color:#7fb4ff}
-.t-FERIADO{background:rgba(61,214,140,.14);color:#5fdfa3}
+.t-PROVA,.t-AVALIACAO{background:rgba(240,48,76,.15);color:#ff5566}
+.t-ENTREGA,.t-TAREFA,.t-MANUSCRITO{background:rgba(240,165,0,.14);color:#ffb300}
+.t-EVENTO,.t-AULA,.t-COMPETICAO,.t-APRESENTACAO{background:rgba(77,139,255,.14);color:#5f92ff}
+.t-FERIADO{background:rgba(23,201,126,.14);color:#17c97e}
 
 .card h3{margin:0;font-size:15.5px;font-weight:700;line-height:1.35;letter-spacing:-.005em}
 .card p{margin:6px 0 0;font-size:13.5px;color:var(--muted);line-height:1.5}
@@ -222,16 +233,17 @@ select:focus{outline:none;border-color:var(--accent)}
 .rodape-card{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-top:11px}
 .falta{
   font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;
-  color:var(--muted);display:inline-flex;align-items:center;gap:6px;
+  color:var(--text);display:inline-flex;align-items:center;gap:6px;
 }
-.falta::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--muted-2)}
-.falta.perto{color:var(--accent)}
-.falta.perto::before{background:var(--accent)}
-.falta.agora{color:#ff8a8d}
-.falta.agora::before{background:var(--prova);animation:pulso 1.6s ease-in-out infinite}
+.falta::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--neutro)}
+/* mesma escada de alerta do cronômetro */
+.falta.al-alerta{color:var(--accent)}
+.falta.al-alerta::before{background:var(--accent)}
+.falta.al-critico{color:var(--prova)}
+.falta.al-critico::before{background:var(--prova);animation:pulso 1.6s ease-in-out infinite}
 @keyframes pulso{0%,100%{opacity:1}50%{opacity:.25}}
 .falta.fim{color:var(--muted-2)}
-.falta.fim::before{background:#3c4048}
+.falta.fim::before{background:#2a2d33;animation:none}
 
 .add{
   font-size:11.5px;font-weight:600;color:var(--muted-2);text-decoration:none;
@@ -241,8 +253,8 @@ select:focus{outline:none;border-color:var(--accent)}
 
 .aviso{
   display:inline-flex;align-items:center;gap:5px;margin-top:9px;
-  font-size:11.5px;font-weight:600;color:#f7c948;
-  background:rgba(245,179,1,.09);border:1px solid rgba(245,179,1,.22);
+  font-size:11.5px;font-weight:600;color:var(--accent);
+  background:rgba(201,138,5,.14);border:1px solid rgba(240,165,0,.38);
   padding:4px 9px;border-radius:6px;
 }
 
@@ -252,7 +264,7 @@ select:focus{outline:none;border-color:var(--accent)}
 .pend{margin-top:46px;padding-top:26px;border-top:1px solid var(--line-soft)}
 .pend h2{
   margin:0 0 4px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
-  color:#f7c948;font-weight:700;
+  color:var(--accent);font-weight:700;
 }
 .pend .intro{margin:0 0 18px;font-size:13px;color:var(--muted-2)}
 .pend details{
@@ -264,7 +276,7 @@ select:focus{outline:none;border-color:var(--accent)}
   list-style:none;display:flex;gap:10px;align-items:flex-start;
 }
 .pend summary::-webkit-details-marker{display:none}
-.pend summary::before{content:"?";flex:0 0 auto;color:#f7c948;font-weight:700;line-height:1.5}
+.pend summary::before{content:"?";flex:0 0 auto;color:var(--accent);font-weight:700;line-height:1.5}
 .pend summary:hover{background:var(--surface-2)}
 .pend details[open] summary{border-bottom:1px solid var(--line-soft)}
 .pend p{margin:0;padding:13px 15px 15px;font-size:13.5px;color:var(--muted);line-height:1.6}
@@ -281,6 +293,68 @@ footer b{color:var(--muted);font-weight:600}
   transition:opacity .2s,transform .2s;z-index:50;box-shadow:0 8px 30px rgba(0,0,0,.5);
 }
 .toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- grade de aulas ---------- */
+#grade{
+  border:1px solid var(--line);background:var(--surface);color:var(--text);
+  border-radius:var(--radius);padding:0;max-width:940px;width:calc(100% - 28px);
+  box-shadow:0 24px 70px rgba(0,0,0,.7);
+}
+#grade::backdrop{background:rgba(0,0,0,.72)}
+#grade .topo{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
+  padding:20px 22px 16px;border-bottom:1px solid var(--line-soft);
+}
+#grade h2{margin:0;font-size:19px;font-weight:800;letter-spacing:-.01em;line-height:1.2}
+#grade .sub{margin:6px 0 0;font-size:12.5px;color:var(--muted)}
+#grade .fechar{
+  flex:0 0 auto;appearance:none;border:1px solid var(--line);background:transparent;
+  color:var(--muted);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:17px;line-height:1;
+}
+#grade .fechar:hover{color:var(--text);border-color:#3c4048}
+#grade .semana{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:1px;
+  background:var(--line-soft);padding:1px;
+}
+#grade .dia{background:var(--surface);padding:14px 13px 16px;min-height:190px}
+#grade .dia h3{
+  margin:0 0 11px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted-2);font-weight:700;
+}
+#grade .dia.e-hoje{background:#16140c}
+#grade .dia.e-hoje h3{color:var(--accent)}
+#grade .dia.e-hoje h3::after{content:" · hoje"}
+#grade .aula{margin-bottom:11px}
+#grade .aula .hora{
+  display:block;font-family:var(--mono);font-size:11.5px;color:var(--muted-2);
+  font-variant-numeric:tabular-nums;margin-bottom:2px;
+}
+#grade .aula .disc{display:block;font-size:13.5px;font-weight:600;line-height:1.3}
+#grade .aula .longo{display:block;font-size:11px;color:var(--muted-2);margin-top:1px}
+#grade .vazio{font-size:12.5px;color:var(--muted-2);font-style:italic}
+#grade .rodape{
+  padding:13px 22px 16px;border-top:1px solid var(--line-soft);
+  font-size:12px;color:var(--muted-2);line-height:1.5;
+}
+@media (max-width:700px){
+  #grade .semana{grid-template-columns:1fr}
+  #grade .dia{min-height:0;padding:13px 16px}
+  #grade .dia h3{margin-bottom:8px}
+  #grade .aula{margin-bottom:9px;display:flex;gap:11px;align-items:baseline}
+  #grade .aula .hora{margin:0;flex:0 0 96px}
+  #grade .aula .longo{display:none}
+}
+
+/* ---------- texto justificado, só onde a coluna é larga ----------
+   No celular a linha tem ~40 caracteres: justificar abriria buracos
+   entre as palavras mesmo com hifenização. */
+@media (min-width:561px){
+  .card p, .pend p, footer p{
+    text-align:justify;text-justify:inter-word;
+    hyphens:auto;-webkit-hyphens:auto;
+  }
+  .card p.fonte{text-align:left}
+}
 
 @media (max-width:560px){
   .wrap{padding:0 14px 60px}
@@ -310,6 +384,7 @@ footer b{color:var(--muted);font-weight:600}
     <div class="acoes">
       <button class="btn primary" id="btn-ics">Adicionar ao meu celular (.ics)</button>
       <button class="btn" id="btn-share">Compartilhar link</button>
+      <button class="btn" id="btn-grade">Grade de aulas</button>
       <button class="btn" id="btn-print">Imprimir / PDF</button>
     </div>
   </header>
@@ -360,6 +435,18 @@ footer b{color:var(--muted);font-weight:600}
   </footer>
 
 </div>
+
+<dialog id="grade" aria-labelledby="grade-titulo">
+  <div class="topo">
+    <div>
+      <h2 id="grade-titulo">Grade de aulas</h2>
+      <p class="sub" id="grade-sub"></p>
+    </div>
+    <button type="button" class="fechar" aria-label="Fechar">✕</button>
+  </div>
+  <div class="semana" id="grade-semana"></div>
+  <p class="rodape">Os horários podem sofrer alteração. Confira sempre no Quadro de Horário do Portal do Aluno.</p>
+</dialog>
 
 <div class="toast" id="toast"></div>
 
@@ -429,24 +516,33 @@ footer b{color:var(--muted);font-weight:600}
     return Math.round((alvo - hoje) / 86400000);
   }
 
+  /* A escada de alerta: a cor diz o quanto sobrou.
+     1 dia ou menos = vinho · exatamente 2 dias = dourado · 3 ou mais = branco */
+  function faixaAlerta(dias){
+    if (dias <= 1) return "al-critico";
+    if (dias === 2) return "al-alerta";
+    return "al-normal";
+  }
+
   function textoFalta(ev){
     var agora = new Date();
     if (agora > ev.fim) return { txt:"já passou", cls:"fim" };
 
+    var d = diasCorridos(ev.alvo);
+    var cls = faixaAlerta(d);
+
     var ms = ev.alvo - agora;
-    if (ms <= 0) return { txt:"acontecendo agora", cls:"agora" };
+    if (ms <= 0) return { txt:"acontecendo agora", cls:cls };
 
     var horas = ms/3600000;
-    if (horas < 1)  return { txt:"faltam " + Math.max(1, Math.round(ms/60000)) + " min", cls:"agora" };
-    if (horas < 24) return { txt:"faltam " + Math.floor(horas) + "h" + (ev.hora ? " " + Math.floor(ms%3600000/60000) + "min" : ""), cls:"agora" };
+    if (horas < 1)  return { txt:"faltam " + Math.max(1, Math.round(ms/60000)) + " min", cls:cls };
+    if (horas < 24) return { txt:"faltam " + Math.floor(horas) + "h" + (ev.hora ? " " + Math.floor(ms%3600000/60000) + "min" : ""), cls:cls };
 
-    var d = diasCorridos(ev.alvo);
-    if (d === 0) return { txt:"é hoje", cls:"agora" };
-    if (d === 1) return { txt:"é amanhã", cls:"perto" };
-    if (d <= 7)  return { txt:"faltam " + d + " dias", cls:"perto" };
-    if (d <= 30) return { txt:"faltam " + d + " dias", cls:"" };
+    if (d === 0) return { txt:"é hoje", cls:cls };
+    if (d === 1) return { txt:"é amanhã", cls:cls };
+    if (d <= 30) return { txt:"faltam " + d + " dias", cls:cls };
     var sem = Math.round(d/7);
-    return { txt:"faltam " + d + " dias (" + sem + " semanas)", cls:"" };
+    return { txt:"faltam " + d + " dias (" + sem + " semanas)", cls:cls };
   }
 
   /* ---------------- contagem regressiva ---------------- */
@@ -483,15 +579,14 @@ footer b{color:var(--muted);font-weight:600}
 
     if (!ev){
       hero.className = "hero vazio";
+      hero.removeAttribute("data-alerta");
       $("hero-label").textContent = "Semestre encerrado";
       $("hero-titulo").textContent = "Não há mais compromissos na lista.";
       $("hero-meta").textContent = "";
       return;
     }
 
-    var horas = (ev.alvo - new Date()) / 3600000;
-    hero.className = "hero" + (horas < 48 ? " urgente" : "");
-    $("hero-label").textContent = horas < 48 ? "É agora" : "Próximo compromisso";
+    hero.className = "hero";
     $("hero-titulo").textContent = ev.titulo;
 
     var partes = [
@@ -524,6 +619,14 @@ footer b{color:var(--muted);font-weight:600}
     $("u-h").textContent = String(h).padStart(2,"0");
     $("u-m").textContent = String(m).padStart(2,"0");
     $("u-s").textContent = String(s).padStart(2,"0");
+
+    // a cor do cronômetro segue a mesma escada de alerta da lista
+    var faixa = faixaAlerta(d).replace("al-", "");
+    var hero = $("hero");
+    if (hero.getAttribute("data-alerta") !== faixa){
+      hero.setAttribute("data-alerta", faixa);
+      $("hero-label").textContent = faixa === "normal" ? "Próximo compromisso" : "É agora";
+    }
 
     document.title = (d > 0 ? d + "d" : h > 0 ? h + "h" : m + "min") + " — " + heroEv.titulo;
 
@@ -781,6 +884,32 @@ footer b{color:var(--muted);font-weight:600}
     }
   }
 
+  /* ---------------- grade de aulas ---------------- */
+  function pintarGrade(){
+    var g = CALENDARIO.grade;
+    if (!g){ $("btn-grade").hidden = true; return; }
+
+    $("grade-sub").textContent = CALENDARIO.turma + " · " + g.periodo;
+
+    var hojeN = new Date().getDay();
+    $("grade-semana").innerHTML = g.dias.map(function(d){
+      var aulas = d.aulas.length
+        ? d.aulas.map(function(a){
+            return '<div class="aula"><span class="hora">' + esc(a.h) + '</span>'
+                 + '<span class="disc">' + esc(a.sigla) + '</span>'
+                 + '<span class="longo">' + esc(a.nome) + '</span></div>';
+          }).join("")
+        : '<p class="vazio">Sem aula</p>';
+      return '<div class="dia' + (d.n === hojeN ? " e-hoje" : "") + '">'
+           + '<h3>' + esc(d.nome) + '</h3>' + aulas + '</div>';
+    }).join("");
+
+    var dlg = $("grade");
+    $("btn-grade").addEventListener("click", function(){ dlg.showModal(); });
+    dlg.querySelector(".fechar").addEventListener("click", function(){ dlg.close(); });
+    dlg.addEventListener("click", function(e){ if (e.target === dlg) dlg.close(); });
+  }
+
   /* ---------------- início ---------------- */
   function iniciar(){
     $("eyebrow").textContent = CALENDARIO.turma;
@@ -798,6 +927,7 @@ footer b{color:var(--muted);font-weight:600}
     }).join("");
 
     pintarDisciplinas();
+    pintarGrade();
     pintarChips();
     pintarPlacar();
     pintarHoje();

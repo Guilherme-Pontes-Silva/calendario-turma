@@ -24,6 +24,37 @@ const CALENDARIO = {
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas e cronogramas dos professores, mais o mural do Portal do Aluno",
   fusoHorario: "-03:00",
 
+  /* Grade fixa de aulas da semana, do Quadro de Horário do Portal do Aluno.
+     Muda pouco; quando mudar, é só editar aqui. */
+  grade: {
+    periodo: "10 de agosto a 19 de dezembro de 2026",
+    dias: [
+      { n:1, nome:"Segunda", aulas:[
+        { h:"18h30 – 19h20", sigla:"Prát. Ext.",   nome:"Prática Extensionista" },
+        { h:"19h20 – 21h00", sigla:"Antrop. Jur.", nome:"Antropologia Jurídica" },
+        { h:"21h10 – 22h50", sigla:"TGD",          nome:"Teoria Geral do Direito" }
+      ]},
+      { n:2, nome:"Terça", aulas:[
+        { h:"21h10 – 22h50", sigla:"Ética",        nome:"Ética e Cidadania" }
+      ]},
+      { n:3, nome:"Quarta", aulas:[
+        { h:"18h30 – 20h10", sigla:"Econ. Pol.",   nome:"Economia Política" },
+        { h:"20h10 – 21h00", sigla:"Prát. Ext.",   nome:"Prática Extensionista" },
+        { h:"21h10 – 22h50", sigla:"IDP",          nome:"Introdução ao Direito Privado" }
+      ]},
+      { n:4, nome:"Quinta", aulas:[
+        { h:"18h30 – 20h10", sigla:"TGD",          nome:"Teoria Geral do Direito" },
+        { h:"20h10 – 21h00", sigla:"Ciên. Pol.",   nome:"Ciência Política" },
+        { h:"21h10 – 22h50", sigla:"Hist. Dir.",   nome:"História do Direito" }
+      ]},
+      { n:5, nome:"Sexta", aulas:[
+        { h:"18h30 – 20h10", sigla:"CTS",          nome:"Ciência, Tecnologia e Sociedade" },
+        { h:"20h10 – 21h00", sigla:"Ciên. Pol.",   nome:"Ciência Política" },
+        { h:"21h10 – 22h50", sigla:"IDP",          nome:"Introdução ao Direito Privado" }
+      ]}
+    ]
+  },
+
   eventos: [
     /* ---------------- AGOSTO DE 2026 ---------------- */
     {
