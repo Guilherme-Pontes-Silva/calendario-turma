@@ -20,14 +20,15 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-08-14T09:00:00-03:00",
-  fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
+  atualizadoEm: "2026-08-14T15:00:00-03:00",
+  fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
   /* Grade fixa de aulas da semana, do Quadro de Horário do Portal do Aluno.
      Muda pouco; quando mudar, é só editar aqui. */
   grade: {
     periodo: "10 de agosto a 19 de dezembro de 2026",
+    sala: "2º Andar — Sala 201",
     dias: [
       { n:1, nome:"Segunda", aulas:[
         { h:"18h30 – 19h20", sigla:"Prát. Ext.",   nome:"Prática Extensionista" },
@@ -83,6 +84,13 @@ const CALENDARIO = {
       oQueFazer: "Ler a Lição IV, escrever o resumo à mão e enviar a digitalização pelo Moodle. Atenção: até 12/08 a seção “Entregas dos manuscritos para avaliação”, na sala de TGD, estava vazia, sem nenhuma tarefa aberta para envio. Se continuar assim perto do dia, cobre o professor."
     },
     {
+      data: "2026-08-21", hora: null, disciplina: "Ciên. Pol.", tipo: "ENTREGA", confirmar: true,
+      titulo: "Fichamento 1 — Bonavides, capítulo 3",
+      descricao: "Fichamento do capítulo 3 de Paulo Bonavides, “A Sociedade e o Estado”, texto trabalhado na aula de 14/08. Manuscrito, em ficha própria, conforme o modelo do professor.",
+      oQueFazer: "O professor deu a regra (“entrega na semana seguinte”), mas não escreveu a data. Confirme com ele na aula de 21/08 se é esse o dia e em que formato.",
+      fonte: "Arquivo “Aula 2 — Ciência Política — Estado, Direito e Sociedade.pdf”, que nomeia o capítulo, combinado com a regra de entrega na semana seguinte do arquivo “Aula 1 — Plano de Aulas, Avaliações e Conceitos Fundamentais.pdf”."
+    },
+    {
       data: "2026-08-24", hora: null, disciplina: "Prát. Ext.", tipo: "EVENTO",
       titulo: "Semana Jurídica",
       descricao: "Atividade da universidade no lugar da aula normal. Aparece tanto no cronograma da Prática Extensionista quanto no da Teoria Geral do Direito.",
@@ -113,6 +121,13 @@ const CALENDARIO = {
       oQueFazer: "Escrever à mão e enviar a digitalização pelo Moodle. Cai no mesmo dia do Encontro Internacional de Direitos Humanos, que substitui a aula."
     },
     {
+      data: "2026-08-28", hora: null, disciplina: "Ciên. Pol.", tipo: "EVENTO",
+      titulo: "Semana Jurídica, sem aula",
+      descricao: "A aula 4 de Ciência Política é substituída pela Semana Jurídica.",
+      oQueFazer: "Não haverá aula de Ciência Política. Atenção: três cronogramas oficiais discordam sobre a data das semanas institucionais — veja o bloco de pontos a confirmar no fim da página.",
+      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 4 do cronograma."
+    },
+    {
       data: "2026-08-31", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Betioli — Lição XI",
       descricao: "Resumo manuscrito da Lição XI (“a norma jurídica”) do Betioli, Introdução ao Direito, 16ª ed., Saraiva, 2023.",
@@ -125,6 +140,13 @@ const CALENDARIO = {
       titulo: "Kelsen, Teoria Pura do Direito — cap. 1",
       descricao: "Resumo manuscrito do capítulo 1 (“Direito e natureza”) de KELSEN, Hans. Teoria pura do direito — versão condensada pelo autor.",
       oQueFazer: "Atenção à edição: o cronograma pede a versão condensada pelo autor, não a completa. Escrever à mão e enviar a digitalização pelo Moodle. É o primeiro de uma sequência de manuscritos sobre o Kelsen."
+    },
+    {
+      data: "2026-09-04", hora: null, disciplina: "Ciên. Pol.", tipo: "AULA",
+      titulo: "Aula em que o texto do fichamento 2 é passado",
+      descricao: "Aula 5 do cronograma, sobre a segunda parte da evolução do pensamento político moderno. É dela que sai o texto do segundo fichamento.",
+      oQueFazer: "Anote qual é o texto passado nesta aula: é ele que você vai fichar para a entrega seguinte.",
+      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 5 do cronograma."
     },
     {
       data: "2026-09-07", hora: null, disciplina: "Geral", tipo: "FERIADO",
@@ -150,6 +172,13 @@ const CALENDARIO = {
       oQueFazer: "Regras do enunciado: o arquivo tem de estar em PDF; precisa conter o nome completo de todos os integrantes do grupo; deve ser postado no mínimo 1 dia antes da apresentação em sala; e basta 1 integrante postar pelo grupo inteiro."
     },
     {
+      data: "2026-09-11", hora: null, disciplina: "Ciên. Pol.", tipo: "ENTREGA", confirmar: true,
+      titulo: "Fichamento 2",
+      descricao: "Fichamento do texto passado na aula de 04/09, sobre a segunda parte da evolução do pensamento político moderno. Manuscrito, em ficha própria.",
+      oQueFazer: "A data vem da regra de entrega na semana seguinte, não de anúncio do professor. Confirme com ele.",
+      fonte: "Cronograma do plano de ensino, aula 5, mais a regra de entrega na semana seguinte."
+    },
+    {
       data: "2026-09-14", hora: null, disciplina: "TGD", tipo: "PROVA",
       titulo: "Prova A1 (N1)",
       descricao: "Prova dissertativa de Teoria Geral do Direito. Pelo plano de aula, a nota A1 se compõe de três instrumentos: a prova, com peso 7; o seminário, com peso 2; e os manuscritos, com peso 1. Cada um é pontuado de 0 a 10.",
@@ -160,6 +189,20 @@ const CALENDARIO = {
       titulo: "Atividade 2 — Pesquisa e extensão",
       descricao: "Segunda atividade avaliada da Prática Extensionista, sobre pesquisa e extensão.",
       oQueFazer: "Enviar pelo Moodle."
+    },
+    {
+      data: "2026-09-18", hora: null, disciplina: "Ciên. Pol.", tipo: "PROVA",
+      titulo: "Prova escrita NI1",
+      descricao: "Prova escrita e individual de Ciência Política, peso 7 da primeira nota intermediária. É permitida consulta a uma folha manuscrita.",
+      oQueFazer: "Prepare a folha de consulta manuscrita com antecedência — ela é permitida e faz diferença.",
+      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 7 do cronograma."
+    },
+    {
+      data: "2026-09-18", hora: null, disciplina: "Ciên. Pol.", tipo: "ENTREGA", confirmar: true,
+      titulo: "Fichamento 3",
+      descricao: "Fichamento do texto da aula de 11/09, sobre a primeira parte da evolução do Estado moderno. Manuscrito, em ficha própria.",
+      oQueFazer: "Cai no mesmo dia da prova NI1. A data vem da regra de entrega na semana seguinte, não de anúncio do professor — confirme com ele.",
+      fonte: "Cronograma do plano de ensino, aula 6, mais a regra de entrega na semana seguinte."
     },
     {
       data: "2026-09-21", hora: null, disciplina: "Antrop. Jur.", tipo: "AVALIACAO",
@@ -186,11 +229,18 @@ const CALENDARIO = {
       oQueFazer: "Escrever o resumo à mão, você mesmo, e enviar a digitalização pelo Moodle."
     },
     {
-      data: "2026-09-25", hora: null, disciplina: "Ciên. Pol.", tipo: "AVALIACAO",
-      titulo: "Avaliação (40% da nota)",
-      descricao: "Primeira avaliação de Ciência Política. Vale 40% da nota; os outros 60% vêm de uma prova de múltipla escolha ainda sem data marcada.",
-      oQueFazer: "Atenção à estrutura N1/N2 da disciplina: trabalhos e atividades feitos antes, mesmo concluídos ainda dentro do período de N1, só entram no cômputo da nota em N2.",
+      data: "2026-09-25", hora: null, disciplina: "Hist. Dir.", tipo: "AVALIACAO",
+      titulo: "Atividade avaliativa (40% da nota)",
+      descricao: "Atividade avaliativa de História do Direito. Vale 40% da nota; os outros 60% vêm de uma prova de questões objetivas ainda sem data marcada.",
+      oQueFazer: "Atenção ao lançamento das notas: ainda que os trabalhos sejam feitos antes, todas as notas da disciplina são lançadas apenas em N2, e não em N1.",
       fonte: "Anotado em aula pelo representante da turma, 12/08/2026."
+    },
+    {
+      data: "2026-09-25", hora: null, disciplina: "Ciên. Pol.", tipo: "AULA",
+      titulo: "Vista da prova NI1",
+      descricao: "Aula de vista da prova NI1, seguida do conteúdo sobre análise teórica do Estado moderno.",
+      oQueFazer: "É a chance de conferir a correção e pedir revisão de questão. Quem falta perde a vista.",
+      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 8 do cronograma."
     },
     {
       data: "2026-09-30", hora: null, disciplina: "Econ. Pol.", tipo: "AVALIACAO",
@@ -243,6 +293,13 @@ const CALENDARIO = {
       oQueFazer: "Escrever à mão e enviar a digitalização pelo Moodle. Cai no mesmo dia do Hackathon, que substitui a aula."
     },
     {
+      data: "2026-10-09", hora: null, disciplina: "Ciên. Pol.", tipo: "EVENTO",
+      titulo: "Semana Internacional de Direitos Humanos, sem aula",
+      descricao: "A aula 10 de Ciência Política é substituída pela Semana Internacional de Direitos Humanos.",
+      oQueFazer: "Não haverá aula de Ciência Política. Atenção: esta data contradiz o cronograma de Teoria Geral do Direito, que marca o Encontro Internacional de Direitos Humanos em 27/08 — veja o bloco de pontos a confirmar.",
+      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 10 do cronograma."
+    },
+    {
       data: "2026-10-12", hora: null, disciplina: "Geral", tipo: "FERIADO",
       titulo: "Nossa Senhora Aparecida",
       descricao: "Feriado nacional. Não há aula."
@@ -268,6 +325,13 @@ const CALENDARIO = {
 
     /* ---------------- NOVEMBRO DE 2026 ---------------- */
     {
+      data: "2026-10-30", hora: null, disciplina: "Ciên. Pol.", tipo: "APRESENTACAO",
+      titulo: "Seminários em grupo",
+      descricao: "Apresentação dos seminários em grupo de Ciência Política, peso 3 da segunda nota intermediária.",
+      oQueFazer: "Organize o grupo com antecedência — o seminário vale 3 dos 10 pontos da NI2.",
+      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 13 do cronograma."
+    },
+    {
       data: "2026-11-02", hora: null, disciplina: "Geral", tipo: "FERIADO",
       titulo: "Finados",
       descricao: "Feriado nacional. Não há aula."
@@ -291,6 +355,13 @@ const CALENDARIO = {
       oQueFazer: "Escrever à mão e enviar a digitalização pelo Moodle. É o último manuscrito do cronograma: depois dele só vem a prova A2."
     },
     {
+      data: "2026-11-06", hora: null, disciplina: "Ciên. Pol.", tipo: "PROVA",
+      titulo: "Prova escrita NI2",
+      descricao: "Prova escrita e individual de Ciência Política, peso 7 da segunda nota intermediária. É permitida consulta a uma folha manuscrita.",
+      oQueFazer: "Mesmo formato da NI1: prepare a folha de consulta manuscrita com antecedência.",
+      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 14 do cronograma."
+    },
+    {
       data: "2026-11-09", hora: null, disciplina: "TGD", tipo: "PROVA",
       titulo: "Prova A2 (N2)",
       descricao: "Prova dissertativa de Teoria Geral do Direito. A nota A2 segue a mesma composição da A1: prova com peso 7, seminário com peso 2 e manuscritos com peso 1.",
@@ -307,6 +378,13 @@ const CALENDARIO = {
       titulo: "Avaliação NI2-A",
       descricao: "Primeira avaliação do segundo bimestre de Economia Política. Peso de 30% conforme o plano.",
       oQueFazer: "Estudar o conteúdo do segundo bimestre da disciplina."
+    },
+    {
+      data: "2026-11-13", hora: null, disciplina: "Ciên. Pol.", tipo: "AULA",
+      titulo: "Vista da prova NI2",
+      descricao: "Aula de vista da prova NI2 de Ciência Política.",
+      oQueFazer: "Última chance de conferir a correção e pedir revisão antes do fechamento das notas.",
+      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 15 do cronograma."
     },
     {
       data: "2026-11-15", hora: null, disciplina: "Geral", tipo: "FERIADO",
@@ -388,6 +466,13 @@ const CALENDARIO = {
       oQueFazer: "Só faz quem perdeu alguma avaliação."
     },
     {
+      data: "2026-12-04", hora: null, disciplina: "Ciên. Pol.", tipo: "PROVA",
+      titulo: "Período das avaliações substitutivas",
+      descricao: "Período das avaliações substitutivas de Ciência Política.",
+      oQueFazer: "Só faz quem perdeu alguma avaliação do semestre.",
+      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 16 do cronograma."
+    },
+    {
       data: "2026-12-07", hora: null, disciplina: "Prát. Ext.", tipo: "PROVA",
       titulo: "Período de prova final",
       descricao: "Período de prova final da Prática Extensionista.",
@@ -404,6 +489,13 @@ const CALENDARIO = {
       titulo: "Período de prova final",
       descricao: "Período de prova final da Prática Extensionista.",
       oQueFazer: "Só faz quem não atingiu a média."
+    },
+    {
+      data: "2026-12-11", hora: null, disciplina: "Ciên. Pol.", tipo: "PROVA",
+      titulo: "Período das avaliações finais",
+      descricao: "Período das avaliações finais de Ciência Política.",
+      oQueFazer: "Só faz quem não atingiu a média.",
+      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 17 do cronograma."
     },
     {
       data: "2026-12-14", hora: null, disciplina: "Geral", tipo: "FERIADO",
@@ -430,12 +522,8 @@ const CALENDARIO = {
       texto: "O plano de aula da disciplina é explícito: a nota se compõe de prova, seminário e “a entrega realizada no moodle de digitalização de MANUSCRITO pelo(a) próprio(a) aluno(a), conforme cronograma”. Ou seja, o resumo é escrito à mão pelo aluno e a digitalização é enviada pelo Moodle. Só que a sala de TGD tem uma seção chamada “ENTREGAS DOS MANUSCRITOS PARA AVALIAÇÃO” que está completamente vazia, sem nenhuma tarefa aberta, e o fórum de avisos não tem nenhuma publicação. Conferido em 12/08/2026. O primeiro manuscrito é 20/08, então vale cobrar do professor a abertura da entrega antes disso, e confirmar se aceita foto ou só PDF."
     },
     {
-      titulo: "Quatro disciplinas ainda não têm nenhuma data publicada",
-      texto: "A turma tem nove disciplinas no Moodle. Ciência Política ganhou sua primeira data em 12/08/2026 (avaliação de 25/09, anotada em aula), mas Ciência, Tecnologia e Sociedade no Direito, Ética e Cidadania, História do Direito e Introdução ao Direito Privado continuam sem nenhuma data. Nas duas primeiras a sala do Moodle está vazia, sem nem plano de ensino. Vale cobrar as datas de avaliação dessas disciplinas antes que o semestre avance."
-    },
-    {
-      titulo: "TGD — o manuscrito conta nota ou não? As fontes se contradizem",
-      texto: "O plano de aula da disciplina dá peso 1 ao manuscrito na composição de A1 e A2. Mas o professor esclareceu em sala, em 12/08/2026, que o trabalho pedido não é um fichamento tradicional e sim um manuscrito de formato livre — e que ele “não é obrigatório e não será avaliado formalmente”, embora peça que o aluno inclua uma opinião crítica sobre a obra. Essas duas informações não batem: uma diz que vale nota, a outra diz que não é avaliado. Confirmar direto com o professor antes de decidir o quanto investir em cada manuscrito."
+      titulo: "Três disciplinas ainda não têm nenhuma data publicada",
+      texto: "A turma tem nove disciplinas no Moodle. Ciência Política publicou seu plano de ensino em 14/08/2026 e entrou no calendário com o cronograma completo do semestre. História do Direito tem a atividade de 25/09, anotada em aula. Mas Ciência, Tecnologia e Sociedade no Direito, Ética e Cidadania e Introdução ao Direito Privado continuam sem nenhuma data. Nas duas primeiras a sala do Moodle está vazia, sem nem plano de ensino. Vale cobrar as datas de avaliação dessas disciplinas antes que o semestre avance."
     },
     {
       titulo: "TGD — datas dos 4 seminários ainda não estão no calendário",
@@ -446,12 +534,8 @@ const CALENDARIO = {
       texto: "Toda semana um grupo diferente apresenta o tema do dia (10 a 15 minutos), com um cronograma de temas, cada um com texto e bibliografia próprios. Nas anotações de aula aparecem 6 apresentações para 7 temas — ainda não está confirmado se um dos temas realmente fica sem grupo, ou se há algum ajuste combinado em sala que não foi registrado. Confirmar com o professor. Grupos de 2 a 3 pessoas, podendo ser maiores; o representante da turma precisa enviar ao professor a composição dos grupos, em ordem cronológica das aulas."
     },
     {
-      titulo: "História do Direito — lembrete sobre o \"slide 6\"",
-      texto: "Ficou registrado um lembrete de avisar o professor sobre o “slide 6”, sem que as anotações especifiquem do que se trata. Verificar o conteúdo exato antes da próxima aula, para não perder o prazo de avisar."
-    },
-    {
-      titulo: "Ciência Política — falta a data da segunda avaliação (60% da nota)",
-      texto: "A avaliação de 25/09 vale 40% da nota. Os outros 60% vêm de uma prova de múltipla escolha que ainda não tem data divulgada. Assim que sair, atualizar o calendário."
+      titulo: "História do Direito — falta a data da prova objetiva (60% da nota)",
+      texto: "A atividade de 25/09 vale 40% da nota. Os outros 60% vêm de uma prova de questões objetivas que ainda não tem data divulgada. Assim que sair, atualizar o calendário. Lembrando que, nesta disciplina, todas as notas são lançadas apenas em N2, ainda que os trabalhos sejam feitos antes."
     },
     {
       titulo: "História do Direito — o plano publicado é do 1º semestre",
@@ -462,8 +546,16 @@ const CALENDARIO = {
       texto: "A prova está marcada para 04/11 em Economia Política e em Prática Extensionista. No mural do Portal do Aluno há um cartão “Prova Integrada” com botão “Acessar”, mas ele não traz data, disciplina nem instrução. Conferido de novo em 12/08/2026: segue igual, sem nenhuma informação. Como não dá para saber se o botão apenas informa ou se abre a avaliação, vale perguntar à coordenação a que ele se refere antes de clicar."
     },
     {
-      titulo: "Encontro de 17/08 no Ateliê — veio de aviso em aula",
-      texto: "O encontro de 17/08 às 18h30, com deslocamento para a sala Ateliê no 2º subsolo, foi avisado pela professora Gisele Meirelles Fonseca em aula no dia 11/08/2026. Ele não consta no Moodle nem no Portal do Aluno, então não há fonte oficial para conferir. Se a professora mudar o combinado, este item precisa ser corrigido à mão."
+      titulo: "As semanas institucionais: três cronogramas oficiais discordam",
+      texto: "Não dá para conciliar as três fontes. O cronograma da Prática Extensionista situa a Semana Jurídica em 24 e 26 de agosto. O de Teoria Geral do Direito situa a Semana Jurídica em 24 de agosto e o Encontro Internacional de Direitos Humanos em 27 de agosto. O de Ciência Política, publicado em 14/08/2026, situa a Semana Jurídica entre 27 e 28 de agosto e a Semana Internacional de Direitos Humanos em 8 e 9 de outubro. Todas as datas foram mantidas no calendário, cada uma na sua disciplina, porque não há como saber qual está certa. Perguntar à coordenação do curso qual é o calendário institucional correto — isso afeta quatro disciplinas ao mesmo tempo."
+    },
+    {
+      titulo: "Ciência Política — as datas dos três fichamentos são dedução, não anúncio",
+      texto: "O professor Renan Alencar escreveu, no arquivo de aula, que os fichamentos são individuais e entregues “na semana seguinte”. Ele deu a regra, mas não escreveu os dias. Por isso os fichamentos 1, 2 e 3 entraram no calendário em 21/08, 11/09 e 18/09, aplicando a regra às aulas em que cada texto foi passado, e ficaram marcados como data a confirmar. Perguntar a ele, na aula de 21/08, se a entrega é naquele dia e em que formato — a mesma dúvida vale para os outros dois."
+    },
+    {
+      titulo: "Ciência Política — por que vale sempre a segunda data do par",
+      texto: "O cronograma da disciplina traz as datas em par, no formato “17 e 18/09”. Isso não é um intervalo: são as duas turmas do professor Renan Alencar, uma às quintas e outra às sextas. A nossa turma, 201814526.000.01P, tem Ciência Política às sextas-feiras, das 20h10 às 21h00 — confirmado na grade horária do Portal do Aluno, tela Plano de Aula, filtrada em 14/08/2026, uma sexta-feira. Por isso, de cada par, este calendário usa sempre a segunda data."
     }
   ]
 };

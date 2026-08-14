@@ -504,10 +504,16 @@ body.menu-aberto{overflow:hidden}
     radial-gradient(circle,var(--prova) 3px,transparent 3.5px);
   background-size:26px 26px,32px 32px,22px 22px,29px 29px;
   background-position:0 0,11px 16px,19px 5px,7px 21px;
-  opacity:.5;
+  opacity:.16;
+  -webkit-mask-image:radial-gradient(circle at 0 0,#000,transparent 72%);
+  mask-image:radial-gradient(circle at 0 0,#000,transparent 72%);
 }
-.ferias-card::before{top:-14px;left:-14px}
-.ferias-card::after{bottom:-14px;right:-14px;transform:rotate(25deg)}
+.ferias-card::before{top:-18px;left:-18px}
+.ferias-card::after{
+  bottom:-18px;right:-18px;transform:rotate(180deg);
+  -webkit-mask-image:radial-gradient(circle at 0 0,#000,transparent 72%);
+  mask-image:radial-gradient(circle at 0 0,#000,transparent 72%);
+}
 .ferias-card .rotulo{
   position:relative;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
   color:var(--muted-2);font-weight:700;
@@ -518,8 +524,10 @@ body.menu-aberto{overflow:hidden}
 /* o contador de 4 unidades, no mesmo molde do destaque do topo */
 .ferias-relogio{position:relative;display:flex;gap:10px;justify-content:center;margin:18px 0 2px;flex-wrap:wrap}
 .ferias-relogio .fu{
-  background:#0d0e10;border:1px solid var(--line-soft);border-radius:12px;
+  background:rgba(4,5,7,.92);border:1px solid rgba(255,255,255,.09);border-radius:12px;
   padding:14px 8px 10px;min-width:70px;flex:0 1 78px;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 6px 18px rgba(0,0,0,.55);
 }
 .ferias-relogio .fn{
   display:block;font-family:var(--mono);font-size:clamp(24px,6.4vw,36px);
@@ -563,9 +571,79 @@ body.menu-aberto{overflow:hidden}
 .ferias-card .confete-extra{position:absolute;bottom:10%;font-size:16px;pointer-events:none;animation:confete-flutua 1.6s ease-out infinite}
 .ferias-card.passou .rotulo{color:var(--feriado)}
 
-@media (max-width:480px){
-  .ferias-relogio{gap:7px}
-  .ferias-relogio .fu{padding:11px 4px 8px;flex-basis:64px}
+@media (max-width:560px){
+  .ferias-card{padding:26px 14px}
+  .ferias-relogio{gap:6px;flex-wrap:nowrap}
+  .ferias-relogio .fu{padding:11px 2px 8px;min-width:0;flex:1 1 0}
+  .ferias-relogio .fl{font-size:8.5px;letter-spacing:.08em}
+}
+
+/* bolhas subindo pelo fundo do card, em harmonia com o RGB dos números */
+.ferias-bolhas{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.ferias-bolha{
+  position:absolute;bottom:-40px;border-radius:50%;
+  background:radial-gradient(circle at 32% 30%, rgba(255,255,255,.5), transparent 58%), currentColor;
+  opacity:0;animation:bolha-sobe linear infinite;
+  filter:blur(.3px);
+}
+@keyframes bolha-sobe{
+  0%{transform:translateY(0) translateX(0) scale(.75);opacity:0}
+  12%{opacity:.8}
+  50%{transform:translateY(-52%) translateX(14px) scale(1);opacity:.65}
+  88%{opacity:.55}
+  100%{transform:translateY(-115%) translateX(-10px) scale(1.12);opacity:0}
+}
+.ferias-card .rotulo,.ferias-card .ferias-relogio,.ferias-card .fonte,.ferias-card .legenda{z-index:1}
+
+/* fogos discretos: só no dia final, junto com o confete */
+.ferias-fogo{
+  position:absolute;width:5px;height:5px;border-radius:50%;pointer-events:none;z-index:0;
+  animation:fogo-estoura 2.4s ease-out infinite;
+}
+@keyframes fogo-estoura{
+  0%{transform:scale(.4);opacity:0;box-shadow:0 0 0 0 currentColor}
+  18%{opacity:1}
+  100%{transform:scale(1);opacity:0;
+       box-shadow:0 -26px 0 -2px currentColor,18px -18px 0 -2px currentColor,26px 0 0 -2px currentColor,
+                  18px 18px 0 -2px currentColor,0 26px 0 -2px currentColor,-18px 18px 0 -2px currentColor,
+                  -26px 0 0 -2px currentColor,-18px -18px 0 -2px currentColor}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ferias-bolha,.ferias-fogo,.ferias-card.hoje,.ferias-relogio .fn,.ferias-card .confete-extra{animation:none}
+  .ferias-bolha{opacity:.28}
+}
+
+/* ---------- texto longo: justificado com hifenização ---------- */
+.bloco-titulo{
+  margin:16px 0 4px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;
+}
+.acc .corpo .bloco-titulo:first-child{margin-top:0}
+.bloco-texto{
+  margin:0;font-size:13.5px;color:var(--muted);line-height:1.65;
+  text-align:justify;text-justify:inter-word;
+  hyphens:auto;-webkit-hyphens:auto;-ms-hyphens:auto;
+  overflow-wrap:break-word;
+}
+.acc .corpo .fonte{margin-top:14px;font-size:11.5px;color:var(--muted-2);font-style:italic;text-align:left}
+
+.diretriz{margin-bottom:10px}
+.diretriz h3{margin:0 0 7px;font-size:15px;font-weight:700;letter-spacing:-.005em}
+.carimbo-diretrizes{
+  margin-top:22px;padding-top:18px;border-top:1px solid var(--line-soft);
+  font-size:12px;color:var(--muted-2);
+}
+.carimbo-diretrizes b{color:var(--muted);font-weight:600}
+
+/* ---------- feedback: botão em primeiro plano ---------- */
+.btn-feedback{
+  display:inline-flex;text-decoration:none;font-size:15px;padding:14px 26px;
+  box-shadow:0 10px 30px rgba(240,165,0,.22);
+}
+.feedback-texto{
+  margin:20px 0 0;max-width:640px;font-size:13.5px;color:var(--muted);line-height:1.7;
+  text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;-ms-hyphens:auto;
 }
 </style>
 </head>
@@ -586,6 +664,7 @@ body.menu-aberto{overflow:hidden}
   <a href="#" class="drawer-link" data-id="fichamento">Fichamento e Trabalhos</a>
   <a href="#" class="drawer-link" data-id="calculadora">Calculadora de Notas</a>
   <a href="#" class="drawer-link" data-id="feedback">Feedback Anônimo</a>
+  <a href="#" class="drawer-link" data-id="diretrizes">Diretrizes</a>
 </nav>
 
 <div class="wrap">
@@ -593,8 +672,6 @@ body.menu-aberto{overflow:hidden}
   <header class="top">
     <p class="eyebrow" id="eyebrow">Direito · 1º período noturno</p>
     <h1>Calendário da Turma<span class="bar"></span></h1>
-    <p class="sub" id="sub"></p>
-    <p class="stamp" id="stamp"></p>
   </header>
 
   <!-- ======================= ABA: CALENDÁRIO ======================= -->
@@ -647,18 +724,11 @@ body.menu-aberto{overflow:hidden}
       <div id="pend-lista"></div>
     </section>
 
-    <footer>
-      <p>Este calendário reúne, em uma única lista, tudo o que tem data marcada no semestre para a turma: provas, avaliações, entregas, manuscritos, aulas especiais, eventos da universidade e feriados. As datas foram tiradas do calendário do Moodle, dos enunciados das tarefas, dos avisos e dos cronogramas e planos de aula publicados pelos professores.</p>
-      <p>O documento é <b>da turma</b> e não traz nota, falta nem situação de entrega de ninguém. <b>Confira sempre no Moodle antes de contar com a data.</b></p>
-      <p id="foot-stamp"></p>
-    </footer>
-
   </section>
 
   <!-- ======================= ABA: CONTATOS ======================= -->
   <section class="secao-extra" id="tab-contatos">
-    <h2>Diretório de Contatos</h2>
-    <p class="desc">Nome e disciplina de cada professor. Nenhum e-mail foi confirmado ainda — não inventamos padrão de e-mail institucional.</p>
+    <h2>Corpo Docente</h2>
     <div class="grid-contatos" id="lista-contatos"></div>
   </section>
 
@@ -671,8 +741,7 @@ body.menu-aberto{overflow:hidden}
 
   <!-- ======================= ABA: FICHAMENTO ======================= -->
   <section class="secao-extra" id="tab-fichamento">
-    <h2>Fichamento e Trabalhos, por Professor</h2>
-    <p class="desc">Clique num professor para ver as exigências dele. Algumas matérias já têm informações confirmadas; as demais serão completadas aos poucos.</p>
+    <h2>Fichamento e Trabalhos</h2>
     <div id="lista-fichamento"></div>
   </section>
 
@@ -725,17 +794,21 @@ body.menu-aberto{overflow:hidden}
   <!-- ======================= ABA: GRADE DE AULAS (com "aula agora" embutido) ======================= -->
   <section class="secao-extra" id="tab-grade">
     <h2>Grade de Aulas</h2>
-    <p class="desc">O que está rolando agora, e a semana inteira da turma.</p>
     <div class="hero" id="aula-agora-box"></div>
     <div class="grade-full" id="grade-full"></div>
-    <p style="margin-top:14px;font-size:12px;color:var(--muted-2)">Os horários podem sofrer alteração. Confira sempre no Quadro de Horário do Portal do Aluno.</p>
   </section>
 
   <!-- ======================= ABA: FEEDBACK ======================= -->
   <section class="secao-extra" id="tab-feedback">
     <h2>Feedback Anônimo</h2>
-    <p class="desc">Canal para a turma apontar erro de data, reclamar ou sugerir sem se identificar.</p>
-    <div class="card" style="grid-template-columns:1fr" id="feedback-box"></div>
+    <div id="feedback-box"></div>
+  </section>
+
+  <!-- ======================= ABA: DIRETRIZES ======================= -->
+  <section class="secao-extra" id="tab-diretrizes">
+    <h2>Diretrizes</h2>
+    <div id="lista-diretrizes"></div>
+    <p class="carimbo-diretrizes" id="foot-stamp"></p>
   </section>
 
 </div>
@@ -1163,14 +1236,6 @@ body.menu-aberto{overflow:hidden}
 
   function iniciar(){
     $("eyebrow").textContent = CALENDARIO.turma;
-    $("sub").textContent = CALENDARIO.turma + " · " + CALENDARIO.semestre;
-
-    var at = new Date(CALENDARIO.atualizadoEm);
-    var carimbo = "Atualizado em <b>" + String(at.getDate()).padStart(2,"0") + "/"
-                + String(at.getMonth()+1).padStart(2,"0") + "/" + at.getFullYear()
-                + "</b>, extraído do " + CALENDARIO.fonte + ".";
-    $("stamp").innerHTML = carimbo;
-    $("foot-stamp").innerHTML = carimbo + " Quando duas fontes discordam de uma data, o item vai para “pontos a confirmar”.";
 
     $("pend-lista").innerHTML = (CALENDARIO.pendencias || []).map(function(p){
       return "<details><summary>" + esc(p.titulo) + "</summary><p>" + esc(p.texto) + "</p></details>";
@@ -1290,9 +1355,8 @@ body.menu-aberto{overflow:hidden}
         + '<div class="nome">' + esc(p.nome) + '</div>'
         + '<div class="email">' + (p.email
             ? '<a href="mailto:' + esc(p.email) + '">' + esc(p.email) + '</a>'
-            : '<span class="falta">e-mail institucional — a confirmar</span>')
+            : '<span class="falta">e-mail não divulgado</span>')
           + '</div>'
-        + (p.telefone ? '<div class="email">' + esc(p.telefone) + '</div>' : '')
       + '</div>';
     }).join("");
   }
@@ -1354,28 +1418,43 @@ body.menu-aberto{overflow:hidden}
   /* ---------------- fichamento ---------------- */
   function pintarFichamento(){
     $("lista-fichamento").innerHTML = PAINEL.fichamento.map(function(f){
+      var blocos = f.blocos || [];
+      var corpo = blocos.length
+        ? blocos.map(function(b){
+            return '<h4 class="bloco-titulo">' + esc(b.titulo) + '</h4>'
+                 + '<p class="bloco-texto">' + esc(b.texto) + '</p>';
+          }).join("") + (f.fonte ? '<p class="fonte">Fonte: ' + esc(f.fonte) + '</p>' : '')
+        : '<p class="bloco-texto">Ainda não há exigências confirmadas para esta disciplina.</p>';
+
       return '<details class="acc">'
-        + '<summary><span class="titulo-acc"><span class="n">' + esc(f.sigla) + '</span></span>' + selo(!!f.exigencias) + '</summary>'
-        + '<div class="corpo">' + (f.exigencias ? esc(f.exigencias)
-            : 'Ainda não há exigências confirmadas para esta disciplina. Preencher só depois de ler o enunciado oficial ou confirmar direto com o professor — nunca por “o que geralmente se pede”.')
-        + '</div></details>';
+        + '<summary><span class="titulo-acc"><span class="n">' + esc(f.sigla) + '</span></span>' + selo(blocos.length > 0) + '</summary>'
+        + '<div class="corpo">' + corpo + '</div></details>';
+    }).join("");
+  }
+
+  /* ---------------- diretrizes ---------------- */
+  function pintarCarimbo(){
+    var at = new Date(CALENDARIO.atualizadoEm);
+    $("foot-stamp").innerHTML = "Atualizado em <b>" + String(at.getDate()).padStart(2,"0") + "/"
+      + String(at.getMonth()+1).padStart(2,"0") + "/" + at.getFullYear()
+      + "</b>, extraído do " + esc(CALENDARIO.fonte) + ".";
+  }
+
+  function pintarDiretrizes(){
+    $("lista-diretrizes").innerHTML = (PAINEL.diretrizes || []).map(function(d){
+      return '<div class="card diretriz" style="grid-template-columns:1fr">'
+        + '<h3>' + esc(d.titulo) + '</h3>'
+        + '<p class="bloco-texto">' + esc(d.texto) + '</p>'
+      + '</div>';
     }).join("");
   }
 
   /* ---------------- feedback ---------------- */
   function pintarFeedback(){
-    var box = $("feedback-box");
-    if (PAINEL.feedback.url){
-      box.innerHTML = '<p>Formulário anônimo para reclamações, correções e pedidos de atualização.</p>'
-        + '<a class="btn primary" style="margin-top:12px;text-decoration:none" href="'
-        + esc(PAINEL.feedback.url) + '" target="_blank" rel="noopener">Abrir formulário</a>';
-    } else {
-      box.innerHTML = '<p>Ainda não há um formulário cadastrado. Para ativar este espaço:</p>'
-        + '<p style="margin-top:8px">1. Crie um formulário anônimo (Google Forms funciona bem — em Configurações, desligue “Coletar e-mails”).<br>'
-        + '2. Peça reclamação, correção de data e sugestão, sem exigir identificação.<br>'
-        + '3. Cole o link em <code>PAINEL.feedback.url</code>, no extras.js.</p>'
-        + '<span class="btn" style="margin-top:12px;cursor:not-allowed;opacity:.5">Abrir formulário</span>';
-    }
+    $("feedback-box").innerHTML =
+        '<a class="btn primary btn-feedback" href="' + esc(PAINEL.feedback.url)
+      + '" target="_blank" rel="noopener">Abrir Formulário</a>'
+      + '<p class="feedback-texto">' + esc(PAINEL.feedback.texto) + '</p>';
   }
 
   /* ================= CALCULADORA UNIFICADA (A1 + A2 + Exame) ================= */
@@ -1572,11 +1651,11 @@ body.menu-aberto{overflow:hidden}
     if (atual){
       box.setAttribute("data-alerta", "critico");
       box.innerHTML = '<p class="label">Acontecendo agora</p><h2>' + esc(atual.nome) + '</h2>'
-        + '<p class="meta">' + esc(atual.h) + ' · sala não informada</p>';
+        + '<p class="meta">' + esc(atual.h) + ' · ' + esc(grade.sala) + '</p>';
     } else if (proxima){
       box.removeAttribute("data-alerta");
       box.innerHTML = '<p class="label">Próxima aula de hoje</p><h2>' + esc(proxima.nome) + '</h2>'
-        + '<p class="meta">começa às ' + esc(proxima.h.split(" – ")[0]) + ' · sala não informada</p>';
+        + '<p class="meta">começa às ' + esc(proxima.h.split(" – ")[0]) + ' · ' + esc(grade.sala) + '</p>';
     } else {
       box.removeAttribute("data-alerta");
       box.innerHTML = '<p class="label">Agora</p><h2>Sem mais aulas hoje</h2>'
@@ -1602,13 +1681,29 @@ body.menu-aberto{overflow:hidden}
      vira o aviso de que as férias começaram. */
   var feriasAlvo = null, feriasFase = null;
 
+  var CORES_FESTA = ["#ff5566","#ffb300","#ffe45c","#17c97e","#4d8bff","#b26bff"];
+
+  function bolhasHTML(){
+    var html = '<div class="ferias-bolhas">';
+    for (var i = 0; i < 14; i++){
+      var tam = 6 + (i * 7) % 17;
+      var esq = (i * 137) % 96;
+      var dur = 9 + (i * 3.1) % 11;
+      var atraso = -((i * 1.7) % 12).toFixed(1);
+      html += '<span class="ferias-bolha" style="width:' + tam + 'px;height:' + tam + 'px;'
+            + 'left:' + esq + '%;color:' + CORES_FESTA[i % CORES_FESTA.length] + ';'
+            + 'animation-duration:' + dur.toFixed(1) + 's;animation-delay:' + atraso + 's"></span>';
+    }
+    return html + '</div>';
+  }
+
   function montarFerias(){
     var f = PAINEL.ferias;
     var p = f.data.split("-");
     feriasAlvo = new Date(+p[0], +p[1]-1, +p[2], 23, 59, 59);
 
-    $("ferias-card").innerHTML =
-        '<p class="rotulo" id="ferias-rotulo">' + esc(f.rotulo) + '</p>'
+    $("ferias-card").innerHTML = bolhasHTML()
+      + '<p class="rotulo" id="ferias-rotulo">' + esc(f.rotulo) + '</p>'
       + '<div class="ferias-relogio">'
         + '<div class="fu"><span class="fn" id="fer-d">--</span><span class="fl">dias</span></div>'
         + '<div class="fu"><span class="fn" id="fer-h">--</span><span class="fl">horas</span></div>'
@@ -1630,8 +1725,8 @@ body.menu-aberto{overflow:hidden}
       if (feriasFase !== "passou"){
         feriasFase = "passou";
         card.className = "ferias-card passou";
-        card.querySelectorAll(".confete-extra").forEach(function(el){ el.remove(); });
-        card.innerHTML = '<p class="rotulo">🎉 Começaram as férias!</p>'
+        card.innerHTML = bolhasHTML()
+          + '<p class="rotulo">🎉 Começaram as férias!</p>'
           + '<p class="legenda">' + esc(f.rotulo) + ' já passou.</p>'
           + '<p class="fonte">Fonte: ' + esc(f.fonte) + '</p>';
       }
@@ -1648,7 +1743,7 @@ body.menu-aberto{overflow:hidden}
       feriasFase = ehHoje ? "hoje" : "normal";
       card.className = "ferias-card" + (ehHoje ? " hoje" : "");
       $("ferias-rotulo").textContent = ehHoje ? "Últimas horas de aula! 🎉" : PAINEL.ferias.rotulo;
-      card.querySelectorAll(".confete-extra").forEach(function(el){ el.remove(); });
+      card.querySelectorAll(".confete-extra,.ferias-fogo").forEach(function(el){ el.remove(); });
       if (ehHoje){
         var emojis = ["🎉","✨","🎊","🎈"];
         var extra = "";
@@ -1656,6 +1751,13 @@ body.menu-aberto{overflow:hidden}
           var esq = Math.round((i * 137) % 90);
           var atraso = ((i * 0.19) % 1.3).toFixed(2);
           extra += '<span class="confete-extra" style="left:' + esq + '%;animation-delay:' + atraso + 's">' + emojis[i % emojis.length] + '</span>';
+        }
+        for (var j = 0; j < 5; j++){
+          var fx = 12 + (j * 61) % 76;
+          var fy = 18 + (j * 43) % 58;
+          var fd = ((j * 0.47) % 2.2).toFixed(2);
+          extra += '<span class="ferias-fogo" style="left:' + fx + '%;top:' + fy + '%;'
+                 + 'color:' + CORES_FESTA[j % CORES_FESTA.length] + ';animation-delay:' + fd + 's"></span>';
         }
         card.insertAdjacentHTML("beforeend", extra);
       }
@@ -1675,6 +1777,8 @@ body.menu-aberto{overflow:hidden}
     pintarGradeCompleta();
     montarFerias();
     pintarFeedback();
+    pintarDiretrizes();
+    pintarCarimbo();
     setInterval(pintarGradeCompleta, 30000);
     setInterval(tickFerias, 1000);
   }
