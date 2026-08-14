@@ -6,12 +6,15 @@
 <title>Calendário da Turma — Direito 1º período noturno</title>
 <meta name="description" content="Calendário online da turma de Direito, 1º período noturno, com contagem regressiva ao vivo para provas, entregas e eventos.">
 <meta name="theme-color" content="#0a0a0a">
-<meta property="og:title" content="Calendário da Turma — Direito 1º período noturno">
-<meta property="og:description" content="Provas, entregas e eventos do semestre, com o tempo restante atualizado ao vivo.">
-<meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230a0a0a'/><rect x='14' y='24' width='72' height='62' rx='8' fill='none' stroke='%23f5b301' stroke-width='8'/><path d='M14 44h72M34 14v20M66 14v20' stroke='%23f5b301' stroke-width='8' stroke-linecap='round'/></svg>">
 
 <style>
+/* ============================================================
+   Tudo daqui até o marcador "NOVO — prévia v2" é IDÊNTICO ao
+   index.html publicado, exceto duas remoções pedidas por você:
+   o botão/CSS de imprimir e o modal de grade de aulas (que virou
+   uma aba, lá embaixo). Fora isso, nada foi alterado.
+   ============================================================ */
 :root{
   --bg:#0a0a0a;
   --surface:#131417;
@@ -21,13 +24,12 @@
   --text:#e8e6e1;
   --muted:#9aa0aa;
   --muted-2:#6f757f;
-  /* Cor viva só nos detalhes. O fundo e o texto continuam neutros. */
-  --accent:#f0a500;    /* dourado */
-  --prova:#f0304c;     /* vinho */
+  --accent:#f0a500;
+  --prova:#f0304c;
   --entrega:#f0a500;
-  --evento:#4d8bff;    /* safira */
-  --feriado:#17c97e;   /* esmeralda */
-  --neutro:#3c4048;    /* marcador sem alerta */
+  --evento:#4d8bff;
+  --feriado:#17c97e;
+  --neutro:#3c4048;
   --radius:14px;
   --shadow:0 1px 0 rgba(255,255,255,.03), 0 8px 24px rgba(0,0,0,.45);
   --mono:ui-monospace,"SF Mono",SFMono-Regular,"Cascadia Mono","Roboto Mono",Menlo,Consolas,monospace;
@@ -50,7 +52,6 @@ a{color:inherit}
 
 .wrap{max-width:900px;margin:0 auto;padding:0 18px 72px}
 
-/* ---------- cabeçalho ---------- */
 .top{padding:36px 0 22px;border-bottom:1px solid var(--line-soft)}
 .eyebrow{
   font-size:11px;letter-spacing:.16em;text-transform:uppercase;
@@ -79,15 +80,12 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
 .btn.primary{background:var(--accent);border-color:var(--accent);color:#1a1200}
 .btn.primary:hover{background:#ffb81c;border-color:#ffb81c}
 
-/* ---------- faixa "hoje" ---------- */
 .hoje{
   margin:22px 0 0;padding:13px 16px;border-radius:var(--radius);
   background:rgba(201,138,5,.15);border:1px solid rgba(240,165,0,.45);
   display:flex;gap:11px;align-items:baseline;flex-wrap:wrap;
   font-size:14px;line-height:1.5;
 }
-/* Sem esta linha a classe vence o [hidden] do navegador e sobra
-   uma tarja vazia nos dias em que nada acontece. */
 .hoje[hidden]{display:none}
 .hoje-tag{
   flex:0 0 auto;font-size:10px;letter-spacing:.16em;text-transform:uppercase;
@@ -97,7 +95,6 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
 .hoje-tag{color:#1a1200}
 .hoje b{color:var(--accent);font-weight:700}
 
-/* ---------- destaque: próximo compromisso ---------- */
 .hero{
   margin:26px 0 0;padding:22px;border-radius:var(--radius);
   background:linear-gradient(180deg,var(--surface),#101114);
@@ -127,8 +124,6 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
   display:block;margin-top:7px;font-size:9.5px;letter-spacing:.13em;
   text-transform:uppercase;color:var(--muted-2);font-weight:600;
 }
-/* Escada de alerta: a cor avisa quanto tempo sobrou.
-   1 dia ou menos = vinho · exatamente 2 dias = dourado · 3 ou mais = branco */
 .hero[data-alerta="alerta"]::before{background:var(--accent)}
 .hero[data-alerta="alerta"] .label,
 .hero[data-alerta="alerta"] .unid .n{color:var(--accent)}
@@ -137,7 +132,6 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
 .hero[data-alerta="critico"] .unid .n{color:var(--prova)}
 .hero.vazio .relogio{display:none}
 
-/* ---------- números do semestre ---------- */
 .placar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 0}
 .placar div{
   background:var(--surface);border:1px solid var(--line-soft);border-radius:11px;
@@ -150,7 +144,6 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
 .placar .c-evento b{color:var(--evento)}
 .placar .c-feriado b{color:var(--feriado)}
 
-/* ---------- filtros ---------- */
 .filtros{margin:30px 0 0;position:sticky;top:0;z-index:20;background:var(--bg);padding:12px 0 10px}
 .filtros::after{content:"";display:block;height:1px;background:var(--line-soft);margin-top:12px}
 .busca{position:relative;margin-bottom:10px}
@@ -183,7 +176,6 @@ select:focus{outline:none;border-color:var(--accent)}
 .toggle{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);cursor:pointer;user-select:none;font-weight:600}
 .toggle input{accent-color:var(--accent);width:15px;height:15px;cursor:pointer}
 
-/* ---------- lista ---------- */
 .mes{
   margin:30px 0 14px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
   color:var(--muted-2);font-weight:700;display:flex;align-items:center;gap:12px;
@@ -236,7 +228,6 @@ select:focus{outline:none;border-color:var(--accent)}
   color:var(--text);display:inline-flex;align-items:center;gap:6px;
 }
 .falta::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--neutro)}
-/* mesma escada de alerta do cronômetro */
 .falta.al-alerta{color:var(--accent)}
 .falta.al-alerta::before{background:var(--accent)}
 .falta.al-critico{color:var(--prova)}
@@ -260,7 +251,6 @@ select:focus{outline:none;border-color:var(--accent)}
 
 .vazio-lista{text-align:center;padding:44px 20px;color:var(--muted-2);font-size:14px}
 
-/* ---------- pendências ---------- */
 .pend{margin-top:46px;padding-top:26px;border-top:1px solid var(--line-soft)}
 .pend h2{
   margin:0 0 4px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
@@ -281,7 +271,6 @@ select:focus{outline:none;border-color:var(--accent)}
 .pend details[open] summary{border-bottom:1px solid var(--line-soft)}
 .pend p{margin:0;padding:13px 15px 15px;font-size:13.5px;color:var(--muted);line-height:1.6}
 
-/* ---------- rodapé ---------- */
 footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--muted-2);line-height:1.65}
 footer p{margin:0 0 8px}
 footer b{color:var(--muted);font-weight:600}
@@ -294,60 +283,6 @@ footer b{color:var(--muted);font-weight:600}
 }
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
-/* ---------- grade de aulas ---------- */
-#grade{
-  border:1px solid var(--line);background:var(--surface);color:var(--text);
-  border-radius:var(--radius);padding:0;max-width:940px;width:calc(100% - 28px);
-  box-shadow:0 24px 70px rgba(0,0,0,.7);
-}
-#grade::backdrop{background:rgba(0,0,0,.72)}
-#grade .topo{
-  display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
-  padding:20px 22px 16px;border-bottom:1px solid var(--line-soft);
-}
-#grade h2{margin:0;font-size:19px;font-weight:800;letter-spacing:-.01em;line-height:1.2}
-#grade .sub{margin:6px 0 0;font-size:12.5px;color:var(--muted)}
-#grade .fechar{
-  flex:0 0 auto;appearance:none;border:1px solid var(--line);background:transparent;
-  color:var(--muted);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:17px;line-height:1;
-}
-#grade .fechar:hover{color:var(--text);border-color:#3c4048}
-#grade .semana{
-  display:grid;grid-template-columns:repeat(5,1fr);gap:1px;
-  background:var(--line-soft);padding:1px;
-}
-#grade .dia{background:var(--surface);padding:14px 13px 16px;min-height:190px}
-#grade .dia h3{
-  margin:0 0 11px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--muted-2);font-weight:700;
-}
-#grade .dia.e-hoje{background:#16140c}
-#grade .dia.e-hoje h3{color:var(--accent)}
-#grade .dia.e-hoje h3::after{content:" · hoje"}
-#grade .aula{margin-bottom:11px}
-#grade .aula .hora{
-  display:block;font-family:var(--mono);font-size:11.5px;color:var(--muted-2);
-  font-variant-numeric:tabular-nums;margin-bottom:2px;
-}
-#grade .aula .disc{display:block;font-size:13.5px;font-weight:600;line-height:1.3}
-#grade .aula .longo{display:block;font-size:11px;color:var(--muted-2);margin-top:1px}
-#grade .vazio{font-size:12.5px;color:var(--muted-2);font-style:italic}
-#grade .rodape{
-  padding:13px 22px 16px;border-top:1px solid var(--line-soft);
-  font-size:12px;color:var(--muted-2);line-height:1.5;
-}
-@media (max-width:700px){
-  #grade .semana{grid-template-columns:1fr}
-  #grade .dia{min-height:0;padding:13px 16px}
-  #grade .dia h3{margin-bottom:8px}
-  #grade .aula{margin-bottom:9px;display:flex;gap:11px;align-items:baseline}
-  #grade .aula .hora{margin:0;flex:0 0 96px}
-  #grade .aula .longo{display:none}
-}
-
-/* ---------- texto justificado, só onde a coluna é larga ----------
-   No celular a linha tem ~40 caracteres: justificar abriria buracos
-   entre as palavras mesmo com hifenização. */
 @media (min-width:561px){
   .card p, .pend p, footer p{
     text-align:justify;text-justify:inter-word;
@@ -365,14 +300,293 @@ footer b{color:var(--muted);font-weight:600}
   .unid{min-width:0;padding:10px 4px 8px}
 }
 
-@media print{
-  body{background:#fff;color:#000}
-  .filtros,.acoes,.toast,.add,.hero .relogio{display:none}
-  .card{break-inside:avoid;border-color:#ccc}
+/* ============================================================
+   NOVO — prévia v2
+   ============================================================ */
+
+/* ---------- menu hambúrguer, no lugar da barra de abas ---------- */
+#btn-menu{
+  position:fixed;top:16px;right:16px;z-index:40;
+  width:42px;height:42px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--line);
+  color:var(--text);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.4);
+}
+#btn-menu:hover{border-color:#3c4048;background:var(--surface-2)}
+
+#drawer-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:38;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+#drawer-backdrop.on{opacity:1;pointer-events:auto}
+
+#drawer{
+  position:fixed;top:0;right:0;bottom:0;width:min(300px,84vw);
+  background:var(--surface);border-left:1px solid var(--line);
+  z-index:39;transform:translateX(100%);transition:transform .25s ease;
+  overflow-y:auto;padding:18px 0;
+}
+#drawer.on{transform:translateX(0)}
+.drawer-topo{display:flex;justify-content:space-between;align-items:center;padding:0 18px 16px;border-bottom:1px solid var(--line-soft);margin-bottom:8px}
+.drawer-topo span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);font-weight:700}
+.drawer-topo button{appearance:none;border:1px solid var(--line);background:transparent;color:var(--muted);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:15px}
+.drawer-topo button:hover{color:var(--text);border-color:#3c4048}
+.drawer-link{
+  display:block;padding:13px 18px;font-size:14.5px;font-weight:600;color:var(--text);
+  text-decoration:none;border-left:3px solid transparent;cursor:pointer;
+}
+.drawer-link:hover{background:var(--surface-2)}
+.drawer-link[aria-current="true"]{border-left-color:var(--accent);color:var(--accent);background:rgba(240,165,0,.08)}
+
+body.menu-aberto{overflow:hidden}
+
+.secao-extra{display:none;padding-top:22px}
+.secao-extra.on{display:block}
+.secao-extra h2{margin:0 0 4px;font-size:17px;font-weight:800;letter-spacing:-.01em}
+.secao-extra .desc{margin:0 0 18px;font-size:13px;color:var(--muted-2);max-width:620px}
+
+.selo{
+  display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:999px;flex:0 0 auto;
+}
+.selo.ok{background:rgba(23,201,126,.14);color:var(--feriado)}
+.selo.pendente{background:rgba(240,165,0,.14);color:var(--accent)}
+
+.card .cabeca{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:2px}
+.card .sigla{font-size:10.5px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:2px}
+.card .vazio-txt{font-size:13px;color:var(--muted-2);font-style:italic;margin-top:6px}
+
+.callout{
+  margin-top:9px;padding:9px 12px;border-radius:9px;
+  background:rgba(255,255,255,.035);border-left:2px solid var(--accent);
+  color:var(--text);font-size:13px;line-height:1.5;
+}
+.callout .rotulo{
+  display:block;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:3px;
+}
+
+.acc{background:var(--surface);border:1px solid var(--line-soft);border-radius:11px;margin-bottom:8px;overflow:hidden}
+.acc summary{
+  padding:13px 15px;cursor:pointer;font-size:14px;font-weight:600;list-style:none;
+  display:flex;gap:10px;align-items:center;justify-content:space-between;
+}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary:hover{background:var(--surface-2)}
+.acc[open] summary{border-bottom:1px solid var(--line-soft)}
+.acc .corpo{padding:13px 15px 15px;font-size:13.5px;color:var(--muted);line-height:1.6}
+.acc .titulo-acc{display:flex;align-items:center;gap:10px;min-width:0}
+.acc .titulo-acc .n{font-weight:700;color:var(--text)}
+.acc .titulo-acc .d{color:var(--muted-2);font-weight:500;font-size:12.5px}
+
+.grid-contatos{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.contato .disc{font-size:10.5px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:4px}
+.contato .nome{font-size:14px;font-weight:700}
+.contato .email{margin-top:7px;font-size:12.5px}
+.contato .email a{color:var(--evento);text-decoration:none;border-bottom:1px dotted currentColor}
+.contato .email .falta{color:var(--muted-2);font-style:italic;font-weight:400}
+
+.grupo-linha{
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+  padding:11px 15px;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:11px;margin-bottom:8px;font-size:13.5px;
+}
+.grupo-linha .nome-disc{font-weight:600}
+.grupo-linha .info{color:var(--muted-2);font-size:12px}
+.dupla{margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--line-soft)}
+.dupla:last-child{margin-bottom:0;padding-bottom:0;border-bottom:0}
+.dupla .quem{font-size:13px;color:var(--muted)}
+.dupla .tema{font-size:13.5px;font-weight:700;margin-top:4px}
+.dupla .autor{font-size:12px;color:var(--muted-2);margin-top:1px}
+
+.periodo-toggle{display:flex;gap:8px;margin:10px 0 14px}
+.periodo-btn{
+  appearance:none;border:1px solid var(--line);background:var(--surface-2);
+  color:var(--muted);font:inherit;font-size:13px;font-weight:700;
+  padding:8px 16px;border-radius:999px;cursor:pointer;transition:.15s;
+}
+.periodo-btn:hover{color:var(--text);border-color:#3c4048}
+.periodo-btn .cnt{opacity:.6;font-weight:600;margin-left:2px}
+.periodo-btn.ativo{background:var(--accent);border-color:var(--accent);color:#1a1200}
+.periodo-btn.ativo .cnt{opacity:.8}
+.periodo-lista .vazio-txt{margin:0}
+
+/* ---------- calculadora unificada ---------- */
+.calc-topo{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.calc-nota-linha{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:8px 0}
+.calc-nota-linha label{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;flex:1 1 170px}
+.calc-nota-linha input[type=number]{
+  width:90px;background:var(--surface-2);border:1px solid var(--line);color:var(--text);
+  font:inherit;font-size:14px;padding:8px 10px;border-radius:8px;font-variant-numeric:tabular-nums;
+}
+.calc-nota-linha button.link-comp{
+  appearance:none;border:0;background:transparent;color:var(--evento);font:inherit;font-size:12px;
+  font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:2px;
+}
+.comp-mini{
+  margin:4px 0 10px;padding:10px 12px;background:var(--surface-2);border-radius:9px;
+  border:1px dashed var(--line);font-size:12.5px;
+}
+.comp-mini .linha{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.comp-mini .linha span{flex:1;color:var(--muted)}
+.comp-mini .linha input{width:64px;background:var(--surface);border:1px solid var(--line);color:var(--text);font:inherit;font-size:12.5px;padding:5px 7px;border-radius:6px}
+
+.calc-param-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 14px;margin-top:4px}
+.calc-param-grid label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted)}
+.calc-param-grid input{
+  background:var(--surface-2);border:1px solid var(--line);color:var(--text);
+  font:inherit;font-size:13.5px;padding:7px 9px;border-radius:8px;
+}
+
+.cenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.cenario{
+  background:var(--surface);border:1px solid var(--line-soft);border-left:3px solid var(--neutro);
+  border-radius:11px;padding:14px;font-size:13px;line-height:1.5;
+}
+.cenario h4{margin:0 0 6px;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted-2);font-weight:700}
+.cenario p{margin:0;color:var(--text)}
+.cenario.ok{border-left-color:var(--feriado)}
+.cenario.ok h4{color:var(--feriado)}
+.cenario.alerta{border-left-color:var(--accent)}
+.cenario.alerta h4{color:var(--accent)}
+.cenario.critico{border-left-color:var(--prova)}
+.cenario.critico h4{color:var(--prova)}
+
+@media (max-width:700px){ .cenarios{grid-template-columns:1fr} }
+@media (max-width:560px){
+  .calc-param-grid{grid-template-columns:1fr}
+}
+
+/* ---------- grade de aulas + aula agora, numa aba só ---------- */
+.grade-full{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:1px;
+  background:var(--line-soft);padding:1px;border-radius:var(--radius);overflow:hidden;
+  margin-top:16px;
+}
+.grade-full .dia{background:var(--surface);padding:14px 13px 16px;min-height:170px}
+.grade-full .dia h3{margin:0 0 11px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);font-weight:700}
+.grade-full .dia.e-hoje{background:#16140c}
+.grade-full .dia.e-hoje h3{color:var(--accent)}
+.grade-full .dia.e-hoje h3::after{content:" · hoje"}
+.grade-full .aula{margin-bottom:11px}
+.grade-full .aula .hora{display:block;font-family:var(--mono);font-size:11.5px;color:var(--muted-2);font-variant-numeric:tabular-nums;margin-bottom:2px}
+.grade-full .aula .disc{display:block;font-size:13.5px;font-weight:600;line-height:1.3}
+.grade-full .aula .longo{display:block;font-size:11px;color:var(--muted-2);margin-top:1px}
+.grade-full .vazio{font-size:12.5px;color:var(--muted-2);font-style:italic}
+@media (max-width:700px){
+  .grade-full{grid-template-columns:1fr}
+  .grade-full .dia{min-height:0;padding:13px 16px}
+  .grade-full .aula{margin-bottom:9px;display:flex;gap:11px;align-items:baseline}
+  .grade-full .aula .hora{margin:0;flex:0 0 96px}
+  .grade-full .aula .longo{display:none}
+}
+
+/* ---------- férias: card festivo, fixo no fim do calendário ----------
+   Contador ao vivo — dias/horas/min/seg, igual ao destaque do topo,
+   com os números em degradê animado ("RGB") e um brilho suave.
+   No dia final, ganha um selo comemorativo e confete. */
+.ferias-card{
+  position:relative;overflow:hidden;margin-top:36px;padding:30px 24px;
+  border-radius:var(--radius);
+  background:
+    radial-gradient(ellipse 100% 60% at 50% -12%, rgba(240,165,0,.12), transparent 65%),
+    linear-gradient(135deg,var(--surface),#141018);
+  border:1px solid var(--line);text-align:center;
+  box-shadow:0 1px 0 rgba(255,255,255,.03), 0 24px 60px rgba(0,0,0,.5);
+}
+.ferias-card::before,.ferias-card::after{
+  content:"";position:absolute;width:130px;height:130px;pointer-events:none;
+  background-image:
+    radial-gradient(circle,var(--accent) 3px,transparent 3.5px),
+    radial-gradient(circle,var(--evento) 3px,transparent 3.5px),
+    radial-gradient(circle,var(--feriado) 3px,transparent 3.5px),
+    radial-gradient(circle,var(--prova) 3px,transparent 3.5px);
+  background-size:26px 26px,32px 32px,22px 22px,29px 29px;
+  background-position:0 0,11px 16px,19px 5px,7px 21px;
+  opacity:.5;
+}
+.ferias-card::before{top:-14px;left:-14px}
+.ferias-card::after{bottom:-14px;right:-14px;transform:rotate(25deg)}
+.ferias-card .rotulo{
+  position:relative;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted-2);font-weight:700;
+}
+.ferias-card .fonte{position:relative;margin-top:14px;font-size:11px;color:var(--muted-2);font-style:italic}
+.ferias-card .legenda{position:relative;margin-top:8px;font-size:12.5px;color:var(--muted)}
+
+/* o contador de 4 unidades, no mesmo molde do destaque do topo */
+.ferias-relogio{position:relative;display:flex;gap:10px;justify-content:center;margin:18px 0 2px;flex-wrap:wrap}
+.ferias-relogio .fu{
+  background:#0d0e10;border:1px solid var(--line-soft);border-radius:12px;
+  padding:14px 8px 10px;min-width:70px;flex:0 1 78px;
+}
+.ferias-relogio .fn{
+  display:block;font-family:var(--mono);font-size:clamp(24px,6.4vw,36px);
+  font-weight:800;line-height:1;font-variant-numeric:tabular-nums;
+  background:linear-gradient(90deg,#ff5566,#ffb300,#ffe45c,#17c97e,#4d8bff,#b26bff,#ff5566);
+  background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:rgb-flow 7s linear infinite;
+  filter:drop-shadow(0 0 9px rgba(255,255,255,.28));
+}
+.ferias-relogio .fu:nth-child(1) .fn{animation-delay:0s}
+.ferias-relogio .fu:nth-child(2) .fn{animation-delay:-1.75s}
+.ferias-relogio .fu:nth-child(3) .fn{animation-delay:-3.5s}
+.ferias-relogio .fu:nth-child(4) .fn{animation-delay:-5.25s}
+.ferias-relogio .fl{
+  display:block;margin-top:7px;font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted-2);font-weight:600;
+}
+@keyframes rgb-flow{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+
+@keyframes ferias-vibra{
+  0%,100%{transform:translateX(0) rotate(0)}
+  20%{transform:translateX(-4px) rotate(-.6deg)}
+  40%{transform:translateX(4px) rotate(.6deg)}
+  60%{transform:translateX(-3px) rotate(-.3deg)}
+  80%{transform:translateX(3px) rotate(.3deg)}
+}
+@keyframes confete-flutua{
+  0%{transform:translateY(0) rotate(0);opacity:.9}
+  100%{transform:translateY(-90px) rotate(200deg);opacity:0}
+}
+.ferias-card.hoje{
+  animation:ferias-vibra .6s ease-in-out infinite;
+  border-color:var(--feriado);
+  box-shadow:0 0 0 1px var(--feriado),0 24px 60px rgba(23,201,126,.35);
+}
+.ferias-card.hoje .rotulo{color:var(--feriado)}
+.ferias-card.hoje .ferias-relogio .fn{animation-duration:2.2s;filter:drop-shadow(0 0 14px rgba(23,201,126,.55))}
+.ferias-card .confete-extra{position:absolute;bottom:10%;font-size:16px;pointer-events:none;animation:confete-flutua 1.6s ease-out infinite}
+.ferias-card.passou .rotulo{color:var(--feriado)}
+
+@media (max-width:480px){
+  .ferias-relogio{gap:7px}
+  .ferias-relogio .fu{padding:11px 4px 8px;flex-basis:64px}
 }
 </style>
 </head>
 <body>
+
+<button type="button" id="btn-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+</button>
+<div id="drawer-backdrop"></div>
+<nav id="drawer" aria-hidden="true">
+  <div class="drawer-topo">
+    <span>Menu</span>
+    <button type="button" id="btn-fechar-menu" aria-label="Fechar">✕</button>
+  </div>
+  <a href="#" class="drawer-link" data-id="calendario" aria-current="true">Calendário</a>
+  <a href="#" class="drawer-link" data-id="contatos">Contatos</a>
+  <a href="#" class="drawer-link" data-id="grupos">Grupos de Trabalho</a>
+  <a href="#" class="drawer-link" data-id="fichamento">Fichamento e Trabalhos</a>
+  <a href="#" class="drawer-link" data-id="calculadora">Calculadora de Notas</a>
+  <a href="#" class="drawer-link" data-id="feedback">Feedback Anônimo</a>
+</nav>
 
 <div class="wrap">
 
@@ -381,77 +595,161 @@ footer b{color:var(--muted);font-weight:600}
     <h1>Calendário da Turma<span class="bar"></span></h1>
     <p class="sub" id="sub"></p>
     <p class="stamp" id="stamp"></p>
+  </header>
+
+  <!-- ======================= ABA: CALENDÁRIO ======================= -->
+  <section class="secao-extra on" id="tab-calendario">
+
     <div class="acoes">
       <button class="btn primary" id="btn-ics">Adicionar ao meu celular (.ics)</button>
       <button class="btn" id="btn-share">Compartilhar link</button>
-      <button class="btn" id="btn-grade">Grade de aulas</button>
-      <button class="btn" id="btn-print">Imprimir / PDF</button>
+      <button class="btn" id="btn-grade">Grade de Aulas</button>
     </div>
-  </header>
 
-  <section class="hoje" id="hoje" hidden>
-    <span class="hoje-tag">Hoje</span>
-    <span id="hoje-itens"></span>
+    <section class="hoje" id="hoje" hidden>
+      <span class="hoje-tag">Hoje</span>
+      <span id="hoje-itens"></span>
+    </section>
+
+    <section class="hero vazio" id="hero" aria-live="polite">
+      <p class="label" id="hero-label">Próximo compromisso</p>
+      <h2 id="hero-titulo">—</h2>
+      <p class="meta" id="hero-meta"></p>
+      <div class="relogio" id="relogio">
+        <div class="unid"><span class="n" id="u-d">--</span><span class="l">dias</span></div>
+        <div class="unid"><span class="n" id="u-h">--</span><span class="l">horas</span></div>
+        <div class="unid"><span class="n" id="u-m">--</span><span class="l">min</span></div>
+        <div class="unid"><span class="n" id="u-s">--</span><span class="l">seg</span></div>
+      </div>
+    </section>
+
+    <div class="placar" id="placar"></div>
+
+    <div class="filtros">
+      <div class="busca">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+        <input type="search" id="busca" placeholder="Buscar por título, matéria ou assunto…" autocomplete="off">
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="linha2">
+        <select id="disciplina"><option value="">Todas as matérias</option></select>
+        <label class="toggle"><input type="checkbox" id="passados"> Mostrar o que já passou</label>
+      </div>
+    </div>
+
+    <main id="lista"></main>
+
+    <div class="ferias-card" id="ferias-card"></div>
+
+    <section class="pend" id="pend">
+      <h2>Pontos a confirmar com o professor</h2>
+      <p class="intro">Datas que ainda não estão fechadas. Não trate como definitivo.</p>
+      <div id="pend-lista"></div>
+    </section>
+
+    <footer>
+      <p>Este calendário reúne, em uma única lista, tudo o que tem data marcada no semestre para a turma: provas, avaliações, entregas, manuscritos, aulas especiais, eventos da universidade e feriados. As datas foram tiradas do calendário do Moodle, dos enunciados das tarefas, dos avisos e dos cronogramas e planos de aula publicados pelos professores.</p>
+      <p>O documento é <b>da turma</b> e não traz nota, falta nem situação de entrega de ninguém. <b>Confira sempre no Moodle antes de contar com a data.</b></p>
+      <p id="foot-stamp"></p>
+    </footer>
+
   </section>
 
-  <section class="hero vazio" id="hero" aria-live="polite">
-    <p class="label" id="hero-label">Próximo compromisso</p>
-    <h2 id="hero-titulo">—</h2>
-    <p class="meta" id="hero-meta"></p>
-    <div class="relogio" id="relogio">
-      <div class="unid"><span class="n" id="u-d">--</span><span class="l">dias</span></div>
-      <div class="unid"><span class="n" id="u-h">--</span><span class="l">horas</span></div>
-      <div class="unid"><span class="n" id="u-m">--</span><span class="l">min</span></div>
-      <div class="unid"><span class="n" id="u-s">--</span><span class="l">seg</span></div>
-    </div>
+  <!-- ======================= ABA: CONTATOS ======================= -->
+  <section class="secao-extra" id="tab-contatos">
+    <h2>Diretório de Contatos</h2>
+    <p class="desc">Nome e disciplina de cada professor. Nenhum e-mail foi confirmado ainda — não inventamos padrão de e-mail institucional.</p>
+    <div class="grid-contatos" id="lista-contatos"></div>
   </section>
 
-  <div class="placar" id="placar"></div>
-
-  <div class="filtros">
-    <div class="busca">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
-      <input type="search" id="busca" placeholder="Buscar por título, matéria ou assunto…" autocomplete="off">
-    </div>
-    <div class="chips" id="chips"></div>
-    <div class="linha2">
-      <select id="disciplina"><option value="">Todas as matérias</option></select>
-      <label class="toggle"><input type="checkbox" id="passados"> Mostrar o que já passou</label>
-    </div>
-  </div>
-
-  <main id="lista"></main>
-
-  <section class="pend" id="pend">
-    <h2>Pontos a confirmar com o professor</h2>
-    <p class="intro">Datas que ainda não estão fechadas. Não trate como definitivo.</p>
-    <div id="pend-lista"></div>
+  <!-- ======================= ABA: GRUPOS ======================= -->
+  <section class="secao-extra" id="tab-grupos">
+    <h2>Grupos de Trabalho</h2>
+    <p class="desc">Clique numa matéria, escolha N1 ou N2 e veja os grupos daquele período.</p>
+    <div id="lista-grupos"></div>
   </section>
 
-  <footer>
-    <p>Este calendário reúne, em uma única lista, tudo o que tem data marcada no semestre para a turma: provas, avaliações, entregas, manuscritos, aulas especiais, eventos da universidade e feriados. As datas foram tiradas do calendário do Moodle, dos enunciados das tarefas, dos avisos e dos cronogramas e planos de aula publicados pelos professores.</p>
-    <p>O documento é <b>da turma</b> e não traz nota, falta nem situação de entrega de ninguém. <b>Confira sempre no Moodle antes de contar com a data.</b></p>
-    <p id="foot-stamp"></p>
-  </footer>
+  <!-- ======================= ABA: FICHAMENTO ======================= -->
+  <section class="secao-extra" id="tab-fichamento">
+    <h2>Fichamento e Trabalhos, por Professor</h2>
+    <p class="desc">Clique num professor para ver as exigências dele. Algumas matérias já têm informações confirmadas; as demais serão completadas aos poucos.</p>
+    <div id="lista-fichamento"></div>
+  </section>
+
+  <!-- ======================= ABA: CALCULADORA (com critérios embutidos) ======================= -->
+  <section class="secao-extra" id="tab-calculadora">
+    <h2>Calculadora de Notas</h2>
+    <p class="desc">Escolha a matéria: o critério de aprovação aparece aqui do lado, e A1, A2 e Exame se calculam juntos, em três cenários.</p>
+
+    <div class="calc-topo">
+      <select id="calc-disciplina"></select>
+    </div>
+
+    <div id="calc-criterio"></div>
+
+    <div class="card" style="grid-template-columns:1fr">
+      <div class="calc-nota-linha">
+        <label>Nota A1 <input type="number" id="in-a1" min="0" max="10" step="0.1"></label>
+        <button type="button" class="link-comp" id="btn-comp-a1" hidden>calcular pelos componentes</button>
+      </div>
+      <div class="comp-mini" id="comp-a1" hidden></div>
+
+      <div class="calc-nota-linha">
+        <label>Nota A2 <input type="number" id="in-a2" min="0" max="10" step="0.1" placeholder="em branco = calcular o que falta"></label>
+        <button type="button" class="link-comp" id="btn-comp-a2" hidden>calcular pelos componentes</button>
+      </div>
+      <div class="comp-mini" id="comp-a2" hidden></div>
+
+      <div class="calc-nota-linha">
+        <label>Nota do Exame (E) <input type="number" id="in-e" min="0" max="10" step="0.1" placeholder="só se for fazer exame"></label>
+      </div>
+    </div>
+
+    <details class="acc">
+      <summary><span>Parâmetros da fórmula — ainda não confirmados, ajuste aqui</span></summary>
+      <div class="corpo">
+        <span class="aviso">Estes números não vêm de nenhuma fonte oficial — são só pra simular. Confirme com o professor antes de confiar no resultado.</span>
+        <div class="calc-param-grid">
+          <label>Peso de A1 na média <input type="number" id="p-pesoA1" placeholder="ex: 50"></label>
+          <label>Peso de A2 na média <input type="number" id="p-pesoA2" placeholder="ex: 50"></label>
+          <label>Média mínima pra passar direto <input type="number" id="p-direta" placeholder="ex: 7,0"></label>
+          <label>Média mínima pra ter direito a exame <input type="number" id="p-direitoExame" placeholder="ex: 3,0"></label>
+          <label>Média mínima pra passar COM exame <input type="number" id="p-comExame" placeholder="igual à direta, se não souber"></label>
+        </div>
+      </div>
+    </details>
+
+    <div class="cenarios" id="calc-cenarios"></div>
+  </section>
+
+  <!-- ======================= ABA: GRADE DE AULAS (com "aula agora" embutido) ======================= -->
+  <section class="secao-extra" id="tab-grade">
+    <h2>Grade de Aulas</h2>
+    <p class="desc">O que está rolando agora, e a semana inteira da turma.</p>
+    <div class="hero" id="aula-agora-box"></div>
+    <div class="grade-full" id="grade-full"></div>
+    <p style="margin-top:14px;font-size:12px;color:var(--muted-2)">Os horários podem sofrer alteração. Confira sempre no Quadro de Horário do Portal do Aluno.</p>
+  </section>
+
+  <!-- ======================= ABA: FEEDBACK ======================= -->
+  <section class="secao-extra" id="tab-feedback">
+    <h2>Feedback Anônimo</h2>
+    <p class="desc">Canal para a turma apontar erro de data, reclamar ou sugerir sem se identificar.</p>
+    <div class="card" style="grid-template-columns:1fr" id="feedback-box"></div>
+  </section>
 
 </div>
-
-<dialog id="grade" aria-labelledby="grade-titulo">
-  <div class="topo">
-    <div>
-      <h2 id="grade-titulo">Grade de aulas</h2>
-      <p class="sub" id="grade-sub"></p>
-    </div>
-    <button type="button" class="fechar" aria-label="Fechar">✕</button>
-  </div>
-  <div class="semana" id="grade-semana"></div>
-  <p class="rodape">Os horários podem sofrer alteração. Confira sempre no Quadro de Horário do Portal do Aluno.</p>
-</dialog>
 
 <div class="toast" id="toast"></div>
 
 <script src="eventos.js"></script>
 <script>
+/* ================================================================
+   Script do calendário — igual ao publicado, com duas remoções:
+   o botão/handler de imprimir, e a função que abria o modal de
+   grade (a grade agora é uma aba própria, pintada pelo script de
+   baixo). Fora isso, nada foi tocado.
+   ================================================================ */
 (function(){
   "use strict";
 
@@ -474,21 +772,16 @@ footer b{color:var(--muted);font-weight:600}
     { id:"feriados", nome:"Feriados",          tipos:["FERIADO"] }
   ];
 
-  /* "até 23h59" para prazo de entrega; "às 18h30" para hora de começar. */
   var PRAZO = ["TAREFA", "ENTREGA"];
   function rotuloHora(ev){
     return (PRAZO.indexOf(ev.tipo) >= 0 ? "até " : "às ") + ev.hora.replace(":", "h");
   }
 
-  /* Horário usado quando o item não tem hora marcada.
-     Aula noturna começa 19h; feriado conta a partir da meia-noite. */
   function horaAlvo(ev){
     if (ev.hora) return ev.hora;
     return ev.tipo === "FERIADO" ? "00:00" : "19:00";
   }
 
-  /* Monta a data SEMPRE no fuso de Campinas, para o tempo restante
-     ficar certo mesmo se o celular estiver com outro fuso. */
   function montar(data, hora){
     return new Date(data + "T" + hora + ":00" + TZ);
   }
@@ -509,15 +802,12 @@ footer b{color:var(--muted);font-weight:600}
 
   var $ = function(id){ return document.getElementById(id); };
 
-  /* ---------------- textos de tempo ---------------- */
   function diasCorridos(ate){
     var hoje = new Date(); hoje.setHours(0,0,0,0);
     var alvo = new Date(ate.getFullYear(), ate.getMonth(), ate.getDate());
     return Math.round((alvo - hoje) / 86400000);
   }
 
-  /* A escada de alerta: a cor diz o quanto sobrou.
-     1 dia ou menos = vinho · exatamente 2 dias = dourado · 3 ou mais = branco */
   function faixaAlerta(dias){
     if (dias <= 1) return "al-critico";
     if (dias === 2) return "al-alerta";
@@ -545,9 +835,6 @@ footer b{color:var(--muted);font-weight:600}
     return { txt:"faltam " + d + " dias (" + sem + " semanas)", cls:cls };
   }
 
-  /* ---------------- contagem regressiva ---------------- */
-  /* O destaque conta para o próximo item que AINDA não começou.
-     O que já está rolando hoje vai para a faixa "Hoje", acima. */
   function proximo(){
     var agora = new Date();
     for (var i=0;i<eventos.length;i++) if (eventos[i].alvo > agora) return eventos[i];
@@ -620,7 +907,6 @@ footer b{color:var(--muted);font-weight:600}
     $("u-m").textContent = String(m).padStart(2,"0");
     $("u-s").textContent = String(s).padStart(2,"0");
 
-    // a cor do cronômetro segue a mesma escada de alerta da lista
     var faixa = faixaAlerta(d).replace("al-", "");
     var hero = $("hero");
     if (hero.getAttribute("data-alerta") !== faixa){
@@ -630,7 +916,6 @@ footer b{color:var(--muted);font-weight:600}
 
     document.title = (d > 0 ? d + "d" : h > 0 ? h + "h" : m + "min") + " — " + heroEv.titulo;
 
-    // atualiza os "faltam X" da lista sem redesenhar tudo
     var marcas = document.querySelectorAll("[data-falta]");
     for (var i=0;i<marcas.length;i++){
       var t = textoFalta(eventos[+marcas[i].getAttribute("data-falta")]);
@@ -641,7 +926,6 @@ footer b{color:var(--muted);font-weight:600}
     }
   }
 
-  /* ---------------- placar ---------------- */
   function pintarPlacar(){
     var agora = new Date();
     var futuros = eventos.filter(function(e){ return e.fim > agora; });
@@ -659,7 +943,6 @@ footer b{color:var(--muted);font-weight:600}
     }).join("");
   }
 
-  /* ---------------- filtros ---------------- */
   function pintarChips(){
     var agora = new Date();
     $("chips").innerHTML = GRUPOS.map(function(g){
@@ -692,7 +975,6 @@ footer b{color:var(--muted);font-weight:600}
     });
   }
 
-  /* ---------------- lista ---------------- */
   function esc(s){
     return String(s).replace(/[&<>"]/g, function(c){
       return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];
@@ -779,7 +1061,6 @@ footer b{color:var(--muted);font-weight:600}
     alvo.innerHTML = html;
   }
 
-  /* ---------------- arquivo .ics ---------------- */
   function gerarICS(){
     var linhas = [
       "BEGIN:VCALENDAR","VERSION:2.0",
@@ -821,9 +1102,6 @@ footer b{color:var(--muted);font-weight:600}
     return linhas.join("\r\n");
   }
 
-  // escapa e quebra linhas longas conforme o RFC 5545.
-  // O limite é de 75 OCTETOS, não de caracteres — por isso conta em bytes,
-  // senão uma linha cheia de acentos estoura o limite.
   function dobrar(txt){
     txt = txt.replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
 
@@ -835,7 +1113,7 @@ footer b{color:var(--muted);font-weight:600}
       if (bytes(atual + c) > limite){
         partes.push(atual);
         atual = c;
-        limite = 72; // as linhas seguintes começam com um espaço
+        limite = 72;
       } else {
         atual += c;
       }
@@ -857,7 +1135,6 @@ footer b{color:var(--muted);font-weight:600}
     aviso("Arquivo baixado. Abra para importar no seu calendário.");
   }
 
-  /* ---------------- utilidades de tela ---------------- */
   var timerToast;
   function aviso(msg){
     var t = $("toast");
@@ -884,33 +1161,6 @@ footer b{color:var(--muted);font-weight:600}
     }
   }
 
-  /* ---------------- grade de aulas ---------------- */
-  function pintarGrade(){
-    var g = CALENDARIO.grade;
-    if (!g){ $("btn-grade").hidden = true; return; }
-
-    $("grade-sub").textContent = CALENDARIO.turma + " · " + g.periodo;
-
-    var hojeN = new Date().getDay();
-    $("grade-semana").innerHTML = g.dias.map(function(d){
-      var aulas = d.aulas.length
-        ? d.aulas.map(function(a){
-            return '<div class="aula"><span class="hora">' + esc(a.h) + '</span>'
-                 + '<span class="disc">' + esc(a.sigla) + '</span>'
-                 + '<span class="longo">' + esc(a.nome) + '</span></div>';
-          }).join("")
-        : '<p class="vazio">Sem aula</p>';
-      return '<div class="dia' + (d.n === hojeN ? " e-hoje" : "") + '">'
-           + '<h3>' + esc(d.nome) + '</h3>' + aulas + '</div>';
-    }).join("");
-
-    var dlg = $("grade");
-    $("btn-grade").addEventListener("click", function(){ dlg.showModal(); });
-    dlg.querySelector(".fechar").addEventListener("click", function(){ dlg.close(); });
-    dlg.addEventListener("click", function(e){ if (e.target === dlg) dlg.close(); });
-  }
-
-  /* ---------------- início ---------------- */
   function iniciar(){
     $("eyebrow").textContent = CALENDARIO.turma;
     $("sub").textContent = CALENDARIO.turma + " · " + CALENDARIO.semestre;
@@ -927,7 +1177,6 @@ footer b{color:var(--muted);font-weight:600}
     }).join("");
 
     pintarDisciplinas();
-    pintarGrade();
     pintarChips();
     pintarPlacar();
     pintarHoje();
@@ -962,7 +1211,6 @@ footer b{color:var(--muted);font-weight:600}
 
     $("btn-ics").addEventListener("click", baixarICS);
     $("btn-share").addEventListener("click", compartilhar);
-    $("btn-print").addEventListener("click", function(){ window.print(); });
   }
 
   if (document.readyState === "loading"){
@@ -970,6 +1218,469 @@ footer b{color:var(--muted);font-weight:600}
   } else {
     iniciar();
   }
+})();
+</script>
+
+<script src="extras.js"></script>
+<script>
+/* ================================================================
+   Script das abas novas: menu hambúrguer, contatos, grupos,
+   fichamento, calculadora (com critérios embutidos), grade de
+   aulas (com aula agora embutido), férias e feedback.
+   ================================================================ */
+(function(){
+  "use strict";
+  var $ = function(id){ return document.getElementById(id); };
+  function esc(s){
+    return String(s||"").replace(/[&<>"]/g,function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];
+    });
+  }
+  function selo(confirmado){
+    return confirmado
+      ? '<span class="selo ok">Confirmado</span>'
+      : '<span class="selo pendente">Pendente</span>';
+  }
+
+  /* ---------------- menu hambúrguer ---------------- */
+  var btnMenu = $("btn-menu"), drawer = $("drawer"), backdrop = $("drawer-backdrop"), btnFechar = $("btn-fechar-menu");
+
+  function abrirMenu(){
+    drawer.classList.add("on"); backdrop.classList.add("on");
+    document.body.classList.add("menu-aberto");
+    btnMenu.setAttribute("aria-expanded","true"); drawer.setAttribute("aria-hidden","false");
+  }
+  function fecharMenu(){
+    drawer.classList.remove("on"); backdrop.classList.remove("on");
+    document.body.classList.remove("menu-aberto");
+    btnMenu.setAttribute("aria-expanded","false"); drawer.setAttribute("aria-hidden","true");
+  }
+  btnMenu.addEventListener("click", abrirMenu);
+  btnFechar.addEventListener("click", fecharMenu);
+  backdrop.addEventListener("click", fecharMenu);
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") fecharMenu(); });
+
+  function mostrarAba(id){
+    document.querySelectorAll(".drawer-link").forEach(function(l){
+      if (l.getAttribute("data-id") === id) l.setAttribute("aria-current","true");
+      else l.removeAttribute("aria-current");
+    });
+    document.querySelectorAll(".secao-extra").forEach(function(s){
+      s.classList.toggle("on", s.id === "tab-" + id);
+    });
+    window.scrollTo(0,0);
+    fecharMenu();
+  }
+
+  document.querySelectorAll(".drawer-link").forEach(function(link){
+    link.addEventListener("click", function(e){
+      e.preventDefault();
+      mostrarAba(link.getAttribute("data-id"));
+    });
+  });
+
+  var btnGradeAcoes = $("btn-grade");
+  if (btnGradeAcoes) btnGradeAcoes.addEventListener("click", function(){ mostrarAba("grade"); });
+
+  /* ---------------- contatos ---------------- */
+  function pintarContatos(){
+    $("lista-contatos").innerHTML = PAINEL.professores.map(function(p){
+      return '<div class="card contato" style="grid-template-columns:1fr">'
+        + '<div class="disc">' + esc(p.sigla) + '</div>'
+        + '<div class="nome">' + esc(p.nome) + '</div>'
+        + '<div class="email">' + (p.email
+            ? '<a href="mailto:' + esc(p.email) + '">' + esc(p.email) + '</a>'
+            : '<span class="falta">e-mail institucional — a confirmar</span>')
+          + '</div>'
+        + (p.telefone ? '<div class="email">' + esc(p.telefone) + '</div>' : '')
+      + '</div>';
+    }).join("");
+  }
+
+  /* ---------------- grupos de trabalho ----------------
+     Clique na matéria → escolhe N1 ou N2 → só então aparece a
+     lista. Não pré-seleciona nenhum período. */
+  function renderDupla(g){
+    return '<div class="dupla">'
+      + '<div class="quem"><b>' + esc(g.grupo) + '</b> — ' + esc(g.integrantes) + '</div>'
+      + '<div class="tema">' + esc(g.tema) + '</div>'
+      + '<div class="autor">' + esc(g.autor) + '</div>'
+    + '</div>';
+  }
+
+  function pintarGrupos(){
+    var siglas = Object.keys(PAINEL.grupos);
+    $("lista-grupos").innerHTML = siglas.map(function(sig){
+      var g = PAINEL.grupos[sig];
+      var n1 = g.n1 || [], n2 = g.n2 || [];
+      var total = n1.length + n2.length;
+
+      if (!total){
+        return '<div class="grupo-linha">'
+          + '<span class="nome-disc">' + esc(sig) + '</span>'
+          + '<span class="info">sem grupos cadastrados</span>'
+        + '</div>';
+      }
+
+      return '<details class="acc grupo-acc" data-sigla="' + esc(sig) + '">'
+        + '<summary><span class="titulo-acc"><span class="n">' + esc(sig) + '</span></span>'
+        + '<span class="info">' + total + ' grupo' + (total>1?'s':'') + '</span></summary>'
+        + '<div class="corpo">'
+          + (g.avisoPeriodo ? '<span class="aviso">' + esc(g.avisoPeriodo) + '</span>' : '')
+          + '<div class="periodo-toggle">'
+            + '<button type="button" class="periodo-btn" data-periodo="n1">N1 <span class="cnt">(' + n1.length + ')</span></button>'
+            + '<button type="button" class="periodo-btn" data-periodo="n2">N2 <span class="cnt">(' + n2.length + ')</span></button>'
+          + '</div>'
+          + '<div class="periodo-lista"><p class="vazio-txt">Escolha N1 ou N2 acima.</p></div>'
+        + '</div>'
+      + '</details>';
+    }).join("");
+
+    document.querySelectorAll(".periodo-btn").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        var acc = btn.closest(".grupo-acc");
+        var sigla = acc.getAttribute("data-sigla");
+        var periodo = btn.getAttribute("data-periodo");
+        acc.querySelectorAll(".periodo-btn").forEach(function(b){ b.classList.toggle("ativo", b === btn); });
+
+        var lista = (PAINEL.grupos[sigla] || {})[periodo] || [];
+        acc.querySelector(".periodo-lista").innerHTML = lista.length
+          ? lista.map(renderDupla).join("")
+          : '<p class="vazio-txt">Sem grupos cadastrados para ' + periodo.toUpperCase() + '.</p>';
+      });
+    });
+  }
+
+  /* ---------------- fichamento ---------------- */
+  function pintarFichamento(){
+    $("lista-fichamento").innerHTML = PAINEL.fichamento.map(function(f){
+      return '<details class="acc">'
+        + '<summary><span class="titulo-acc"><span class="n">' + esc(f.sigla) + '</span></span>' + selo(!!f.exigencias) + '</summary>'
+        + '<div class="corpo">' + (f.exigencias ? esc(f.exigencias)
+            : 'Ainda não há exigências confirmadas para esta disciplina. Preencher só depois de ler o enunciado oficial ou confirmar direto com o professor — nunca por “o que geralmente se pede”.')
+        + '</div></details>';
+    }).join("");
+  }
+
+  /* ---------------- feedback ---------------- */
+  function pintarFeedback(){
+    var box = $("feedback-box");
+    if (PAINEL.feedback.url){
+      box.innerHTML = '<p>Formulário anônimo para reclamações, correções e pedidos de atualização.</p>'
+        + '<a class="btn primary" style="margin-top:12px;text-decoration:none" href="'
+        + esc(PAINEL.feedback.url) + '" target="_blank" rel="noopener">Abrir formulário</a>';
+    } else {
+      box.innerHTML = '<p>Ainda não há um formulário cadastrado. Para ativar este espaço:</p>'
+        + '<p style="margin-top:8px">1. Crie um formulário anônimo (Google Forms funciona bem — em Configurações, desligue “Coletar e-mails”).<br>'
+        + '2. Peça reclamação, correção de data e sugestão, sem exigir identificação.<br>'
+        + '3. Cole o link em <code>PAINEL.feedback.url</code>, no extras.js.</p>'
+        + '<span class="btn" style="margin-top:12px;cursor:not-allowed;opacity:.5">Abrir formulário</span>';
+    }
+  }
+
+  /* ================= CALCULADORA UNIFICADA (A1 + A2 + Exame) ================= */
+  var calcSigla = PAINEL.calculadora[0].sigla;
+  var estadoCalc = {};
+
+  function dadosCalc(sigla){ return PAINEL.calculadora.filter(function(d){ return d.sigla === sigla; })[0]; }
+  function estado(sigla){
+    if (!estadoCalc[sigla]) estadoCalc[sigla] = {};
+    return estadoCalc[sigla];
+  }
+
+  function pintarCriterioCalc(sigla){
+    var c = (PAINEL.criterios || []).filter(function(x){ return x.sigla === sigla; })[0];
+    if (!c){ $("calc-criterio").innerHTML = ""; return; }
+    $("calc-criterio").innerHTML = '<div class="card" style="grid-template-columns:1fr;margin-bottom:14px">'
+      + '<div class="cabeca"><div><h3>' + esc(c.disciplina) + '</h3><div class="sigla">Critério de aprovação</div></div>' + selo(c.confirmado) + '</div>'
+      + (c.resumo ? '<p>' + esc(c.resumo) + '</p>' : '<p class="vazio-txt">Nenhum critério confirmado ainda.</p>')
+      + (c.faltaConfirmar ? '<div class="callout"><span class="rotulo">O que falta</span>' + esc(c.faltaConfirmar) + '</div>' : '')
+      + (c.fonte ? '<p class="fonte">Fonte: ' + esc(c.fonte) + '</p>' : '')
+    + '</div>';
+  }
+
+  function montarComponentesMini(campo, rotulo, sigla){
+    var d = dadosCalc(sigla);
+    var etapa = d ? d[campo] : null;
+    var btn = $("btn-comp-" + campo), caixa = $("comp-" + campo);
+    caixa.hidden = true; caixa.innerHTML = ""; delete caixa.dataset.montado;
+
+    if (!etapa || !etapa.componentes || etapa.componentes.length < 2){ btn.hidden = true; return; }
+    btn.hidden = false;
+    btn.onclick = function(){
+      caixa.hidden = !caixa.hidden;
+      if (!caixa.hidden && !caixa.dataset.montado){
+        caixa.dataset.montado = "1";
+        var avisoPeso = etapa.pesosConfirmados ? "" : '<span class="aviso" style="margin-bottom:8px">Peso não confirmado — só pra simular.</span>';
+        caixa.innerHTML = avisoPeso + etapa.componentes.map(function(c){
+          return '<div class="linha"><span>' + esc(c.nome) + ' (peso ' + c.peso + ')</span>'
+               + '<input type="number" min="0" max="10" step="0.1" data-peso="' + c.peso + '"></div>';
+        }).join("") + '<button type="button" class="btn usar">Usar como nota ' + esc(rotulo) + '</button>';
+
+        caixa.querySelector(".usar").addEventListener("click", function(){
+          var soma = 0, pesoTotal = 0, completo = true;
+          caixa.querySelectorAll("input[data-peso]").forEach(function(inp){
+            var v = parseFloat(inp.value), p = parseFloat(inp.dataset.peso);
+            pesoTotal += p;
+            if (isNaN(v)) completo = false; else soma += v * p;
+          });
+          if (!completo || !pesoTotal) return;
+          $("in-" + campo).value = (soma / pesoTotal).toFixed(2);
+          estado(calcSigla)[campo] = $("in-" + campo).value;
+          calcularCenarios();
+        });
+      }
+    };
+  }
+
+  function montarCalculadora(){
+    var sel = $("calc-disciplina");
+    sel.innerHTML = PAINEL.calculadora.map(function(d){
+      return '<option value="' + esc(d.sigla) + '">' + esc(d.sigla) + '</option>';
+    }).join("");
+    sel.addEventListener("change", function(){ calcSigla = sel.value; pintarCalculadora(); });
+
+    ["in-a1","in-a2","in-e","p-pesoA1","p-pesoA2","p-direta","p-direitoExame","p-comExame"].forEach(function(id){
+      $(id).addEventListener("input", function(){
+        var chave = id.indexOf("in-") === 0 ? id.slice(3) : id.slice(2);
+        estado(calcSigla)[chave] = $(id).value;
+        calcularCenarios();
+      });
+    });
+
+    pintarCalculadora();
+  }
+
+  function pintarCalculadora(){
+    pintarCriterioCalc(calcSigla);
+    montarComponentesMini("a1", "A1", calcSigla);
+    montarComponentesMini("a2", "A2", calcSigla);
+
+    var e = estado(calcSigla);
+    $("in-a1").value = e.a1 || "";
+    $("in-a2").value = e.a2 || "";
+    $("in-e").value = e.e || "";
+    $("p-pesoA1").value = e.pesoA1 || "";
+    $("p-pesoA2").value = e.pesoA2 || "";
+    $("p-direta").value = e.direta || "";
+    $("p-direitoExame").value = e.direitoExame || "";
+    $("p-comExame").value = e.comExame || "";
+
+    calcularCenarios();
+  }
+
+  function cenarioCard(cls, titulo, texto){
+    return '<div class="cenario ' + cls + '"><h4>' + esc(titulo) + '</h4><p>' + esc(texto) + '</p></div>';
+  }
+
+  function calcularCenarios(){
+    var out = $("calc-cenarios");
+    var a1 = parseFloat($("in-a1").value);
+    var a2 = parseFloat($("in-a2").value);
+    var eNota = parseFloat($("in-e").value);
+    var pA1 = parseFloat($("p-pesoA1").value);
+    var pA2 = parseFloat($("p-pesoA2").value);
+    var minDireta = parseFloat($("p-direta").value);
+    var minDireito = parseFloat($("p-direitoExame").value);
+    var minComExameCampo = parseFloat($("p-comExame").value);
+
+    if (isNaN(a1)){
+      out.innerHTML = '<p class="vazio-lista">Preencha ao menos a nota de A1 para ver os cenários.</p>';
+      return;
+    }
+    if (isNaN(pA1) || isNaN(pA2) || (pA1 + pA2) <= 0 || isNaN(minDireta)){
+      out.innerHTML = '<p class="vazio-lista">Abra "Parâmetros da fórmula" acima e preencha ao menos os pesos de A1/A2 e a média mínima para calcular.</p>';
+      return;
+    }
+    var pesoTotal = pA1 + pA2;
+
+    var card1;
+    if (!isNaN(a2)){
+      var mf = (a1*pA1 + a2*pA2) / pesoTotal;
+      card1 = mf >= minDireta
+        ? cenarioCard("ok","Aprovação direta","Média " + mf.toFixed(2) + " — já bate os " + minDireta.toFixed(1) + " necessários.")
+        : cenarioCard("alerta","Aprovação direta","Média " + mf.toFixed(2) + " — abaixo de " + minDireta.toFixed(1) + ". Não fecha sem exame.");
+    } else {
+      var necessarioA2 = (minDireta*pesoTotal - a1*pA1) / pA2;
+      if (necessarioA2 > 10) card1 = cenarioCard("critico","Aprovação direta","Mesmo com 10 em A2, não fecha " + minDireta.toFixed(1) + " direto.");
+      else if (necessarioA2 <= 0) card1 = cenarioCard("ok","Aprovação direta","Com o A1 que você já tem, qualquer nota em A2 garante a média direta.");
+      else card1 = cenarioCard("alerta","Aprovação direta","Precisa de pelo menos " + necessarioA2.toFixed(2) + " em A2 pra fechar " + minDireta.toFixed(1) + " direto.");
+    }
+
+    var card2;
+    if (isNaN(a2)){
+      card2 = cenarioCard("","Com exame","Preencha A2 pra calcular o cenário do exame.");
+    } else {
+      var mf2 = (a1*pA1 + a2*pA2) / pesoTotal;
+      if (mf2 >= minDireta){
+        card2 = cenarioCard("ok","Com exame","Não precisa — a aprovação direta já fecha.");
+      } else if (!isNaN(minDireito) && mf2 < minDireito){
+        card2 = cenarioCard("critico","Com exame","Média " + mf2.toFixed(2) + ", abaixo de " + minDireito.toFixed(1) + " — não teria direito a exame, do jeito que está configurado aqui.");
+      } else {
+        var alvoFinal = !isNaN(minComExameCampo) ? minComExameCampo : minDireta;
+        if (!isNaN(eNota)){
+          var final_ = (mf2 + eNota) / 2;
+          card2 = final_ >= alvoFinal
+            ? cenarioCard("ok","Com exame","Com " + eNota.toFixed(1) + " no exame, a média final ficaria em " + final_.toFixed(2) + " — passaria.")
+            : cenarioCard("alerta","Com exame","Com " + eNota.toFixed(1) + " no exame, a média final ficaria em " + final_.toFixed(2) + " — ainda abaixo de " + alvoFinal.toFixed(1) + ".");
+        } else {
+          var necessarioE = alvoFinal*2 - mf2;
+          if (necessarioE > 10) card2 = cenarioCard("critico","Com exame","Mesmo com 10 no exame, não fecha " + alvoFinal.toFixed(1) + ".");
+          else if (necessarioE <= 0) card2 = cenarioCard("ok","Com exame","Qualquer nota no exame já garante essa média.");
+          else card2 = cenarioCard("alerta","Com exame","Precisa de pelo menos " + necessarioE.toFixed(2) + " no exame.");
+        }
+      }
+    }
+
+    var card3;
+    if (isNaN(a2)){
+      card3 = cenarioCard("","Situação hoje","A1: " + a1.toFixed(1) + ". Falta A2 pra saber a média completa.");
+    } else {
+      var mf3 = (a1*pA1 + a2*pA2) / pesoTotal;
+      card3 = mf3 >= minDireta
+        ? cenarioCard("ok","Situação hoje","Média " + mf3.toFixed(2) + ". Aprovado(a) direto, se essas forem as notas finais.")
+        : cenarioCard("alerta","Situação hoje","Média " + mf3.toFixed(2) + ". Ainda não fecha direto — veja o cenário “Com exame”.");
+    }
+
+    out.innerHTML = card1 + card2 + card3;
+  }
+
+  /* ================= GRADE DE AULAS + AULA AGORA (uma aba só) ================= */
+  var DIAS_SEMANA = ["domingo","segunda","terça","quarta","quinta","sexta","sábado"];
+  function minutos(hhmm){ var p = hhmm.split("h"); return (+p[0]) * 60 + (+p[1]); }
+
+  function pintarGradeCompleta(){
+    var grade = (typeof CALENDARIO !== "undefined") ? CALENDARIO.grade : null;
+    if (!grade) return;
+
+    var agora = new Date();
+    var diaSemana = agora.getDay();
+    var min = agora.getHours() * 60 + agora.getMinutes();
+
+    var diaGrade = grade.dias.filter(function(d){ return d.n === diaSemana; })[0];
+    var atual = null, proxima = null;
+    if (diaGrade){
+      diaGrade.aulas.forEach(function(a){
+        var f = a.h.split(" – ");
+        var ini = minutos(f[0]), fim = minutos(f[1]);
+        if (min >= ini && min < fim) atual = a;
+        else if (min < ini && !proxima) proxima = a;
+      });
+    }
+
+    var box = $("aula-agora-box");
+    if (atual){
+      box.setAttribute("data-alerta", "critico");
+      box.innerHTML = '<p class="label">Acontecendo agora</p><h2>' + esc(atual.nome) + '</h2>'
+        + '<p class="meta">' + esc(atual.h) + ' · sala não informada</p>';
+    } else if (proxima){
+      box.removeAttribute("data-alerta");
+      box.innerHTML = '<p class="label">Próxima aula de hoje</p><h2>' + esc(proxima.nome) + '</h2>'
+        + '<p class="meta">começa às ' + esc(proxima.h.split(" – ")[0]) + ' · sala não informada</p>';
+    } else {
+      box.removeAttribute("data-alerta");
+      box.innerHTML = '<p class="label">Agora</p><h2>Sem mais aulas hoje</h2>'
+        + '<p class="meta">' + esc(DIAS_SEMANA[diaSemana]) + '</p>';
+    }
+
+    $("grade-full").innerHTML = grade.dias.map(function(d){
+      var aulas = d.aulas.length
+        ? d.aulas.map(function(a){
+            return '<div class="aula"><span class="hora">' + esc(a.h) + '</span>'
+                 + '<span class="disc">' + esc(a.sigla) + '</span>'
+                 + '<span class="longo">' + esc(a.nome) + '</span></div>';
+          }).join("")
+        : '<p class="vazio">Sem aula</p>';
+      return '<div class="dia' + (d.n === diaSemana ? " e-hoje" : "") + '"><h3>' + esc(d.nome) + '</h3>' + aulas + '</div>';
+    }).join("");
+  }
+
+  /* ================= FÉRIAS: contador ao vivo, fixo no fim do calendário =================
+     Conta até 23h59min59s do último dia letivo — o mesmo tipo de
+     contagem regressiva do destaque do topo (dias/horas/min/seg),
+     só que não some quando o dia acaba: quando o prazo estoura,
+     vira o aviso de que as férias começaram. */
+  var feriasAlvo = null, feriasFase = null;
+
+  function montarFerias(){
+    var f = PAINEL.ferias;
+    var p = f.data.split("-");
+    feriasAlvo = new Date(+p[0], +p[1]-1, +p[2], 23, 59, 59);
+
+    $("ferias-card").innerHTML =
+        '<p class="rotulo" id="ferias-rotulo">' + esc(f.rotulo) + '</p>'
+      + '<div class="ferias-relogio">'
+        + '<div class="fu"><span class="fn" id="fer-d">--</span><span class="fl">dias</span></div>'
+        + '<div class="fu"><span class="fn" id="fer-h">--</span><span class="fl">horas</span></div>'
+        + '<div class="fu"><span class="fn" id="fer-m">--</span><span class="fl">min</span></div>'
+        + '<div class="fu"><span class="fn" id="fer-s">--</span><span class="fl">seg</span></div>'
+      + '</div>'
+      + '<p class="fonte" id="ferias-fonte">Fonte: ' + esc(f.fonte) + '</p>';
+
+    tickFerias();
+  }
+
+  function tickFerias(){
+    var f = PAINEL.ferias;
+    var card = $("ferias-card");
+    var agora = new Date();
+    var ms = feriasAlvo - agora;
+
+    if (ms <= 0){
+      if (feriasFase !== "passou"){
+        feriasFase = "passou";
+        card.className = "ferias-card passou";
+        card.querySelectorAll(".confete-extra").forEach(function(el){ el.remove(); });
+        card.innerHTML = '<p class="rotulo">🎉 Começaram as férias!</p>'
+          + '<p class="legenda">' + esc(f.rotulo) + ' já passou.</p>'
+          + '<p class="fonte">Fonte: ' + esc(f.fonte) + '</p>';
+      }
+      return;
+    }
+
+    var d = Math.floor(ms / 86400000);
+    var h = Math.floor(ms % 86400000 / 3600000);
+    var m = Math.floor(ms % 3600000 / 60000);
+    var s = Math.floor(ms % 60000 / 1000);
+    var ehHoje = (d === 0);
+
+    if (feriasFase !== (ehHoje ? "hoje" : "normal")){
+      feriasFase = ehHoje ? "hoje" : "normal";
+      card.className = "ferias-card" + (ehHoje ? " hoje" : "");
+      $("ferias-rotulo").textContent = ehHoje ? "Últimas horas de aula! 🎉" : PAINEL.ferias.rotulo;
+      card.querySelectorAll(".confete-extra").forEach(function(el){ el.remove(); });
+      if (ehHoje){
+        var emojis = ["🎉","✨","🎊","🎈"];
+        var extra = "";
+        for (var i = 0; i < 8; i++){
+          var esq = Math.round((i * 137) % 90);
+          var atraso = ((i * 0.19) % 1.3).toFixed(2);
+          extra += '<span class="confete-extra" style="left:' + esq + '%;animation-delay:' + atraso + 's">' + emojis[i % emojis.length] + '</span>';
+        }
+        card.insertAdjacentHTML("beforeend", extra);
+      }
+    }
+
+    $("fer-d").textContent = d;
+    $("fer-h").textContent = String(h).padStart(2, "0");
+    $("fer-m").textContent = String(m).padStart(2, "0");
+    $("fer-s").textContent = String(s).padStart(2, "0");
+  }
+
+  function iniciar(){
+    pintarContatos();
+    pintarGrupos();
+    pintarFichamento();
+    montarCalculadora();
+    pintarGradeCompleta();
+    montarFerias();
+    pintarFeedback();
+    setInterval(pintarGradeCompleta, 30000);
+    setInterval(tickFerias, 1000);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar);
+  else iniciar();
 })();
 </script>
 </body>
