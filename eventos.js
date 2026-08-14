@@ -20,8 +20,8 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-08-12T21:00:00-03:00",
-  fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas e cronogramas dos professores, mais o mural do Portal do Aluno",
+  atualizadoEm: "2026-08-14T09:00:00-03:00",
+  fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
   /* Grade fixa de aulas da semana, do Quadro de Horário do Portal do Aluno.
@@ -184,6 +184,13 @@ const CALENDARIO = {
       titulo: "Betioli — Lição sobre o ordenamento jurídico",
       descricao: "Resumo manuscrito da lição do Betioli sobre “ordenamento jurídico” (Introdução ao Direito, 16ª ed., Saraiva, 2023). O cronograma não numera esta lição.",
       oQueFazer: "Escrever o resumo à mão, você mesmo, e enviar a digitalização pelo Moodle."
+    },
+    {
+      data: "2026-09-25", hora: null, disciplina: "Ciên. Pol.", tipo: "AVALIACAO",
+      titulo: "Avaliação (40% da nota)",
+      descricao: "Primeira avaliação de Ciência Política. Vale 40% da nota; os outros 60% vêm de uma prova de múltipla escolha ainda sem data marcada.",
+      oQueFazer: "Atenção à estrutura N1/N2 da disciplina: trabalhos e atividades feitos antes, mesmo concluídos ainda dentro do período de N1, só entram no cômputo da nota em N2.",
+      fonte: "Anotado em aula pelo representante da turma, 12/08/2026."
     },
     {
       data: "2026-09-30", hora: null, disciplina: "Econ. Pol.", tipo: "AVALIACAO",
@@ -423,8 +430,28 @@ const CALENDARIO = {
       texto: "O plano de aula da disciplina é explícito: a nota se compõe de prova, seminário e “a entrega realizada no moodle de digitalização de MANUSCRITO pelo(a) próprio(a) aluno(a), conforme cronograma”. Ou seja, o resumo é escrito à mão pelo aluno e a digitalização é enviada pelo Moodle. Só que a sala de TGD tem uma seção chamada “ENTREGAS DOS MANUSCRITOS PARA AVALIAÇÃO” que está completamente vazia, sem nenhuma tarefa aberta, e o fórum de avisos não tem nenhuma publicação. Conferido em 12/08/2026. O primeiro manuscrito é 20/08, então vale cobrar do professor a abertura da entrega antes disso, e confirmar se aceita foto ou só PDF."
     },
     {
-      titulo: "Cinco disciplinas não têm nenhuma data publicada",
-      texto: "A turma tem nove disciplinas no Moodle, mas só quatro alimentam o calendário: Teoria Geral do Direito, Economia Política, Prática Extensionista e Antropologia Jurídica. Não há nenhuma data lançada para Ciência Política, Ciência, Tecnologia e Sociedade no Direito, Ética e Cidadania, História do Direito e Introdução ao Direito Privado. Nas três primeiras a sala está vazia, sem nem plano de ensino. Vale cobrar as datas de avaliação dessas disciplinas antes que o semestre avance."
+      titulo: "Quatro disciplinas ainda não têm nenhuma data publicada",
+      texto: "A turma tem nove disciplinas no Moodle. Ciência Política ganhou sua primeira data em 12/08/2026 (avaliação de 25/09, anotada em aula), mas Ciência, Tecnologia e Sociedade no Direito, Ética e Cidadania, História do Direito e Introdução ao Direito Privado continuam sem nenhuma data. Nas duas primeiras a sala do Moodle está vazia, sem nem plano de ensino. Vale cobrar as datas de avaliação dessas disciplinas antes que o semestre avance."
+    },
+    {
+      titulo: "TGD — o manuscrito conta nota ou não? As fontes se contradizem",
+      texto: "O plano de aula da disciplina dá peso 1 ao manuscrito na composição de A1 e A2. Mas o professor esclareceu em sala, em 12/08/2026, que o trabalho pedido não é um fichamento tradicional e sim um manuscrito de formato livre — e que ele “não é obrigatório e não será avaliado formalmente”, embora peça que o aluno inclua uma opinião crítica sobre a obra. Essas duas informações não batem: uma diz que vale nota, a outra diz que não é avaliado. Confirmar direto com o professor antes de decidir o quanto investir em cada manuscrito."
+    },
+    {
+      titulo: "TGD — datas dos 4 seminários ainda não estão no calendário",
+      texto: "O seminário (peso 2 na nota) tem 4 temas possíveis — norma jurídica; Julgamento de Nuremberg; Direito natural e Direito positivo; tipos de norma jurídica —, dura de 10 a 15 minutos por grupo e exige apresentação oral mais o arquivo de slides no Moodle. As datas de cada seminário foram anotadas em sala, mas em uma foto do quadro que ainda não foi transcrita. Conferir essa foto e lançar as datas exatas assim que possível."
+    },
+    {
+      titulo: "História do Direito — 6 apresentações para 7 temas",
+      texto: "Toda semana um grupo diferente apresenta o tema do dia (10 a 15 minutos), com um cronograma de temas, cada um com texto e bibliografia próprios. Nas anotações de aula aparecem 6 apresentações para 7 temas — ainda não está confirmado se um dos temas realmente fica sem grupo, ou se há algum ajuste combinado em sala que não foi registrado. Confirmar com o professor. Grupos de 2 a 3 pessoas, podendo ser maiores; o representante da turma precisa enviar ao professor a composição dos grupos, em ordem cronológica das aulas."
+    },
+    {
+      titulo: "História do Direito — lembrete sobre o \"slide 6\"",
+      texto: "Ficou registrado um lembrete de avisar o professor sobre o “slide 6”, sem que as anotações especifiquem do que se trata. Verificar o conteúdo exato antes da próxima aula, para não perder o prazo de avisar."
+    },
+    {
+      titulo: "Ciência Política — falta a data da segunda avaliação (60% da nota)",
+      texto: "A avaliação de 25/09 vale 40% da nota. Os outros 60% vêm de uma prova de múltipla escolha que ainda não tem data divulgada. Assim que sair, atualizar o calendário."
     },
     {
       titulo: "História do Direito — o plano publicado é do 1º semestre",
