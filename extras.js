@@ -67,9 +67,9 @@ const PAINEL = {
     { sigla:"Ética",       disciplina:"Ética e Cidadania", confirmado:false, resumo:"", faltaConfirmar:"Nenhuma fórmula de aprovação confirmada ainda.", fonte:"" },
     {
       sigla:"CTS", disciplina:"Ciência, Tecnologia e Sociedade no Direito", confirmado:false,
-      resumo:"São dois momentos de avaliação, cada um com dois elementos. A N1 é formada por prova individual — com consulta permitida a uma folha de anotações, frente e verso — somada ao seminário. A N2 é formada por prova feita em grupo, também somada ao seminário.",
-      faltaConfirmar:"Os pesos de cada elemento dentro de N1 e N2, as datas das provas e dos seminários, e a nota mínima para aprovação.",
-      fonte:"Anotado em aula pelo representante da turma, 12/08/2026."
+      resumo:"NI1: prova escrita individual (peso 7), aplicada em 18/09, com consulta permitida a uma folha manuscrita, mais os seminários em grupo (peso 3), apresentados em 11/09. NI2: prova prática feita em grupo (peso 7), em 30/10, mais os seminários em grupo (peso 3), em 06/11. As duas etapas fecham 10 pontos cada, sem componente indefinido.",
+      faltaConfirmar:"A nota mínima para aprovação e a fórmula que combina NI1 e NI2 na média final do semestre.",
+      fonte:"Plano de Ensino da disciplina (arquivo 1017334), cronograma e critérios de avaliação, publicado na sala do Moodle em 17/08/2026. Confirma e detalha o que o representante da turma já tinha anotado em aula em 12/08/2026."
     },
     {
       sigla:"Ciên. Pol.", disciplina:"Ciência Política", confirmado:false,
@@ -111,8 +111,10 @@ const PAINEL = {
     { sigla:"Econ. Pol.",   blocos:[] },
 
     { sigla:"CTS", blocos:[
-      { titulo:"Avaliação", texto:"A disciplina é avaliada em dois momentos, cada um composto por dois elementos. A N1 é formada por prova individual, com consulta permitida a uma folha de anotações utilizável em frente e verso, somada ao seminário. A N2 é formada por prova realizada em grupo, também somada ao seminário." }
-    ], fonte:"Orientações do professor em aula, 12 de agosto de 2026." },
+      { titulo:"Avaliação", texto:"A disciplina é avaliada em dois momentos, cada um composto por dois elementos e cada um fechando dez pontos. A NI1 é formada pela prova escrita individual, com peso 7, em que se permite consulta a uma folha de anotações manuscrita, utilizável em frente e verso, somada ao seminário em grupo, com peso 3. A NI2 muda o formato da prova: em vez de escrita e individual, ela é prática e feita em grupo, mantendo o peso 7, e também se soma a um seminário em grupo de peso 3." },
+      { titulo:"Datas", texto:"Os seminários da NI1 são apresentados em 11 de setembro e a prova escrita individual é aplicada em 18 de setembro, com vista de prova em 25 de setembro. Na segunda etapa, a oficina de análise crítica de uma aplicação de inteligência artificial acontece em 23 de outubro e prepara a prova prática em grupo, aplicada em 30 de outubro; os seminários da NI2 vêm em 6 de novembro e a vista da prova em 13 de novembro. As substitutivas ficam em 4 de dezembro e as finais em 11 de dezembro. Não há aula em 28 de agosto, por causa da Semana Jurídica, nem em 9 de outubro, por causa da Semana Internacional de Direitos Humanos." },
+      { titulo:"A oficina de 23/10 não é avaliação, mas conta", texto:"A aula de 23 de outubro é uma oficina prática de análise crítica de uma aplicação de inteligência artificial. Ela não vale nota por si, mas é o ensaio direto da prova prática em grupo da semana seguinte, que vale peso 7 da NI2. Quem falta chega na prova sem o método de análise que será cobrado." }
+    ], fonte:"Plano de Ensino da disciplina (arquivo 1017334), publicado na sala do Moodle em 17 de agosto de 2026, e orientações do professor em aula, 12 de agosto de 2026." },
 
     { sigla:"Ciên. Pol.", blocos:[
       { titulo:"Fichamento", texto:"O fichamento da disciplina é manuscrito, ou seja, deve ser escrito à mão pelo próprio aluno. Tanto o suporte quanto a forma de elaboração ficam a critério de cada um, podendo ser utilizada ficha, folha sulfite, papel almaço ou material equivalente, com organização em tópicos, em texto corrido ou em outra estrutura de preferência do aluno. Não há, portanto, modelo obrigatório de apresentação. O foco da avaliação está no conteúdo: o que se espera é o registro fiel e compreensivo da leitura, com identificação das ideias centrais da obra e domínio efetivo do material estudado, e não o padrão visual do trabalho." },
@@ -165,7 +167,14 @@ const PAINEL = {
     { sigla:"Antrop. Jur.",  a1:null, a2:null },
     { sigla:"IDP",           a1:null, a2:null },
     { sigla:"Ética",         a1:null, a2:null },
-    { sigla:"CTS",           a1:null, a2:null }
+    { sigla:"CTS",
+      a1:{ nome:"NI1", componentes:[
+        { nome:"Prova escrita individual NI1", peso:70 }, { nome:"Seminários em grupo", peso:30 }
+      ], pesosConfirmados:true },
+      a2:{ nome:"NI2", componentes:[
+        { nome:"Prova prática em grupo NI2", peso:70 }, { nome:"Seminários em grupo", peso:30 }
+      ], pesosConfirmados:true }
+    }
   ],
 
   /* ---------------- 8. GRUPOS DE TRABALHO ----------------
