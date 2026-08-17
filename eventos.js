@@ -128,6 +128,20 @@ const CALENDARIO = {
       fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 4 do cronograma."
     },
     {
+      data: "2026-08-31", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
+      titulo: "Seminário 1 — Norma Jurídica (Norberto Bobbio)",
+      descricao: "Primeiro dos quatro seminários de Teoria Geral do Direito, que compõem o peso 2 da nota A1. Apresentação oral em sala, de 10 a 15 minutos por grupo.",
+      oQueFazer: "O arquivo da apresentação precisa estar no Moodle antes de subir para apresentar — o enunciado pede no mínimo 1 dia de antecedência. Basta 1 integrante postar pelo grupo inteiro.",
+      fonte: "Cronograma dos seminários exibido pelo professor em sala, 12/08/2026."
+    },
+    {
+      data: "2026-08-31", hora: "23:59", disciplina: "TGD", tipo: "ENTREGA",
+      titulo: "Arquivo do Seminário 1 (Norma Jurídica)",
+      descricao: "Envio, pelo Moodle, do arquivo de slides usado no Seminário 1. É o segundo item obrigatório do seminário: sem o arquivo, a apresentação não fecha a nota.",
+      oQueFazer: "PDF, com o nome completo de todos os integrantes e o título do tema. Basta 1 integrante postar pelo grupo. O prazo geral da tarefa no Moodle é 10/09, mas quem apresenta hoje precisa postar até hoje.",
+      fonte: "Enunciado da tarefa no Moodle e cronograma dos seminários exibido em sala, 12/08/2026."
+    },
+    {
       data: "2026-08-31", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Betioli — Lição XI",
       descricao: "Resumo manuscrito da Lição XI (“a norma jurídica”) do Betioli, Introdução ao Direito, 16ª ed., Saraiva, 2023.",
@@ -140,6 +154,55 @@ const CALENDARIO = {
       titulo: "Kelsen, Teoria Pura do Direito — cap. 1",
       descricao: "Resumo manuscrito do capítulo 1 (“Direito e natureza”) de KELSEN, Hans. Teoria pura do direito — versão condensada pelo autor.",
       oQueFazer: "Atenção à edição: o cronograma pede a versão condensada pelo autor, não a completa. Escrever à mão e enviar a digitalização pelo Moodle. É o primeiro de uma sequência de manuscritos sobre o Kelsen."
+    },
+    {
+      data: "2026-09-03", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
+      titulo: "Seminário 2 — Julgamento de Nuremberg",
+      descricao: "Segundo seminário de Teoria Geral do Direito. Cai no mesmo dia do Seminário 3: são dois grupos apresentando na mesma aula.",
+      oQueFazer: "Arquivo no Moodle antes de apresentar (no mínimo 1 dia de antecedência, pelo enunciado). Apresentação de 10 a 15 minutos.",
+      fonte: "Cronograma dos seminários exibido pelo professor em sala, 12/08/2026."
+    },
+    {
+      data: "2026-09-03", hora: "23:59", disciplina: "TGD", tipo: "ENTREGA",
+      titulo: "Arquivo do Seminário 2 (Julgamento de Nuremberg)",
+      descricao: "Envio, pelo Moodle, do arquivo de slides do Seminário 2.",
+      oQueFazer: "PDF, com nome completo de todos os integrantes e o título do tema. Basta 1 integrante postar pelo grupo.",
+      fonte: "Enunciado da tarefa no Moodle e cronograma dos seminários exibido em sala, 12/08/2026."
+    },
+    {
+      data: "2026-09-03", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
+      titulo: "Seminário 3 — Direito Natural e Direito Positivo",
+      descricao: "Terceiro seminário de Teoria Geral do Direito, na mesma aula do Seminário 2.",
+      oQueFazer: "Arquivo no Moodle antes de apresentar. Apresentação de 10 a 15 minutos.",
+      fonte: "Cronograma dos seminários exibido pelo professor em sala, 12/08/2026."
+    },
+    {
+      data: "2026-09-03", hora: "23:59", disciplina: "TGD", tipo: "ENTREGA",
+      titulo: "Arquivo do Seminário 3 (Direito Natural e Direito Positivo)",
+      descricao: "Envio, pelo Moodle, do arquivo de slides do Seminário 3.",
+      oQueFazer: "PDF, com nome completo de todos os integrantes e o título do tema. Basta 1 integrante postar pelo grupo.",
+      fonte: "Enunciado da tarefa no Moodle e cronograma dos seminários exibido em sala, 12/08/2026."
+    },
+    {
+      data: "2026-09-03", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
+      titulo: "Apresentação 1 — Direito na Grécia",
+      descricao: "Primeira apresentação em grupo de História do Direito, de 10 a 15 minutos. Material: “Direito na Grécia Antiga” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 31-42.",
+      oQueFazer: "Data estimada. O cronograma do professor traz 04/03, uma quarta-feira do 1º semestre, quando a disciplina era às quartas; neste semestre ela é às quintas. A data foi reposicionada para a quinta equivalente. Confirme com o professor antes de fechar o cronograma do grupo.",
+      fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
+    },
+    {
+      data: "2026-09-10", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
+      titulo: "Apresentação 2 — Direito em Roma",
+      descricao: "Apresentação em grupo de 10 a 15 minutos. Material: “Direito em Roma” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 44-55.",
+      oQueFazer: "Data estimada, reposicionada de 11/03 para a quinta equivalente deste semestre. Confirme com o professor.",
+      fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
+    },
+    {
+      data: "2026-09-17", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
+      titulo: "Apresentação 3 — Direito na Idade Média",
+      descricao: "Apresentação em grupo de 10 a 15 minutos. Material: “O Direito na Idade Média” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 57-76.",
+      oQueFazer: "Data estimada, reposicionada de 18/03 para a quinta equivalente deste semestre. Confirme com o professor.",
+      fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
     },
     {
       data: "2026-09-04", hora: null, disciplina: "Ciên. Pol.", tipo: "AULA",
@@ -166,10 +229,24 @@ const CALENDARIO = {
       oQueFazer: "São dois capítulos, não um. Escrever à mão e enviar a digitalização pelo Moodle. Cai no mesmo dia do prazo do arquivo do seminário — são duas entregas diferentes, não confunda."
     },
     {
+      data: "2026-09-10", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
+      titulo: "Seminário 4 — Tipos de Normas Jurídicas",
+      descricao: "Último dos quatro seminários de Teoria Geral do Direito. Tema: norma legal, norma jurisdicional, norma negocial e norma costumeira.",
+      oQueFazer: "Arquivo no Moodle antes de apresentar. Apresentação de 10 a 15 minutos. Este é o dia mais carregado do semestre em TGD: caem também o manuscrito do Kelsen e o prazo final da tarefa dos seminários.",
+      fonte: "Cronograma dos seminários exibido pelo professor em sala, 12/08/2026."
+    },
+    {
+      data: "2026-09-10", hora: "23:59", disciplina: "TGD", tipo: "ENTREGA",
+      titulo: "Arquivo do Seminário 4 (Tipos de Normas Jurídicas)",
+      descricao: "Envio, pelo Moodle, do arquivo de slides do Seminário 4.",
+      oQueFazer: "PDF, com nome completo de todos os integrantes e o título do tema. Basta 1 integrante postar pelo grupo.",
+      fonte: "Enunciado da tarefa no Moodle e cronograma dos seminários exibido em sala, 12/08/2026."
+    },
+    {
       data: "2026-09-10", hora: "23:59", disciplina: "TGD", tipo: "TAREFA",
-      titulo: "A1 — Arquivo da apresentação do seminário",
-      descricao: "Envio, pelo Moodle, do arquivo que o grupo vai usar na apresentação em sala. A tarefa abriu em 03/08 e vence em 10/09 às 23h59.",
-      oQueFazer: "Regras do enunciado: o arquivo tem de estar em PDF; precisa conter o nome completo de todos os integrantes do grupo; deve ser postado no mínimo 1 dia antes da apresentação em sala; e basta 1 integrante postar pelo grupo inteiro."
+      titulo: "A1 — Prazo final da tarefa dos seminários no Moodle",
+      descricao: "A tarefa “Entrega do arquivo e apresentação do seminário” abriu na segunda-feira, 03/08/2026, às 00h00, e fecha hoje às 23h59. É a mesma tarefa para os quatro grupos: quem apresentou em 31/08 ou 03/09 já deveria ter postado na sua data.",
+      oQueFazer: "Regras do enunciado: arquivo em PDF; nome completo de todos os integrantes do grupo; postado no mínimo 1 dia antes da apresentação em sala; basta 1 integrante postar pelo grupo inteiro. Passou das 23h59, o envio fecha sozinho."
     },
     {
       data: "2026-09-11", hora: null, disciplina: "Ciên. Pol.", tipo: "ENTREGA", confirmar: true,
@@ -311,6 +388,20 @@ const CALENDARIO = {
       oQueFazer: "Escrever à mão e enviar a digitalização pelo Moodle. Começa aqui o bloco de hermenêutica e interpretação, que continua em 22/10."
     },
     {
+      data: "2026-10-15", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
+      titulo: "Apresentação 4 — Direito na América Espanhola e Portuguesa",
+      descricao: "Apresentação em grupo de 10 a 15 minutos. Material: “Direito e barbárie na conquista da América indígena” (texto em PDF e slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, e texto disponibilizado no Moodle.",
+      oQueFazer: "Data estimada, reposicionada de 15/04 para a quinta equivalente deste semestre. Confirme com o professor.",
+      fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
+    },
+    {
+      data: "2026-10-22", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
+      titulo: "Apresentação 5 — Revolução Francesa e Direito Moderno",
+      descricao: "Apresentação em grupo de 10 a 15 minutos. Material: “A Revolução Francesa e a Evolução do Estado Liberal ao Estado Democrático de Direito” (slides no Moodle). Bibliografia: GRIVOT, Débora C. H. et al. História do Direito. Grupo A, 2017 (Minha Biblioteca), pp. 127-150.",
+      oQueFazer: "Data estimada, reposicionada de 22/04 para a quinta equivalente deste semestre. Confirme com o professor.",
+      fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
+    },
+    {
       data: "2026-10-22", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Betioli — Lição XXXI",
       descricao: "Resumo manuscrito da Lição XXXI (“escolas de interpretação”) do Betioli, Introdução ao Direito, 16ª ed., Saraiva, 2023.",
@@ -324,6 +415,13 @@ const CALENDARIO = {
     },
 
     /* ---------------- NOVEMBRO DE 2026 ---------------- */
+    {
+      data: "2026-10-29", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
+      titulo: "Apresentação 6 — Direito no Império",
+      descricao: "Apresentação em grupo de 10 a 15 minutos. Material: “Brasil Império — História do Direito” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 128-143.",
+      oQueFazer: "Data estimada, reposicionada de 29/04 para a quinta equivalente deste semestre. Confirme com o professor.",
+      fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
+    },
     {
       data: "2026-10-30", hora: null, disciplina: "Ciên. Pol.", tipo: "APRESENTACAO",
       titulo: "Seminários em grupo",
@@ -347,6 +445,13 @@ const CALENDARIO = {
       titulo: "Prova integrada",
       descricao: "Mesma Prova Integrada do dia, registrada também no cronograma da Prática Extensionista.",
       oQueFazer: "Aparece duas vezes porque está marcada nas duas disciplinas. É um compromisso só."
+    },
+    {
+      data: "2026-11-05", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
+      titulo: "Apresentação 7 — Direito na República",
+      descricao: "Última apresentação em grupo, de 10 a 15 minutos. Material: “A Construção da República no Brasil (1889-1943)” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 144-172.",
+      oQueFazer: "Data estimada, reposicionada de 06/05 para a quinta equivalente deste semestre. Atenção: são 7 temas para 6 apresentações — este pode ser o tema absorvido por outro grupo ou apresentado pelo próprio professor. Confirme com ele.",
+      fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
     },
     {
       data: "2026-11-05", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
@@ -526,8 +631,16 @@ const CALENDARIO = {
       texto: "A turma tem nove disciplinas no Moodle. Ciência Política publicou seu plano de ensino em 14/08/2026 e entrou no calendário com o cronograma completo do semestre. História do Direito tem a atividade de 25/09, anotada em aula. Mas Ciência, Tecnologia e Sociedade no Direito, Ética e Cidadania e Introdução ao Direito Privado continuam sem nenhuma data. Nas duas primeiras a sala do Moodle está vazia, sem nem plano de ensino. Vale cobrar as datas de avaliação dessas disciplinas antes que o semestre avance."
     },
     {
-      titulo: "TGD — datas dos 4 seminários ainda não estão no calendário",
-      texto: "O seminário (peso 2 na nota) tem 4 temas possíveis — norma jurídica; Julgamento de Nuremberg; Direito natural e Direito positivo; tipos de norma jurídica —, dura de 10 a 15 minutos por grupo e exige apresentação oral mais o arquivo de slides no Moodle. As datas de cada seminário foram anotadas em sala, mas em uma foto do quadro que ainda não foi transcrita. Conferir essa foto e lançar as datas exatas assim que possível."
+      titulo: "TGD — os 4 grupos de seminário ainda não estão formados",
+      texto: "As datas já estão no calendário: 31/08 (Norma Jurídica, de Norberto Bobbio), 03/09 (Julgamento de Nuremberg e, na mesma aula, Direito Natural e Direito Positivo) e 10/09 (Tipos de Normas Jurídicas). O que falta é a composição dos quatro grupos. A divisão deve ser simétrica e balanceada, com o mínimo recomendado de três alunos por grupo, para não deixar ninguém de fora. Quem apresenta em 31/08 tem menos de duas semanas — vale fechar os grupos com urgência. Os espaços já estão abertos na aba Grupos de Trabalho, em N1."
+    },
+    {
+      titulo: "História do Direito — as 7 datas de apresentação são estimativa, não anúncio",
+      texto: "O cronograma de temas do professor é o mesmo do 1º semestre de 2026 e traz as datas 04/03, 11/03, 18/03, 15/04, 22/04, 29/04 e 06/05 — todas quartas-feiras, porque naquele semestre a disciplina era às quartas. Neste semestre História do Direito é às quintas, das 21h10 às 22h50. As datas foram reposicionadas para as quintas equivalentes, mantendo exatamente o mesmo espaçamento entre as aulas do cronograma original: três semanas seguidas, um intervalo de quatro semanas e depois quatro semanas seguidas. O resultado é 03/09, 10/09, 17/09, 15/10, 22/10, 29/10 e 05/11, todas marcadas como data a confirmar. O intervalo cai justamente sobre o Hackathon de 08/10, o que reforça a estimativa, mas nada disso foi anunciado pelo professor. Confirme as datas com ele antes de o representante enviar a composição dos grupos."
+    },
+    {
+      titulo: "História do Direito — a atividade de 25/09 cai numa sexta, e a aula é quinta",
+      texto: "A atividade avaliativa que vale 40% da nota está anotada para 25 de setembro, mas 25/09/2026 é uma sexta-feira, e História do Direito acontece às quintas, das 21h10 às 22h50, conforme o Quadro de Horário do Portal do Aluno. Ou a data correta é 24/09, ou a atividade não é feita em aula, ou a anotação trocou o dia. A data foi mantida como está porque foi assim que veio da anotação de aula, mas vale confirmar com o professor antes de contar com ela."
     },
     {
       titulo: "História do Direito — 6 apresentações para 7 temas",

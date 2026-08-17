@@ -75,6 +75,7 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
   transition:border-color .15s,background .15s,transform .1s;
   text-decoration:none;
 }
+.btn[hidden]{display:none}
 .btn:hover{border-color:#3c4048;background:var(--surface-2)}
 .btn:active{transform:translateY(1px)}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:#1a1200}
@@ -397,8 +398,18 @@ body.menu-aberto{overflow:hidden}
 .dupla{margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--line-soft)}
 .dupla:last-child{margin-bottom:0;padding-bottom:0;border-bottom:0}
 .dupla .quem{font-size:13px;color:var(--muted)}
+.dupla .quem .vaga{color:var(--accent);font-style:italic;font-size:12px}
 .dupla .tema{font-size:13.5px;font-weight:700;margin-top:4px}
-.dupla .autor{font-size:12px;color:var(--muted-2);margin-top:1px}
+.dupla .autor{font-size:12px;color:var(--muted-2);margin-top:2px;line-height:1.45}
+.datas-grupo{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.dg{
+  font-size:11.5px;color:var(--text);background:var(--surface-2);
+  border:1px solid var(--line);border-radius:7px;padding:4px 9px;
+}
+.dg em{
+  font-style:normal;display:block;font-size:9px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted-2);font-weight:700;margin-bottom:1px;
+}
 
 .periodo-toggle{display:flex;gap:8px;margin:10px 0 14px}
 .periodo-btn{
@@ -412,50 +423,94 @@ body.menu-aberto{overflow:hidden}
 .periodo-btn.ativo .cnt{opacity:.8}
 .periodo-lista .vazio-txt{margin:0}
 
-/* ---------- calculadora unificada ---------- */
+/* ---------- calculadora ---------- */
 .calc-topo{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-.calc-nota-linha{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:8px 0}
-.calc-nota-linha label{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;flex:1 1 170px}
-.calc-nota-linha input[type=number]{
-  width:90px;background:var(--surface-2);border:1px solid var(--line);color:var(--text);
-  font:inherit;font-size:14px;padding:8px 10px;border-radius:8px;font-variant-numeric:tabular-nums;
-}
-.calc-nota-linha button.link-comp{
-  appearance:none;border:0;background:transparent;color:var(--evento);font:inherit;font-size:12px;
-  font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:2px;
-}
-.comp-mini{
-  margin:4px 0 10px;padding:10px 12px;background:var(--surface-2);border-radius:9px;
-  border:1px dashed var(--line);font-size:12.5px;
-}
-.comp-mini .linha{display:flex;gap:8px;align-items:center;margin-bottom:6px}
-.comp-mini .linha span{flex:1;color:var(--muted)}
-.comp-mini .linha input{width:64px;background:var(--surface);border:1px solid var(--line);color:var(--text);font:inherit;font-size:12.5px;padding:5px 7px;border-radius:6px}
 
-.calc-param-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 14px;margin-top:4px}
-.calc-param-grid label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted)}
-.calc-param-grid input{
+.calc-campo{display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--muted);font-weight:600}
+.calc-campo em{font-style:normal;color:var(--muted-2);font-weight:500}
+.calc-campo input,.calc-campo select{
   background:var(--surface-2);border:1px solid var(--line);color:var(--text);
-  font:inherit;font-size:13.5px;padding:7px 9px;border-radius:8px;
+  font:inherit;font-size:14px;padding:9px 11px;border-radius:9px;
+  font-variant-numeric:tabular-nums;width:100%;
 }
+.calc-campo input:focus,.calc-campo select:focus{outline:none;border-color:var(--accent)}
 
-.cenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
-.cenario{
-  background:var(--surface);border:1px solid var(--line-soft);border-left:3px solid var(--neutro);
-  border-radius:11px;padding:14px;font-size:13px;line-height:1.5;
+.calc-bimestres{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:14px}
+.calc-bim{
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius);padding:16px;
 }
-.cenario h4{margin:0 0 6px;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted-2);font-weight:700}
-.cenario p{margin:0;color:var(--text)}
-.cenario.ok{border-left-color:var(--feriado)}
-.cenario.ok h4{color:var(--feriado)}
-.cenario.alerta{border-left-color:var(--accent)}
-.cenario.alerta h4{color:var(--accent)}
-.cenario.critico{border-left-color:var(--prova)}
-.cenario.critico h4{color:var(--prova)}
+.calc-bim-topo{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:12px}
+.calc-bim-topo h3{margin:0;font-size:15px;font-weight:800;letter-spacing:-.01em}
+.calc-bim-sub{font-size:11px;color:var(--muted-2);font-weight:600;letter-spacing:.04em}
+.calc-bim-nota{
+  font-family:var(--mono);font-size:24px;font-weight:800;line-height:1;
+  font-variant-numeric:tabular-nums;color:var(--muted-2);
+}
+.calc-bim-nota.cheia{color:var(--accent)}
+.calc-bim-nota.parcial{color:var(--muted)}
+.calc-comps{display:flex;flex-direction:column;gap:9px}
+.calc-comp span{display:block;line-height:1.35}
+.calc-parcial{margin:9px 0 0;font-size:11.5px;color:var(--muted-2);line-height:1.5}
+.calc-troca{
+  appearance:none;border:0;background:transparent;color:var(--evento);font:inherit;font-size:11.5px;
+  font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:2px;
+  padding:10px 0 0;text-align:left;
+}
+.calc-troca:hover{color:var(--accent)}
 
-@media (max-width:700px){ .cenarios{grid-template-columns:1fr} }
-@media (max-width:560px){
-  .calc-param-grid{grid-template-columns:1fr}
+.calc-fecho{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:end;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius);padding:16px;
+}
+.calc-pesos{display:grid;grid-template-columns:1fr 1fr;gap:10px;grid-column:1/-1}
+.calc-pesos[hidden]{display:none}
+
+.calc-exame-area{margin-top:14px}
+.calc-add{border-style:dashed;color:var(--muted);gap:8px}
+.calc-add:hover{color:var(--text);border-color:var(--accent)}
+.calc-add .mais{
+  display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;
+  border-radius:50%;background:var(--accent);color:#1a1200;font-weight:800;font-size:13px;line-height:1;
+}
+.calc-exame{
+  background:var(--surface);border:1px solid rgba(240,165,0,.3);border-radius:var(--radius);padding:16px;
+}
+.calc-exame-topo{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:14px}
+.calc-remover{
+  appearance:none;border:1px solid var(--line);background:transparent;color:var(--muted-2);
+  width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:12px;line-height:1;
+}
+.calc-remover:hover{color:var(--prova);border-color:var(--prova)}
+.calc-exame-campos{display:grid;grid-template-columns:1fr 1.6fr;gap:12px}
+.calc-nota-rodape{margin:12px 0 0;font-size:11.5px;color:var(--muted-2);font-style:italic;line-height:1.5}
+
+.calc-resultado{margin-top:16px}
+.calc-vazio{
+  margin:0;padding:22px 18px;text-align:center;font-size:13.5px;color:var(--muted-2);
+  background:var(--surface);border:1px dashed var(--line);border-radius:var(--radius);
+}
+.res-linha{
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  padding:12px 16px;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:11px;margin-bottom:7px;font-size:13.5px;
+}
+.res-linha span{color:var(--muted);font-weight:600}
+.res-linha b{font-family:var(--mono);font-size:17px;font-variant-numeric:tabular-nums;font-weight:700}
+.res-linha.fraca b{font-family:var(--sans);font-size:12.5px;color:var(--muted-2);font-weight:500;font-style:italic}
+.res-linha.destaque{border-color:rgba(240,165,0,.4);background:rgba(240,165,0,.06)}
+.res-linha.destaque b{color:var(--accent);font-size:21px}
+.res-veredito{
+  margin-top:9px;padding:12px 16px;border-radius:11px;font-size:13.5px;font-weight:600;
+  border-left:3px solid var(--neutro);background:var(--surface);
+}
+.res-veredito.ok{border-left-color:var(--feriado);color:var(--feriado)}
+.res-veredito.alerta{border-left-color:var(--prova);color:#ff5566}
+.calc-aviso-res{margin:9px 0 0;font-size:12.5px;color:var(--muted-2);line-height:1.55}
+
+@media (max-width:700px){
+  .calc-bimestres{grid-template-columns:1fr}
+  .calc-fecho{grid-template-columns:1fr}
+  .calc-exame-campos{grid-template-columns:1fr}
 }
 
 /* ---------- grade de aulas + aula agora, numa aba só ---------- */
@@ -748,7 +803,7 @@ body.menu-aberto{overflow:hidden}
   <!-- ======================= ABA: CALCULADORA (com critérios embutidos) ======================= -->
   <section class="secao-extra" id="tab-calculadora">
     <h2>Calculadora de Notas</h2>
-    <p class="desc">Escolha a matéria: o critério de aprovação aparece aqui do lado, e A1, A2 e Exame se calculam juntos, em três cenários.</p>
+    <p class="desc">Escolha a matéria e vá preenchendo. A nota de cada bimestre e a média se atualizam a cada número digitado — não precisa preencher tudo para ver o resultado. Escala de 0 a 10.</p>
 
     <div class="calc-topo">
       <select id="calc-disciplina"></select>
@@ -756,39 +811,55 @@ body.menu-aberto{overflow:hidden}
 
     <div id="calc-criterio"></div>
 
-    <div class="card" style="grid-template-columns:1fr">
-      <div class="calc-nota-linha">
-        <label>Nota A1 <input type="number" id="in-a1" min="0" max="10" step="0.1"></label>
-        <button type="button" class="link-comp" id="btn-comp-a1" hidden>calcular pelos componentes</button>
-      </div>
-      <div class="comp-mini" id="comp-a1" hidden></div>
+    <div class="calc-bimestres">
+      <div class="calc-bim" id="bim-a1"></div>
+      <div class="calc-bim" id="bim-a2"></div>
+    </div>
 
-      <div class="calc-nota-linha">
-        <label>Nota A2 <input type="number" id="in-a2" min="0" max="10" step="0.1" placeholder="em branco = calcular o que falta"></label>
-        <button type="button" class="link-comp" id="btn-comp-a2" hidden>calcular pelos componentes</button>
+    <div class="calc-fecho">
+      <label class="calc-campo">
+        <span>Como o professor fecha a média final?</span>
+        <select id="calc-metodo">
+          <option value="media">Média simples — (A1 + A2) ÷ 2</option>
+          <option value="soma">Soma — A1 + A2</option>
+          <option value="ponderada">Média ponderada — pesos que eu definir</option>
+        </select>
+      </label>
+      <div class="calc-pesos" id="calc-pesos" hidden>
+        <label class="calc-campo"><span>Peso de A1</span><input type="number" id="peso-a1" min="0" step="1" placeholder="ex: 40"></label>
+        <label class="calc-campo"><span>Peso de A2</span><input type="number" id="peso-a2" min="0" step="1" placeholder="ex: 60"></label>
       </div>
-      <div class="comp-mini" id="comp-a2" hidden></div>
+      <label class="calc-campo">
+        <span>Média mínima para passar <em>(opcional)</em></span>
+        <input type="text" inputmode="decimal" id="calc-minima" placeholder="ex: 7,0">
+      </label>
+    </div>
 
-      <div class="calc-nota-linha">
-        <label>Nota do Exame (E) <input type="number" id="in-e" min="0" max="10" step="0.1" placeholder="só se for fazer exame"></label>
+    <div class="calc-exame-area">
+      <button type="button" class="btn calc-add" id="btn-add-exame">
+        <span class="mais" aria-hidden="true">+</span> Adicionar prova final
+      </button>
+      <div class="calc-exame" id="calc-exame" hidden>
+        <div class="calc-exame-topo">
+          <strong>Prova final de recuperação</strong>
+          <button type="button" class="calc-remover" id="btn-tirar-exame" aria-label="Remover prova final">✕</button>
+        </div>
+        <div class="calc-exame-campos">
+          <label class="calc-campo"><span>Nota da prova final</span><input type="text" inputmode="decimal" id="in-exame" placeholder="0 a 10"></label>
+          <label class="calc-campo">
+            <span>Como ela entra na conta?</span>
+            <select id="exame-metodo">
+              <option value="media">Média com a nota do semestre — (Média + Final) ÷ 2</option>
+              <option value="substitui">Substitui a média — vale a nota da final</option>
+              <option value="maior">Vale a maior entre a média e a final</option>
+            </select>
+          </label>
+        </div>
+        <p class="calc-nota-rodape">A prova final não é usada por todos os professores, e a fórmula varia. Confirme com o seu antes de contar com o resultado.</p>
       </div>
     </div>
 
-    <details class="acc">
-      <summary><span>Parâmetros da fórmula — ainda não confirmados, ajuste aqui</span></summary>
-      <div class="corpo">
-        <span class="aviso">Estes números não vêm de nenhuma fonte oficial — são só pra simular. Confirme com o professor antes de confiar no resultado.</span>
-        <div class="calc-param-grid">
-          <label>Peso de A1 na média <input type="number" id="p-pesoA1" placeholder="ex: 50"></label>
-          <label>Peso de A2 na média <input type="number" id="p-pesoA2" placeholder="ex: 50"></label>
-          <label>Média mínima pra passar direto <input type="number" id="p-direta" placeholder="ex: 7,0"></label>
-          <label>Média mínima pra ter direito a exame <input type="number" id="p-direitoExame" placeholder="ex: 3,0"></label>
-          <label>Média mínima pra passar COM exame <input type="number" id="p-comExame" placeholder="igual à direta, se não souber"></label>
-        </div>
-      </div>
-    </details>
-
-    <div class="cenarios" id="calc-cenarios"></div>
+    <div class="calc-resultado" id="calc-resultado"></div>
   </section>
 
   <!-- ======================= ABA: GRADE DE AULAS (com "aula agora" embutido) ======================= -->
@@ -1366,9 +1437,20 @@ body.menu-aberto{overflow:hidden}
      lista. Não pré-seleciona nenhum período. */
   function renderDupla(g){
     return '<div class="dupla">'
-      + '<div class="quem"><b>' + esc(g.grupo) + '</b> — ' + esc(g.integrantes) + '</div>'
+      + '<div class="quem"><b>' + esc(g.grupo) + '</b>'
+        + (g.integrantes
+            ? ' — ' + esc(g.integrantes)
+            : ' <span class="vaga">grupo ainda não formado</span>')
+      + '</div>'
       + '<div class="tema">' + esc(g.tema) + '</div>'
-      + '<div class="autor">' + esc(g.autor) + '</div>'
+      + (g.autor ? '<div class="autor">' + esc(g.autor) + '</div>' : '')
+      + (g.material ? '<div class="autor">' + esc(g.material) + '</div>' : '')
+      + (g.dataSeminario || g.dataEntrega
+          ? '<div class="datas-grupo">'
+            + (g.dataSeminario ? '<span class="dg"><em>Apresentação</em>' + esc(g.dataSeminario) + '</span>' : '')
+            + (g.dataEntrega ? '<span class="dg"><em>Arquivo</em>' + esc(g.dataEntrega) + '</span>' : '')
+          + '</div>'
+          : '')
     + '</div>';
   }
 
@@ -1478,37 +1560,79 @@ body.menu-aberto{overflow:hidden}
     + '</div>';
   }
 
-  function montarComponentesMini(campo, rotulo, sigla){
-    var d = dadosCalc(sigla);
+  function n1casa(v){ return v.toFixed(2).replace(".", ","); }
+
+  /* Monta um bimestre (A1 ou A2). Se a matéria tem componentes com
+     peso, mostra um campo por componente e calcula a nota do bimestre
+     ao vivo; se não tem, mostra um campo único. O aluno pode sempre
+     trocar para digitar a nota do bimestre direto. */
+  function montarBimestre(campo, rotulo){
+    var d = dadosCalc(calcSigla);
     var etapa = d ? d[campo] : null;
-    var btn = $("btn-comp-" + campo), caixa = $("comp-" + campo);
-    caixa.hidden = true; caixa.innerHTML = ""; delete caixa.dataset.montado;
+    var e = estado(calcSigla);
+    if (!e[campo]) e[campo] = { modo: (etapa && etapa.componentes) ? "componentes" : "direto", direto:"", comps:{}, metodo:"ponderada" };
+    var st = e[campo];
+    if (!etapa || !etapa.componentes) st.modo = "direto";
 
-    if (!etapa || !etapa.componentes || etapa.componentes.length < 2){ btn.hidden = true; return; }
-    btn.hidden = false;
-    btn.onclick = function(){
-      caixa.hidden = !caixa.hidden;
-      if (!caixa.hidden && !caixa.dataset.montado){
-        caixa.dataset.montado = "1";
-        var avisoPeso = etapa.pesosConfirmados ? "" : '<span class="aviso" style="margin-bottom:8px">Peso não confirmado — só pra simular.</span>';
-        caixa.innerHTML = avisoPeso + etapa.componentes.map(function(c){
-          return '<div class="linha"><span>' + esc(c.nome) + ' (peso ' + c.peso + ')</span>'
-               + '<input type="number" min="0" max="10" step="0.1" data-peso="' + c.peso + '"></div>';
-        }).join("") + '<button type="button" class="btn usar">Usar como nota ' + esc(rotulo) + '</button>';
+    var nomeEtapa = (etapa && etapa.nome && etapa.nome !== rotulo) ? etapa.nome : "";
+    var html = '<div class="calc-bim-topo">'
+      + '<h3>' + esc(rotulo) + (nomeEtapa ? ' <span class="calc-bim-sub">' + esc(nomeEtapa) + '</span>' : "") + '</h3>'
+      + '<span class="calc-bim-nota" id="nota-' + campo + '">—</span>'
+      + '</div>';
 
-        caixa.querySelector(".usar").addEventListener("click", function(){
-          var soma = 0, pesoTotal = 0, completo = true;
-          caixa.querySelectorAll("input[data-peso]").forEach(function(inp){
-            var v = parseFloat(inp.value), p = parseFloat(inp.dataset.peso);
-            pesoTotal += p;
-            if (isNaN(v)) completo = false; else soma += v * p;
-          });
-          if (!completo || !pesoTotal) return;
-          $("in-" + campo).value = (soma / pesoTotal).toFixed(2);
-          estado(calcSigla)[campo] = $("in-" + campo).value;
-          calcularCenarios();
-        });
+    if (st.modo === "componentes"){
+      if (!etapa.pesosConfirmados) html += '<span class="aviso">Pesos ainda não confirmados pelo professor.</span>';
+      html += '<div class="calc-comps">' + etapa.componentes.map(function(c, i){
+        return '<label class="calc-campo calc-comp">'
+          + '<span>' + esc(c.nome) + ' <em>peso ' + c.peso + '</em></span>'
+          + '<input type="text" inputmode="decimal" placeholder="0 a 10" '
+          + 'data-comp="' + campo + '" data-i="' + i + '" data-peso="' + c.peso + '" '
+          + 'value="' + esc(st.comps[i] || "") + '"></label>';
+      }).join("") + '</div>';
+      html += '<p class="calc-parcial" id="parcial-' + campo + '"></p>';
+      html += '<button type="button" class="calc-troca" data-troca="' + campo + '">Não sei as atividades — digitar a nota do bimestre direto</button>';
+    } else {
+      html += '<label class="calc-campo"><span>Nota do bimestre</span>'
+        + '<input type="text" inputmode="decimal" placeholder="0 a 10" '
+        + 'data-direto="' + campo + '" value="' + esc(st.direto || "") + '"></label>';
+      if (etapa && etapa.componentes){
+        html += '<button type="button" class="calc-troca" data-troca="' + campo + '">Calcular pelas atividades do bimestre</button>';
       }
+    }
+
+    $("bim-" + campo).innerHTML = html;
+  }
+
+  /* Devolve {nota, completo, minimo, maximo} do bimestre, ou null se
+     nada foi preenchido ainda. */
+  function notaBimestre(campo){
+    var d = dadosCalc(calcSigla);
+    var etapa = d ? d[campo] : null;
+    var st = estado(calcSigla)[campo];
+    if (!st) return null;
+
+    if (st.modo === "direto" || !etapa || !etapa.componentes){
+      var v = parseFloat(String(st.direto).replace(",", "."));
+      if (isNaN(v)) return null;
+      return { nota: v, completo: true };
+    }
+
+    var pesoTotal = 0, pesoFeito = 0, soma = 0, preenchidos = 0;
+    etapa.componentes.forEach(function(c, i){
+      pesoTotal += c.peso;
+      var v = parseFloat(String(st.comps[i] || "").replace(",", "."));
+      if (!isNaN(v)){ soma += v * c.peso; pesoFeito += c.peso; preenchidos++; }
+    });
+    if (!preenchidos || !pesoTotal) return null;
+
+    var completo = preenchidos === etapa.componentes.length;
+    var nota = completo ? (soma / pesoTotal) : (soma / pesoFeito);
+
+    return {
+      nota: nota,
+      completo: completo,
+      minimo: soma / pesoTotal,                       // se zerar o que falta
+      maximo: (soma + (pesoTotal - pesoFeito) * 10) / pesoTotal
     };
   }
 
@@ -1519,109 +1643,179 @@ body.menu-aberto{overflow:hidden}
     }).join("");
     sel.addEventListener("change", function(){ calcSigla = sel.value; pintarCalculadora(); });
 
-    ["in-a1","in-a2","in-e","p-pesoA1","p-pesoA2","p-direta","p-direitoExame","p-comExame"].forEach(function(id){
-      $(id).addEventListener("input", function(){
-        var chave = id.indexOf("in-") === 0 ? id.slice(3) : id.slice(2);
-        estado(calcSigla)[chave] = $(id).value;
-        calcularCenarios();
-      });
+    // qualquer digitação recalcula na hora
+    $("tab-calculadora").addEventListener("input", function(ev){
+      var t = ev.target, e = estado(calcSigla);
+      if (t.dataset.comp){ e[t.dataset.comp].comps[t.dataset.i] = t.value; }
+      else if (t.dataset.direto){ e[t.dataset.direto].direto = t.value; }
+      else if (t.id === "peso-a1"){ e.pesoA1 = t.value; }
+      else if (t.id === "peso-a2"){ e.pesoA2 = t.value; }
+      else if (t.id === "calc-minima"){ e.minima = t.value; }
+      else if (t.id === "in-exame"){ e.exame = t.value; }
+      else return;
+      calcular();
+    });
+
+    $("tab-calculadora").addEventListener("change", function(ev){
+      var t = ev.target, e = estado(calcSigla);
+      if (t.id === "calc-metodo"){
+        e.metodoFinal = t.value;
+        $("calc-pesos").hidden = (t.value !== "ponderada");
+        calcular();
+      }
+      else if (t.id === "exame-metodo"){ e.exameMetodo = t.value; calcular(); }
+    });
+
+    $("tab-calculadora").addEventListener("click", function(ev){
+      var b = ev.target.closest("[data-troca]");
+      if (!b) return;
+      var campo = b.getAttribute("data-troca");
+      var st = estado(calcSigla)[campo];
+      st.modo = (st.modo === "componentes") ? "direto" : "componentes";
+      montarBimestre(campo, campo.toUpperCase());
+      calcular();
+    });
+
+    $("btn-add-exame").addEventListener("click", function(){
+      estado(calcSigla).exameAtivo = true;
+      aplicarExame();
+      calcular();
+    });
+    $("btn-tirar-exame").addEventListener("click", function(){
+      var e = estado(calcSigla);
+      e.exameAtivo = false; e.exame = "";
+      aplicarExame();
+      calcular();
     });
 
     pintarCalculadora();
   }
 
+  function aplicarExame(){
+    var e = estado(calcSigla);
+    $("calc-exame").hidden = !e.exameAtivo;
+    $("btn-add-exame").hidden = !!e.exameAtivo;
+    $("in-exame").value = e.exame || "";
+    $("exame-metodo").value = e.exameMetodo || "media";
+  }
+
   function pintarCalculadora(){
     pintarCriterioCalc(calcSigla);
-    montarComponentesMini("a1", "A1", calcSigla);
-    montarComponentesMini("a2", "A2", calcSigla);
+    montarBimestre("a1", "A1");
+    montarBimestre("a2", "A2");
 
     var e = estado(calcSigla);
-    $("in-a1").value = e.a1 || "";
-    $("in-a2").value = e.a2 || "";
-    $("in-e").value = e.e || "";
-    $("p-pesoA1").value = e.pesoA1 || "";
-    $("p-pesoA2").value = e.pesoA2 || "";
-    $("p-direta").value = e.direta || "";
-    $("p-direitoExame").value = e.direitoExame || "";
-    $("p-comExame").value = e.comExame || "";
-
-    calcularCenarios();
+    $("calc-metodo").value = e.metodoFinal || "media";
+    $("calc-pesos").hidden = ($("calc-metodo").value !== "ponderada");
+    $("peso-a1").value = e.pesoA1 || "";
+    $("peso-a2").value = e.pesoA2 || "";
+    $("calc-minima").value = e.minima || "";
+    aplicarExame();
+    calcular();
   }
 
-  function cenarioCard(cls, titulo, texto){
-    return '<div class="cenario ' + cls + '"><h4>' + esc(titulo) + '</h4><p>' + esc(texto) + '</p></div>';
+  function linhaResultado(rot, valor, cls){
+    return '<div class="res-linha ' + (cls||"") + '"><span>' + esc(rot) + '</span><b>' + esc(valor) + '</b></div>';
   }
 
-  function calcularCenarios(){
-    var out = $("calc-cenarios");
-    var a1 = parseFloat($("in-a1").value);
-    var a2 = parseFloat($("in-a2").value);
-    var eNota = parseFloat($("in-e").value);
-    var pA1 = parseFloat($("p-pesoA1").value);
-    var pA2 = parseFloat($("p-pesoA2").value);
-    var minDireta = parseFloat($("p-direta").value);
-    var minDireito = parseFloat($("p-direitoExame").value);
-    var minComExameCampo = parseFloat($("p-comExame").value);
+  function calcular(){
+    var e = estado(calcSigla);
+    var r1 = notaBimestre("a1"), r2 = notaBimestre("a2");
 
-    if (isNaN(a1)){
-      out.innerHTML = '<p class="vazio-lista">Preencha ao menos a nota de A1 para ver os cenários.</p>';
+    // nota de cada bimestre, atualizada a cada tecla
+    [["a1", r1], ["a2", r2]].forEach(function(par){
+      var campo = par[0], r = par[1];
+      var alvo = $("nota-" + campo), parcial = $("parcial-" + campo);
+      if (!alvo) return;
+      if (!r){ alvo.textContent = "—"; alvo.className = "calc-bim-nota"; if (parcial) parcial.textContent = ""; return; }
+      alvo.textContent = n1casa(r.nota);
+      alvo.className = "calc-bim-nota" + (r.completo ? " cheia" : " parcial");
+      if (parcial){
+        parcial.textContent = r.completo ? ""
+          : "Parcial. Se zerar o que falta fica " + n1casa(r.minimo) + "; se gabaritar, " + n1casa(r.maximo) + ".";
+      }
+    });
+
+    var out = $("calc-resultado");
+    if (!r1 && !r2){
+      out.innerHTML = '<p class="calc-vazio">Comece preenchendo qualquer nota acima. O resultado aparece e se ajusta a cada número que você digitar.</p>';
       return;
     }
-    if (isNaN(pA1) || isNaN(pA2) || (pA1 + pA2) <= 0 || isNaN(minDireta)){
-      out.innerHTML = '<p class="vazio-lista">Abra "Parâmetros da fórmula" acima e preencha ao menos os pesos de A1/A2 e a média mínima para calcular.</p>';
-      return;
-    }
-    var pesoTotal = pA1 + pA2;
 
-    var card1;
-    if (!isNaN(a2)){
-      var mf = (a1*pA1 + a2*pA2) / pesoTotal;
-      card1 = mf >= minDireta
-        ? cenarioCard("ok","Aprovação direta","Média " + mf.toFixed(2) + " — já bate os " + minDireta.toFixed(1) + " necessários.")
-        : cenarioCard("alerta","Aprovação direta","Média " + mf.toFixed(2) + " — abaixo de " + minDireta.toFixed(1) + ". Não fecha sem exame.");
-    } else {
-      var necessarioA2 = (minDireta*pesoTotal - a1*pA1) / pA2;
-      if (necessarioA2 > 10) card1 = cenarioCard("critico","Aprovação direta","Mesmo com 10 em A2, não fecha " + minDireta.toFixed(1) + " direto.");
-      else if (necessarioA2 <= 0) card1 = cenarioCard("ok","Aprovação direta","Com o A1 que você já tem, qualquer nota em A2 garante a média direta.");
-      else card1 = cenarioCard("alerta","Aprovação direta","Precisa de pelo menos " + necessarioA2.toFixed(2) + " em A2 pra fechar " + minDireta.toFixed(1) + " direto.");
-    }
+    var metodo = e.metodoFinal || "media";
+    var html = "";
+    html += linhaResultado("A1", r1 ? n1casa(r1.nota) + (r1.completo ? "" : " (parcial)") : "ainda em branco", r1 ? "" : "fraca");
+    html += linhaResultado("A2", r2 ? n1casa(r2.nota) + (r2.completo ? "" : " (parcial)") : "ainda em branco", r2 ? "" : "fraca");
 
-    var card2;
-    if (isNaN(a2)){
-      card2 = cenarioCard("","Com exame","Preencha A2 pra calcular o cenário do exame.");
-    } else {
-      var mf2 = (a1*pA1 + a2*pA2) / pesoTotal;
-      if (mf2 >= minDireta){
-        card2 = cenarioCard("ok","Com exame","Não precisa — a aprovação direta já fecha.");
-      } else if (!isNaN(minDireito) && mf2 < minDireito){
-        card2 = cenarioCard("critico","Com exame","Média " + mf2.toFixed(2) + ", abaixo de " + minDireito.toFixed(1) + " — não teria direito a exame, do jeito que está configurado aqui.");
-      } else {
-        var alvoFinal = !isNaN(minComExameCampo) ? minComExameCampo : minDireta;
-        if (!isNaN(eNota)){
-          var final_ = (mf2 + eNota) / 2;
-          card2 = final_ >= alvoFinal
-            ? cenarioCard("ok","Com exame","Com " + eNota.toFixed(1) + " no exame, a média final ficaria em " + final_.toFixed(2) + " — passaria.")
-            : cenarioCard("alerta","Com exame","Com " + eNota.toFixed(1) + " no exame, a média final ficaria em " + final_.toFixed(2) + " — ainda abaixo de " + alvoFinal.toFixed(1) + ".");
+    var media = null, rotuloMedia = "Média do semestre", provisoria = !r1 || !r2 || !r1.completo || !r2.completo;
+
+    if (r1 && r2){
+      if (metodo === "soma"){
+        media = r1.nota + r2.nota;
+        rotuloMedia = "Soma de A1 + A2";
+      } else if (metodo === "ponderada"){
+        // (pesos tratados logo abaixo)
+        var p1 = parseFloat(e.pesoA1), p2 = parseFloat(e.pesoA2);
+        if (isNaN(p1) || isNaN(p2) || (p1 + p2) <= 0){
+          html += '<p class="calc-aviso-res">Preencha os dois pesos acima para a média ponderada.</p>';
         } else {
-          var necessarioE = alvoFinal*2 - mf2;
-          if (necessarioE > 10) card2 = cenarioCard("critico","Com exame","Mesmo com 10 no exame, não fecha " + alvoFinal.toFixed(1) + ".");
-          else if (necessarioE <= 0) card2 = cenarioCard("ok","Com exame","Qualquer nota no exame já garante essa média.");
-          else card2 = cenarioCard("alerta","Com exame","Precisa de pelo menos " + necessarioE.toFixed(2) + " no exame.");
+          media = (r1.nota * p1 + r2.nota * p2) / (p1 + p2);
+          rotuloMedia = "Média ponderada (" + p1 + "/" + p2 + ")";
         }
+      } else {
+        media = (r1.nota + r2.nota) / 2;
       }
     }
 
-    var card3;
-    if (isNaN(a2)){
-      card3 = cenarioCard("","Situação hoje","A1: " + a1.toFixed(1) + ". Falta A2 pra saber a média completa.");
-    } else {
-      var mf3 = (a1*pA1 + a2*pA2) / pesoTotal;
-      card3 = mf3 >= minDireta
-        ? cenarioCard("ok","Situação hoje","Média " + mf3.toFixed(2) + ". Aprovado(a) direto, se essas forem as notas finais.")
-        : cenarioCard("alerta","Situação hoje","Média " + mf3.toFixed(2) + ". Ainda não fecha direto — veja o cenário “Com exame”.");
+    if (media !== null){
+      html += linhaResultado(rotuloMedia + (provisoria ? " (provisória)" : ""), n1casa(media), "destaque");
+      if (metodo === "soma"){
+        html += '<p class="calc-aviso-res">Somando, o resultado fica numa escala de 0 a 20. Se for comparar com a média mínima, use a mínima na mesma escala.</p>';
+      }
+    } else if (r1 && !r2){
+      html += '<p class="calc-aviso-res">Falta A2 para fechar a média do semestre.</p>';
+    } else if (r2 && !r1){
+      html += '<p class="calc-aviso-res">Falta A1 para fechar a média do semestre.</p>';
     }
 
-    out.innerHTML = card1 + card2 + card3;
+    // prova final, só se o aluno tiver adicionado
+    var notaFinalDoSemestre = media;
+    if (e.exameAtivo && media !== null){
+      var ex = parseFloat(String(e.exame || "").replace(",", "."));
+      if (!isNaN(ex)){
+        var mex = e.exameMetodo || "media";
+        if (mex === "substitui") notaFinalDoSemestre = ex;
+        else if (mex === "maior") notaFinalDoSemestre = Math.max(media, ex);
+        else notaFinalDoSemestre = (media + ex) / 2;
+        html += linhaResultado("Com a prova final", n1casa(notaFinalDoSemestre), "destaque");
+      } else {
+        html += '<p class="calc-aviso-res">Digite a nota da prova final para ver o efeito dela.</p>';
+      }
+    }
+
+    // veredito, só quando o aluno informa a média mínima
+    var min = parseFloat(String(e.minima || "").replace(",", "."));
+    if (!isNaN(min) && notaFinalDoSemestre !== null){
+      var passa = notaFinalDoSemestre >= min;
+      var frase = passa
+        ? "Bate a mínima de " + n1casa(min) + (provisoria ? ", com as notas que estão aí." : ".")
+        : "Abaixo da mínima de " + n1casa(min) + ".";
+      html += '<div class="res-veredito ' + (passa ? "ok" : "alerta") + '">' + esc(frase) + '</div>';
+
+      // quanto falta na etapa que ainda está em branco
+      if (r1 && !r2 && metodo === "media"){
+        var precisa = min * 2 - r1.nota;
+        html += '<p class="calc-aviso-res">' + (precisa > 10
+          ? "Mesmo com 10 em A2 a média simples não chega em " + n1casa(min) + "."
+          : precisa <= 0
+            ? "Com o A1 que você tem, qualquer nota em A2 já fecha a mínima."
+            : "Precisa de pelo menos " + n1casa(precisa) + " em A2.") + '</p>';
+      }
+    } else if (notaFinalDoSemestre !== null){
+      html += '<p class="calc-aviso-res">Informe a média mínima acima para saber se passou.</p>';
+    }
+
+    out.innerHTML = html;
   }
 
   /* ================= GRADE DE AULAS + AULA AGORA (uma aba só) ================= */
