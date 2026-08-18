@@ -21,7 +21,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-08-17T10:18:00-03:00",
+  atualizadoEm: "2026-08-18T00:23:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -709,8 +709,8 @@ const CALENDARIO = {
       texto: "A turma tem nove disciplinas no Moodle. Ciência Política publicou seu plano de ensino em 14/08/2026 e Ciência, Tecnologia e Sociedade no Direito publicou o dela em 17/08/2026 — as duas já entraram no calendário com o cronograma completo do semestre. História do Direito tem a atividade de 25/09, anotada em aula. Sobram Ética e Cidadania e Introdução ao Direito Privado, que continuam sem nenhuma data válida para 2026/2: na sala de Ética e Cidadania não há nem plano de ensino. Vale cobrar as datas de avaliação dessas duas antes que o semestre avance."
     },
     {
-      titulo: "TGD — os 4 grupos de seminário ainda não estão formados",
-      texto: "As datas já estão no calendário: 31/08 (Norma Jurídica, de Norberto Bobbio), 03/09 (Julgamento de Nuremberg e, na mesma aula, Direito Natural e Direito Positivo) e 10/09 (Tipos de Normas Jurídicas). O que falta é a composição dos quatro grupos. A divisão deve ser simétrica e balanceada, com o mínimo recomendado de três alunos por grupo, para não deixar ninguém de fora. Quem apresenta em 31/08 tem menos de duas semanas — vale fechar os grupos com urgência. Os espaços já estão abertos na aba Grupos de Trabalho, em N1."
+      titulo: "Dois alunos estão sem grupo, cada um numa disciplina",
+      texto: "Conferindo as listas umas contra as outras, a turma tem 16 alunos, que é exatamente o número alocado nos quatro seminários de Teoria Geral do Direito. Nas outras duas disciplinas falta gente. Em História do Direito estão 15 dos 16: Giulia Grintaci Bertolini não aparece em nenhum dos sete grupos. Em Economia Política também são 15, e quem falta é Melissa Scaff Puerta — essa é anterior, vem de quando as sete duplas foram fechadas, em 14/08. Como o professor de História do Direito é explícito em não admitir aluno sem grupo, e é o representante quem envia a composição, vale resolver a de História do Direito antes do envio. Nenhuma das duas foi preenchida por conta própria aqui: quem decide em que grupo cada uma entra é a turma, não este calendário."
     },
     {
       titulo: "História do Direito — as 7 datas de apresentação são estimativa, não anúncio",
@@ -721,8 +721,8 @@ const CALENDARIO = {
       texto: "A atividade avaliativa que vale 40% da nota está anotada para 25 de setembro, mas 25/09/2026 é uma sexta-feira, e História do Direito acontece às quintas, das 21h10 às 22h50, conforme o Quadro de Horário do Portal do Aluno. Ou a data correta é 24/09, ou a atividade não é feita em aula, ou a anotação trocou o dia. A data foi mantida como está porque foi assim que veio da anotação de aula, mas vale confirmar com o professor antes de contar com ela."
     },
     {
-      titulo: "História do Direito — 6 apresentações para 7 temas",
-      texto: "Toda semana um grupo diferente apresenta o tema do dia (10 a 15 minutos), com um cronograma de temas, cada um com texto e bibliografia próprios. Nas anotações de aula aparecem 6 apresentações para 7 temas — ainda não está confirmado se um dos temas realmente fica sem grupo, ou se há algum ajuste combinado em sala que não foi registrado. Confirmar com o professor. Grupos de 2 a 3 pessoas, podendo ser maiores; o representante da turma precisa enviar ao professor a composição dos grupos, em ordem cronológica das aulas."
+      titulo: "História do Direito — os 7 grupos estão formados e precisam ser enviados ao professor",
+      texto: "A dúvida antiga era se um dos sete temas ficaria sem grupo, porque as anotações de aula falavam em seis apresentações. Resolvido: são sete grupos, um para cada tema, seis duplas e um trio, já publicados na aba Grupos de Trabalho. Falta o passo seguinte, que é do representante: enviar ao professor a composição completa, em ordem cronológica das aulas. Antes de enviar, feche a pendência da Giulia, que ainda não está em nenhum grupo. Lembre também que as datas das apresentações continuam sendo estimativa, e não anúncio do professor."
     },
     {
       titulo: "História do Direito — falta a data da prova objetiva (60% da nota)",

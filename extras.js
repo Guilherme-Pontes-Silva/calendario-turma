@@ -180,12 +180,17 @@ const PAINEL = {
   /* ---------------- 8. GRUPOS DE TRABALHO ----------------
      Estrutura por período (N1 / N2), porque o aluno agora escolhe
      a etapa antes de ver o grupo. Confirmado pelo Guilherme em
-     14/08/2026: as 7 duplas de Economia Política são de N1. */
+     14/08/2026: as 7 duplas de Economia Política são de N1.
+
+     Atenção ao caso de História do Direito: as apresentações são
+     feitas na primeira metade do semestre, mas ficam em n2 porque
+     é em N2 que o professor lança todas as notas da disciplina.
+     Não mover para n1 sem que essa regra mude. */
   grupos: {
     "Econ. Pol.": {
       n1: [
         { grupo:"Dupla 1", integrantes:"Andressa de Souza Grana e Thiago Richard de Souza Pereira", tema:"Aporofobia, a Aversão ao Pobre: Um Desafio para a Democracia", autor:"Adela Cortina" },
-        { grupo:"Dupla 2", integrantes:"Emilly Pereira da Silva e Ryan de Sá Santos", tema:"Capitalismo e Pulsão de Morte", autor:"Gilles Dostaler e Bernard Maris" },
+        { grupo:"Trio 2", integrantes:"David Bottcher Curvello, Emilly Pereira da Silva e Ryan de Sá Santos", tema:"Capitalismo e Pulsão de Morte", autor:"Gilles Dostaler e Bernard Maris" },
         { grupo:"Dupla 3", integrantes:"Gabriele de Carvalho Fontenele e Pedro de Oliveira Mafra", tema:"O Código do Capital: Como o Direito Cria Riqueza e Desigualdade", autor:"Katharina Pistor" },
         { grupo:"Dupla 4", integrantes:"Giulia Grintaci Bertolini e Pamela Cristina Barreto Reis Rosa", tema:"Fascismo e Liberalismo: Afinidades Seletivas", autor:"Alvaro Bianchi" },
         { grupo:"Dupla 5", integrantes:"Guilherme Pontes da Silva e Luiza Santos Gonçalves", tema:"Parcelado: Dinâmicas de Consumo na Periferia", autor:"Kauê Lopes dos Santos" },
@@ -195,36 +200,36 @@ const PAINEL = {
       n2: []
     },
     "TGD": {
-      avisoPeriodo: "Grupos ainda não formados. Divisão simétrica e balanceada, com o mínimo recomendado de 3 alunos por grupo, para não deixar ninguém de fora.",
+      avisoPeriodo: "Grupos formados: 4 grupos de 4 alunos cada, divisão simétrica, com os 16 alunos da turma alocados. A troca de grupo ainda é possível durante o semestre, desde que o professor seja avisado antes.",
       n1: [
-        { grupo:"Seminário 1", integrantes:"", tema:"Norma Jurídica", autor:"Norberto Bobbio",
+        { grupo:"Seminário 1", integrantes:"Andressa de Souza Grana, David Bottcher Curvello, Pamela Cristina Barreto Reis Rosa e Thiago Richard de Souza Pereira", tema:"Norma Jurídica", autor:"Norberto Bobbio",
           dataSeminario:"31/08 (segunda)", dataEntrega:"31/08, até 23h59" },
-        { grupo:"Seminário 2", integrantes:"", tema:"Julgamento de Nuremberg", autor:"",
+        { grupo:"Seminário 2", integrantes:"Emilly Pereira da Silva, Guilherme Pontes da Silva, Melissa Scaff Puerta e Ryan de Sá Santos", tema:"Julgamento de Nuremberg", autor:"",
           dataSeminario:"03/09 (quinta)", dataEntrega:"03/09, até 23h59" },
-        { grupo:"Seminário 3", integrantes:"", tema:"Direito Natural e Direito Positivo", autor:"",
+        { grupo:"Seminário 3", integrantes:"Gabriele de Carvalho Fontenele, Heloísa Farias Barbieri, Luís Henrique Oliveira Penteado Vargas e Luiza Santos Gonçalves", tema:"Direito Natural e Direito Positivo", autor:"",
           dataSeminario:"03/09 (quinta), na mesma aula do Seminário 2", dataEntrega:"03/09, até 23h59" },
-        { grupo:"Seminário 4", integrantes:"", tema:"Tipos de Normas Jurídicas: norma legal, norma jurisdicional, norma negocial e norma costumeira", autor:"",
+        { grupo:"Seminário 4", integrantes:"Giulia Grintaci Bertolini, Louise dos Reis de Sousa, Luiza Corbetta de Souza e Pedro de Oliveira Mafra", tema:"Tipos de Normas Jurídicas: norma legal, norma jurisdicional, norma negocial e norma costumeira", autor:"",
           dataSeminario:"10/09 (quinta)", dataEntrega:"10/09, até 23h59 — prazo final da tarefa no Moodle" }
       ],
       n2: []
     },
     "Hist. Dir.": {
-      avisoPeriodo: "Grupos ainda não formados, e as datas são estimativa — o cronograma do professor é o do 1º semestre. De 2 a 3 alunos por grupo, podendo ser maiores. São 7 temas para 6 apresentações. O representante precisa enviar ao professor a composição dos grupos em ordem cronológica das aulas.",
+      avisoPeriodo: "Grupos formados, um para cada um dos 7 temas — some a dúvida antiga sobre um tema ficar sem grupo. São 6 duplas e 1 trio. As datas continuam sendo estimativa: o cronograma do professor é o do 1º semestre e foi reposicionado para as quintas deste semestre. Estas apresentações aparecem em N2 porque é em N2 que o professor lança todas as notas da disciplina, ainda que os trabalhos sejam feitos antes. O representante precisa enviar ao professor a composição dos grupos em ordem cronológica das aulas.",
       n1: [],
       n2: [
-        { grupo:"Apresentação 1", integrantes:"", tema:"Direito na Grécia", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 31-42",
+        { grupo:"Apresentação 1", integrantes:"David Bottcher Curvello, Emilly Pereira da Silva e Pamela Cristina Barreto Reis Rosa", tema:"Direito na Grécia", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 31-42",
           dataSeminario:"03/09 (quinta) — estimada", material:"Direito na Grécia Antiga (slides no Moodle)" },
-        { grupo:"Apresentação 2", integrantes:"", tema:"Direito em Roma", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 44-55",
+        { grupo:"Apresentação 2", integrantes:"Guilherme Pontes da Silva e Melissa Scaff Puerta", tema:"Direito em Roma", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 44-55",
           dataSeminario:"10/09 (quinta) — estimada", material:"Direito em Roma (slides no Moodle)" },
-        { grupo:"Apresentação 3", integrantes:"", tema:"Direito na Idade Média", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 57-76",
+        { grupo:"Apresentação 3", integrantes:"Luís Henrique Oliveira Penteado Vargas e Luiza Santos Gonçalves", tema:"Direito na Idade Média", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 57-76",
           dataSeminario:"17/09 (quinta) — estimada", material:"O Direito na Idade Média (slides no Moodle)" },
-        { grupo:"Apresentação 4", integrantes:"", tema:"Direito na América Espanhola e Portuguesa", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, e texto disponibilizado no Moodle",
+        { grupo:"Apresentação 4", integrantes:"Luiza Corbetta de Souza e Pedro de Oliveira Mafra", tema:"Direito na América Espanhola e Portuguesa", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, e texto disponibilizado no Moodle",
           dataSeminario:"15/10 (quinta) — estimada", material:"Direito e barbárie na conquista da América indígena (texto em PDF e slides no Moodle)" },
-        { grupo:"Apresentação 5", integrantes:"", tema:"Revolução Francesa e Direito Moderno", autor:"GRIVOT, Débora C. H. et al. História do Direito. Grupo A, 2017 (Minha Biblioteca), pp. 127-150",
+        { grupo:"Apresentação 5", integrantes:"Louise dos Reis de Sousa e Ryan de Sá Santos", tema:"Revolução Francesa e Direito Moderno", autor:"GRIVOT, Débora C. H. et al. História do Direito. Grupo A, 2017 (Minha Biblioteca), pp. 127-150",
           dataSeminario:"22/10 (quinta) — estimada", material:"A Revolução Francesa e a Evolução do Estado Liberal ao Estado Democrático de Direito (slides no Moodle)" },
-        { grupo:"Apresentação 6", integrantes:"", tema:"Direito no Império", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 128-143",
+        { grupo:"Apresentação 6", integrantes:"Heloísa Farias Barbieri e Thiago Richard de Souza Pereira", tema:"Direito no Império", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 128-143",
           dataSeminario:"29/10 (quinta) — estimada", material:"Brasil Império — História do Direito (slides no Moodle)" },
-        { grupo:"Apresentação 7", integrantes:"", tema:"Direito na República", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 144-172",
+        { grupo:"Apresentação 7", integrantes:"Andressa de Souza Grana e Gabriele de Carvalho Fontenele", tema:"Direito na República", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 144-172",
           dataSeminario:"05/11 (quinta) — estimada", material:"A Construção da República no Brasil (1889-1943) (slides no Moodle)" }
       ]
     },
