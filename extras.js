@@ -182,10 +182,11 @@ const PAINEL = {
      a etapa antes de ver o grupo. Confirmado pelo Guilherme em
      14/08/2026: as 7 duplas de Economia Política são de N1.
 
-     Atenção ao caso de História do Direito: as apresentações são
-     feitas na primeira metade do semestre, mas ficam em n2 porque
-     é em N2 que o professor lança todas as notas da disciplina.
-     Não mover para n1 sem que essa regra mude. */
+     Atenção ao caso de História do Direito: os grupos ficam em n1,
+     que é quando o trabalho acontece. Isso é independente do
+     lançamento das notas, que nessa disciplina o professor faz todo
+     em N2 — uma coisa é quando se apresenta, outra é onde a nota
+     entra. Confirmado pelo Guilherme em 18/08/2026. */
   grupos: {
     "Econ. Pol.": {
       n1: [
@@ -214,9 +215,8 @@ const PAINEL = {
       n2: []
     },
     "Hist. Dir.": {
-      avisoPeriodo: "Grupos formados, um para cada um dos 7 temas — some a dúvida antiga sobre um tema ficar sem grupo. São 6 duplas e 1 trio. As datas continuam sendo estimativa: o cronograma do professor é o do 1º semestre e foi reposicionado para as quintas deste semestre. Estas apresentações aparecem em N2 porque é em N2 que o professor lança todas as notas da disciplina, ainda que os trabalhos sejam feitos antes. O representante precisa enviar ao professor a composição dos grupos em ordem cronológica das aulas.",
-      n1: [],
-      n2: [
+      avisoPeriodo: "Grupos formados, um para cada um dos 7 temas — some a dúvida antiga sobre um tema ficar sem grupo. São 6 duplas e 1 trio. As datas continuam sendo estimativa: o cronograma do professor é o do 1º semestre e foi reposicionado para as quintas deste semestre. Não confunda o período do trabalho com o do lançamento: as apresentações são de N1, mas o professor lança todas as notas da disciplina em N2. O representante precisa enviar ao professor a composição dos grupos em ordem cronológica das aulas.",
+      n1: [
         { grupo:"Apresentação 1", integrantes:"David Bottcher Curvello, Emilly Pereira da Silva e Pamela Cristina Barreto Reis Rosa", tema:"Direito na Grécia", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 31-42",
           dataSeminario:"03/09 (quinta) — estimada", material:"Direito na Grécia Antiga (slides no Moodle)" },
         { grupo:"Apresentação 2", integrantes:"Guilherme Pontes da Silva e Melissa Scaff Puerta", tema:"Direito em Roma", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 44-55",
@@ -231,7 +231,8 @@ const PAINEL = {
           dataSeminario:"29/10 (quinta) — estimada", material:"Brasil Império — História do Direito (slides no Moodle)" },
         { grupo:"Apresentação 7", integrantes:"Andressa de Souza Grana e Gabriele de Carvalho Fontenele", tema:"Direito na República", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 144-172",
           dataSeminario:"05/11 (quinta) — estimada", material:"A Construção da República no Brasil (1889-1943) (slides no Moodle)" }
-      ]
+      ],
+      n2: []
     },
     "Prát. Ext.":   { n1:[], n2:[] },
     "Antrop. Jur.": { n1:[], n2:[] },
