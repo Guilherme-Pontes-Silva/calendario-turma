@@ -21,7 +21,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-08-18T00:23:00-03:00",
+  atualizadoEm: "2026-08-18T00:35:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -709,8 +709,8 @@ const CALENDARIO = {
       texto: "A turma tem nove disciplinas no Moodle. Ciência Política publicou seu plano de ensino em 14/08/2026 e Ciência, Tecnologia e Sociedade no Direito publicou o dela em 17/08/2026 — as duas já entraram no calendário com o cronograma completo do semestre. História do Direito tem a atividade de 25/09, anotada em aula. Sobram Ética e Cidadania e Introdução ao Direito Privado, que continuam sem nenhuma data válida para 2026/2: na sala de Ética e Cidadania não há nem plano de ensino. Vale cobrar as datas de avaliação dessas duas antes que o semestre avance."
     },
     {
-      titulo: "Dois alunos estão sem grupo, cada um numa disciplina",
-      texto: "Conferindo as listas umas contra as outras, a turma tem 16 alunos, que é exatamente o número alocado nos quatro seminários de Teoria Geral do Direito. Nas outras duas disciplinas falta gente. Em História do Direito estão 15 dos 16: Giulia Grintaci Bertolini não aparece em nenhum dos sete grupos. Em Economia Política também são 15, e quem falta é Melissa Scaff Puerta — essa é anterior, vem de quando as sete duplas foram fechadas, em 14/08. Como o professor de História do Direito é explícito em não admitir aluno sem grupo, e é o representante quem envia a composição, vale resolver a de História do Direito antes do envio. Nenhuma das duas foi preenchida por conta própria aqui: quem decide em que grupo cada uma entra é a turma, não este calendário."
+      titulo: "Economia Política — os grupos mudaram, confira em qual você está",
+      texto: "As sete duplas fechadas em 14/08 viraram cinco duplas e dois trios. O David entrou no grupo 2, de Capitalismo e Pulsão de Morte, e a Melissa entrou no grupo 4, de Fascismo e Liberalismo. Quem está nesses dois grupos tem um integrante a mais do que tinha no combinado original — vale conferir a aba Grupos de Trabalho antes de dividir as tarefas da leitura."
     },
     {
       titulo: "História do Direito — as 7 datas de apresentação são estimativa, não anúncio",
@@ -722,7 +722,7 @@ const CALENDARIO = {
     },
     {
       titulo: "História do Direito — os 7 grupos estão formados e precisam ser enviados ao professor",
-      texto: "A dúvida antiga era se um dos sete temas ficaria sem grupo, porque as anotações de aula falavam em seis apresentações. Resolvido: são sete grupos, um para cada tema, seis duplas e um trio, já publicados na aba Grupos de Trabalho. Falta o passo seguinte, que é do representante: enviar ao professor a composição completa, em ordem cronológica das aulas. Antes de enviar, feche a pendência da Giulia, que ainda não está em nenhum grupo. Lembre também que as datas das apresentações continuam sendo estimativa, e não anúncio do professor."
+      texto: "A dúvida antiga era se um dos sete temas ficaria sem grupo, porque as anotações de aula falavam em seis apresentações. Resolvido: são sete grupos, um para cada tema, seis duplas e um trio, já publicados na aba Grupos de Trabalho. Falta o passo seguinte, que é do representante: enviar ao professor a composição completa, em ordem cronológica das aulas. Lembre que as datas das apresentações continuam sendo estimativa, e não anúncio do professor."
     },
     {
       titulo: "História do Direito — falta a data da prova objetiva (60% da nota)",
