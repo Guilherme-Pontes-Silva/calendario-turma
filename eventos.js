@@ -21,7 +21,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-08-18T01:00:00-03:00",
+  atualizadoEm: "2026-08-18T01:10:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -95,13 +95,41 @@ const CALENDARIO = {
       data: "2026-08-24", hora: null, disciplina: "Prát. Ext.", tipo: "EVENTO",
       titulo: "Semana Jurídica",
       descricao: "Atividade da universidade no lugar da aula normal. Aparece tanto no cronograma da Prática Extensionista quanto no da Teoria Geral do Direito.",
-      oQueFazer: "Não haverá aula comum. Acompanhe a programação da Semana Jurídica divulgada pela universidade."
+      oQueFazer: "Acompanhe a programação da Semana Jurídica divulgada pela universidade. Atenção: o cronograma diz que não há aula comum, mas a professora Gisele marcou para hoje, no horário da Prática Extensionista, uma orientação sobre a organização da Semana Jurídica — é o compromisso das 18h30 deste mesmo dia. O aviso dela é mais recente que o cronograma."
     },
     {
       data: "2026-08-24", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Betioli — Lição V",
       descricao: "Resumo manuscrito da Lição V (“notas distintivas do direito”) do Betioli, Introdução ao Direito, 16ª ed., Saraiva, 2023.",
       oQueFazer: "Escrever à mão e enviar a digitalização pelo Moodle. Cai no mesmo dia da Semana Jurídica, que substitui a aula normal — mas o prazo é no Moodle e não depende de ter aula."
+    },
+    {
+      data: "2026-08-24", hora: "18:30", disciplina: "Prát. Ext.", tipo: "AULA",
+      titulo: "Orientação sobre a organização da Semana Jurídica",
+      descricao: "Encontro da turma com a professora Gisele Meirelles Fonseca, no horário da Prática Extensionista, para orientar sobre a organização da Semana Jurídica.",
+      oQueFazer: "Estar na sala às 18h30, no horário normal da disciplina. Vale anotar as tarefas que a professora distribuir: é a partir desta orientação que a turma se organiza para a Semana Jurídica. Atenção: o cronograma da disciplina marca a própria Semana Jurídica neste mesmo dia e diz que não há aula comum. O aviso da professora é mais recente e é o que vale, mas se houver dúvida, confirme com ela.",
+      fonte: "Anotado pelo representante da turma, 18/08/2026. Não consta no Moodle nem no Portal do Aluno."
+    },
+    {
+      data: "2026-08-25", hora: null, disciplina: "Geral", tipo: "AVALIACAO",
+      titulo: "Provas institucionais da universidade — 1º dia",
+      descricao: "Primeiro dos três dias das provas institucionais recorrentes da universidade. São avaliações enviadas por link, que o próprio aluno responde. O objetivo é institucional: medir o desenvolvimento acadêmico dos estudantes conforme os anos do curso passam, e não avaliar o conteúdo de uma disciplina específica.",
+      oQueFazer: "Fique atento ao link, que chega pelos canais da universidade. Não é prova de matéria nenhuma, então não há o que estudar — o que importa é não perder o prazo de resposta.",
+      fonte: "Anotado pelo representante da turma, 18/08/2026."
+    },
+    {
+      data: "2026-08-26", hora: null, disciplina: "Geral", tipo: "AVALIACAO",
+      titulo: "Provas institucionais da universidade — 2º dia",
+      descricao: "Segundo dia das provas institucionais recorrentes da universidade, respondidas por link enviado ao aluno.",
+      oQueFazer: "Cai no mesmo dia do segundo dia da Semana Jurídica. São coisas diferentes: a prova é respondida por link, no seu tempo, e não substitui nem depende da programação da Semana Jurídica.",
+      fonte: "Anotado pelo representante da turma, 18/08/2026."
+    },
+    {
+      data: "2026-08-27", hora: null, disciplina: "Geral", tipo: "AVALIACAO",
+      titulo: "Provas institucionais da universidade — 3º dia",
+      descricao: "Terceiro e último dia das provas institucionais recorrentes da universidade, respondidas por link enviado ao aluno.",
+      oQueFazer: "Último dia da série. Se ainda faltou responder algum link dos dias anteriores, resolva hoje. Cai junto com o Encontro Internacional de Direitos Humanos e com o prazo do manuscrito do Montoro, em TGD — são três compromissos diferentes no mesmo dia.",
+      fonte: "Anotado pelo representante da turma, 18/08/2026."
     },
     {
       data: "2026-08-26", hora: null, disciplina: "Prát. Ext.", tipo: "EVENTO",
