@@ -26,7 +26,7 @@ const PAINEL = {
      não inventar padrão institucional. */
   professores: [
     { sigla:"TGD",         disciplina:"Teoria Geral do Direito",                       nome:"Prof. Dr. Luiz Eduardo de Almeida",        email:"luiz.almeida@mackenzie.br" },
-    { sigla:"Prát. Ext.",  disciplina:"Prática Extensionista — Conhecendo e Divulgando", nome:"Profa. Gisele Meirelles Fonseca",        email:"" },
+    { sigla:"Prát. Ext.",  disciplina:"Prática Extensionista — Conhecendo e Divulgando", nome:"Profa. Dra. Gisele Meirelles Fonseca",    email:"gisele.fonseca@mackenzie.br" },
     { sigla:"IDP",         disciplina:"Introdução ao Direito Privado, Pessoas e Bens",  nome:"Prof. Dr. Marco Antonio dos Anjos",       email:"marco.anjos@mackenzie.br" },
     { sigla:"Hist. Dir.",  disciplina:"História do Direito",                           nome:"Prof. Dr. Alexandre Aparecido de Lima",    email:"7003531@mackenzie.br" },
     { sigla:"Ética",       disciplina:"Ética e Cidadania",                             nome:"Prof. Ms. Ailton Gonçalves Dias Filho",    email:"ailton.filho@mackenzie.br" },

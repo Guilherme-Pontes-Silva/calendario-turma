@@ -21,7 +21,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-08-18T00:35:00-03:00",
+  atualizadoEm: "2026-08-18T01:00:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -125,20 +125,20 @@ const CALENDARIO = {
       data: "2026-08-28", hora: null, disciplina: "Ciên. Pol.", tipo: "EVENTO",
       titulo: "Semana Jurídica, sem aula",
       descricao: "A aula 4 de Ciência Política é substituída pela Semana Jurídica.",
-      oQueFazer: "Não haverá aula de Ciência Política. Atenção: três cronogramas oficiais discordam sobre a data das semanas institucionais — veja o bloco de pontos a confirmar no fim da página.",
+      oQueFazer: "Não haverá aula de Ciência Política. Atenção: os cronogramas oficiais discordam sobre a data da Semana Jurídica. O da Prática Extensionista marca 24 e 26/08, o de TGD marca 24/08, e os de Ciência Política e CTS marcam 27 e 28/08. Todas as datas ficaram no calendário, cada uma na sua disciplina, porque não há como saber qual está certa — confirme com a coordenação do curso.",
       fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 4 do cronograma."
     },
     {
       data: "2026-08-28", hora: null, disciplina: "CTS", tipo: "EVENTO",
       titulo: "Semana Jurídica, sem aula",
       descricao: "A aula 4 de Ciência, Tecnologia e Sociedade no Direito é substituída pela Semana Jurídica.",
-      oQueFazer: "Não haverá aula de CTS. É o mesmo dia em que Ciência Política também perde a aula — as duas disciplinas são do mesmo professor e caem na sexta. Sobre a divergência de datas das semanas institucionais, veja o bloco de pontos a confirmar no fim da página.",
+      oQueFazer: "Não haverá aula de CTS. É o mesmo dia em que Ciência Política também perde a aula — as duas disciplinas são do mesmo professor e caem na sexta. Atenção: os cronogramas oficiais discordam sobre a data da Semana Jurídica, e o de CTS repete o de Ciência Política. Como os dois vêm do mesmo professor, pode ser uma fonte só contada duas vezes — confirme com a coordenação.",
       fonte: "Plano de Ensino da disciplina (arquivo 1017334), aula 4 do cronograma, publicado na sala do Moodle."
     },
     {
       data: "2026-08-31", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
       titulo: "Seminário 1 — Norma Jurídica (Norberto Bobbio)",
-      descricao: "Primeiro dos quatro seminários de Teoria Geral do Direito, que compõem o peso 2 da nota A1. Apresentação oral em sala, de 10 a 15 minutos por grupo.",
+      descricao: "Primeiro dos quatro seminários de Teoria Geral do Direito, que compõem o peso 2 da nota A1. Apresentação oral em sala, de 10 a 15 minutos por grupo. Apresentam Andressa de Souza Grana, David Bottcher Curvello, Pamela Cristina Barreto Reis Rosa e Thiago Richard de Souza Pereira.",
       oQueFazer: "O arquivo da apresentação precisa estar no Moodle antes de subir para apresentar — o enunciado pede no mínimo 1 dia de antecedência. Basta 1 integrante postar pelo grupo inteiro.",
       fonte: "Cronograma dos seminários exibido pelo professor em sala, 12/08/2026."
     },
@@ -166,7 +166,7 @@ const CALENDARIO = {
     {
       data: "2026-09-03", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
       titulo: "Seminário 2 — Julgamento de Nuremberg",
-      descricao: "Segundo seminário de Teoria Geral do Direito. Cai no mesmo dia do Seminário 3: são dois grupos apresentando na mesma aula.",
+      descricao: "Segundo seminário de Teoria Geral do Direito. Cai no mesmo dia do Seminário 3: são dois grupos apresentando na mesma aula. Apresentam Emilly Pereira da Silva, Guilherme Pontes da Silva, Melissa Scaff Puerta e Ryan de Sá Santos.",
       oQueFazer: "Arquivo no Moodle antes de apresentar (no mínimo 1 dia de antecedência, pelo enunciado). Apresentação de 10 a 15 minutos.",
       fonte: "Cronograma dos seminários exibido pelo professor em sala, 12/08/2026."
     },
@@ -180,7 +180,7 @@ const CALENDARIO = {
     {
       data: "2026-09-03", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
       titulo: "Seminário 3 — Direito Natural e Direito Positivo",
-      descricao: "Terceiro seminário de Teoria Geral do Direito, na mesma aula do Seminário 2.",
+      descricao: "Terceiro seminário de Teoria Geral do Direito, na mesma aula do Seminário 2. Apresentam Gabriele de Carvalho Fontenele, Heloísa Farias Barbieri, Luís Henrique Oliveira Penteado Vargas e Luiza Santos Gonçalves.",
       oQueFazer: "Arquivo no Moodle antes de apresentar. Apresentação de 10 a 15 minutos.",
       fonte: "Cronograma dos seminários exibido pelo professor em sala, 12/08/2026."
     },
@@ -194,21 +194,21 @@ const CALENDARIO = {
     {
       data: "2026-09-03", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
       titulo: "Apresentação 1 — Direito na Grécia",
-      descricao: "Primeira apresentação em grupo de História do Direito, de 10 a 15 minutos. Material: “Direito na Grécia Antiga” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 31-42.",
+      descricao: "Primeira apresentação em grupo de História do Direito, de 10 a 15 minutos. Apresentam David Bottcher Curvello, Emilly Pereira da Silva e Pamela Cristina Barreto Reis Rosa. Material: “Direito na Grécia Antiga” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 31-42.",
       oQueFazer: "Data estimada. O cronograma do professor traz 04/03, uma quarta-feira do 1º semestre, quando a disciplina era às quartas; neste semestre ela é às quintas. A data foi reposicionada para a quinta equivalente. Confirme com o professor antes de fechar o cronograma do grupo.",
       fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
     },
     {
       data: "2026-09-10", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
       titulo: "Apresentação 2 — Direito em Roma",
-      descricao: "Apresentação em grupo de 10 a 15 minutos. Material: “Direito em Roma” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 44-55.",
+      descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Guilherme Pontes da Silva e Melissa Scaff Puerta. Material: “Direito em Roma” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 44-55.",
       oQueFazer: "Data estimada, reposicionada de 11/03 para a quinta equivalente deste semestre. Confirme com o professor.",
       fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
     },
     {
       data: "2026-09-17", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
       titulo: "Apresentação 3 — Direito na Idade Média",
-      descricao: "Apresentação em grupo de 10 a 15 minutos. Material: “O Direito na Idade Média” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 57-76.",
+      descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Luís Henrique Oliveira Penteado Vargas e Luiza Santos Gonçalves. Material: “O Direito na Idade Média” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 57-76.",
       oQueFazer: "Data estimada, reposicionada de 18/03 para a quinta equivalente deste semestre. Confirme com o professor.",
       fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
     },
@@ -239,7 +239,7 @@ const CALENDARIO = {
     {
       data: "2026-09-10", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
       titulo: "Seminário 4 — Tipos de Normas Jurídicas",
-      descricao: "Último dos quatro seminários de Teoria Geral do Direito. Tema: norma legal, norma jurisdicional, norma negocial e norma costumeira.",
+      descricao: "Último dos quatro seminários de Teoria Geral do Direito. Tema: norma legal, norma jurisdicional, norma negocial e norma costumeira. Apresentam Giulia Grintaci Bertolini, Louise dos Reis de Sousa, Luiza Corbetta de Souza e Pedro de Oliveira Mafra.",
       oQueFazer: "Arquivo no Moodle antes de apresentar. Apresentação de 10 a 15 minutos. Este é o dia mais carregado do semestre em TGD: caem também o manuscrito do Kelsen e o prazo final da tarefa dos seminários.",
       fonte: "Cronograma dos seminários exibido pelo professor em sala, 12/08/2026."
     },
@@ -331,7 +331,7 @@ const CALENDARIO = {
       data: "2026-09-25", hora: null, disciplina: "Hist. Dir.", tipo: "AVALIACAO",
       titulo: "Atividade avaliativa (40% da nota)",
       descricao: "Atividade avaliativa de História do Direito. Vale 40% da nota; os outros 60% vêm de uma prova de questões objetivas ainda sem data marcada.",
-      oQueFazer: "Atenção ao lançamento das notas: ainda que os trabalhos sejam feitos antes, todas as notas da disciplina são lançadas apenas em N2, e não em N1.",
+      oQueFazer: "Atenção ao lançamento das notas: ainda que os trabalhos sejam feitos antes, todas as notas da disciplina são lançadas apenas em N2, e não em N1. Atenção também à data: 25/09/2026 é uma sexta-feira, e História do Direito é às quintas, das 21h10 às 22h50. Ou a data certa é 24/09, ou a atividade não é feita em aula. Ficou como veio da anotação de aula — confirme com o professor antes de contar com ela.",
       fonte: "Anotado em aula pelo representante da turma, 12/08/2026."
     },
     {
@@ -402,14 +402,14 @@ const CALENDARIO = {
       data: "2026-10-09", hora: null, disciplina: "Ciên. Pol.", tipo: "EVENTO",
       titulo: "Semana Internacional de Direitos Humanos, sem aula",
       descricao: "A aula 10 de Ciência Política é substituída pela Semana Internacional de Direitos Humanos.",
-      oQueFazer: "Não haverá aula de Ciência Política. Atenção: esta data contradiz o cronograma de Teoria Geral do Direito, que marca o Encontro Internacional de Direitos Humanos em 27/08 — veja o bloco de pontos a confirmar.",
+      oQueFazer: "Não haverá aula de Ciência Política. Atenção: esta data contradiz o cronograma de Teoria Geral do Direito, que marca o Encontro Internacional de Direitos Humanos em 27/08. As duas ficaram no calendário, cada uma na sua disciplina — confirme com a coordenação qual vale.",
       fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 10 do cronograma."
     },
     {
       data: "2026-10-09", hora: null, disciplina: "CTS", tipo: "EVENTO",
       titulo: "Semana Internacional de Direitos Humanos, sem aula",
       descricao: "A aula 10 de Ciência, Tecnologia e Sociedade no Direito é substituída pela Semana Internacional de Direitos Humanos.",
-      oQueFazer: "Não haverá aula de CTS. O plano de CTS confirma a mesma data que o de Ciência Política, o que reforça o 08/09 de outubro para a semana de Direitos Humanos — mas ainda contradiz o cronograma de TGD, que marca o Encontro Internacional em 27/08. Veja o bloco de pontos a confirmar.",
+      oQueFazer: "Não haverá aula de CTS. O plano de CTS confirma a mesma data que o de Ciência Política, o que reforça o 08 e 09 de outubro para a semana de Direitos Humanos — mas ainda contradiz o cronograma de TGD, que marca o Encontro Internacional em 27/08. Lembre que os dois planos que concordam são do mesmo professor.",
       fonte: "Plano de Ensino da disciplina (arquivo 1017334), aula 10 do cronograma."
     },
     {
@@ -426,14 +426,14 @@ const CALENDARIO = {
     {
       data: "2026-10-15", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
       titulo: "Apresentação 4 — Direito na América Espanhola e Portuguesa",
-      descricao: "Apresentação em grupo de 10 a 15 minutos. Material: “Direito e barbárie na conquista da América indígena” (texto em PDF e slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, e texto disponibilizado no Moodle.",
+      descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Luiza Corbetta de Souza e Pedro de Oliveira Mafra. Material: “Direito e barbárie na conquista da América indígena” (texto em PDF e slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, e texto disponibilizado no Moodle.",
       oQueFazer: "Data estimada, reposicionada de 15/04 para a quinta equivalente deste semestre. Confirme com o professor.",
       fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
     },
     {
       data: "2026-10-22", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
       titulo: "Apresentação 5 — Revolução Francesa e Direito Moderno",
-      descricao: "Apresentação em grupo de 10 a 15 minutos. Material: “A Revolução Francesa e a Evolução do Estado Liberal ao Estado Democrático de Direito” (slides no Moodle). Bibliografia: GRIVOT, Débora C. H. et al. História do Direito. Grupo A, 2017 (Minha Biblioteca), pp. 127-150.",
+      descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Louise dos Reis de Sousa e Ryan de Sá Santos. Material: “A Revolução Francesa e a Evolução do Estado Liberal ao Estado Democrático de Direito” (slides no Moodle). Bibliografia: GRIVOT, Débora C. H. et al. História do Direito. Grupo A, 2017 (Minha Biblioteca), pp. 127-150.",
       oQueFazer: "Data estimada, reposicionada de 22/04 para a quinta equivalente deste semestre. Confirme com o professor.",
       fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
     },
@@ -461,7 +461,7 @@ const CALENDARIO = {
     {
       data: "2026-10-29", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
       titulo: "Apresentação 6 — Direito no Império",
-      descricao: "Apresentação em grupo de 10 a 15 minutos. Material: “Brasil Império — História do Direito” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 128-143.",
+      descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Heloísa Farias Barbieri e Thiago Richard de Souza Pereira. Material: “Brasil Império — História do Direito” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 128-143.",
       oQueFazer: "Data estimada, reposicionada de 29/04 para a quinta equivalente deste semestre. Confirme com o professor.",
       fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
     },
@@ -488,7 +488,7 @@ const CALENDARIO = {
       data: "2026-11-04", hora: null, disciplina: "Econ. Pol.", tipo: "PROVA",
       titulo: "Prova Integrada",
       descricao: "Prova Integrada, marcada no plano de Economia Política. A mesma data aparece em Prática Extensionista, o que indica ser uma prova única para as duas disciplinas.",
-      oQueFazer: "Ainda não há instrução divulgada sobre formato e conteúdo. Vale cobrar isso da coordenação com antecedência — veja o bloco de pontos a confirmar no fim da página."
+      oQueFazer: "Ainda não há instrução divulgada sobre formato e conteúdo. No mural do Portal do Aluno existe um cartão “Prova Integrada” com botão “Acessar”, mas ele não traz data, disciplina nem instrução. Como não dá para saber se o botão apenas informa ou se abre a avaliação, pergunte à coordenação a que ele se refere antes de clicar."
     },
     {
       data: "2026-11-04", hora: null, disciplina: "Prát. Ext.", tipo: "PROVA",
@@ -499,7 +499,7 @@ const CALENDARIO = {
     {
       data: "2026-11-05", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
       titulo: "Apresentação 7 — Direito na República",
-      descricao: "Última apresentação em grupo, de 10 a 15 minutos. Material: “A Construção da República no Brasil (1889-1943)” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 144-172.",
+      descricao: "Última apresentação em grupo, de 10 a 15 minutos. Apresentam Andressa de Souza Grana e Gabriele de Carvalho Fontenele. Material: “A Construção da República no Brasil (1889-1943)” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 144-172.",
       oQueFazer: "Data estimada, reposicionada de 06/05 para a quinta equivalente deste semestre. Atenção: são 7 temas para 6 apresentações — este pode ser o tema absorvido por outro grupo ou apresentado pelo próprio professor. Confirme com ele.",
       fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
     },
@@ -570,8 +570,8 @@ const CALENDARIO = {
     {
       data: "2026-11-15", hora: "23:59", disciplina: "Econ. Pol.", tipo: "TAREFA",
       titulo: "Fichamento — Livro Seminário",
-      descricao: "Fichamento do livro do seminário, entregue pelo Moodle até 23h59.",
-      oQueFazer: "São dois fichamentos diferentes no mesmo prazo, este e o da Marilena Chauí. Use o mesmo modelo postado na sala."
+      descricao: "Fichamento do livro do seminário, entregue pelo Moodle até 23h59. Cada grupo fica com um livro diferente, dos sete sorteados para a turma — a lista de quem está em qual grupo e com qual livro está na aba Grupos de Trabalho, em Economia Política, N1.",
+      oQueFazer: "São dois fichamentos diferentes no mesmo prazo, este e o da Marilena Chauí. Use o mesmo modelo postado na sala. Confira na aba Grupos de Trabalho qual é o livro do seu grupo antes de começar."
     },
     {
       data: "2026-11-16", hora: null, disciplina: "Antrop. Jur.", tipo: "AVALIACAO",
@@ -684,69 +684,6 @@ const CALENDARIO = {
       data: "2026-12-14", hora: null, disciplina: "Geral", tipo: "FERIADO",
       titulo: "Aniversário de Campinas (feriado municipal)",
       descricao: "Feriado municipal de Campinas. Não há aula."
-    }
-  ],
-
-  pendencias: [
-    {
-      titulo: "Economia Política — Avaliação NI2-B, marcada aqui em 25/11",
-      texto: "O “18/25 nov” que aparece no plano de aulas não é erro: o professor ainda não fixou o dia e a avaliação cai em algum ponto entre 18 e 25 de novembro. É por isso que a página da disciplina no Moodle repete “Avaliação NI2-B” nas duas semanas. Deixamos 25/11 porque é a data lançada no calendário, mas o ideal é estar pronto já em 18/11 e ficar atento ao anúncio do professor. Conferido de novo no Moodle em 12/08/2026: continua em 25/11, sem alteração."
-    },
-    {
-      titulo: "Prática Extensionista — atenção ao olhar o plano de aula",
-      texto: "O quadro “Data da Avaliação” do plano traz duas datas para cada avaliação, porque o mesmo plano atende as turmas 1F e 1P. As datas da nossa turma, a 1P, são 09/09, 23/09, 09/11 e 23/11, que são as que estão neste calendário. As outras (10/09, 24/09, 05/11 e 19/11) são da turma 1F e não valem para nós. Não confundir na hora de conferir."
-    },
-    {
-      titulo: "Introdução ao Direito Privado — Trabalhos N1 e N2",
-      texto: "As duas tarefas continuam abertas na sala do Moodle com prazos de 08/04 e 26/05 de 2026, anteriores a este semestre, provavelmente herdados da configuração antiga da sala. Os enunciados tratam de direitos morais de autor e do domicílio da pessoa natural. Confirmar com o professor se valem para 2026/2 e com que prazo. Por não terem data válida para este semestre, não entraram na lista acima."
-    },
-    {
-      titulo: "TGD — não existe onde enviar os manuscritos",
-      texto: "O plano de aula da disciplina é explícito: a nota se compõe de prova, seminário e “a entrega realizada no moodle de digitalização de MANUSCRITO pelo(a) próprio(a) aluno(a), conforme cronograma”. Ou seja, o resumo é escrito à mão pelo aluno e a digitalização é enviada pelo Moodle. Só que a sala de TGD tem uma seção chamada “ENTREGAS DOS MANUSCRITOS PARA AVALIAÇÃO” que está completamente vazia, sem nenhuma tarefa aberta, e o fórum de avisos não tem nenhuma publicação. Conferido em 12/08/2026. O primeiro manuscrito é 20/08, então vale cobrar do professor a abertura da entrega antes disso, e confirmar se aceita foto ou só PDF."
-    },
-    {
-      titulo: "Duas disciplinas ainda não têm nenhuma data publicada",
-      texto: "A turma tem nove disciplinas no Moodle. Ciência Política publicou seu plano de ensino em 14/08/2026 e Ciência, Tecnologia e Sociedade no Direito publicou o dela em 17/08/2026 — as duas já entraram no calendário com o cronograma completo do semestre. História do Direito tem a atividade de 25/09, anotada em aula. Sobram Ética e Cidadania e Introdução ao Direito Privado, que continuam sem nenhuma data válida para 2026/2: na sala de Ética e Cidadania não há nem plano de ensino. Vale cobrar as datas de avaliação dessas duas antes que o semestre avance."
-    },
-    {
-      titulo: "Economia Política — os grupos mudaram, confira em qual você está",
-      texto: "As sete duplas fechadas em 14/08 viraram cinco duplas e dois trios. O David entrou no grupo 2, de Capitalismo e Pulsão de Morte, e a Melissa entrou no grupo 4, de Fascismo e Liberalismo. Quem está nesses dois grupos tem um integrante a mais do que tinha no combinado original — vale conferir a aba Grupos de Trabalho antes de dividir as tarefas da leitura."
-    },
-    {
-      titulo: "História do Direito — as 7 datas de apresentação são estimativa, não anúncio",
-      texto: "O cronograma de temas do professor é o mesmo do 1º semestre de 2026 e traz as datas 04/03, 11/03, 18/03, 15/04, 22/04, 29/04 e 06/05 — todas quartas-feiras, porque naquele semestre a disciplina era às quartas. Neste semestre História do Direito é às quintas, das 21h10 às 22h50. As datas foram reposicionadas para as quintas equivalentes, mantendo exatamente o mesmo espaçamento entre as aulas do cronograma original: três semanas seguidas, um intervalo de quatro semanas e depois quatro semanas seguidas. O resultado é 03/09, 10/09, 17/09, 15/10, 22/10, 29/10 e 05/11, todas marcadas como data a confirmar. O intervalo cai justamente sobre o Hackathon de 08/10, o que reforça a estimativa, mas nada disso foi anunciado pelo professor. Confirme as datas com ele antes de o representante enviar a composição dos grupos."
-    },
-    {
-      titulo: "História do Direito — a atividade de 25/09 cai numa sexta, e a aula é quinta",
-      texto: "A atividade avaliativa que vale 40% da nota está anotada para 25 de setembro, mas 25/09/2026 é uma sexta-feira, e História do Direito acontece às quintas, das 21h10 às 22h50, conforme o Quadro de Horário do Portal do Aluno. Ou a data correta é 24/09, ou a atividade não é feita em aula, ou a anotação trocou o dia. A data foi mantida como está porque foi assim que veio da anotação de aula, mas vale confirmar com o professor antes de contar com ela."
-    },
-    {
-      titulo: "História do Direito — os 7 grupos estão formados e precisam ser enviados ao professor",
-      texto: "A dúvida antiga era se um dos sete temas ficaria sem grupo, porque as anotações de aula falavam em seis apresentações. Resolvido: são sete grupos, um para cada tema, seis duplas e um trio, já publicados na aba Grupos de Trabalho. Falta o passo seguinte, que é do representante: enviar ao professor a composição completa, em ordem cronológica das aulas. Lembre que as datas das apresentações continuam sendo estimativa, e não anúncio do professor."
-    },
-    {
-      titulo: "História do Direito — falta a data da prova objetiva (60% da nota)",
-      texto: "A atividade de 25/09 vale 40% da nota. Os outros 60% vêm de uma prova de questões objetivas que ainda não tem data divulgada. Assim que sair, atualizar o calendário. Lembrando que, nesta disciplina, todas as notas são lançadas apenas em N2, ainda que os trabalhos sejam feitos antes."
-    },
-    {
-      titulo: "História do Direito — o plano publicado é do 1º semestre",
-      texto: "O arquivo chamado “Plano de Ensino Atualizado” na sala de História do Direito, apesar do nome do arquivo dizer 2º semestre de 2026, traz um cronograma que vai de 11/02/2026 a 03/06/2026 e datas de avaliação em 23/03, 01/04, 20/05 e 27/05 — tudo do primeiro semestre. A “Ficha de Avaliação” postada na mesma sala também se chama “Ficha Avaliação Seminário 1S 2026”. A disciplina tem prova individual, fichamento de cada texto e seminário, mas nenhuma data válida para 2026/2. Precisa ser cobrado do professor."
-    },
-    {
-      titulo: "Prova Integrada — o card do Portal continua sem informação",
-      texto: "A prova está marcada para 04/11 em Economia Política e em Prática Extensionista. No mural do Portal do Aluno há um cartão “Prova Integrada” com botão “Acessar”, mas ele não traz data, disciplina nem instrução. Conferido de novo em 12/08/2026: segue igual, sem nenhuma informação. Como não dá para saber se o botão apenas informa ou se abre a avaliação, vale perguntar à coordenação a que ele se refere antes de clicar."
-    },
-    {
-      titulo: "As semanas institucionais: três cronogramas oficiais discordam",
-      texto: "Não dá para conciliar as fontes. O cronograma da Prática Extensionista situa a Semana Jurídica em 24 e 26 de agosto. O de Teoria Geral do Direito situa a Semana Jurídica em 24 de agosto e o Encontro Internacional de Direitos Humanos em 27 de agosto. O de Ciência Política, publicado em 14/08/2026, situa a Semana Jurídica entre 27 e 28 de agosto e a Semana Internacional de Direitos Humanos em 8 e 9 de outubro. O de Ciência, Tecnologia e Sociedade no Direito, publicado em 17/08/2026, repete exatamente essas duas últimas datas — 28 de agosto e 9 de outubro. Isso dá duas fontes independentes para a leitura “fim de agosto e começo de outubro”, mas note que as duas são do mesmo professor, o Renan Alencar, então pode ser uma fonte só contada duas vezes. Todas as datas foram mantidas no calendário, cada uma na sua disciplina, porque continua não havendo como saber qual está certa. Perguntar à coordenação do curso qual é o calendário institucional correto — isso afeta cinco disciplinas ao mesmo tempo."
-    },
-    {
-      titulo: "Ciência Política — as datas dos três fichamentos são dedução, não anúncio",
-      texto: "O professor Renan Alencar escreveu, no arquivo de aula, que os fichamentos são individuais e entregues “na semana seguinte”. Ele deu a regra, mas não escreveu os dias. Por isso os fichamentos 1, 2 e 3 entraram no calendário em 21/08, 11/09 e 18/09, aplicando a regra às aulas em que cada texto foi passado, e ficaram marcados como data a confirmar. Perguntar a ele, na aula de 21/08, se a entrega é naquele dia e em que formato — a mesma dúvida vale para os outros dois."
-    },
-    {
-      titulo: "Ciência Política — por que vale sempre a segunda data do par",
-      texto: "O cronograma da disciplina traz as datas em par, no formato “17 e 18/09”. Isso não é um intervalo: são as duas turmas do professor Renan Alencar, uma às quintas e outra às sextas. A nossa turma, 201814526.000.01P, tem Ciência Política às sextas-feiras, das 20h10 às 21h00 — confirmado na grade horária do Portal do Aluno, tela Plano de Aula, filtrada em 14/08/2026, uma sexta-feira. Por isso, de cada par, este calendário usa sempre a segunda data."
     }
   ]
 };

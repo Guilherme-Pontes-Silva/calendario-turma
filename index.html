@@ -773,12 +773,6 @@ body.menu-aberto{overflow:hidden}
 
     <div class="ferias-card" id="ferias-card"></div>
 
-    <section class="pend" id="pend">
-      <h2>Pontos a confirmar com o professor</h2>
-      <p class="intro">Datas que ainda não estão fechadas. Não trate como definitivo.</p>
-      <div id="pend-lista"></div>
-    </section>
-
   </section>
 
   <!-- ======================= ABA: CONTATOS ======================= -->
@@ -1307,10 +1301,6 @@ body.menu-aberto{overflow:hidden}
 
   function iniciar(){
     $("eyebrow").textContent = CALENDARIO.turma;
-
-    $("pend-lista").innerHTML = (CALENDARIO.pendencias || []).map(function(p){
-      return "<details><summary>" + esc(p.titulo) + "</summary><p>" + esc(p.texto) + "</p></details>";
-    }).join("");
 
     pintarDisciplinas();
     pintarChips();
