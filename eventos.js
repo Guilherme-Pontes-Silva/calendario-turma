@@ -21,7 +21,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-08-20T06:09:00-03:00",
+  atualizadoEm: "2026-08-20T06:24:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 

@@ -183,15 +183,19 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
    busca deixa de existir por construção, e não por folga em pixels.
    O fundo translúcido com blur evita que o conteúdo suma de forma
    seca atrás da barra quando a pessoa rola. */
-.filtros{
-  margin:30px 0 0;position:sticky;top:0;z-index:20;
+/* A busca é a única coisa que gruda no topo. Fica fora da .filtros e
+   é filha direta da seção, senão ela só grudaria enquanto o bloco de
+   filtros estivesse na tela — sticky não sai da caixa do pai. */
+.busca-fixa{
+  position:sticky;top:0;z-index:20;
+  margin:30px 0 0;padding:12px 0;
   background:rgba(10,10,10,.85);
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
-  padding:12px 0 10px;
 }
+.filtros{padding:0 0 10px}
 .filtros::after{content:"";display:block;height:1px;background:var(--line-soft);margin-top:12px}
-.busca-linha{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+.busca-linha{display:flex;gap:8px;align-items:center}
 .busca{position:relative;flex:1 1 auto;min-width:0}
 .busca input{
   width:100%;background:var(--surface);border:1px solid var(--line);color:var(--text);
@@ -1012,7 +1016,11 @@ body.menu-aberto{overflow:hidden}
          menu e da barra inferior. Contar duas vezes a mesma coisa na
          mesma tela não informa, só ocupa espaço. -->
 
-    <div class="filtros">
+    <!-- Só a busca acompanha a rolagem. Os chips e os seletores ficam
+         no bloco de baixo, que rola junto com a página: eles servem
+         para montar a lista uma vez, não para consultar o tempo todo,
+         e presos no topo só roubariam altura de tela. -->
+    <div class="busca-fixa">
       <div class="busca-linha">
         <div class="busca">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
@@ -1022,6 +1030,9 @@ body.menu-aberto{overflow:hidden}
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
         </button>
       </div>
+    </div>
+
+    <div class="filtros">
       <div class="chips" id="chips"></div>
       <div class="linha2">
         <select id="disciplina"><option value="">Todas as matérias</option></select>
@@ -1260,9 +1271,20 @@ body.menu-aberto{overflow:hidden}
     return { txt:"faltam " + d + " dias (" + sem + " semanas)", cls:cls };
   }
 
+  /* O cronômetro segue a matéria escolhida no seletor. Sem seleção, é
+     o próximo compromisso da turma inteira; com uma matéria escolhida,
+     é o próximo daquela matéria — que é o caso de quem está de DP e só
+     acompanha uma disciplina. Os chips de tipo e a busca por texto não
+     mexem aqui de propósito: o destaque não pode ficar pulando a cada
+     letra digitada. */
   function proximo(){
     var agora = new Date();
-    for (var i=0;i<eventos.length;i++) if (eventos[i].alvo > agora) return eventos[i];
+    for (var i=0;i<eventos.length;i++){
+      var e = eventos[i];
+      if (e.alvo <= agora) continue;
+      if (filtro.disciplina && e.disciplina !== filtro.disciplina) continue;
+      return e;
+    }
     return null;
   }
 
@@ -1292,9 +1314,16 @@ body.menu-aberto{overflow:hidden}
     if (!ev){
       hero.className = "hero vazio";
       hero.removeAttribute("data-alerta");
-      $("hero-label").textContent = "Semestre encerrado";
-      $("hero-titulo").textContent = "Não há mais compromissos na lista.";
-      $("hero-meta").textContent = "";
+      if (filtro.disciplina){
+        $("hero-label").textContent = filtro.disciplina;
+        $("hero-titulo").textContent = "Nada mais marcado em " + filtro.disciplina + ".";
+        $("hero-meta").textContent = "Volte para “Todas as matérias” para ver o resto da turma.";
+      } else {
+        $("hero-label").textContent = "Semestre encerrado";
+        $("hero-titulo").textContent = "Não há mais compromissos na lista.";
+        $("hero-meta").textContent = "";
+      }
+      document.title = "Calendário da Turma — Direito 1º período noturno";
       return;
     }
 
@@ -1333,10 +1362,15 @@ body.menu-aberto{overflow:hidden}
 
     var faixa = faixaAlerta(d).replace("al-", "");
     var hero = $("hero");
-    if (hero.getAttribute("data-alerta") !== faixa){
-      hero.setAttribute("data-alerta", faixa);
-      $("hero-label").textContent = faixa === "normal" ? "Próximo compromisso" : "É agora";
-    }
+    if (hero.getAttribute("data-alerta") !== faixa) hero.setAttribute("data-alerta", faixa);
+
+    /* O rótulo carrega a matéria quando há uma escolhida, para ninguém
+       achar que o cronômetro é da turma inteira quando não é. Comparado
+       a cada tick porque a matéria pode mudar sem a faixa de alerta
+       mudar junto. */
+    var rotulo = (faixa === "normal" ? "Próximo compromisso" : "É agora")
+               + (filtro.disciplina ? " · " + filtro.disciplina : "");
+    if ($("hero-label").textContent !== rotulo) $("hero-label").textContent = rotulo;
 
     document.title = (d > 0 ? d + "d" : h > 0 ? h + "h" : m + "min") + " — " + heroEv.titulo;
 
@@ -1717,6 +1751,8 @@ body.menu-aberto{overflow:hidden}
 
     $("disciplina").addEventListener("change", function(e){
       filtro.disciplina = e.target.value;
+      pintarHero();   /* o cronômetro passa a contar a matéria escolhida */
+      tick();
       pintarLista();
     });
 
