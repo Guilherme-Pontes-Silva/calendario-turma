@@ -183,6 +183,30 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
    busca deixa de existir por construção, e não por folga em pixels.
    O fundo translúcido com blur evita que o conteúdo suma de forma
    seca atrás da barra quando a pessoa rola. */
+/* ---------- placar: quanto ainda falta, por tipo ----------
+   Mesma cor de cada tipo no card, para o olho ligar as duas coisas. */
+.placar-titulo{
+  margin:20px 0 8px;font-size:var(--fs-1);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted-2);font-weight:700;
+}
+.placar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.placar div{
+  background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:var(--r-md);padding:12px 8px;text-align:center;
+}
+.placar b{
+  display:block;font-size:var(--fs-6);font-weight:700;line-height:1.1;
+  font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;
+}
+.placar span{
+  display:block;margin-top:4px;font-size:var(--fs-1);letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted-2);font-weight:600;white-space:nowrap;
+}
+.placar .c-prova b{color:var(--prova)}
+.placar .c-entrega b{color:var(--entrega)}
+.placar .c-evento b{color:var(--evento)}
+.placar .c-feriado b{color:var(--feriado)}
+
 /* A busca é a única coisa que gruda no topo. Fica fora da .filtros e
    é filha direta da seção, senão ela só grudaria enquanto o bloco de
    filtros estivesse na tela — sticky não sai da caixa do pai. */
@@ -1010,11 +1034,11 @@ body.menu-aberto{overflow:hidden}
       </div>
     </section>
 
-    <!-- Sem placar de contadores e sem cartões de atalho: os quatro
-         números do placar são exatamente os que a barra de filtros já
-         mostra logo abaixo, e os atalhos levavam às mesmas seções do
-         menu e da barra inferior. Contar duas vezes a mesma coisa na
-         mesma tela não informa, só ocupa espaço. -->
+    <!-- Placar do que ainda falta no semestre, por tipo e na mesma cor
+         que o card usa. Os cartões de atalho é que não voltaram: eles
+         repetiam seções que o menu e a barra inferior já dão. -->
+    <p class="placar-titulo">Restam neste semestre</p>
+    <div class="placar" id="placar"></div>
 
     <!-- Só a busca acompanha a rolagem. Os chips e os seletores ficam
          no bloco de baixo, que rola junto com a página: eles servem
@@ -1213,21 +1237,47 @@ body.menu-aberto{overflow:hidden}
     return (PRAZO.indexOf(ev.tipo) >= 0 ? "até " : "às ") + ev.hora.replace(":", "h");
   }
 
-  /* Para onde o cronômetro conta quando o evento não tem hora própria.
+  /* Para onde o cronômetro conta quando o evento não traz hora própria.
 
-     Entrega, tarefa e manuscrito fecham 23h59: é o prazo do Moodle, e
-     é também o que o campo "fim" já usava — o alvo em 19:00 fazia a
-     contagem zerar cinco horas antes de o prazo realmente acabar.
+     Entrega, tarefa e manuscrito fecham 23h59, que é o prazo do Moodle.
 
-     O resto (aula, prova, evento, apresentação) continua em 19:00,
-     que é quando a noite de aula começa, e feriado em 00:00. */
+     O que acontece dentro da aula — aula, prova, avaliação, seminário —
+     encerra junto com a aula daquela matéria naquele dia da semana. O
+     horário sai da própria grade, e não de um número fixo aqui: se a
+     grade mudar, o cronômetro acompanha sozinho.
+
+     Evento e competição ocupam a noite inteira e fecham 22h50, que é o
+     fim da última aula. Feriado conta a partir da meia-noite. */
   var ENTREGAVEIS = ["MANUSCRITO", "ENTREGA", "TAREFA"];
+  var EM_AULA = ["AULA", "PROVA", "AVALIACAO", "APRESENTACAO"];
+  var FIM_DA_NOITE = "22:50";
+
+  function diaDaSemanaDe(data){
+    var p = data.split("-");
+    return new Date(+p[0], +p[1] - 1, +p[2]).getDay();
+  }
+
+  /* Fim da aula daquela matéria no dia da semana do evento, lido da
+     grade. Devolve null quando a matéria não tem aula naquele dia —
+     aí quem chama usa o fim da noite. */
+  function fimDaAula(disciplina, data){
+    var grade = CALENDARIO.grade;
+    if (!grade || !grade.dias) return null;
+    var dia = grade.dias.filter(function(x){ return x.n === diaDaSemanaDe(data); })[0];
+    if (!dia) return null;
+    var aula = dia.aulas.filter(function(a){ return a.sigla === disciplina; })[0];
+    if (!aula) return null;
+    var partes = aula.h.split("–");
+    if (partes.length < 2) return null;
+    return partes[1].trim().replace("h", ":");
+  }
 
   function horaAlvo(ev){
     if (ev.hora) return ev.hora;
     if (ev.tipo === "FERIADO") return "00:00";
     if (ENTREGAVEIS.indexOf(ev.tipo) >= 0) return "23:59";
-    return "19:00";
+    if (EM_AULA.indexOf(ev.tipo) >= 0) return fimDaAula(ev.disciplina, ev.data) || FIM_DA_NOITE;
+    return FIM_DA_NOITE;
   }
 
   function montar(data, hora){
@@ -1238,7 +1288,10 @@ body.menu-aberto{overflow:hidden}
     var e = Object.create(ev);
     e.__i = i;
     e.alvo = montar(ev.data, horaAlvo(ev));
-    e.fim  = ev.hora ? e.alvo : montar(ev.data, "23:59");
+    /* O item deixa de ser "o que vem" no mesmo instante em que acaba.
+       Feriado é a exceção: dura o dia inteiro, ainda que a contagem
+       aponte para a meia-noite. */
+    e.fim  = (ev.tipo === "FERIADO") ? montar(ev.data, "23:59") : e.alvo;
     var p = ev.data.split("-");
     e.ano = +p[0]; e.mes = +p[1]-1; e.dia = +p[2];
     e.semana = DIAS[e.alvo.getDay()];
@@ -1355,6 +1408,7 @@ body.menu-aberto{overflow:hidden}
     if (!heroEv || heroEv.alvo <= new Date()){
       pintarHoje();
       pintarHero();
+      pintarPlacar();
       pintarLista();
       if (!heroEv) return;
     }
@@ -1394,6 +1448,25 @@ body.menu-aberto{overflow:hidden}
         marcas[i].className = "falta " + t.cls;
       }
     }
+  }
+
+  /* Conta o que ainda não acabou, por família de tipo. Cai sozinho
+     conforme o semestre anda, porque usa o mesmo "fim" dos cards. */
+  function pintarPlacar(){
+    var agora = new Date();
+    var futuros = eventos.filter(function(e){ return e.fim > agora; });
+    var cont = function(tipos){
+      return futuros.filter(function(e){ return tipos.indexOf(e.tipo) >= 0; }).length;
+    };
+    var dados = [
+      { cls:"c-prova",   n:cont(["PROVA","AVALIACAO"]),                         l:"Provas" },
+      { cls:"c-entrega", n:cont(["ENTREGA","TAREFA","MANUSCRITO"]),             l:"Entregas" },
+      { cls:"c-evento",  n:cont(["AULA","EVENTO","COMPETICAO","APRESENTACAO"]), l:"Aulas" },
+      { cls:"c-feriado", n:cont(["FERIADO"]),                                   l:"Feriados" }
+    ];
+    $("placar").innerHTML = dados.map(function(x){
+      return '<div class="' + x.cls + '"><b>' + x.n + '</b><span>' + x.l + '</span></div>';
+    }).join("");
   }
 
   function pintarChips(){
@@ -1747,6 +1820,7 @@ body.menu-aberto{overflow:hidden}
 
     pintarDisciplinas();
     pintarChips();
+    pintarPlacar();
     pintarHoje();
     pintarHero();
     pintarLista();
