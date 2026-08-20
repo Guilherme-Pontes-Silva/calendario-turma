@@ -201,8 +201,11 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
 .busca input:focus{outline:none;border-color:var(--accent)}
 .busca svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted-2)}
 
-.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.chips::-webkit-scrollbar{display:none}
+/* Os filtros quebram em linha em vez de rolar na horizontal. Rolagem
+   lateral só funciona para quem sabe que ela existe, e metade da turma
+   não descobria que havia opções fora da tela. Com quebra, todas as
+   cinco ficam visíveis de uma vez e não há nada a descobrir. */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{
   flex:0 0 auto;appearance:none;border:1px solid var(--line);background:transparent;
   color:var(--muted);font:inherit;font-size:var(--fs-2);font-weight:600;
@@ -261,9 +264,9 @@ select:focus{outline:none;border-color:var(--accent)}
 .card h3{margin:0;font-size:var(--fs-5);font-weight:700;line-height:1.3;letter-spacing:-.01em}
 .card p{margin:8px 0 0;font-size:var(--fs-4);color:var(--muted);line-height:1.55}
 .card p.fazer{
-  margin-top:12px;padding:12px;border-radius:var(--r-sm);
+  margin-top:8px;padding:8px 12px;border-radius:var(--r-sm);
   background:rgba(255,255,255,.035);border-left:2px solid var(--accent);
-  color:var(--text);font-size:var(--fs-3);line-height:1.55;
+  color:var(--text);font-size:var(--fs-3);line-height:1.5;
 }
 .card p.fazer::before{
   content:"O que fazer";display:block;font-size:var(--fs-1);letter-spacing:.14em;
@@ -350,7 +353,9 @@ footer b{color:var(--muted);font-weight:600}
   .acoes .btn.primary{flex:1 1 100%}
   .acoes .btn:not(.primary){flex:1 1 calc(50% - 4px)}
 
-  .card{grid-template-columns:48px 1fr;gap:12px;padding:12px}
+  .card{grid-template-columns:44px 1fr;gap:12px;padding:12px}
+  .card h3{font-size:var(--fs-4)}
+  .card p{margin-top:6px}
   .data .d{font-size:var(--fs-6)}
   .hero{padding:18px}
   .unid{min-width:0;padding:10px 4px 8px}
@@ -852,8 +857,11 @@ body.menu-aberto{overflow:hidden}
 .btn-voltar:hover{color:var(--text);border-color:#3c4048;background:var(--surface-2)}
 
 /* ---------- densidade do card: descrição em 3 linhas ---------- */
+/* Duas linhas, não três: um compromisso não pode ocupar a tela toda.
+   Com o corte em duas, o "ver mais" também passa a aparecer na maioria
+   dos cards, em vez de só nos textos muito longos. */
 .card p.card-desc{
-  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
   overflow:hidden;
 }
 .card p.card-desc.aberto{display:block;-webkit-line-clamp:unset;overflow:visible}
@@ -862,7 +870,7 @@ body.menu-aberto{overflow:hidden}
    do parágrafo e o texto num span próprio, porque o line-clamp conta
    o ::before como uma das linhas se ele estiver dentro da caixa. */
 .card p.fazer .fazer-txt{
-  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
   overflow:hidden;
 }
 .card p.fazer.aberto .fazer-txt{display:block;-webkit-line-clamp:unset;overflow:visible}
@@ -876,12 +884,14 @@ body.menu-aberto{overflow:hidden}
 .ver-mais:hover{color:var(--accent)}
 
 /* ---------- links contextuais dentro do card ---------- */
-.card-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+/* Rótulos curtos e altura enxuta, para os dois links caberem lado a
+   lado numa tela de celular em vez de empilharem e comerem 72px. */
+.card-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .card-link{
   appearance:none;cursor:pointer;font:inherit;
   border:1px solid var(--line);background:var(--surface-2);color:var(--muted);
-  font-size:var(--fs-1);font-weight:600;padding:6px 12px;
-  border-radius:var(--r-full);min-height:32px;
+  font-size:var(--fs-1);font-weight:600;padding:5px 10px;
+  border-radius:var(--r-full);min-height:30px;
   display:inline-flex;align-items:center;gap:6px;transition:.15s;
 }
 .card-link:hover{color:var(--accent);border-color:var(--accent)}
@@ -954,7 +964,6 @@ body.menu-aberto{overflow:hidden}
   <a href="#fichamento"  class="drawer-link primaria" data-secao="fichamento" data-curto="Fichamentos">Fichamento e Trabalhos</a>
   <a href="#contatos"    class="drawer-link primaria" data-secao="contatos"   data-curto="Docentes">Corpo Docente</a>
   <a href="#calculadora" class="drawer-link" data-secao="calculadora" data-curto="Calculadora">Calculadora de Notas</a>
-  <a href="#grade"       class="drawer-link" data-secao="grade"       data-curto="Grade">Grade de Aulas</a>
   <a href="#feedback"    class="drawer-link" data-secao="feedback"    data-curto="Feedback">Feedback Anônimo</a>
 </nav>
 
@@ -975,7 +984,6 @@ body.menu-aberto{overflow:hidden}
   <section class="secao-extra on" id="tab-calendario">
 
     <div class="acoes">
-      <button class="btn primary" id="btn-ics">Adicionar ao meu celular (.ics)</button>
       <button class="btn" id="btn-share">Compartilhar link</button>
       <button class="btn" id="btn-resumo">Copiar resumo da semana</button>
       <button class="btn" id="btn-grade">Grade de Aulas</button>
@@ -1440,7 +1448,7 @@ body.menu-aberto{overflow:hidden}
     var out = [];
     if (ENTREGAVEIS.indexOf(ev.tipo) >= 0 && ev.disciplina !== "Geral"){
       out.push('<button type="button" class="card-link" data-secao="fichamento"'
-        + ' data-sigla="' + esc(ev.disciplina) + '">Ver detalhes do fichamento</button>');
+        + ' data-sigla="' + esc(ev.disciplina) + '">Ver fichamento</button>');
     }
     if (ehDeGrupo(ev) && ev.disciplina !== "Geral"){
       out.push('<button type="button" class="card-link" data-secao="grupos"'
@@ -1450,7 +1458,7 @@ body.menu-aberto{overflow:hidden}
     }
     if (pedeProfessor(ev)){
       out.push('<button type="button" class="card-link" data-secao="contatos"'
-        + ' data-sigla="' + esc(ev.disciplina) + '">Falar com o professor</button>');
+        + ' data-sigla="' + esc(ev.disciplina) + '">Falar com professor</button>');
     }
     return out.length ? '<div class="card-links">' + out.join("") + '</div>' : "";
   }
@@ -1568,80 +1576,6 @@ body.menu-aberto{overflow:hidden}
 
     alvo.innerHTML = html;
     aplicarVerMais();
-  }
-
-  function gerarICS(){
-    var linhas = [
-      "BEGIN:VCALENDAR","VERSION:2.0",
-      "PRODID:-//Calendario da Turma//Direito 1P Noturno//PT-BR",
-      "CALSCALE:GREGORIAN","METHOD:PUBLISH",
-      "X-WR-CALNAME:Calendário da Turma — Direito 1P Noturno",
-      "X-WR-TIMEZONE:America/Sao_Paulo"
-    ];
-
-    var carimbo = iso(new Date());
-
-    eventos.forEach(function(ev, i){
-      var uid = "turma-1p-" + ev.data.replace(/-/g,"") + "-" + i + "@calendario-turma";
-      linhas.push("BEGIN:VEVENT");
-      linhas.push("UID:" + uid);
-      linhas.push("DTSTAMP:" + carimbo);
-
-      if (ev.hora){
-        linhas.push("DTSTART:" + iso(ev.alvo));
-        linhas.push("DTEND:"   + iso(new Date(ev.alvo.getTime() + 3600000)));
-        linhas.push("BEGIN:VALARM","TRIGGER:-P1D","ACTION:DISPLAY",
-                    dobrar("DESCRIPTION:Amanhã vence: " + ev.titulo),
-                    "END:VALARM");
-      } else {
-        var d = ev.data.replace(/-/g,"");
-        var prox = new Date(ev.alvo.getFullYear(), ev.alvo.getMonth(), ev.alvo.getDate()+1);
-        var pd = prox.getFullYear() + String(prox.getMonth()+1).padStart(2,"0") + String(prox.getDate()).padStart(2,"0");
-        linhas.push("DTSTART;VALUE=DATE:" + d);
-        linhas.push("DTEND;VALUE=DATE:" + pd);
-      }
-
-      linhas.push(dobrar("SUMMARY:" + (ROTULO[ev.tipo]||ev.tipo) + " · " + ev.disciplina + " — " + ev.titulo));
-      linhas.push(dobrar("DESCRIPTION:" + ev.descricao + (ev.confirmar ? " [DATA A CONFIRMAR COM O PROFESSOR]" : "")));
-      linhas.push("CATEGORIES:" + (ROTULO[ev.tipo]||ev.tipo).toUpperCase());
-      linhas.push("END:VEVENT");
-    });
-
-    linhas.push("END:VCALENDAR");
-    return linhas.join("\r\n");
-  }
-
-  function dobrar(txt){
-    txt = txt.replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
-
-    var bytes = function(s){ return unescape(encodeURIComponent(s)).length; };
-    var partes = [], atual = "", limite = 73;
-
-    for (var i=0;i<txt.length;i++){
-      var c = txt[i];
-      if (bytes(atual + c) > limite){
-        partes.push(atual);
-        atual = c;
-        limite = 72;
-      } else {
-        atual += c;
-      }
-    }
-    partes.push(atual);
-    return partes.join("\r\n ");
-  }
-
-  function baixarICS(){
-    var blob = new Blob(["\uFEFF" + gerarICS()], { type:"text/calendar;charset=utf-8" });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement("a");
-    a.href = url;
-    a.download = "calendario-turma-direito-1p.ics";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
-    aviso("Arquivo baixado. Abra para importar no seu calendário.");
   }
 
   var timerToast;
@@ -1797,7 +1731,6 @@ body.menu-aberto{overflow:hidden}
       pintarLista();
     });
 
-    $("btn-ics").addEventListener("click", baixarICS);
     $("btn-share").addEventListener("click", compartilhar);
     $("btn-resumo").addEventListener("click", copiarResumo);
 
@@ -1861,7 +1794,14 @@ body.menu-aberto{overflow:hidden}
       };
     }
   );
-  var IDS = ABAS.map(function(a){ return a.id; });
+  /* Os destinos válidos vêm das seções que existem de fato, e não do
+     menu. É o que permite a Grade de Aulas ser alcançada pelo botão do
+     calendário sem precisar repetir como item de menu — ela continua
+     tendo URL própria, botão de voltar e entrada no histórico. */
+  var IDS = Array.prototype.map.call(
+    document.querySelectorAll(".secao-extra[id^='tab-']"),
+    function(s){ return s.id.replace(/^tab-/, ""); }
+  );
 
   function abrirMenu(){
     drawer.classList.add("on"); backdrop.classList.add("on");

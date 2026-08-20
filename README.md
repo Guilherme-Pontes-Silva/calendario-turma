@@ -13,7 +13,7 @@ está o cartão de visita digital.
 
 | Arquivo      | O que é                                                        |
 |--------------|----------------------------------------------------------------|
-| `index.html` | A página inteira: visual, contagem regressiva, filtros, .ics. Não precisa mexer. |
+| `index.html` | A página inteira: visual, contagem regressiva, filtros, abas. Não precisa mexer. |
 | `eventos.js` | **Só os dados.** É o único arquivo que muda quando o calendário muda. |
 | `README.md`  | Este arquivo. Não aparece no site.                              |
 
@@ -116,19 +116,26 @@ bem — os dois saem da mesma extração.
 - **Contagem regressiva ao vivo** para o próximo compromisso, em dias, horas,
   minutos e segundos, e um "faltam X dias" em cada item da lista.
 - **Faixa "Hoje"** para o que está acontecendo no dia.
-- **Contadores** de quantas provas, entregas, aulas e feriados ainda faltam —
-  eles caem sozinhos conforme o semestre anda.
 - **Filtros** por tipo e por matéria, busca por texto, e a opção de mostrar o
   que já passou (some por padrão, para a lista não virar arquivo morto).
-- **Botão .ics**: baixa o semestre inteiro para o calendário do celular, com
-  lembrete um dia antes nas tarefas com hora marcada. Funciona no Google
-  Agenda, no calendário do iPhone e no Outlook.
+- **Cards curtos**: descrição e "O que fazer" cortam em duas linhas, com
+  "ver mais" e "ler mais". O botão só aparece quando o texto realmente
+  transborda, e some sozinho quando deixa de transbordar.
+- **Links dentro do card** para a seção que responde a dúvida: fichamento,
+  grupo ou contato do professor.
 - **+ Google Agenda** em cada item, para quem só quer um compromisso.
 - **Compartilhar link** — usa o menu nativo do celular; no computador copia o link.
-- **Imprimir / PDF** — se alguém ainda quiser o papel, a página imprime limpa,
-  sem os botões.
+- **Copiar resumo da semana** — monta a mensagem dos próximos 7 dias já
+  formatada para o WhatsApp, com data em negrito e marcador por tipo.
+- **Cronômetro da aula em curso**, na Grade de Aulas: quanto falta para acabar,
+  ao vivo, com barra de progresso.
+- **Busca por nome** na aba de grupos: responde "em que grupo eu estou" em
+  todas as matérias de uma vez.
 - **Fuso fixo em Campinas (-03:00)**: o tempo restante fica certo mesmo se o
   celular da pessoa estiver com outro fuso.
+
+O botão .ics foi removido em 20/08/2026 — a turma não usava. Se um dia
+precisar de volta, ele está no histórico do git.
 
 ## Cuidado com o conteúdo
 
