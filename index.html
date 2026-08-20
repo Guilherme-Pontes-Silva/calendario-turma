@@ -1213,9 +1213,21 @@ body.menu-aberto{overflow:hidden}
     return (PRAZO.indexOf(ev.tipo) >= 0 ? "até " : "às ") + ev.hora.replace(":", "h");
   }
 
+  /* Para onde o cronômetro conta quando o evento não tem hora própria.
+
+     Entrega, tarefa e manuscrito fecham 23h59: é o prazo do Moodle, e
+     é também o que o campo "fim" já usava — o alvo em 19:00 fazia a
+     contagem zerar cinco horas antes de o prazo realmente acabar.
+
+     O resto (aula, prova, evento, apresentação) continua em 19:00,
+     que é quando a noite de aula começa, e feriado em 00:00. */
+  var ENTREGAVEIS = ["MANUSCRITO", "ENTREGA", "TAREFA"];
+
   function horaAlvo(ev){
     if (ev.hora) return ev.hora;
-    return ev.tipo === "FERIADO" ? "00:00" : "19:00";
+    if (ev.tipo === "FERIADO") return "00:00";
+    if (ENTREGAVEIS.indexOf(ev.tipo) >= 0) return "23:59";
+    return "19:00";
   }
 
   function montar(data, hora){
@@ -1452,8 +1464,8 @@ body.menu-aberto{overflow:hidden}
   /* ---------- links contextuais do card ----------
      A dúvida nasce dentro do card, diante da entrega ou do seminário.
      O card não resolve a navegação: só declara para onde quer ir, em
-     data-secao, e quem sabe abrir as abas é o script de baixo. */
-  var ENTREGAVEIS = ["MANUSCRITO","ENTREGA","TAREFA"];
+     data-secao, e quem sabe abrir as abas é o script de baixo.
+     ENTREGAVEIS é o mesmo do horaAlvo, lá em cima. */
 
   function pedeProfessor(ev){
     if (ev.disciplina === "Geral") return false;
