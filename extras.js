@@ -57,7 +57,12 @@ const PAINEL = {
     },
     { sigla:"Prát. Ext.",  disciplina:"Prática Extensionista", confirmado:false, resumo:"", faltaConfirmar:"Nenhuma fórmula de aprovação confirmada ainda. Sabemos as datas de entrega (ver calendário), não os pesos.", fonte:"" },
     { sigla:"Antrop. Jur.",disciplina:"Antropologia Jurídica", confirmado:false, resumo:"", faltaConfirmar:"Nenhuma fórmula de aprovação confirmada ainda.", fonte:"" },
-    { sigla:"IDP",         disciplina:"Introdução ao Direito Privado", confirmado:false, resumo:"", faltaConfirmar:"Nenhuma fórmula de aprovação confirmada ainda.", fonte:"" },
+    {
+      sigla:"IDP", disciplina:"Introdução ao Direito Privado, Pessoas e Bens", confirmado:false,
+      resumo:"Cada bimestre tem dois instrumentos, uma prova e um trabalho em grupo, e cada um deles cobre 100% do conteúdo do bimestre. N1: trabalho postado no Moodle até 20/09 e prova em 23/09, ambos de peso 4. N2: prova em 11/11 e trabalho postado até 15/11, ambos de peso 6. Como os dois instrumentos de um mesmo bimestre têm peso igual, dentro do bimestre a divisão é meio a meio; e como a N1 pesa 4 contra 6 da N2, o segundo bimestre vale mais no fechamento.",
+      faltaConfirmar:"Se os pesos 4 e 6 são mesmo do bimestre inteiro, e não de cada instrumento separadamente — o quadro marca “100%” nos dois instrumentos do mesmo bimestre, o que não fecha e precisa ser esclarecido com o professor. Falta também a nota mínima para aprovação e o tema do trabalho em grupo.",
+      fonte:"Quadro de avaliações da disciplina, informado pelo representante da turma em 18/08/2026."
+    },
     {
       sigla:"Hist. Dir.", disciplina:"História do Direito", confirmado:false,
       resumo:"A nota é composta por dois instrumentos: a atividade avaliativa de 25/09, que vale 40%, e uma prova de questões objetivas, que vale os 60% restantes. Atenção ao lançamento: ainda que os trabalhos sejam feitos antes, todas as notas da disciplina são lançadas apenas em N2, e não em N1.",
@@ -165,7 +170,14 @@ const PAINEL = {
     },
     { sigla:"Prát. Ext.",    a1:null, a2:null },
     { sigla:"Antrop. Jur.",  a1:null, a2:null },
-    { sigla:"IDP",           a1:null, a2:null },
+    { sigla:"IDP",
+      a1:{ nome:"N1", componentes:[
+        { nome:"1ª Prova (23/09)", peso:50 }, { nome:"Trabalho em grupo (20/09)", peso:50 }
+      ], pesosConfirmados:false },
+      a2:{ nome:"N2", componentes:[
+        { nome:"2ª Prova (11/11)", peso:50 }, { nome:"Trabalho em grupo (15/11)", peso:50 }
+      ], pesosConfirmados:false }
+    },
     { sigla:"Ética",         a1:null, a2:null },
     { sigla:"CTS",
       a1:{ nome:"NI1", componentes:[

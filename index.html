@@ -8,6 +8,10 @@
 <meta name="theme-color" content="#0a0a0a">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230a0a0a'/><rect x='14' y='24' width='72' height='62' rx='8' fill='none' stroke='%23f5b301' stroke-width='8'/><path d='M14 44h72M34 14v20M66 14v20' stroke='%23f5b301' stroke-width='8' stroke-linecap='round'/></svg>">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+
 <style>
 /* ============================================================
    Tudo daqui até o marcador "NOVO — prévia v2" é IDÊNTICO ao
@@ -23,27 +27,56 @@
   --line-soft:#212429;
   --text:#e8e6e1;
   --muted:#9aa0aa;
-  --muted-2:#6f757f;
+  /* Era #6f757f, que dava 3,97:1 sobre as superfícies escuras — abaixo
+     do mínimo de 4,5:1 exigido para texto normal. Como esta cor carrega
+     rótulos pequenos (mês, placar, origem da data), ficou em 4,8:1. */
+  --muted-2:#7c838f;
   --accent:#f0a500;
   --prova:#f0304c;
   --entrega:#f0a500;
   --evento:#4d8bff;
   --feriado:#17c97e;
   --neutro:#3c4048;
-  --radius:14px;
   --shadow:0 1px 0 rgba(255,255,255,.03), 0 8px 24px rgba(0,0,0,.45);
+
+  /* Escala tipográfica fechada. Sete degraus, nenhum valor solto.
+     Os clamp() dos títulos maiores continuam como estavam, porque ali
+     o tamanho depende da largura da tela e não da escala. */
+  --fs-1:11px;
+  --fs-2:12px;
+  --fs-3:13px;
+  --fs-4:15px;
+  --fs-5:17px;
+  --fs-6:21px;
+  --fs-7:28px;
+
+  /* Raios: três, e só. */
+  --r-sm:8px;
+  --r-md:12px;
+  --r-full:999px;
+
   --mono:ui-monospace,"SF Mono",SFMono-Regular,"Cascadia Mono","Roboto Mono",Menlo,Consolas,monospace;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",Times,serif;
 }
 
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
+
+/* Foco de teclado visível em tudo que é acionável. Só :focus-visible,
+   para o anel não aparecer em clique de mouse. */
+:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:2px;
+  border-radius:var(--r-sm);
+}
+::selection{background:rgba(240,165,0,.3);color:var(--text)}
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
   font-family:var(--sans);
-  font-size:16px;
+  font-size:var(--fs-5);
   line-height:1.55;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
@@ -52,26 +85,37 @@ a{color:inherit}
 
 .wrap{max-width:900px;margin:0 auto;padding:0 18px 72px}
 
-.top{padding:36px 0 22px;border-bottom:1px solid var(--line-soft)}
+.top{padding:36px 0 22px;border-bottom:4px solid var(--line-soft)}
 .eyebrow{
-  font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  font-size:var(--fs-2);letter-spacing:.16em;text-transform:uppercase;
   color:var(--muted-2);margin:0 0 10px;font-weight:600;
 }
 h1{
   margin:0;font-size:clamp(26px,6.4vw,40px);line-height:1.1;
   font-weight:800;letter-spacing:-.02em;
 }
+
+/* A serifada é só de título: h1, o título do próximo compromisso e o
+   título de cada aba. Nunca em texto corrido de card — ali a Inter
+   lê melhor em tela pequena. */
+h1,
+.hero h2,
+.secao-extra h2{
+  font-family:var(--serif);
+  font-weight:700;
+  letter-spacing:-.01em;
+}
 h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:14px;border-radius:2px}
-.sub{margin:14px 0 0;color:var(--muted);font-size:14.5px}
-.stamp{margin:6px 0 0;color:var(--muted-2);font-size:12.5px}
+.sub{margin:14px 0 0;color:var(--muted);font-size:var(--fs-4)}
+.stamp{margin:6px 0 0;color:var(--muted-2);font-size:var(--fs-2)}
 .stamp b{color:var(--muted);font-weight:600}
 
 .acoes{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .btn{
   appearance:none;border:1px solid var(--line);background:var(--surface);
-  color:var(--text);font:inherit;font-size:13px;font-weight:600;
-  padding:9px 14px;border-radius:999px;cursor:pointer;
-  display:inline-flex;align-items:center;gap:7px;
+  color:var(--text);font:inherit;font-size:var(--fs-3);font-weight:600;
+  padding:8px 14px;border-radius:var(--r-full);cursor:pointer;
+  display:inline-flex;align-items:center;gap:8px;
   transition:border-color .15s,background .15s,transform .1s;
   text-decoration:none;
 }
@@ -82,22 +126,22 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
 .btn.primary:hover{background:#ffb81c;border-color:#ffb81c}
 
 .hoje{
-  margin:22px 0 0;padding:13px 16px;border-radius:var(--radius);
+  margin:22px 0 0;padding:12px 16px;border-radius:var(--r-md);
   background:rgba(201,138,5,.15);border:1px solid rgba(240,165,0,.45);
-  display:flex;gap:11px;align-items:baseline;flex-wrap:wrap;
-  font-size:14px;line-height:1.5;
+  display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;
+  font-size:var(--fs-3);line-height:1.5;
 }
 .hoje[hidden]{display:none}
 .hoje-tag{
-  flex:0 0 auto;font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  flex:0 0 auto;font-size:var(--fs-1);letter-spacing:.16em;text-transform:uppercase;
   font-weight:800;color:#141200;background:var(--accent);
-  padding:3px 9px;border-radius:5px;
+  padding:4px 8px;border-radius:var(--r-sm);
 }
 .hoje-tag{color:#1a1200}
 .hoje b{color:var(--accent);font-weight:700}
 
 .hero{
-  margin:26px 0 0;padding:22px;border-radius:var(--radius);
+  margin:26px 0 0;padding:22px;border-radius:var(--r-md);
   background:linear-gradient(180deg,var(--surface),#101114);
   border:1px solid var(--line);box-shadow:var(--shadow);
   position:relative;overflow:hidden;
@@ -106,23 +150,24 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
   content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--neutro);
 }
 .hero .label{
-  font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  font-size:var(--fs-1);letter-spacing:.18em;text-transform:uppercase;
   color:var(--muted-2);font-weight:700;margin:0 0 12px;
 }
 .hero h2{margin:0;font-size:clamp(19px,4.6vw,26px);line-height:1.25;font-weight:700;letter-spacing:-.01em}
-.hero .meta{margin:10px 0 0;color:var(--muted);font-size:13.5px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.hero .meta{margin:10px 0 0;color:var(--muted);font-size:var(--fs-3);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
 
 .relogio{display:flex;gap:8px;margin:20px 0 0;flex-wrap:wrap}
 .unid{
   flex:1 1 0;min-width:64px;text-align:center;
-  background:#0d0e10;border:1px solid var(--line-soft);border-radius:11px;padding:12px 6px 9px;
+  background:#0d0e10;border:1px solid var(--line-soft);border-radius:var(--r-md);padding:12px 6px 8px;
 }
 .unid .n{
-  display:block;font-family:var(--mono);font-size:clamp(24px,7vw,34px);
-  font-weight:700;line-height:1;color:var(--text);font-variant-numeric:tabular-nums;
+  display:block;font-family:var(--sans);font-size:clamp(24px,7vw,34px);
+  font-weight:800;line-height:1;color:var(--text);
+  font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;
 }
 .unid .l{
-  display:block;margin-top:7px;font-size:9.5px;letter-spacing:.13em;
+  display:block;margin-top:8px;font-size:var(--fs-1);letter-spacing:.13em;
   text-transform:uppercase;color:var(--muted-2);font-weight:600;
 }
 .hero[data-alerta="alerta"]::before{background:var(--accent)}
@@ -133,60 +178,60 @@ h1 .bar{display:block;width:64px;height:3px;background:var(--accent);margin-top:
 .hero[data-alerta="critico"] .unid .n{color:var(--prova)}
 .hero.vazio .relogio{display:none}
 
-.placar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 0}
-.placar div{
-  background:var(--surface);border:1px solid var(--line-soft);border-radius:11px;
-  padding:12px 10px;text-align:center;
+/* A barra de filtros gruda no topo. O botão de menu mora DENTRO dela,
+   como último item da linha da busca — assim a colisão com o campo de
+   busca deixa de existir por construção, e não por folga em pixels.
+   O fundo translúcido com blur evita que o conteúdo suma de forma
+   seca atrás da barra quando a pessoa rola. */
+.filtros{
+  margin:30px 0 0;position:sticky;top:0;z-index:20;
+  background:rgba(10,10,10,.85);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  padding:12px 0 10px;
 }
-.placar b{display:block;font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
-.placar span{display:block;margin-top:5px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);font-weight:600;line-height:1.35}
-.placar .c-prova b{color:var(--prova)}
-.placar .c-entrega b{color:var(--entrega)}
-.placar .c-evento b{color:var(--evento)}
-.placar .c-feriado b{color:var(--feriado)}
-
-.filtros{margin:30px 0 0;position:sticky;top:0;z-index:20;background:var(--bg);padding:12px 0 10px}
 .filtros::after{content:"";display:block;height:1px;background:var(--line-soft);margin-top:12px}
-.busca{position:relative;margin-bottom:10px}
+.busca-linha{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+.busca{position:relative;flex:1 1 auto;min-width:0}
 .busca input{
   width:100%;background:var(--surface);border:1px solid var(--line);color:var(--text);
-  font:inherit;font-size:14.5px;padding:11px 14px 11px 38px;border-radius:10px;
+  font:inherit;font-size:var(--fs-4);padding:12px 14px 12px 38px;border-radius:var(--r-md);
 }
 .busca input::placeholder{color:var(--muted-2)}
 .busca input:focus{outline:none;border-color:var(--accent)}
-.busca svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted-2)}
+.busca svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted-2)}
 
-.chips{display:flex;gap:7px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .chips::-webkit-scrollbar{display:none}
 .chip{
   flex:0 0 auto;appearance:none;border:1px solid var(--line);background:transparent;
-  color:var(--muted);font:inherit;font-size:12.5px;font-weight:600;
-  padding:7px 13px;border-radius:999px;cursor:pointer;white-space:nowrap;
+  color:var(--muted);font:inherit;font-size:var(--fs-2);font-weight:600;
+  padding:8px 12px;border-radius:var(--r-full);cursor:pointer;white-space:nowrap;
   transition:.15s;
 }
 .chip:hover{color:var(--text);border-color:#3c4048}
 .chip[aria-pressed="true"]{background:var(--text);border-color:var(--text);color:#0a0a0a}
-.chip .cnt{opacity:.55;margin-left:5px;font-variant-numeric:tabular-nums}
+.chip .cnt{opacity:.55;margin-left:4px;font-variant-numeric:tabular-nums}
 
-.linha2{display:flex;gap:8px;margin-top:9px;align-items:center;flex-wrap:wrap}
+.linha2{display:flex;gap:8px;margin-top:8px;align-items:center;flex-wrap:wrap}
 select{
   background:var(--surface);border:1px solid var(--line);color:var(--text);
-  font:inherit;font-size:12.5px;font-weight:600;padding:7px 11px;border-radius:999px;cursor:pointer;
+  font:inherit;font-size:var(--fs-2);font-weight:600;padding:8px 12px;border-radius:var(--r-full);cursor:pointer;
 }
 select:focus{outline:none;border-color:var(--accent)}
-.toggle{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);cursor:pointer;user-select:none;font-weight:600}
+.toggle{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-2);color:var(--muted);cursor:pointer;user-select:none;font-weight:600}
 .toggle input{accent-color:var(--accent);width:15px;height:15px;cursor:pointer}
 
 .mes{
-  margin:30px 0 14px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  margin:30px 0 14px;font-size:var(--fs-2);letter-spacing:.2em;text-transform:uppercase;
   color:var(--muted-2);font-weight:700;display:flex;align-items:center;gap:12px;
 }
 .mes::after{content:"";flex:1;height:1px;background:var(--line-soft)}
 
 .card{
   display:grid;grid-template-columns:58px 1fr;gap:14px;
-  padding:15px;margin-bottom:8px;
-  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius);
+  padding:16px;margin-bottom:8px;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-md);
   position:relative;transition:border-color .15s;
 }
 .card:hover{border-color:var(--line)}
@@ -194,38 +239,41 @@ select:focus{outline:none;border-color:var(--accent)}
 .card.hoje{border-color:var(--accent);background:#16140c}
 
 .data{text-align:center;padding-top:2px}
-.data .d{display:block;font-size:23px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-.data .m{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);margin-top:4px;font-weight:700}
-.data .s{display:block;font-size:10.5px;color:var(--muted-2);margin-top:3px;text-transform:lowercase}
+.data .d{display:block;font-size:var(--fs-6);font-weight:800;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.data .m{display:block;font-size:var(--fs-1);letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);margin-top:4px;font-weight:700}
+.data .s{display:block;font-size:var(--fs-1);color:var(--muted-2);margin-top:4px;text-transform:lowercase}
 
 .corpo{min-width:0}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;align-items:center}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;align-items:center}
 .tag{
-  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
-  padding:3px 8px;border-radius:5px;line-height:1.5;white-space:nowrap;
+  font-size:var(--fs-1);letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  padding:4px 8px;border-radius:var(--r-sm);line-height:1.5;white-space:nowrap;
 }
-.tag.disc{background:#212429;color:var(--muted);letter-spacing:.05em;text-transform:none;font-size:10.5px;font-weight:600}
+.tag.disc{background:#212429;color:var(--muted);letter-spacing:.05em;text-transform:none;font-size:var(--fs-1);font-weight:600}
 .t-PROVA,.t-AVALIACAO{background:rgba(240,48,76,.15);color:#ff5566}
 .t-ENTREGA,.t-TAREFA,.t-MANUSCRITO{background:rgba(240,165,0,.14);color:#ffb300}
 .t-EVENTO,.t-AULA,.t-COMPETICAO,.t-APRESENTACAO{background:rgba(77,139,255,.14);color:#5f92ff}
 .t-FERIADO{background:rgba(23,201,126,.14);color:#17c97e}
 
-.card h3{margin:0;font-size:15.5px;font-weight:700;line-height:1.35;letter-spacing:-.005em}
-.card p{margin:6px 0 0;font-size:13.5px;color:var(--muted);line-height:1.5}
+/* Hierarquia do card em quatro degraus da escala, e não em quatro
+   valores próximos: 17 para o título, 15 para a descrição, 13 para a
+   ação e 12 para a procedência. É o que separa "ler" de "decorar". */
+.card h3{margin:0;font-size:var(--fs-5);font-weight:700;line-height:1.3;letter-spacing:-.01em}
+.card p{margin:8px 0 0;font-size:var(--fs-4);color:var(--muted);line-height:1.55}
 .card p.fazer{
-  margin-top:9px;padding:9px 12px;border-radius:9px;
+  margin-top:12px;padding:12px;border-radius:var(--r-sm);
   background:rgba(255,255,255,.035);border-left:2px solid var(--accent);
-  color:var(--text);font-size:13px;
+  color:var(--text);font-size:var(--fs-3);line-height:1.55;
 }
 .card p.fazer::before{
-  content:"O que fazer";display:block;font-size:9.5px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:3px;
+  content:"O que fazer";display:block;font-size:var(--fs-1);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:4px;
 }
-.card p.fonte{margin-top:8px;font-size:11.5px;color:var(--muted-2);font-style:italic}
+.card p.fonte{margin-top:8px;font-size:var(--fs-2);color:var(--muted-2);font-style:italic}
 
-.rodape-card{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-top:11px}
+.rodape-card{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-top:12px}
 .falta{
-  font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;
+  font-size:var(--fs-2);font-weight:700;font-variant-numeric:tabular-nums;
   color:var(--text);display:inline-flex;align-items:center;gap:6px;
 }
 .falta::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--neutro)}
@@ -238,65 +286,72 @@ select:focus{outline:none;border-color:var(--accent)}
 .falta.fim::before{background:#2a2d33;animation:none}
 
 .add{
-  font-size:11.5px;font-weight:600;color:var(--muted-2);text-decoration:none;
-  border-bottom:1px dotted var(--line);padding-bottom:1px;
+  font-size:var(--fs-2);font-weight:600;color:var(--muted-2);text-decoration:none;
+  border-bottom:4px dotted var(--line);padding-bottom:4px;
 }
 .add:hover{color:var(--accent);border-color:var(--accent)}
 
 .aviso{
-  display:inline-flex;align-items:center;gap:5px;margin-top:9px;
-  font-size:11.5px;font-weight:600;color:var(--accent);
+  display:inline-flex;align-items:center;gap:4px;margin-top:8px;
+  font-size:var(--fs-2);font-weight:600;color:var(--accent);
   background:rgba(201,138,5,.14);border:1px solid rgba(240,165,0,.38);
-  padding:4px 9px;border-radius:6px;
+  padding:4px 8px;border-radius:var(--r-sm);
 }
 
-.vazio-lista{text-align:center;padding:44px 20px;color:var(--muted-2);font-size:14px}
+.vazio-lista{text-align:center;padding:44px 20px;color:var(--muted-2);font-size:var(--fs-3)}
 
-.pend{margin-top:46px;padding-top:26px;border-top:1px solid var(--line-soft)}
+.pend{margin-top:46px;padding-top:26px;border-top:4px solid var(--line-soft)}
 .pend h2{
-  margin:0 0 4px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  margin:0 0 4px;font-size:var(--fs-2);letter-spacing:.16em;text-transform:uppercase;
   color:var(--accent);font-weight:700;
 }
-.pend .intro{margin:0 0 18px;font-size:13px;color:var(--muted-2)}
+.pend .intro{margin:0 0 18px;font-size:var(--fs-3);color:var(--muted-2)}
 .pend details{
   background:var(--surface);border:1px solid var(--line-soft);
-  border-radius:11px;margin-bottom:8px;overflow:hidden;
+  border-radius:var(--r-md);margin-bottom:8px;overflow:hidden;
 }
 .pend summary{
-  padding:13px 15px;cursor:pointer;font-size:14px;font-weight:600;
+  padding:12px 16px;cursor:pointer;font-size:var(--fs-3);font-weight:600;
   list-style:none;display:flex;gap:10px;align-items:flex-start;
 }
 .pend summary::-webkit-details-marker{display:none}
 .pend summary::before{content:"?";flex:0 0 auto;color:var(--accent);font-weight:700;line-height:1.5}
 .pend summary:hover{background:var(--surface-2)}
-.pend details[open] summary{border-bottom:1px solid var(--line-soft)}
-.pend p{margin:0;padding:13px 15px 15px;font-size:13.5px;color:var(--muted);line-height:1.6}
+.pend details[open] summary{border-bottom:4px solid var(--line-soft)}
+.pend p{margin:0;padding:12px 16px 16px;font-size:var(--fs-3);color:var(--muted);line-height:1.6}
 
-footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--muted-2);line-height:1.65}
+footer{margin-top:44px;padding-top:22px;border-top:4px solid var(--line-soft);font-size:var(--fs-2);color:var(--muted-2);line-height:1.65}
 footer p{margin:0 0 8px}
 footer b{color:var(--muted);font-weight:600}
 
 .toast{
   position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);
-  background:var(--text);color:#0a0a0a;font-size:13px;font-weight:700;
-  padding:11px 18px;border-radius:999px;opacity:0;pointer-events:none;
+  background:var(--text);color:#0a0a0a;font-size:var(--fs-3);font-weight:700;
+  padding:12px 18px;border-radius:var(--r-full);opacity:0;pointer-events:none;
   transition:opacity .2s,transform .2s;z-index:50;box-shadow:0 8px 30px rgba(0,0,0,.5);
 }
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
-@media (min-width:561px){
-  .card p, .pend p, footer p{
-    text-align:justify;text-justify:inter-word;
-    hyphens:auto;-webkit-hyphens:auto;
-  }
-  .card p.fonte{text-align:left}
-}
+/* Texto alinhado à esquerda, sem justificar. Justificado na web abre
+   "rios" de espaço entre palavras em coluna estreita, e a borda
+   irregular à direita é justamente o que dá ao olho o ponto de
+   retorno de cada linha. */
 
 @media (max-width:560px){
   .wrap{padding:0 14px 60px}
-  .placar{grid-template-columns:repeat(2,1fr)}
-  .card{grid-template-columns:48px 1fr;gap:11px;padding:13px}
-  .data .d{font-size:20px}
+
+  /* O eyebrow com .16em de espaçamento não cabia numa linha em 375px
+     e quebrava "CAMPUS / CAMPINAS". */
+  .eyebrow{letter-spacing:.1em}
+
+  /* Botões de ação: em vez de quebrarem onde calhar, a ação principal
+     ocupa a linha inteira e as secundárias dividem a de baixo. */
+  .acoes .btn{justify-content:center}
+  .acoes .btn.primary{flex:1 1 100%}
+  .acoes .btn:not(.primary){flex:1 1 calc(50% - 4px)}
+
+  .card{grid-template-columns:48px 1fr;gap:12px;padding:12px}
+  .data .d{font-size:var(--fs-6)}
   .hero{padding:18px}
   .unid{min-width:0;padding:10px 4px 8px}
 }
@@ -305,14 +360,25 @@ footer b{color:var(--muted);font-weight:600}
    NOVO — prévia v2
    ============================================================ */
 
-/* ---------- menu hambúrguer, no lugar da barra de abas ---------- */
+/* ---------- menu hambúrguer ----------
+   Não é mais position:fixed. Vive dentro da .filtros, na mesma linha
+   flex do campo de busca, então acompanha a barra sticky em vez de
+   flutuar por cima dela. Fica escondido nos dois extremos: acima de
+   1000px quem navega é a barra de chips do cabeçalho, e abaixo disso
+   é a barra inferior — sobra só como fallback se as duas saírem. */
 #btn-menu{
-  position:fixed;top:16px;right:16px;z-index:40;
-  width:42px;height:42px;border-radius:50%;
+  flex:0 0 auto;
+  width:44px;height:44px;border-radius:var(--r-md);
   background:var(--surface);border:1px solid var(--line);
   color:var(--text);cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 24px rgba(0,0,0,.4);
+  align-items:center;justify-content:center;
+
+  /* Fica oculto nas duas faixas, porque em nenhuma delas ele é o meio
+     de navegar: abaixo de 1000px quem navega é a barra inferior, e a
+     partir de 1000px são os chips do cabeçalho. O botão continua aqui,
+     já posicionado dentro da barra sticky, para voltar com uma linha
+     (display:flex) caso alguma das duas navegações saia. */
+  display:none;
 }
 #btn-menu:hover{border-color:#3c4048;background:var(--surface-2)}
 
@@ -324,18 +390,18 @@ footer b{color:var(--muted);font-weight:600}
 
 #drawer{
   position:fixed;top:0;right:0;bottom:0;width:min(300px,84vw);
-  background:var(--surface);border-left:1px solid var(--line);
+  background:var(--surface);border-left:4px solid var(--line);
   z-index:39;transform:translateX(100%);transition:transform .25s ease;
   overflow-y:auto;padding:18px 0;
 }
 #drawer.on{transform:translateX(0)}
-.drawer-topo{display:flex;justify-content:space-between;align-items:center;padding:0 18px 16px;border-bottom:1px solid var(--line-soft);margin-bottom:8px}
-.drawer-topo span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);font-weight:700}
-.drawer-topo button{appearance:none;border:1px solid var(--line);background:transparent;color:var(--muted);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:15px}
+.drawer-topo{display:flex;justify-content:space-between;align-items:center;padding:0 18px 16px;border-bottom:4px solid var(--line-soft);margin-bottom:8px}
+.drawer-topo span{font-size:var(--fs-2);letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);font-weight:700}
+.drawer-topo button{appearance:none;border:1px solid var(--line);background:transparent;color:var(--muted);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:var(--fs-4)}
 .drawer-topo button:hover{color:var(--text);border-color:#3c4048}
 .drawer-link{
-  display:block;padding:13px 18px;font-size:14.5px;font-weight:600;color:var(--text);
-  text-decoration:none;border-left:3px solid transparent;cursor:pointer;
+  display:block;padding:12px 18px;font-size:var(--fs-4);font-weight:600;color:var(--text);
+  text-decoration:none;border-left:4px solid transparent;cursor:pointer;
 }
 .drawer-link:hover{background:var(--surface-2)}
 .drawer-link[aria-current="true"]{border-left-color:var(--accent);color:var(--accent);background:rgba(240,165,0,.08)}
@@ -344,78 +410,78 @@ body.menu-aberto{overflow:hidden}
 
 .secao-extra{display:none;padding-top:22px}
 .secao-extra.on{display:block}
-.secao-extra h2{margin:0 0 4px;font-size:17px;font-weight:800;letter-spacing:-.01em}
-.secao-extra .desc{margin:0 0 18px;font-size:13px;color:var(--muted-2);max-width:620px}
+.secao-extra h2{margin:0 0 4px;font-size:var(--fs-5);font-weight:800;letter-spacing:-.01em}
+.secao-extra .desc{margin:0 0 18px;font-size:var(--fs-3);color:var(--muted-2);max-width:620px}
 
 .selo{
-  display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:700;
-  letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:999px;flex:0 0 auto;
+  display:inline-flex;align-items:center;gap:4px;font-size:var(--fs-1);font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;padding:4px 8px;border-radius:var(--r-full);flex:0 0 auto;
 }
 .selo.ok{background:rgba(23,201,126,.14);color:var(--feriado)}
 .selo.pendente{background:rgba(240,165,0,.14);color:var(--accent)}
 
 .card .cabeca{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:2px}
-.card .sigla{font-size:10.5px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:2px}
-.card .vazio-txt{font-size:13px;color:var(--muted-2);font-style:italic;margin-top:6px}
+.card .sigla{font-size:var(--fs-1);color:var(--muted-2);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:2px}
+.card .vazio-txt{font-size:var(--fs-3);color:var(--muted-2);font-style:italic;margin-top:6px}
 
 .callout{
-  margin-top:9px;padding:9px 12px;border-radius:9px;
+  margin-top:8px;padding:8px 12px;border-radius:var(--r-sm);
   background:rgba(255,255,255,.035);border-left:2px solid var(--accent);
-  color:var(--text);font-size:13px;line-height:1.5;
+  color:var(--text);font-size:var(--fs-3);line-height:1.5;
 }
 .callout .rotulo{
-  display:block;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--accent);font-weight:700;margin-bottom:3px;
+  display:block;font-size:var(--fs-1);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:4px;
 }
 
-.acc{background:var(--surface);border:1px solid var(--line-soft);border-radius:11px;margin-bottom:8px;overflow:hidden}
+.acc{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-md);margin-bottom:8px;overflow:hidden}
 .acc summary{
-  padding:13px 15px;cursor:pointer;font-size:14px;font-weight:600;list-style:none;
+  padding:12px 16px;cursor:pointer;font-size:var(--fs-3);font-weight:600;list-style:none;
   display:flex;gap:10px;align-items:center;justify-content:space-between;
 }
 .acc summary::-webkit-details-marker{display:none}
 .acc summary:hover{background:var(--surface-2)}
-.acc[open] summary{border-bottom:1px solid var(--line-soft)}
-.acc .corpo{padding:13px 15px 15px;font-size:13.5px;color:var(--muted);line-height:1.6}
+.acc[open] summary{border-bottom:4px solid var(--line-soft)}
+.acc .corpo{padding:12px 16px 16px;font-size:var(--fs-3);color:var(--muted);line-height:1.6}
 .acc .titulo-acc{display:flex;align-items:center;gap:10px;min-width:0}
 .acc .titulo-acc .n{font-weight:700;color:var(--text)}
-.acc .titulo-acc .d{color:var(--muted-2);font-weight:500;font-size:12.5px}
+.acc .titulo-acc .d{color:var(--muted-2);font-weight:500;font-size:var(--fs-2)}
 
 .grid-contatos{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
-.contato .disc{font-size:10.5px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:4px}
-.contato .nome{font-size:14px;font-weight:700}
-.contato .email{margin-top:7px;font-size:12.5px}
-.contato .email a{color:var(--evento);text-decoration:none;border-bottom:1px dotted currentColor}
+.contato .disc{font-size:var(--fs-1);color:var(--muted-2);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:4px}
+.contato .nome{font-size:var(--fs-3);font-weight:700}
+.contato .email{margin-top:8px;font-size:var(--fs-2)}
+.contato .email a{color:var(--evento);text-decoration:none;border-bottom:4px dotted currentColor}
 .contato .email .falta{color:var(--muted-2);font-style:italic;font-weight:400}
 
 .grupo-linha{
   display:flex;justify-content:space-between;align-items:center;gap:10px;
-  padding:11px 15px;background:var(--surface);border:1px solid var(--line-soft);
-  border-radius:11px;margin-bottom:8px;font-size:13.5px;
+  padding:12px 16px;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:var(--r-md);margin-bottom:8px;font-size:var(--fs-3);
 }
 .grupo-linha .nome-disc{font-weight:600}
-.grupo-linha .info{color:var(--muted-2);font-size:12px}
-.dupla{margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--line-soft)}
+.grupo-linha .info{color:var(--muted-2);font-size:var(--fs-2)}
+.dupla{margin-bottom:10px;padding-bottom:10px;border-bottom:4px solid var(--line-soft)}
 .dupla:last-child{margin-bottom:0;padding-bottom:0;border-bottom:0}
-.dupla .quem{font-size:13px;color:var(--muted)}
-.dupla .quem .vaga{color:var(--accent);font-style:italic;font-size:12px}
-.dupla .tema{font-size:13.5px;font-weight:700;margin-top:4px}
-.dupla .autor{font-size:12px;color:var(--muted-2);margin-top:2px;line-height:1.45}
-.datas-grupo{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.dupla .quem{font-size:var(--fs-3);color:var(--muted)}
+.dupla .quem .vaga{color:var(--accent);font-style:italic;font-size:var(--fs-2)}
+.dupla .tema{font-size:var(--fs-3);font-weight:700;margin-top:4px}
+.dupla .autor{font-size:var(--fs-2);color:var(--muted-2);margin-top:2px;line-height:1.45}
+.datas-grupo{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .dg{
-  font-size:11.5px;color:var(--text);background:var(--surface-2);
-  border:1px solid var(--line);border-radius:7px;padding:4px 9px;
+  font-size:var(--fs-2);color:var(--text);background:var(--surface-2);
+  border:1px solid var(--line);border-radius:var(--r-sm);padding:4px 8px;
 }
 .dg em{
-  font-style:normal;display:block;font-size:9px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--muted-2);font-weight:700;margin-bottom:1px;
+  font-style:normal;display:block;font-size:var(--fs-1);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted-2);font-weight:700;margin-bottom:4px;
 }
 
 .periodo-toggle{display:flex;gap:8px;margin:10px 0 14px}
 .periodo-btn{
   appearance:none;border:1px solid var(--line);background:var(--surface-2);
-  color:var(--muted);font:inherit;font-size:13px;font-weight:700;
-  padding:8px 16px;border-radius:999px;cursor:pointer;transition:.15s;
+  color:var(--muted);font:inherit;font-size:var(--fs-3);font-weight:700;
+  padding:8px 16px;border-radius:var(--r-full);cursor:pointer;transition:.15s;
 }
 .periodo-btn:hover{color:var(--text);border-color:#3c4048}
 .periodo-btn .cnt{opacity:.6;font-weight:600;margin-left:2px}
@@ -426,33 +492,33 @@ body.menu-aberto{overflow:hidden}
 /* ---------- calculadora ---------- */
 .calc-topo{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
 
-.calc-campo{display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--muted);font-weight:600}
+.calc-campo{display:flex;flex-direction:column;gap:4px;font-size:var(--fs-2);color:var(--muted);font-weight:600}
 .calc-campo em{font-style:normal;color:var(--muted-2);font-weight:500}
 .calc-campo input,.calc-campo select{
   background:var(--surface-2);border:1px solid var(--line);color:var(--text);
-  font:inherit;font-size:14px;padding:9px 11px;border-radius:9px;
+  font:inherit;font-size:var(--fs-3);padding:8px 12px;border-radius:var(--r-sm);
   font-variant-numeric:tabular-nums;width:100%;
 }
 .calc-campo input:focus,.calc-campo select:focus{outline:none;border-color:var(--accent)}
 
 .calc-bimestres{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:14px}
 .calc-bim{
-  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius);padding:16px;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-md);padding:16px;
 }
 .calc-bim-topo{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:12px}
-.calc-bim-topo h3{margin:0;font-size:15px;font-weight:800;letter-spacing:-.01em}
-.calc-bim-sub{font-size:11px;color:var(--muted-2);font-weight:600;letter-spacing:.04em}
+.calc-bim-topo h3{margin:0;font-size:var(--fs-4);font-weight:800;letter-spacing:-.01em}
+.calc-bim-sub{font-size:var(--fs-2);color:var(--muted-2);font-weight:600;letter-spacing:.04em}
 .calc-bim-nota{
-  font-family:var(--mono);font-size:24px;font-weight:800;line-height:1;
+  font-family:var(--mono);font-size:var(--fs-7);font-weight:800;line-height:1;
   font-variant-numeric:tabular-nums;color:var(--muted-2);
 }
 .calc-bim-nota.cheia{color:var(--accent)}
 .calc-bim-nota.parcial{color:var(--muted)}
-.calc-comps{display:flex;flex-direction:column;gap:9px}
+.calc-comps{display:flex;flex-direction:column;gap:8px}
 .calc-comp span{display:block;line-height:1.35}
-.calc-parcial{margin:9px 0 0;font-size:11.5px;color:var(--muted-2);line-height:1.5}
+.calc-parcial{margin:8px 0 0;font-size:var(--fs-2);color:var(--muted-2);line-height:1.5}
 .calc-troca{
-  appearance:none;border:0;background:transparent;color:var(--evento);font:inherit;font-size:11.5px;
+  appearance:none;border:0;background:transparent;color:var(--evento);font:inherit;font-size:var(--fs-2);
   font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:2px;
   padding:10px 0 0;text-align:left;
 }
@@ -460,7 +526,7 @@ body.menu-aberto{overflow:hidden}
 
 .calc-fecho{
   display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:end;
-  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius);padding:16px;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-md);padding:16px;
 }
 .calc-pesos{display:grid;grid-template-columns:1fr 1fr;gap:10px;grid-column:1/-1}
 .calc-pesos[hidden]{display:none}
@@ -470,42 +536,42 @@ body.menu-aberto{overflow:hidden}
 .calc-add:hover{color:var(--text);border-color:var(--accent)}
 .calc-add .mais{
   display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;
-  border-radius:50%;background:var(--accent);color:#1a1200;font-weight:800;font-size:13px;line-height:1;
+  border-radius:50%;background:var(--accent);color:#1a1200;font-weight:800;font-size:var(--fs-3);line-height:1;
 }
 .calc-exame{
-  background:var(--surface);border:1px solid rgba(240,165,0,.3);border-radius:var(--radius);padding:16px;
+  background:var(--surface);border:1px solid rgba(240,165,0,.3);border-radius:var(--r-md);padding:16px;
 }
-.calc-exame-topo{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:14px}
+.calc-exame-topo{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:var(--fs-3)}
 .calc-remover{
   appearance:none;border:1px solid var(--line);background:transparent;color:var(--muted-2);
-  width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:12px;line-height:1;
+  width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:var(--fs-2);line-height:1;
 }
 .calc-remover:hover{color:var(--prova);border-color:var(--prova)}
 .calc-exame-campos{display:grid;grid-template-columns:1fr 1.6fr;gap:12px}
-.calc-nota-rodape{margin:12px 0 0;font-size:11.5px;color:var(--muted-2);font-style:italic;line-height:1.5}
+.calc-nota-rodape{margin:12px 0 0;font-size:var(--fs-2);color:var(--muted-2);font-style:italic;line-height:1.5}
 
 .calc-resultado{margin-top:16px}
 .calc-vazio{
-  margin:0;padding:22px 18px;text-align:center;font-size:13.5px;color:var(--muted-2);
-  background:var(--surface);border:1px dashed var(--line);border-radius:var(--radius);
+  margin:0;padding:22px 18px;text-align:center;font-size:var(--fs-3);color:var(--muted-2);
+  background:var(--surface);border:1px dashed var(--line);border-radius:var(--r-md);
 }
 .res-linha{
   display:flex;justify-content:space-between;align-items:baseline;gap:12px;
   padding:12px 16px;background:var(--surface);border:1px solid var(--line-soft);
-  border-radius:11px;margin-bottom:7px;font-size:13.5px;
+  border-radius:var(--r-md);margin-bottom:8px;font-size:var(--fs-3);
 }
 .res-linha span{color:var(--muted);font-weight:600}
-.res-linha b{font-family:var(--mono);font-size:17px;font-variant-numeric:tabular-nums;font-weight:700}
-.res-linha.fraca b{font-family:var(--sans);font-size:12.5px;color:var(--muted-2);font-weight:500;font-style:italic}
+.res-linha b{font-family:var(--mono);font-size:var(--fs-5);font-variant-numeric:tabular-nums;font-weight:700}
+.res-linha.fraca b{font-family:var(--sans);font-size:var(--fs-2);color:var(--muted-2);font-weight:500;font-style:italic}
 .res-linha.destaque{border-color:rgba(240,165,0,.4);background:rgba(240,165,0,.06)}
-.res-linha.destaque b{color:var(--accent);font-size:21px}
+.res-linha.destaque b{color:var(--accent);font-size:var(--fs-6)}
 .res-veredito{
-  margin-top:9px;padding:12px 16px;border-radius:11px;font-size:13.5px;font-weight:600;
-  border-left:3px solid var(--neutro);background:var(--surface);
+  margin-top:8px;padding:12px 16px;border-radius:var(--r-md);font-size:var(--fs-3);font-weight:600;
+  border-left:4px solid var(--neutro);background:var(--surface);
 }
 .res-veredito.ok{border-left-color:var(--feriado);color:var(--feriado)}
 .res-veredito.alerta{border-left-color:var(--prova);color:#ff5566}
-.calc-aviso-res{margin:9px 0 0;font-size:12.5px;color:var(--muted-2);line-height:1.55}
+.calc-aviso-res{margin:8px 0 0;font-size:var(--fs-2);color:var(--muted-2);line-height:1.55}
 
 @media (max-width:700px){
   .calc-bimestres{grid-template-columns:1fr}
@@ -515,24 +581,51 @@ body.menu-aberto{overflow:hidden}
 
 /* ---------- grade de aulas + aula agora, numa aba só ---------- */
 .grade-full{
-  display:grid;grid-template-columns:repeat(5,1fr);gap:1px;
-  background:var(--line-soft);padding:1px;border-radius:var(--radius);overflow:hidden;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:4px;
+  background:var(--line-soft);padding:4px;border-radius:var(--r-md);overflow:hidden;
   margin-top:16px;
 }
-.grade-full .dia{background:var(--surface);padding:14px 13px 16px;min-height:170px}
-.grade-full .dia h3{margin:0 0 11px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);font-weight:700}
+.grade-full .dia{background:var(--surface);padding:14px 12px 16px;min-height:170px}
+.grade-full .dia h3{margin:0 0 12px;font-size:var(--fs-1);letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);font-weight:700}
 .grade-full .dia.e-hoje{background:#16140c}
 .grade-full .dia.e-hoje h3{color:var(--accent)}
 .grade-full .dia.e-hoje h3::after{content:" · hoje"}
-.grade-full .aula{margin-bottom:11px}
-.grade-full .aula .hora{display:block;font-family:var(--mono);font-size:11.5px;color:var(--muted-2);font-variant-numeric:tabular-nums;margin-bottom:2px}
-.grade-full .aula .disc{display:block;font-size:13.5px;font-weight:600;line-height:1.3}
-.grade-full .aula .longo{display:block;font-size:11px;color:var(--muted-2);margin-top:1px}
-.grade-full .vazio{font-size:12.5px;color:var(--muted-2);font-style:italic}
+.grade-full .aula{margin-bottom:12px}
+.grade-full .aula .hora{display:block;font-family:var(--mono);font-size:var(--fs-2);color:var(--muted-2);font-variant-numeric:tabular-nums;margin-bottom:2px}
+.grade-full .aula .disc{display:block;font-size:var(--fs-3);font-weight:600;line-height:1.3}
+.grade-full .aula .longo{display:block;font-size:var(--fs-2);color:var(--muted-2);margin-top:4px}
+.grade-full .vazio{font-size:var(--fs-2);color:var(--muted-2);font-style:italic}
+
+/* aula em curso, destacada na grade da semana */
+.grade-full .aula.agora{
+  background:rgba(240,165,0,.1);border-left:2px solid var(--accent);
+  margin-left:-8px;padding:4px 0 4px 8px;border-radius:0 var(--r-sm) var(--r-sm) 0;
+}
+.grade-full .aula.agora .disc{color:var(--accent)}
+.grade-full .aula.agora .hora::after{
+  content:"agora";margin-left:8px;font-size:var(--fs-1);font-weight:700;
+  color:var(--accent);letter-spacing:.08em;text-transform:uppercase;
+}
+
+/* barra de progresso e cronômetro da aula em curso */
+.aula-barra{
+  height:4px;border-radius:var(--r-full);background:rgba(255,255,255,.09);
+  margin:16px 0 8px;overflow:hidden;
+}
+.aula-barra span{
+  display:block;height:100%;width:0;border-radius:var(--r-full);
+  background:linear-gradient(90deg,var(--accent),#ffb81c);
+  transition:width 1s linear;
+}
+.aula-resta{margin:0;font-size:var(--fs-3);color:var(--muted)}
+.aula-resta b{
+  color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum" 1;
+}
 @media (max-width:700px){
   .grade-full{grid-template-columns:1fr}
-  .grade-full .dia{min-height:0;padding:13px 16px}
-  .grade-full .aula{margin-bottom:9px;display:flex;gap:11px;align-items:baseline}
+  .grade-full .dia{min-height:0;padding:12px 16px}
+  .grade-full .aula{margin-bottom:8px;display:flex;gap:12px;align-items:baseline}
   .grade-full .aula .hora{margin:0;flex:0 0 96px}
   .grade-full .aula .longo{display:none}
 }
@@ -543,7 +636,7 @@ body.menu-aberto{overflow:hidden}
    No dia final, ganha um selo comemorativo e confete. */
 .ferias-card{
   position:relative;overflow:hidden;margin-top:36px;padding:30px 24px;
-  border-radius:var(--radius);
+  border-radius:var(--r-md);
   background:
     radial-gradient(ellipse 100% 60% at 50% -12%, rgba(240,165,0,.12), transparent 65%),
     linear-gradient(135deg,var(--surface),#141018);
@@ -570,16 +663,16 @@ body.menu-aberto{overflow:hidden}
   mask-image:radial-gradient(circle at 0 0,#000,transparent 72%);
 }
 .ferias-card .rotulo{
-  position:relative;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  position:relative;font-size:var(--fs-1);letter-spacing:.2em;text-transform:uppercase;
   color:var(--muted-2);font-weight:700;
 }
-.ferias-card .fonte{position:relative;margin-top:14px;font-size:11px;color:var(--muted-2);font-style:italic}
-.ferias-card .legenda{position:relative;margin-top:8px;font-size:12.5px;color:var(--muted)}
+.ferias-card .fonte{position:relative;margin-top:14px;font-size:var(--fs-2);color:var(--muted-2);font-style:italic}
+.ferias-card .legenda{position:relative;margin-top:8px;font-size:var(--fs-2);color:var(--muted)}
 
 /* o contador de 4 unidades, no mesmo molde do destaque do topo */
 .ferias-relogio{position:relative;display:flex;gap:10px;justify-content:center;margin:18px 0 2px;flex-wrap:wrap}
 .ferias-relogio .fu{
-  background:rgba(4,5,7,.92);border:1px solid rgba(255,255,255,.09);border-radius:12px;
+  background:rgba(4,5,7,.92);border:1px solid rgba(255,255,255,.09);border-radius:var(--r-md);
   padding:14px 8px 10px;min-width:70px;flex:0 1 78px;
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 6px 18px rgba(0,0,0,.55);
@@ -597,7 +690,7 @@ body.menu-aberto{overflow:hidden}
 .ferias-relogio .fu:nth-child(3) .fn{animation-delay:-3.5s}
 .ferias-relogio .fu:nth-child(4) .fn{animation-delay:-5.25s}
 .ferias-relogio .fl{
-  display:block;margin-top:7px;font-size:9.5px;letter-spacing:.14em;
+  display:block;margin-top:8px;font-size:var(--fs-1);letter-spacing:.14em;
   text-transform:uppercase;color:var(--muted-2);font-weight:600;
 }
 @keyframes rgb-flow{
@@ -623,14 +716,14 @@ body.menu-aberto{overflow:hidden}
 }
 .ferias-card.hoje .rotulo{color:var(--feriado)}
 .ferias-card.hoje .ferias-relogio .fn{animation-duration:2.2s;filter:drop-shadow(0 0 14px rgba(23,201,126,.55))}
-.ferias-card .confete-extra{position:absolute;bottom:10%;font-size:16px;pointer-events:none;animation:confete-flutua 1.6s ease-out infinite}
+.ferias-card .confete-extra{position:absolute;bottom:10%;font-size:var(--fs-5);pointer-events:none;animation:confete-flutua 1.6s ease-out infinite}
 .ferias-card.passou .rotulo{color:var(--feriado)}
 
 @media (max-width:560px){
   .ferias-card{padding:26px 14px}
   .ferias-relogio{gap:6px;flex-wrap:nowrap}
-  .ferias-relogio .fu{padding:11px 2px 8px;min-width:0;flex:1 1 0}
-  .ferias-relogio .fl{font-size:8.5px;letter-spacing:.08em}
+  .ferias-relogio .fu{padding:12px 2px 8px;min-width:0;flex:1 1 0}
+  .ferias-relogio .fl{font-size:var(--fs-1);letter-spacing:.08em}
 }
 
 /* bolhas subindo pelo fundo do card, em harmonia com o RGB dos números */
@@ -671,55 +764,198 @@ body.menu-aberto{overflow:hidden}
 
 /* ---------- texto longo: justificado com hifenização ---------- */
 .bloco-titulo{
-  margin:16px 0 4px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  margin:16px 0 4px;font-size:var(--fs-2);letter-spacing:.14em;text-transform:uppercase;
   color:var(--accent);font-weight:700;
 }
 .acc .corpo .bloco-titulo:first-child{margin-top:0}
 .bloco-texto{
-  margin:0;font-size:13.5px;color:var(--muted);line-height:1.65;
-  text-align:justify;text-justify:inter-word;
+  margin:0;font-size:var(--fs-3);color:var(--muted);line-height:1.65;
+  text-align:left;
   hyphens:auto;-webkit-hyphens:auto;-ms-hyphens:auto;
   overflow-wrap:break-word;
 }
-.acc .corpo .fonte{margin-top:14px;font-size:11.5px;color:var(--muted-2);font-style:italic;text-align:left}
-
-.diretriz{margin-bottom:10px}
-.diretriz h3{margin:0 0 7px;font-size:15px;font-weight:700;letter-spacing:-.005em}
-.carimbo-diretrizes{
-  margin-top:22px;padding-top:18px;border-top:1px solid var(--line-soft);
-  font-size:12px;color:var(--muted-2);
-}
-.carimbo-diretrizes b{color:var(--muted);font-weight:600}
+.acc .corpo .fonte{margin-top:14px;font-size:var(--fs-2);color:var(--muted-2);font-style:italic;text-align:left}
 
 /* ---------- feedback: botão em primeiro plano ---------- */
 .btn-feedback{
-  display:inline-flex;text-decoration:none;font-size:15px;padding:14px 26px;
+  display:inline-flex;text-decoration:none;font-size:var(--fs-4);padding:14px 26px;
   box-shadow:0 10px 30px rgba(240,165,0,.22);
 }
 .feedback-texto{
-  margin:20px 0 0;max-width:640px;font-size:13.5px;color:var(--muted);line-height:1.7;
-  text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;-ms-hyphens:auto;
+  margin:20px 0 0;max-width:640px;font-size:var(--fs-3);color:var(--muted);line-height:1.7;
+  text-align:left;
+}
+
+/* ============================================================
+   NAVEGAÇÃO E DENSIDADE
+   ============================================================ */
+
+/* ---------- navegação horizontal no desktop ----------
+   Rótulos curtos e peso visual menor que o dos botões de ação logo
+   abaixo: navegação e ação não podem parecer a mesma coisa. Uma linha
+   só — com rótulo longo, os 8 chips pediam 1087px numa coluna de 864
+   e quebravam em duas fileiras desalinhadas. */
+.nav-desktop{display:none}
+.nav-chip{
+  appearance:none;cursor:pointer;font:inherit;
+  border:1px solid transparent;background:transparent;color:var(--muted);
+  font-size:var(--fs-2);font-weight:600;padding:6px 12px;
+  border-radius:var(--r-full);white-space:nowrap;
+  transition:color .15s,background .15s;
+}
+.nav-chip:hover{color:var(--text);background:var(--surface-2)}
+.nav-chip[aria-current="true"]{
+  background:var(--surface-2);border-color:var(--line);color:var(--text);
+}
+.nav-chip[aria-current="true"]::before{
+  content:"";display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--accent);margin-right:8px;vertical-align:middle;
+}
+
+@media (min-width:1000px){
+  .nav-desktop{display:flex;flex-wrap:nowrap;gap:2px;margin-top:20px}
+}
+
+/* ---------- barra inferior, no alcance do polegar ---------- */
+.nav-inferior{
+  position:fixed;left:0;right:0;bottom:0;z-index:36;
+  display:flex;
+  background:rgba(10,10,10,.92);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-top:1px solid var(--line-soft);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.nav-item{
+  flex:1 1 0;appearance:none;border:0;background:transparent;cursor:pointer;
+  font:inherit;font-size:var(--fs-1);font-weight:600;color:var(--muted-2);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  min-height:56px;padding:8px 4px;line-height:1.2;
+}
+.nav-item svg{display:block}
+.nav-item[aria-current="true"]{color:var(--accent)}
+@media (min-width:1000px){ .nav-inferior{display:none} }
+@media (max-width:999px){
+  .wrap{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  /* no drawer, abaixo de 1000px, só o que não cabe na barra inferior */
+  .drawer-link.primaria{display:none}
+}
+
+/* ---------- voltar ao calendário ---------- */
+.btn-voltar{
+  appearance:none;cursor:pointer;font:inherit;
+  display:inline-flex;align-items:center;gap:8px;
+  min-height:44px;padding:8px 16px 8px 12px;margin:0 0 16px;
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-full);color:var(--muted);
+  font-size:var(--fs-2);font-weight:600;transition:.15s;
+}
+.btn-voltar:hover{color:var(--text);border-color:#3c4048;background:var(--surface-2)}
+
+/* ---------- densidade do card: descrição em 3 linhas ---------- */
+.card p.card-desc{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;
+  overflow:hidden;
+}
+.card p.card-desc.aberto{display:block;-webkit-line-clamp:unset;overflow:visible}
+
+/* O "O que fazer" também corta em 3 linhas. O rótulo fica no ::before
+   do parágrafo e o texto num span próprio, porque o line-clamp conta
+   o ::before como uma das linhas se ele estiver dentro da caixa. */
+.card p.fazer .fazer-txt{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;
+  overflow:hidden;
+}
+.card p.fazer.aberto .fazer-txt{display:block;-webkit-line-clamp:unset;overflow:visible}
+.card p.fazer .ver-mais{color:var(--accent)}
+.card p.fazer .ver-mais:hover{color:var(--text)}
+.ver-mais{
+  appearance:none;border:0;background:transparent;cursor:pointer;font:inherit;
+  color:var(--evento);font-size:var(--fs-2);font-weight:600;
+  padding:4px 0 0;text-decoration:underline;text-underline-offset:2px;
+}
+.ver-mais:hover{color:var(--accent)}
+
+/* ---------- links contextuais dentro do card ---------- */
+.card-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.card-link{
+  appearance:none;cursor:pointer;font:inherit;
+  border:1px solid var(--line);background:var(--surface-2);color:var(--muted);
+  font-size:var(--fs-1);font-weight:600;padding:6px 12px;
+  border-radius:var(--r-full);min-height:32px;
+  display:inline-flex;align-items:center;gap:6px;transition:.15s;
+}
+.card-link:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ---------- busca por nome, na aba de grupos ---------- */
+.busca-nome{position:relative;margin-bottom:16px}
+.busca-nome input{
+  width:100%;background:var(--surface);border:1px solid var(--line);color:var(--text);
+  font:inherit;font-size:var(--fs-4);padding:12px 14px 12px 38px;border-radius:var(--r-md);
+}
+.busca-nome input:focus{outline:none;border-color:var(--accent)}
+.busca-nome input::placeholder{color:var(--muted-2)}
+.busca-nome svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted-2)}
+.achado{
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-md);
+  padding:12px 16px;margin-bottom:8px;
+}
+.achado .onde{
+  font-size:var(--fs-1);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted-2);font-weight:700;margin-bottom:4px;
+}
+.achado .tema{font-size:var(--fs-3);font-weight:700;line-height:1.35}
+.achado .com{font-size:var(--fs-2);color:var(--muted);margin-top:4px}
+.achado .quando{font-size:var(--fs-2);color:var(--accent);font-weight:600;margin-top:4px}
+.achado mark{background:rgba(240,165,0,.28);color:var(--text);border-radius:3px;padding:0 2px}
+
+/* ---------- o que está vencendo, na aba de fichamentos ---------- */
+.proximos{
+  background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:var(--r-md);padding:16px;margin-bottom:20px;
+}
+.proximos h3{
+  margin:0 0 12px;font-size:var(--fs-1);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted-2);font-weight:700;
+}
+.prox-item{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  padding:8px 0;border-top:1px solid var(--line-soft);
+}
+.prox-item:first-of-type{border-top:0;padding-top:0}
+.prox-data{
+  font-size:var(--fs-2);font-weight:700;font-variant-numeric:tabular-nums;
+  color:var(--muted);flex:0 0 auto;
+}
+.prox-txt{flex:1 1 200px;min-width:0;font-size:var(--fs-3);line-height:1.4}
+.prox-txt .m{color:var(--muted-2);font-weight:600}
+.prox-vence{font-size:var(--fs-2);font-weight:700;flex:0 0 auto}
+.prox-vence.al-normal{color:var(--muted-2)}
+.prox-vence.al-alerta{color:var(--accent)}
+.prox-vence.al-critico{color:var(--prova)}
+.proximos .nada{margin:0;font-size:var(--fs-3);color:var(--muted-2);font-style:italic}
+.prox-quem{font-size:var(--fs-2);color:var(--muted-2)}
+.prox-estimada{
+  font-size:var(--fs-1);color:var(--accent);font-weight:700;
+  background:rgba(240,165,0,.12);border-radius:var(--r-sm);padding:1px 6px;
+  white-space:nowrap;
 }
 </style>
 </head>
 <body>
 
-<button type="button" id="btn-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-</button>
 <div id="drawer-backdrop"></div>
 <nav id="drawer" aria-hidden="true">
   <div class="drawer-topo">
     <span>Menu</span>
     <button type="button" id="btn-fechar-menu" aria-label="Fechar">✕</button>
   </div>
-  <a href="#" class="drawer-link" data-id="calendario" aria-current="true">Calendário</a>
-  <a href="#" class="drawer-link" data-id="contatos">Corpo Docente</a>
-  <a href="#" class="drawer-link" data-id="grupos">Grupos de Trabalho</a>
-  <a href="#" class="drawer-link" data-id="fichamento">Fichamento e Trabalhos</a>
-  <a href="#" class="drawer-link" data-id="calculadora">Calculadora de Notas</a>
-  <a href="#" class="drawer-link" data-id="feedback">Feedback Anônimo</a>
-  <a href="#" class="drawer-link" data-id="diretrizes">Diretrizes</a>
+  <a href="#calendario"  class="drawer-link primaria" data-secao="calendario" data-curto="Calendário"  aria-current="true">Calendário</a>
+  <a href="#grupos"      class="drawer-link primaria" data-secao="grupos"     data-curto="Grupos">Grupos de Trabalho</a>
+  <a href="#fichamento"  class="drawer-link primaria" data-secao="fichamento" data-curto="Fichamentos">Fichamento e Trabalhos</a>
+  <a href="#contatos"    class="drawer-link primaria" data-secao="contatos"   data-curto="Docentes">Corpo Docente</a>
+  <a href="#calculadora" class="drawer-link" data-secao="calculadora" data-curto="Calculadora">Calculadora de Notas</a>
+  <a href="#grade"       class="drawer-link" data-secao="grade"       data-curto="Grade">Grade de Aulas</a>
+  <a href="#feedback"    class="drawer-link" data-secao="feedback"    data-curto="Feedback">Feedback Anônimo</a>
 </nav>
 
 <div class="wrap">
@@ -727,6 +963,12 @@ body.menu-aberto{overflow:hidden}
   <header class="top">
     <p class="eyebrow" id="eyebrow">Direito · 1º período noturno</p>
     <h1>Calendário da Turma<span class="bar"></span></h1>
+    <p class="stamp" id="foot-stamp"></p>
+
+    <!-- Navegação do desktop: as mesmas seções do drawer, em chips.
+         Preenchida por JS a partir dos próprios links do drawer, para
+         não haver duas listas para manter. -->
+    <nav class="nav-desktop" id="nav-desktop" aria-label="Seções"></nav>
   </header>
 
   <!-- ======================= ABA: CALENDÁRIO ======================= -->
@@ -735,6 +977,7 @@ body.menu-aberto{overflow:hidden}
     <div class="acoes">
       <button class="btn primary" id="btn-ics">Adicionar ao meu celular (.ics)</button>
       <button class="btn" id="btn-share">Compartilhar link</button>
+      <button class="btn" id="btn-resumo">Copiar resumo da semana</button>
       <button class="btn" id="btn-grade">Grade de Aulas</button>
     </div>
 
@@ -755,12 +998,21 @@ body.menu-aberto{overflow:hidden}
       </div>
     </section>
 
-    <div class="placar" id="placar"></div>
+    <!-- Sem placar de contadores e sem cartões de atalho: os quatro
+         números do placar são exatamente os que a barra de filtros já
+         mostra logo abaixo, e os atalhos levavam às mesmas seções do
+         menu e da barra inferior. Contar duas vezes a mesma coisa na
+         mesma tela não informa, só ocupa espaço. -->
 
     <div class="filtros">
-      <div class="busca">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
-        <input type="search" id="busca" placeholder="Buscar por título, matéria ou assunto…" autocomplete="off">
+      <div class="busca-linha">
+        <div class="busca">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+          <input type="search" id="busca" placeholder="Buscar por título, matéria ou assunto…" autocomplete="off">
+        </div>
+        <button type="button" id="btn-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
       </div>
       <div class="chips" id="chips"></div>
       <div class="linha2">
@@ -784,13 +1036,20 @@ body.menu-aberto{overflow:hidden}
   <!-- ======================= ABA: GRUPOS ======================= -->
   <section class="secao-extra" id="tab-grupos">
     <h2>Grupos de Trabalho</h2>
-    <p class="desc">Clique numa matéria, escolha N1 ou N2 e veja os grupos daquele período.</p>
+    <p class="desc">Digite seu nome para achar seus grupos de uma vez, em todas as matérias. Ou clique numa matéria, escolha N1 ou N2 e veja a lista inteira.</p>
+    <div class="busca-nome">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+      <input type="search" id="busca-nome" placeholder="Seu nome — ex: Guilherme" autocomplete="off">
+    </div>
+    <div class="proximos" id="proximos-seminarios"></div>
+    <div id="achados-grupos"></div>
     <div id="lista-grupos"></div>
   </section>
 
   <!-- ======================= ABA: FICHAMENTO ======================= -->
   <section class="secao-extra" id="tab-fichamento">
     <h2>Fichamento e Trabalhos</h2>
+    <div class="proximos" id="proximos-fichamento"></div>
     <div id="lista-fichamento"></div>
   </section>
 
@@ -870,13 +1129,33 @@ body.menu-aberto{overflow:hidden}
   </section>
 
   <!-- ======================= ABA: DIRETRIZES ======================= -->
-  <section class="secao-extra" id="tab-diretrizes">
-    <h2>Diretrizes</h2>
-    <div id="lista-diretrizes"></div>
-    <p class="carimbo-diretrizes" id="foot-stamp"></p>
-  </section>
 
 </div>
+
+<!-- Barra inferior: os quatro destinos consultados toda semana, mais
+     "Mais" para o que se abre duas ou três vezes por semestre. -->
+<nav class="nav-inferior" id="nav-inferior" aria-label="Navegação principal">
+  <button type="button" class="nav-item" data-secao="calendario" aria-current="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+    <span>Calendário</span>
+  </button>
+  <button type="button" class="nav-item" data-secao="grupos">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><path d="M16 5.5a3 3 0 010 5.4M18 20c0-2.6-1-4.2-2.5-5"/></svg>
+    <span>Grupos</span>
+  </button>
+  <button type="button" class="nav-item" data-secao="fichamento">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 3h9l5 5v13a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v5h5M8 13h8M8 17h5"/></svg>
+    <span>Fichamentos</span>
+  </button>
+  <button type="button" class="nav-item" data-secao="contatos">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 8l9 6 9-6"/></svg>
+    <span>Docentes</span>
+  </button>
+  <button type="button" class="nav-item" id="btn-mais" aria-haspopup="true" aria-controls="drawer">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <span>Mais</span>
+  </button>
+</nav>
 
 <div class="toast" id="toast"></div>
 
@@ -1027,7 +1306,6 @@ body.menu-aberto{overflow:hidden}
     if (!heroEv || heroEv.alvo <= new Date()){
       pintarHoje();
       pintarHero();
-      pintarPlacar();
       pintarLista();
       if (!heroEv) return;
     }
@@ -1062,23 +1340,6 @@ body.menu-aberto{overflow:hidden}
         marcas[i].className = "falta " + t.cls;
       }
     }
-  }
-
-  function pintarPlacar(){
-    var agora = new Date();
-    var futuros = eventos.filter(function(e){ return e.fim > agora; });
-    var cont = function(tipos){
-      return futuros.filter(function(e){ return tipos.indexOf(e.tipo) >= 0; }).length;
-    };
-    var dados = [
-      { cls:"c-prova",   n:cont(["PROVA","AVALIACAO"]),                        l:"provas e avaliações" },
-      { cls:"c-entrega", n:cont(["ENTREGA","TAREFA","MANUSCRITO"]),            l:"entregas e trabalhos" },
-      { cls:"c-evento",  n:cont(["AULA","EVENTO","COMPETICAO","APRESENTACAO"]),l:"aulas e eventos" },
-      { cls:"c-feriado", n:cont(["FERIADO"]),                                  l:"feriados" }
-    ];
-    $("placar").innerHTML = dados.map(function(x){
-      return '<div class="'+x.cls+'"><b>'+x.n+'</b><span>'+x.l+' restantes</span></div>';
-    }).join("");
   }
 
   function pintarChips(){
@@ -1146,6 +1407,114 @@ body.menu-aberto{overflow:hidden}
       + String(dt.getUTCMinutes()).padStart(2,"0") + "00Z";
   }
 
+  /* ---------- links contextuais do card ----------
+     A dúvida nasce dentro do card, diante da entrega ou do seminário.
+     O card não resolve a navegação: só declara para onde quer ir, em
+     data-secao, e quem sabe abrir as abas é o script de baixo. */
+  var ENTREGAVEIS = ["MANUSCRITO","ENTREGA","TAREFA"];
+
+  function pedeProfessor(ev){
+    if (ev.disciplina === "Geral") return false;
+    if (ev.confirmar) return true;
+    return /confirm|cobre|cobrar|pergunt|combine|combinar|professor/i.test(ev.oQueFazer || "");
+  }
+
+  /* Só oferece "Ver meu grupo" se a matéria realmente tiver grupos
+     cadastrados. Sem isso, uma prova de IDP que menciona "trabalho em
+     grupo" na descrição ganhava um link que levava a uma aba onde não
+     há nada para mostrar. */
+  function temGrupos(sigla){
+    if (typeof PAINEL === "undefined" || !PAINEL.grupos) return false;
+    var g = PAINEL.grupos[sigla];
+    if (!g) return false;
+    return ((g.n1 || []).length + (g.n2 || []).length) > 0;
+  }
+
+  function ehDeGrupo(ev){
+    if (!temGrupos(ev.disciplina)) return false;
+    if (ev.tipo === "APRESENTACAO") return true;
+    return /semin[áa]rio|em grupo|apresenta/i.test(ev.titulo + " " + (ev.descricao || ""));
+  }
+
+  function linksCard(ev){
+    var out = [];
+    if (ENTREGAVEIS.indexOf(ev.tipo) >= 0 && ev.disciplina !== "Geral"){
+      out.push('<button type="button" class="card-link" data-secao="fichamento"'
+        + ' data-sigla="' + esc(ev.disciplina) + '">Ver detalhes do fichamento</button>');
+    }
+    if (ehDeGrupo(ev) && ev.disciplina !== "Geral"){
+      out.push('<button type="button" class="card-link" data-secao="grupos"'
+        + ' data-sigla="' + esc(ev.disciplina) + '"'
+        + ' data-titulo="' + esc(ev.titulo) + '"'
+        + ' data-data="' + esc(ev.data) + '">Ver meu grupo</button>');
+    }
+    if (pedeProfessor(ev)){
+      out.push('<button type="button" class="card-link" data-secao="contatos"'
+        + ' data-sigla="' + esc(ev.disciplina) + '">Falar com o professor</button>');
+    }
+    return out.length ? '<div class="card-links">' + out.join("") + '</div>' : "";
+  }
+
+  /* ---------- "ver mais" só quando o texto realmente transborda ----------
+     Mede comparando scrollHeight com clientHeight, depois de renderizar.
+
+     A função é idempotente de propósito: ela ADICIONA e também REMOVE.
+     A primeira medição acontece antes de a Inter terminar de carregar,
+     e com a fonte de fallback o texto ocupa mais linhas — sem a remoção,
+     sobravam botões em cards que, já com a Inter, cabem em três linhas
+     e não expandem nada. Por isso ela roda de novo quando as fontes
+     ficam prontas e quando a largura muda. */
+  function medirBloco(p, caixa, dentro, rotAbrir, rotFechar){
+    var ref = dentro ? p.lastElementChild : p.nextElementSibling;
+    var botao = (ref && ref.classList && ref.classList.contains("ver-mais")) ? ref : null;
+
+    /* Com o texto expandido não há transbordo para medir: fecha,
+       mede, e devolve ao estado em que estava. */
+    var aberto = p.classList.contains("aberto");
+    if (aberto) p.classList.remove("aberto");
+    var transborda = (caixa.scrollHeight - caixa.clientHeight) > 2;
+    if (aberto) p.classList.add("aberto");
+
+    if (!transborda){
+      if (botao) botao.parentNode.removeChild(botao);
+      p.classList.remove("aberto");
+      return;
+    }
+    if (botao) return;
+
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "ver-mais";
+    b.textContent = rotAbrir;
+    b.setAttribute("aria-expanded", "false");
+    b.addEventListener("click", function(){
+      var ab = p.classList.toggle("aberto");
+      b.textContent = ab ? rotFechar : rotAbrir;
+      b.setAttribute("aria-expanded", ab ? "true" : "false");
+    });
+    if (dentro) p.appendChild(b);
+    else p.insertAdjacentElement("afterend", b);
+  }
+
+  function aplicarVerMais(){
+    var lista = $("lista");
+    Array.prototype.forEach.call(lista.querySelectorAll("p.card-desc"), function(p){
+      medirBloco(p, p, false, "ver mais", "ver menos");
+    });
+    /* O bloco "O que fazer" corta igual, com rótulo próprio: o botão
+       fica dentro do bloco destacado, não solto abaixo dele. */
+    Array.prototype.forEach.call(lista.querySelectorAll("p.fazer"), function(p){
+      var txt = p.querySelector(".fazer-txt");
+      if (txt) medirBloco(p, txt, true, "ler mais", "ler menos");
+    });
+  }
+
+  var timerMedida;
+  function remedir(){
+    clearTimeout(timerMedida);
+    timerMedida = setTimeout(aplicarVerMais, 150);
+  }
+
   function pintarLista(){
     var lista = filtrados();
     var alvo = $("lista");
@@ -1184,10 +1553,11 @@ body.menu-aberto{overflow:hidden}
             + (ev.hora ? '<span class="tag disc">' + rotuloHora(ev) + '</span>' : "")
           + '</div>'
           + '<h3>' + esc(ev.titulo) + '</h3>'
-          + '<p>' + esc(ev.descricao) + '</p>'
-          + (ev.oQueFazer ? '<p class="fazer">' + esc(ev.oQueFazer) + '</p>' : "")
+          + '<p class="card-desc">' + esc(ev.descricao) + '</p>'
+          + (ev.oQueFazer ? '<p class="fazer"><span class="fazer-txt">' + esc(ev.oQueFazer) + '</span></p>' : "")
           + (ev.fonte ? '<p class="fonte">Origem da data: ' + esc(ev.fonte) + '</p>' : "")
           + (ev.confirmar ? '<span class="aviso">Data ainda não confirmada pelo professor</span>' : "")
+          + linksCard(ev)
           + '<div class="rodape-card">'
             + '<span class="falta ' + t.cls + '" data-falta="' + eventos.indexOf(ev) + '">' + t.txt + '</span>'
             + (passou ? "" : '<a class="add" href="' + linkGoogle(ev) + '" target="_blank" rel="noopener">+ Google Agenda</a>')
@@ -1197,6 +1567,7 @@ body.menu-aberto{overflow:hidden}
     });
 
     alvo.innerHTML = html;
+    aplicarVerMais();
   }
 
   function gerarICS(){
@@ -1282,6 +1653,98 @@ body.menu-aberto{overflow:hidden}
     timerToast = setTimeout(function(){ t.classList.remove("on"); }, 2600);
   }
 
+  /* ---------- resumo da semana, pronto para colar no grupo ----------
+     O representante reescreve à mão toda semana o que já está aqui
+     estruturado. Isto monta a mensagem e ainda leva o link de volta
+     ao site em cada envio. */
+  function resumirFrase(t){
+    t = String(t || "").trim();
+    var i = t.indexOf(". ");
+    var f = (i > 0) ? t.slice(0, i + 1) : t;
+    if (f.length > 160) f = f.slice(0, 157).replace(/\s+\S*$/, "") + "…";
+    return f;
+  }
+
+  /* Marcador por tipo, no mesmo código de cor da página: vermelho é
+     prova, amarelo é entrega, azul é aula ou evento, verde é feriado.
+     Quem lê no grupo varre a cor antes de ler o texto. */
+  var MARCA = {
+    PROVA:"🔴", AVALIACAO:"🔴",
+    ENTREGA:"🟡", TAREFA:"🟡", MANUSCRITO:"🟡",
+    AULA:"🔵", EVENTO:"🔵", COMPETICAO:"🔵", APRESENTACAO:"🔵",
+    FERIADO:"🟢"
+  };
+
+  function textoResumo(){
+    var agora = new Date();
+    var limite = new Date(agora.getTime() + 7 * 86400000);
+    var lista = eventos.filter(function(e){ return e.fim > agora && e.alvo <= limite; });
+    if (!lista.length) return null;
+
+    /* O WhatsApp entende *negrito* e _itálico_. A data vai em negrito
+       porque é por ela que se procura, e cada compromisso é separado
+       por uma linha em branco — num grupo, no celular, o bloco corrido
+       não se lê. */
+    var linhas = [
+      "*CALENDÁRIO DA TURMA*",
+      "_Direito · 1º período noturno_",
+      "Próximos 7 dias",
+      "",
+      "━━━━━━━━━━━━━━━",
+      ""
+    ];
+
+    lista.forEach(function(e){
+      var dia = String(e.dia).padStart(2, "0") + "/" + String(e.mes + 1).padStart(2, "0");
+      var cabeca = (MARCA[e.tipo] || "•") + " *" + dia + " (" + e.semana + ")*";
+      if (e.hora) cabeca += " · " + rotuloHora(e);
+      cabeca += " · " + e.disciplina;
+
+      linhas.push(cabeca);
+      linhas.push(e.titulo);
+      if (e.oQueFazer) linhas.push("↳ _" + resumirFrase(e.oQueFazer) + "_");
+      linhas.push("");
+    });
+
+    linhas.push("━━━━━━━━━━━━━━━");
+    linhas.push("Datas sempre atualizadas em:");
+    linhas.push(location.href.split("#")[0]);
+    return linhas.join("\n");
+  }
+
+  function copiarTexto(txt, ok){
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ aviso(ok); }, function(){ copiarNaMarra(txt, ok); });
+    } else {
+      copiarNaMarra(txt, ok);
+    }
+  }
+
+  function copiarNaMarra(txt, ok){
+    var ta = document.createElement("textarea");
+    ta.value = txt;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "0";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, ta.value.length);
+    try {
+      document.execCommand("copy");
+      aviso(ok);
+    } catch (e){
+      aviso("Não consegui copiar sozinho. Selecione e copie à mão.");
+    }
+    document.body.removeChild(ta);
+  }
+
+  function copiarResumo(){
+    var txt = textoResumo();
+    if (!txt){ aviso("Nada marcado nos próximos 7 dias."); return; }
+    copiarTexto(txt, "Resumo copiado. É só colar no grupo.");
+  }
+
   function compartilhar(){
     var dados = {
       title: "Calendário da Turma — Direito 1º período noturno",
@@ -1304,7 +1767,6 @@ body.menu-aberto{overflow:hidden}
 
     pintarDisciplinas();
     pintarChips();
-    pintarPlacar();
     pintarHoje();
     pintarHero();
     pintarLista();
@@ -1337,6 +1799,16 @@ body.menu-aberto{overflow:hidden}
 
     $("btn-ics").addEventListener("click", baixarICS);
     $("btn-share").addEventListener("click", compartilhar);
+    $("btn-resumo").addEventListener("click", copiarResumo);
+
+    /* A altura do texto muda quando a Inter substitui o fallback, e muda
+       de novo quando a largura da tela muda. Nos dois casos a medição
+       precisa ser refeita — e como a função também remove, botões que
+       deixaram de fazer sentido somem sozinhos. */
+    if (document.fonts && document.fonts.ready){
+      document.fonts.ready.then(aplicarVerMais).catch(function(){});
+    }
+    window.addEventListener("resize", remedir);
   }
 
   if (document.readyState === "loading"){
@@ -1368,45 +1840,170 @@ body.menu-aberto{overflow:hidden}
       : '<span class="selo pendente">Pendente</span>';
   }
 
-  /* ---------------- menu hambúrguer ---------------- */
-  var btnMenu = $("btn-menu"), drawer = $("drawer"), backdrop = $("drawer-backdrop"), btnFechar = $("btn-fechar-menu");
+  /* ================================================================
+     NAVEGAÇÃO
+     Uma lista só de seções, tirada dos próprios links do drawer, e um
+     handler só, delegado em [data-secao]. Drawer, chips do desktop,
+     barra inferior, atalhos e links de card entram todos por aqui —
+     nenhum deles reimplementa troca de aba.
+     ================================================================ */
+  var drawer = $("drawer"), backdrop = $("drawer-backdrop"), btnFechar = $("btn-fechar-menu");
+  var btnMenu = $("btn-menu"), btnMais = $("btn-mais"), navDesktop = $("nav-desktop");
+  var BASE = "calendario";
+
+  var ABAS = Array.prototype.map.call(
+    drawer.querySelectorAll(".drawer-link"),
+    function(l){
+      return {
+        id: l.getAttribute("data-secao"),
+        nome: l.textContent.trim(),
+        curto: l.getAttribute("data-curto") || l.textContent.trim()
+      };
+    }
+  );
+  var IDS = ABAS.map(function(a){ return a.id; });
 
   function abrirMenu(){
     drawer.classList.add("on"); backdrop.classList.add("on");
     document.body.classList.add("menu-aberto");
-    btnMenu.setAttribute("aria-expanded","true"); drawer.setAttribute("aria-hidden","false");
+    if (btnMenu) btnMenu.setAttribute("aria-expanded","true");
+    drawer.setAttribute("aria-hidden","false");
   }
   function fecharMenu(){
     drawer.classList.remove("on"); backdrop.classList.remove("on");
     document.body.classList.remove("menu-aberto");
-    btnMenu.setAttribute("aria-expanded","false"); drawer.setAttribute("aria-hidden","true");
+    if (btnMenu) btnMenu.setAttribute("aria-expanded","false");
+    drawer.setAttribute("aria-hidden","true");
   }
-  btnMenu.addEventListener("click", abrirMenu);
+  if (btnMenu) btnMenu.addEventListener("click", abrirMenu);
+  if (btnMais) btnMais.addEventListener("click", abrirMenu);
   btnFechar.addEventListener("click", fecharMenu);
   backdrop.addEventListener("click", fecharMenu);
   document.addEventListener("keydown", function(e){ if (e.key === "Escape") fecharMenu(); });
 
-  function mostrarAba(id){
-    document.querySelectorAll(".drawer-link").forEach(function(l){
-      if (l.getAttribute("data-id") === id) l.setAttribute("aria-current","true");
-      else l.removeAttribute("aria-current");
+  /* chips do desktop, gerados a partir de ABAS */
+  navDesktop.innerHTML = ABAS.map(function(a){
+    return '<button type="button" class="nav-chip" data-secao="' + esc(a.id) + '"'
+         + ' title="' + esc(a.nome) + '"'
+         + (a.id === BASE ? ' aria-current="true"' : '') + '>' + esc(a.curto) + '</button>';
+  }).join("");
+
+  /* botão de voltar no topo de cada seção que não é o calendário */
+  IDS.forEach(function(id){
+    if (id === BASE) return;
+    var sec = $("tab-" + id);
+    if (!sec || sec.querySelector(".btn-voltar")) return;
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "btn-voltar";
+    b.setAttribute("data-secao", BASE);
+    b.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"'
+      + ' stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+      + '<path d="M15 5l-7 7 7 7"/></svg> Voltar ao Calendário';
+    sec.insertBefore(b, sec.firstChild);
+  });
+
+  function marcarAtivo(id){
+    document.querySelectorAll("[data-secao]").forEach(function(el){
+      if (el.classList.contains("btn-voltar") || el.classList.contains("card-link")
+          || el.classList.contains("atalho")) return;
+      if (el.getAttribute("data-secao") === id) el.setAttribute("aria-current","true");
+      else el.removeAttribute("aria-current");
     });
+  }
+
+  /* Guarda a posição da lista do calendário para devolver a pessoa
+     onde ela estava quando voltar, em vez de jogar no topo. */
+  var scrollBase = 0;
+  var abaAtual = BASE;
+
+  /* Quantas entradas empilhamos desde o calendário. Voltar ao
+     calendário desempilha todas de uma vez, em vez de somar mais uma
+     entrada — assim o "voltar" do Android sai do site na primeira vez
+     em que é apertado a partir do calendário, e nunca fica repetindo
+     uma tela idêntica. Vale 0 quando a pessoa chegou direto por um
+     link como #grupos: aí não há o que desempilhar, e desempilhar
+     tiraria ela do site. */
+  var profundidade = 0;
+
+  function pintarAba(id){
     document.querySelectorAll(".secao-extra").forEach(function(s){
       s.classList.toggle("on", s.id === "tab-" + id);
     });
-    window.scrollTo(0,0);
+    marcarAtivo(id);
     fecharMenu();
   }
 
-  document.querySelectorAll(".drawer-link").forEach(function(link){
-    link.addEventListener("click", function(e){
-      e.preventDefault();
-      mostrarAba(link.getAttribute("data-id"));
-    });
+  function rolar(id, opts){
+    if (opts.manterScroll) return;
+    if (id === BASE) window.scrollTo(0, opts.restaurar ? scrollBase : 0);
+    else window.scrollTo(0, 0);
+  }
+
+  function mostrarAba(id, opts){
+    opts = opts || {};
+    if (IDS.indexOf(id) < 0) id = BASE;
+
+    if (abaAtual === BASE && id !== BASE) scrollBase = window.pageYOffset || 0;
+
+    pintarAba(id);
+
+    if (!opts.semHistorico){
+      if (id === BASE){
+        if (profundidade > 0){
+          var n = profundidade;
+          profundidade = 0;
+          abaAtual = id;
+          rolar(id, opts);
+          history.go(-n);   /* o popstate confirma o estado base */
+          return;
+        }
+        history.replaceState({ aba:id }, "", location.pathname + location.search);
+      } else if (abaAtual === id){
+        history.replaceState({ aba:id }, "", "#" + id);
+      } else {
+        history.pushState({ aba:id }, "", "#" + id);
+        profundidade++;
+      }
+    }
+
+    abaAtual = id;
+    rolar(id, opts);
+  }
+
+  window.addEventListener("popstate", function(e){
+    var id = (e.state && e.state.aba) || BASE;
+    profundidade = (id === BASE) ? 0 : Math.max(0, profundidade - 1);
+    mostrarAba(id, { semHistorico:true, restaurar:(id === BASE) });
   });
 
+  /* Trocar só o hash não recarrega a página, então iniciar() não roda
+     de novo: quem já está no site e abre um link #calculadora entra
+     por aqui. Sai fora se a aba já é essa, para não brigar com o
+     popstate, que dispara junto em parte dos navegadores. */
+  window.addEventListener("hashchange", function(){
+    var id = (location.hash || "").replace(/^#/, "") || BASE;
+    if (IDS.indexOf(id) < 0 || id === abaAtual) return;
+    pintarAba(id);
+    abaAtual = id;
+    rolar(id, {});
+  });
+
+  /* A Grade de Aulas fica também como botão no calendário, além do
+     menu: é uma das seções mais abertas pela turma. */
   var btnGradeAcoes = $("btn-grade");
   if (btnGradeAcoes) btnGradeAcoes.addEventListener("click", function(){ mostrarAba("grade"); });
+
+  /* Um handler só, para tudo que declara para onde quer ir. */
+  document.addEventListener("click", function(e){
+    var el = e.target.closest ? e.target.closest("[data-secao]") : null;
+    if (!el) return;
+    if (el.tagName === "A") e.preventDefault();
+    var id = el.getAttribute("data-secao");
+    mostrarAba(id, { restaurar:(id === BASE) });
+    aposIr(id, el);
+  });
+
 
   /* ---------------- contatos ---------------- */
   function pintarContatos(){
@@ -1498,27 +2095,219 @@ body.menu-aberto{overflow:hidden}
           }).join("") + (f.fonte ? '<p class="fonte">Fonte: ' + esc(f.fonte) + '</p>' : '')
         : '<p class="bloco-texto">Ainda não há exigências confirmadas para esta disciplina.</p>';
 
-      return '<details class="acc">'
+      return '<details class="acc fich-acc" data-sigla="' + esc(f.sigla) + '">'
         + '<summary><span class="titulo-acc"><span class="n">' + esc(f.sigla) + '</span></span>' + selo(blocos.length > 0) + '</summary>'
         + '<div class="corpo">' + corpo + '</div></details>';
     }).join("");
   }
 
-  /* ---------------- diretrizes ---------------- */
-  function pintarCarimbo(){
-    var at = new Date(CALENDARIO.atualizadoEm);
-    $("foot-stamp").innerHTML = "Atualizado em <b>" + String(at.getDate()).padStart(2,"0") + "/"
-      + String(at.getMonth()+1).padStart(2,"0") + "/" + at.getFullYear()
-      + "</b>, extraído do " + esc(CALENDARIO.fonte) + ".";
+  /* ---------------- o que está vencendo, no topo dos fichamentos ----------------
+     Três itens, em ordem de vencimento, com a mesma escada de alerta
+     dos cards do calendário: 1 dia ou menos é crítico, 2 dias é alerta. */
+  function diasAte(dataISO){
+    var hoje = new Date(); hoje.setHours(0,0,0,0);
+    var p = dataISO.split("-");
+    var alvo = new Date(+p[0], +p[1] - 1, +p[2]);
+    return Math.round((alvo - hoje) / 86400000);
   }
 
-  function pintarDiretrizes(){
-    $("lista-diretrizes").innerHTML = (PAINEL.diretrizes || []).map(function(d){
-      return '<div class="card diretriz" style="grid-template-columns:1fr">'
-        + '<h3>' + esc(d.titulo) + '</h3>'
-        + '<p class="bloco-texto">' + esc(d.texto) + '</p>'
+  function faixa(dias){
+    if (dias <= 1) return "al-critico";
+    if (dias === 2) return "al-alerta";
+    return "al-normal";
+  }
+
+  function pintarProximos(){
+    var caixa = $("proximos-fichamento");
+    if (!caixa) return;
+    var TIPOS = ["MANUSCRITO","ENTREGA","TAREFA"];
+    var hoje = new Date(); hoje.setHours(0,0,0,0);
+
+    var lista = (CALENDARIO.eventos || [])
+      .filter(function(e){ return TIPOS.indexOf(e.tipo) >= 0 && diasAte(e.data) >= 0; })
+      .sort(function(a,b){ return a.data < b.data ? -1 : (a.data > b.data ? 1 : 0); })
+      .slice(0, 3);
+
+    var corpo = lista.length
+      ? lista.map(function(e){
+          var d = diasAte(e.data);
+          var quando = d === 0 ? "é hoje" : (d === 1 ? "falta 1 dia" : "faltam " + d + " dias");
+          var p = e.data.split("-");
+          return '<div class="prox-item">'
+            + '<span class="prox-data">' + p[2] + "/" + p[1] + '</span>'
+            + '<span class="prox-txt"><span class="m">' + esc(e.disciplina) + '</span> — ' + esc(e.titulo) + '</span>'
+            + '<span class="prox-vence ' + faixa(d) + '">' + quando + '</span>'
+          + '</div>';
+        }).join("")
+      : '<p class="nada">Nenhuma entrega em aberto no calendário.</p>';
+
+    caixa.innerHTML = '<h3>Próximas Entregas</h3>' + corpo;
+  }
+
+  /* ---------------- próximos seminários ----------------
+     Quem apresenta, quando e sobre o quê, em ordem de data e já
+     descartando o que passou. Sai de PAINEL.grupos, que é onde a
+     composição vive, e não do calendário — assim o nome de quem
+     apresenta aparece junto da data. */
+  function isoDaData(txt){
+    var m = String(txt || "").match(/(\d{2})\/(\d{2})/);
+    if (!m) return null;
+    var ano = String(CALENDARIO.semestre || "").match(/(\d{4})/);
+    return (ano ? ano[1] : new Date().getFullYear()) + "-" + m[2] + "-" + m[1];
+  }
+
+  function pintarProximosSeminarios(){
+    var caixa = $("proximos-seminarios");
+    if (!caixa) return;
+
+    var itens = [];
+    Object.keys(PAINEL.grupos).forEach(function(sig){
+      ["n1","n2"].forEach(function(per){
+        (PAINEL.grupos[sig][per] || []).forEach(function(g){
+          var iso = isoDaData(g.dataSeminario);
+          if (!iso) return;
+          var d = diasAte(iso);
+          if (d < 0) return;
+          itens.push({ iso:iso, dias:d, sigla:sig, g:g,
+                       estimada: /estimad/i.test(g.dataSeminario || "") });
+        });
+      });
+    });
+
+    itens.sort(function(a,b){ return a.iso < b.iso ? -1 : (a.iso > b.iso ? 1 : 0); });
+    var prox = itens.slice(0, 4);
+
+    var corpo = prox.length
+      ? prox.map(function(x){
+          var p = x.iso.split("-");
+          var quando = x.dias === 0 ? "é hoje" : (x.dias === 1 ? "falta 1 dia" : "faltam " + x.dias + " dias");
+          return '<div class="prox-item">'
+            + '<span class="prox-data">' + p[2] + "/" + p[1] + '</span>'
+            + '<span class="prox-txt"><span class="m">' + esc(x.sigla) + '</span> — ' + esc(x.g.tema)
+              + '<br><span class="prox-quem">' + esc(x.g.integrantes || "grupo ainda não formado") + '</span>'
+              + (x.estimada ? ' <span class="prox-estimada">data estimada</span>' : '')
+            + '</span>'
+            + '<span class="prox-vence ' + faixa(x.dias) + '">' + quando + '</span>'
+          + '</div>';
+        }).join("")
+      : '<p class="nada">Nenhum seminário à frente no calendário.</p>';
+
+    caixa.innerHTML = '<h3>Próximos Seminários</h3>' + corpo;
+  }
+
+  /* ---------------- para onde ir depois de trocar de aba ----------------
+     Os links do card dizem a matéria; aqui a gente abre o item certo
+     e, quando é grupo, ainda escolhe o bimestre correto. */
+  function acharPeriodo(sigla, titulo, dataISO){
+    var g = PAINEL.grupos[sigla];
+    if (!g) return null;
+    var n1 = g.n1 || [], n2 = g.n2 || [];
+    if (n1.length && !n2.length) return "n1";
+    if (n2.length && !n1.length) return "n2";
+    if (!n1.length && !n2.length) return null;
+
+    var p = (dataISO || "").split("-");
+    var ddmm = p.length === 3 ? (p[2] + "/" + p[1]) : "";
+    var alvo = String(titulo || "").toLowerCase();
+
+    function casa(lista){
+      return lista.some(function(x){
+        if (ddmm && String(x.dataSeminario || "").indexOf(ddmm) >= 0) return true;
+        if (ddmm && String(x.dataEntrega || "").indexOf(ddmm) >= 0) return true;
+        var tema = String(x.tema || "").toLowerCase();
+        return tema.length > 4 && alvo.indexOf(tema.slice(0, 18)) >= 0;
+      });
+    }
+    if (casa(n1)) return "n1";
+    if (casa(n2)) return "n2";
+    return "n1";
+  }
+
+  function aposIr(id, el){
+    var sigla = el && el.getAttribute ? el.getAttribute("data-sigla") : null;
+    if (!sigla) return;
+
+    if (id === "fichamento"){
+      var acc = document.querySelector('.fich-acc[data-sigla="' + sigla + '"]');
+      if (acc){ acc.open = true; acc.scrollIntoView({ block:"center" }); }
+      return;
+    }
+
+    if (id === "grupos"){
+      var campo = $("busca-nome");
+      if (campo && campo.value){ campo.value = ""; filtrarPorNome(""); }
+      var g = document.querySelector('.grupo-acc[data-sigla="' + sigla + '"]');
+      if (!g) return;
+      g.open = true;
+      var per = acharPeriodo(sigla, el.getAttribute("data-titulo"), el.getAttribute("data-data"));
+      if (per){
+        var btn = g.querySelector('.periodo-btn[data-periodo="' + per + '"]');
+        if (btn) btn.click();
+      }
+      g.scrollIntoView({ block:"center" });
+    }
+  }
+
+  /* ---------------- busca por nome, em todas as matérias de uma vez ----------------
+     Responde "em que grupo eu estou" com um toque, sem obrigar a
+     escolher matéria e bimestre antes. */
+  function realcar(txt, termo){
+    var t = esc(txt);
+    if (!termo) return t;
+    var i = t.toLowerCase().indexOf(termo);
+    if (i < 0) return t;
+    return t.slice(0, i) + "<mark>" + t.slice(i, i + termo.length) + "</mark>" + t.slice(i + termo.length);
+  }
+
+  function filtrarPorNome(termo){
+    var caixa = $("achados-grupos");
+    var lista = $("lista-grupos");
+    termo = String(termo || "").trim().toLowerCase();
+
+    if (!termo){
+      caixa.innerHTML = "";
+      lista.style.display = "";
+      return;
+    }
+    lista.style.display = "none";
+
+    var achados = [];
+    Object.keys(PAINEL.grupos).forEach(function(sig){
+      ["n1","n2"].forEach(function(per){
+        (PAINEL.grupos[sig][per] || []).forEach(function(g){
+          if (String(g.integrantes || "").toLowerCase().indexOf(termo) < 0) return;
+          achados.push({ sigla:sig, periodo:per.toUpperCase(), g:g });
+        });
+      });
+    });
+
+    if (!achados.length){
+      caixa.innerHTML = '<p class="vazio-txt">Nenhum grupo com esse nome. '
+        + 'Tente só o primeiro nome, ou confira a grafia.</p>';
+      return;
+    }
+
+    caixa.innerHTML = achados.map(function(a){
+      var quando = a.g.dataSeminario || a.g.dataEntrega || "";
+      return '<div class="achado">'
+        + '<div class="onde">' + esc(a.sigla) + ' · ' + esc(a.periodo) + ' · ' + esc(a.g.grupo) + '</div>'
+        + '<div class="tema">' + esc(a.g.tema) + '</div>'
+        + '<div class="com">' + realcar(a.g.integrantes || "", termo) + '</div>'
+        + (quando ? '<div class="quando">' + esc(quando) + '</div>' : '')
       + '</div>';
     }).join("");
+  }
+
+  /* ---------------- carimbo de atualização ---------------- */
+  /* No cabeçalho entra só a data: é o sinal de que o calendário está
+     vivo. A lista completa de fontes fica no title, para quem quiser
+     saber de onde veio, sem ocupar quatro linhas embaixo do título. */
+  function pintarCarimbo(){
+    var at = new Date(CALENDARIO.atualizadoEm);
+    var el = $("foot-stamp");
+    el.innerHTML = "Atualizado em <b>" + String(at.getDate()).padStart(2,"0") + "/"
+      + String(at.getMonth()+1).padStart(2,"0") + "/" + at.getFullYear() + "</b>";
+    el.setAttribute("title", "Extraído do " + CALENDARIO.fonte + ".");
   }
 
   /* ---------------- feedback ---------------- */
@@ -1812,6 +2601,36 @@ body.menu-aberto{overflow:hidden}
   var DIAS_SEMANA = ["domingo","segunda","terça","quarta","quinta","sexta","sábado"];
   function minutos(hhmm){ var p = hhmm.split("h"); return (+p[0]) * 60 + (+p[1]); }
 
+  /* ---------------- cronômetro da aula em curso ----------------
+     Quanto falta para a aula acabar, ao vivo, com uma barra mostrando
+     o quanto já passou. Roda a cada segundo, mas só reescreve dois
+     nós de texto — a grade inteira continua sendo repintada a cada
+     30 segundos, que é quando a aula pode ter virado. */
+  var aulaEmCurso = null;
+
+  function tickAula(){
+    if (!aulaEmCurso) return;
+    var alvo = $("aula-resta"), barra = $("aula-progresso");
+    if (!alvo) return;
+
+    var agora = new Date();
+    var seg = agora.getHours()*3600 + agora.getMinutes()*60 + agora.getSeconds();
+    var iniS = aulaEmCurso.ini*60, fimS = aulaEmCurso.fim*60;
+    var restam = fimS - seg;
+
+    if (restam <= 0){ pintarGradeCompleta(); return; }
+
+    var min = Math.floor(restam/60), s = restam%60;
+    alvo.textContent = (min >= 60)
+      ? Math.floor(min/60) + "h" + String(min%60).padStart(2,"0")
+      : (min > 0 ? min + "min " + String(s).padStart(2,"0") + "s" : s + "s");
+
+    if (barra){
+      var pct = Math.max(0, Math.min(100, ((seg - iniS) / (fimS - iniS)) * 100));
+      barra.style.width = pct.toFixed(1) + "%";
+    }
+  }
+
   function pintarGradeCompleta(){
     var grade = (typeof CALENDARIO !== "undefined") ? CALENDARIO.grade : null;
     if (!grade) return;
@@ -1832,10 +2651,17 @@ body.menu-aberto{overflow:hidden}
     }
 
     var box = $("aula-agora-box");
+    aulaEmCurso = null;
+
     if (atual){
+      var faixa = atual.h.split(" – ");
+      aulaEmCurso = { ini: minutos(faixa[0]), fim: minutos(faixa[1]) };
       box.setAttribute("data-alerta", "critico");
       box.innerHTML = '<p class="label">Acontecendo agora</p><h2>' + esc(atual.nome) + '</h2>'
-        + '<p class="meta">' + esc(atual.h) + ' · ' + esc(grade.sala) + '</p>';
+        + '<p class="meta">' + esc(atual.h) + ' · ' + esc(grade.sala) + '</p>'
+        + '<div class="aula-barra"><span id="aula-progresso"></span></div>'
+        + '<p class="aula-resta">Termina em <b id="aula-resta">—</b></p>';
+      tickAula();
     } else if (proxima){
       box.removeAttribute("data-alerta");
       box.innerHTML = '<p class="label">Próxima aula de hoje</p><h2>' + esc(proxima.nome) + '</h2>'
@@ -1849,7 +2675,10 @@ body.menu-aberto{overflow:hidden}
     $("grade-full").innerHTML = grade.dias.map(function(d){
       var aulas = d.aulas.length
         ? d.aulas.map(function(a){
-            return '<div class="aula"><span class="hora">' + esc(a.h) + '</span>'
+            var f2 = a.h.split(" – ");
+            var emCurso = (d.n === diaSemana) && min >= minutos(f2[0]) && min < minutos(f2[1]);
+            return '<div class="aula' + (emCurso ? " agora" : "") + '">'
+                 + '<span class="hora">' + esc(a.h) + '</span>'
                  + '<span class="disc">' + esc(a.sigla) + '</span>'
                  + '<span class="longo">' + esc(a.nome) + '</span></div>';
           }).join("")
@@ -1957,14 +2786,31 @@ body.menu-aberto{overflow:hidden}
     pintarContatos();
     pintarGrupos();
     pintarFichamento();
+    pintarProximos();
+    pintarProximosSeminarios();
     montarCalculadora();
     pintarGradeCompleta();
     montarFerias();
     pintarFeedback();
-    pintarDiretrizes();
     pintarCarimbo();
     setInterval(pintarGradeCompleta, 30000);
     setInterval(tickFerias, 1000);
+    setInterval(tickAula, 1000);
+
+    var campoNome = $("busca-nome");
+    if (campoNome){
+      campoNome.addEventListener("input", function(e){ filtrarPorNome(e.target.value); });
+    }
+
+    /* Abertura por link direto: #calculadora, #grupos, e assim por diante. */
+    var inicial = (location.hash || "").replace(/^#/, "");
+    if (inicial && IDS.indexOf(inicial) >= 0 && inicial !== BASE){
+      mostrarAba(inicial, { semHistorico:true });
+      history.replaceState({ aba:inicial }, "", "#" + inicial);
+    } else {
+      history.replaceState({ aba:BASE }, "", location.pathname + location.search);
+      marcarAtivo(BASE);
+    }
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar);
