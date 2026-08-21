@@ -25,7 +25,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-08-21T11:22:00-03:00",
+  atualizadoEm: "2026-08-21T11:47:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -189,25 +189,25 @@ const CALENDARIO = {
       fonte: "Enunciado da tarefa no Moodle e cronograma dos seminários exibido em sala, 12/08/2026."
     },
     {
-      data: "2026-09-03", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
+      data: "2026-09-03", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 1 — Direito na Grécia",
       descricao: "Primeira apresentação em grupo de História do Direito, de 10 a 15 minutos. Apresentam David Bottcher Curvello, Emilly Pereira da Silva e Pamela Cristina Barreto Reis Rosa. Material: “Direito na Grécia Antiga” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 31-42.",
-      oQueFazer: "Data estimada. O cronograma do professor traz 04/03, uma quarta-feira do 1º semestre, quando a disciplina era às quartas; neste semestre ela é às quintas. A data foi reposicionada para a quinta equivalente. Confirme com o professor antes de fechar o cronograma do grupo.",
-      fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
+      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle.",
+      fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
-      data: "2026-09-10", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
+      data: "2026-09-10", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 2 — Direito em Roma",
       descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Guilherme Pontes da Silva e Melissa Scaff Puerta. Material: “Direito em Roma” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 44-55.",
-      oQueFazer: "Data estimada, reposicionada de 11/03 para a quinta equivalente deste semestre. Confirme com o professor.",
-      fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
+      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle.",
+      fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
-      data: "2026-09-17", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
+      data: "2026-09-17", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 3 — Direito na Idade Média",
       descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Luís Henrique Oliveira Penteado Vargas e Luiza Santos Gonçalves. Material: “O Direito na Idade Média” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 57-76.",
-      oQueFazer: "Data estimada, reposicionada de 18/03 para a quinta equivalente deste semestre. Confirme com o professor.",
-      fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
+      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle.",
+      fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
       data: "2026-09-04", hora: null, disciplina: "Ciên. Pol.", tipo: "AULA",
@@ -435,18 +435,18 @@ const CALENDARIO = {
       oQueFazer: "Escrever à mão e enviar a digitalização pelo Moodle. Começa aqui o bloco de hermenêutica e interpretação, que continua em 22/10."
     },
     {
-      data: "2026-10-15", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
+      data: "2026-10-22", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 4 — Direito na América Espanhola e Portuguesa",
       descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Luiza Corbetta de Souza e Pedro de Oliveira Mafra. Material: “Direito e barbárie na conquista da América indígena” (texto em PDF e slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, e texto disponibilizado no Moodle.",
-      oQueFazer: "Data estimada, reposicionada de 15/04 para a quinta equivalente deste semestre. Confirme com o professor.",
-      fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
+      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle.",
+      fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
-      data: "2026-10-22", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
+      data: "2026-10-29", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 5 — Revolução Francesa e Direito Moderno",
       descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Louise dos Reis de Sousa e Ryan de Sá Santos. Material: “A Revolução Francesa e a Evolução do Estado Liberal ao Estado Democrático de Direito” (slides no Moodle). Bibliografia: GRIVOT, Débora C. H. et al. História do Direito. Grupo A, 2017 (Minha Biblioteca), pp. 127-150.",
-      oQueFazer: "Data estimada, reposicionada de 22/04 para a quinta equivalente deste semestre. Confirme com o professor.",
-      fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
+      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle.",
+      fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
       data: "2026-10-22", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
@@ -470,11 +470,11 @@ const CALENDARIO = {
 
     /* ---------------- NOVEMBRO DE 2026 ---------------- */
     {
-      data: "2026-10-29", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
+      data: "2026-11-05", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 6 — Direito no Império",
-      descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Heloísa Farias Barbieri e Thiago Richard de Souza Pereira. Material: “Brasil Império — História do Direito” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 128-143.",
-      oQueFazer: "Data estimada, reposicionada de 29/04 para a quinta equivalente deste semestre. Confirme com o professor.",
-      fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
+      descricao: "Última apresentação em grupo do cronograma, de 10 a 15 minutos. Apresentam Heloísa Farias Barbieri e Thiago Richard de Souza Pereira. Material: “Brasil Império — História do Direito” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 128-143.",
+      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle.",
+      fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
       data: "2026-10-30", hora: null, disciplina: "Ciên. Pol.", tipo: "APRESENTACAO",
@@ -506,13 +506,6 @@ const CALENDARIO = {
       titulo: "Prova integrada",
       descricao: "Mesma Prova Integrada do dia, registrada também no cronograma da Prática Extensionista.",
       oQueFazer: "Aparece duas vezes porque está marcada nas duas disciplinas. É um compromisso só."
-    },
-    {
-      data: "2026-11-05", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO", confirmar: true,
-      titulo: "Apresentação 7 — Direito na República",
-      descricao: "Última apresentação em grupo, de 10 a 15 minutos. Apresentam Andressa de Souza Grana e Gabriele de Carvalho Fontenele. Material: “A Construção da República no Brasil (1889-1943)” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 144-172.",
-      oQueFazer: "Data estimada, reposicionada de 06/05 para a quinta equivalente deste semestre. Atenção: são 7 temas para 6 apresentações — este pode ser o tema absorvido por outro grupo ou apresentado pelo próprio professor. Confirme com ele.",
-      fonte: "Cronograma de temas do professor, com datas do 1º semestre de 2026, reposicionado para os dias de aula deste semestre."
     },
     {
       data: "2026-11-05", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
