@@ -65,9 +65,9 @@ const PAINEL = {
     },
     {
       sigla:"Hist. Dir.", disciplina:"História do Direito", confirmado:false,
-      resumo:"A nota é composta por dois instrumentos: a atividade avaliativa de 25/09, que vale 40%, e uma prova de questões objetivas, que vale os 60% restantes. Atenção ao lançamento: ainda que os trabalhos sejam feitos antes, todas as notas da disciplina são lançadas apenas em N2, e não em N1.",
-      faltaConfirmar:"Como os 40% e os 60% se distribuem entre os itens do cronograma oficial, que traz dois exames (01/10 e 19/11), duas atividades em sala (24/09 e 12/11), sete fichamentos e as datas de N1 e N2. Falta também a nota mínima para aprovação. As datas em si já são oficiais desde 20/08/2026; o que continua sem confirmação é o peso de cada uma.",
-      fonte:"Pesos: anotado em aula pelo representante da turma, 12/08/2026. Datas: cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
+      resumo:"N1 tem dois instrumentos: a atividade em grupo de 24/09, que vale 40%, e a prova individual de 01/10, que vale 60%. N2 tem quatro: a atividade em grupo de 12/11, com 20%; a prova de 19/11, com 40%; a apresentação do seu grupo, com 20%, no dia em que o grupo apresenta; e as fichas entregues em 26/11, com 20%. Atenção ao lançamento: ainda que os trabalhos sejam feitos antes, todas as notas da disciplina são lançadas apenas em N2.",
+      faltaConfirmar:"A nota mínima para aprovação e a fórmula que combina N1 e N2 na média final.",
+      fonte:"Datas: cronograma publicado pelo professor na sala do Moodle em 20/08/2026. Pesos: informados pelo professor e repassados pelo representante da turma em 21/08/2026."
     },
     { sigla:"Ética",       disciplina:"Ética e Cidadania", confirmado:false, resumo:"", faltaConfirmar:"Nenhuma fórmula de aprovação confirmada ainda.", fonte:"" },
     {
@@ -109,7 +109,7 @@ const PAINEL = {
       { titulo:"Atenção ao tempo", texto:"A ficha de avaliação pontua o respeito ao intervalo de 20 a 25 minutos, enquanto a orientação dada em sala fala em apresentação de 10 a 15 minutos. São faixas incompatíveis, e a diferença vale 1,00 ponto na nota. Confirme com o professor qual das duas vale antes de montar a apresentação." },
       { titulo:"Atividades em sala", texto:"Além das apresentações, haverá atividades desenvolvidas em grupo durante a própria aula, em grupos de 2 a 3 alunos. Nessas atividades, o professor dará as orientações no início, o texto será produzido em sala e a entrega ocorrerá ao final do encontro. É possível aproveitar os mesmos grupos das apresentações, mas a composição não é fixa e pode ser alterada." },
       { titulo:"Fichamentos", texto:"Os fichamentos são registros de leitura elaborados em ficha, com uso de frente e verso, manuscritos e seguindo o modelo indicado pelo professor. São sete textos ao todo e cada texto exige uma ficha própria, com entrega presencial. A ficha pode ser colorida e o tamanho fica a critério do aluno, embora o professor recomende a de 10 cm, com letra pequena, de modo que todo o conteúdo caiba no espaço disponível. Exige-se apenas que a escrita seja à mão, em caneta azul ou preta." },
-      { titulo:"Avaliação", texto:"A avaliação da disciplina é composta por duas notas. A atividade do dia 25 de setembro corresponde a 40% da nota, e a prova de questões objetivas corresponde aos 60% restantes. Ainda que os trabalhos sejam realizados antes, todas as notas serão lançadas apenas na N2, e não na N1." }
+      { titulo:"Avaliação", texto:"A disciplina tem duas notas, cada uma com composição própria. A N1 é formada pela atividade em grupo de 24 de setembro, que vale 40%, e pela prova individual de 1º de outubro, que vale 60%. A N2 se divide em quatro partes: a prova de 19 de novembro, com 40%; a atividade em grupo de 12 de novembro, com 20%; a apresentação do seu grupo, com 20%, contada no dia em que o grupo apresenta; e as fichas dos textos, entregues em 26 de novembro, com os 20% restantes. Repare que as fichas só viram nota na entrega de 26 de novembro, ainda que sejam produzidas ao longo do semestre. Ainda que os trabalhos sejam realizados antes, todas as notas são lançadas apenas na N2." }
     ], fonte:"Orientações do professor em aula, 12 de agosto de 2026." },
 
     { sigla:"Ética",        blocos:[] },
@@ -163,9 +163,15 @@ const PAINEL = {
       ], pesosConfirmados:true }
     },
     { sigla:"Hist. Dir.",
-      a1:null,
+      a1:{ nome:"N1", componentes:[
+        { nome:"Atividade em grupo (24/09)", peso:40 },
+        { nome:"Prova individual (01/10)", peso:60 }
+      ], pesosConfirmados:true },
       a2:{ nome:"N2", componentes:[
-        { nome:"Atividade de 25/09", peso:40 }, { nome:"Prova de questões objetivas", peso:60 }
+        { nome:"Prova (19/11)", peso:40 },
+        { nome:"Atividade em grupo (12/11)", peso:20 },
+        { nome:"Apresentação do grupo", peso:20 },
+        { nome:"Fichas (26/11)", peso:20 }
       ], pesosConfirmados:true }
     },
     { sigla:"Prát. Ext.",    a1:null, a2:null },

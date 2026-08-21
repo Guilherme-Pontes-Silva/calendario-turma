@@ -25,7 +25,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-08-21T11:58:00-03:00",
+  atualizadoEm: "2026-08-21T12:21:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -206,21 +206,21 @@ const CALENDARIO = {
       data: "2026-09-03", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 1 — Direito na Grécia",
       descricao: "Primeira apresentação em grupo de História do Direito, de 10 a 15 minutos. Apresentam David Bottcher Curvello, Emilly Pereira da Silva e Pamela Cristina Barreto Reis Rosa. Material: “Direito na Grécia Antiga” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 31-42.",
-      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle.",
+      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle. A apresentação do grupo vale 20% da N2.",
       fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
       data: "2026-09-10", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 2 — Direito em Roma",
       descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Guilherme Pontes da Silva e Melissa Scaff Puerta. Material: “Direito em Roma” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 44-55.",
-      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle.",
+      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle. A apresentação do grupo vale 20% da N2.",
       fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
       data: "2026-09-17", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 3 — Direito na Idade Média",
       descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Luís Henrique Oliveira Penteado Vargas e Luiza Santos Gonçalves. Material: “O Direito na Idade Média” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 57-76.",
-      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle.",
+      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle. A apresentação do grupo vale 20% da N2.",
       fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
@@ -355,13 +355,6 @@ const CALENDARIO = {
       fonte: "Tarefa 1022926 na sala de TGD no Moodle (curso 39157), com prazo até 23h59."
     },
     {
-      data: "2026-09-25", hora: null, disciplina: "Hist. Dir.", tipo: "AVALIACAO",
-      titulo: "Atividade avaliativa (40% da nota)",
-      descricao: "Atividade avaliativa de História do Direito. Vale 40% da nota; os outros 60% vêm de uma prova de questões objetivas ainda sem data marcada.",
-      oQueFazer: "Atenção ao lançamento das notas: ainda que os trabalhos sejam feitos antes, todas as notas da disciplina são lançadas apenas em N2, e não em N1. Atenção também à data: 25/09/2026 é uma sexta-feira, e História do Direito é às quintas, das 21h10 às 22h50. Ou a data certa é 24/09, ou a atividade não é feita em aula. Ficou como veio da anotação de aula — confirme com o professor antes de contar com ela.",
-      fonte: "Anotado em aula pelo representante da turma, 12/08/2026."
-    },
-    {
       data: "2026-09-25", hora: null, disciplina: "Ciên. Pol.", tipo: "AULA",
       titulo: "Vista da prova NI1",
       descricao: "Aula de vista da prova NI1, seguida do conteúdo sobre análise teórica do Estado moderno.",
@@ -457,14 +450,14 @@ const CALENDARIO = {
       data: "2026-10-22", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 4 — Direito na América Espanhola e Portuguesa",
       descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Luiza Corbetta de Souza e Pedro de Oliveira Mafra. Material: “Direito e barbárie na conquista da América indígena” (texto em PDF e slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, e texto disponibilizado no Moodle.",
-      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle.",
+      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle. A apresentação do grupo vale 20% da N2.",
       fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
       data: "2026-10-29", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 5 — Revolução Francesa e Direito Moderno",
       descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Louise dos Reis de Sousa e Ryan de Sá Santos. Material: “A Revolução Francesa e a Evolução do Estado Liberal ao Estado Democrático de Direito” (slides no Moodle). Bibliografia: GRIVOT, Débora C. H. et al. História do Direito. Grupo A, 2017 (Minha Biblioteca), pp. 127-150.",
-      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle.",
+      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle. A apresentação do grupo vale 20% da N2.",
       fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
@@ -494,7 +487,7 @@ const CALENDARIO = {
       data: "2026-11-05", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 6 — Direito no Império",
       descricao: "Última apresentação em grupo do cronograma, de 10 a 15 minutos. Apresentam Heloísa Farias Barbieri e Thiago Richard de Souza Pereira. Material: “Brasil Império — História do Direito” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 128-143.",
-      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle.",
+      oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle. A apresentação do grupo vale 20% da N2.",
       fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
@@ -761,17 +754,17 @@ const CALENDARIO = {
     },
     {
       data: "2026-09-24", hora: null, disciplina: "Hist. Dir.", tipo: "AVALIACAO",
-      titulo: "Atividade em sala",
-      descricao: "Atividade avaliativa feita durante a própria aula, em grupo de 2 a 3 alunos: o professor dá as orientações no início, o texto é produzido em sala e a entrega acontece ao fim do encontro.",
-      oQueFazer: "É feita e entregue na hora — não dá para repor depois. Quem falta perde a atividade.",
-      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+      titulo: "Atividade em grupo — 40% da N1",
+      descricao: "Atividade avaliativa feita durante a própria aula, em grupo de 2 a 3 alunos: o professor dá as orientações no início, o texto é produzido em sala e a entrega acontece ao fim do encontro. Vale 40% da N1; os outros 60% saem da prova individual de 01/10.",
+      oQueFazer: "É feita e entregue na hora — não dá para repor depois. Quem falta perde 40% da primeira nota.",
+      fonte: "Cronograma e pesos informados pelo professor, repassados pelo representante da turma em 21/08/2026."
     },
     {
       data: "2026-10-01", hora: null, disciplina: "Hist. Dir.", tipo: "PROVA",
-      titulo: "Exame — 1º bimestre",
-      descricao: "Exame de História do Direito do primeiro bimestre.",
-      oQueFazer: "Quinta-feira, no horário da disciplina, das 21h10 às 22h50.",
-      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+      titulo: "Prova individual — 60% da N1",
+      descricao: "Prova individual de História do Direito, do primeiro bimestre. É o que mais pesa na N1: vale 60%, contra 40% da atividade em grupo de 24/09.",
+      oQueFazer: "Quinta-feira, no horário da disciplina, das 21h10 às 22h50. Com ela a N1 fecha.",
+      fonte: "Cronograma e pesos informados pelo professor, repassados pelo representante da turma em 21/08/2026."
     },
     {
       data: "2026-10-03", hora: null, disciplina: "Hist. Dir.", tipo: "AVALIACAO",
@@ -810,24 +803,24 @@ const CALENDARIO = {
     },
     {
       data: "2026-11-12", hora: null, disciplina: "Hist. Dir.", tipo: "AVALIACAO",
-      titulo: "Atividade em sala",
-      descricao: "Segunda atividade avaliativa feita durante a aula, no mesmo formato da de 24/09: orientação no início, texto produzido em sala e entrega ao fim do encontro.",
-      oQueFazer: "É feita e entregue na hora — não dá para repor depois.",
-      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+      titulo: "Atividade em grupo — 20% da N2",
+      descricao: "Segunda atividade avaliativa feita durante a aula, no mesmo formato da de 24/09: orientação no início, texto produzido em sala e entrega ao fim do encontro. Vale 20% da N2.",
+      oQueFazer: "É feita e entregue na hora — não dá para repor depois. A N2 se divide em quatro partes: esta atividade (20%), a prova de 19/11 (40%), a apresentação do seu grupo (20%) e as fichas entregues em 26/11 (20%).",
+      fonte: "Cronograma e pesos informados pelo professor, repassados pelo representante da turma em 21/08/2026."
     },
     {
       data: "2026-11-19", hora: null, disciplina: "Hist. Dir.", tipo: "PROVA",
-      titulo: "Exame — 2º bimestre",
-      descricao: "Exame de História do Direito do segundo bimestre.",
+      titulo: "Prova — 40% da N2",
+      descricao: "Prova de História do Direito do segundo bimestre. É o maior peso da N2: vale 40%, contra 20% da atividade em grupo, 20% da apresentação e 20% das fichas.",
       oQueFazer: "Quinta-feira, no horário da disciplina, das 21h10 às 22h50.",
-      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+      fonte: "Cronograma e pesos informados pelo professor, repassados pelo representante da turma em 21/08/2026."
     },
     {
-      data: "2026-11-26", hora: null, disciplina: "Hist. Dir.", tipo: "AULA",
-      titulo: "Devolutiva e entrega da ficha",
-      descricao: "Aula de devolutiva do segundo bimestre, com entrega da ficha.",
-      oQueFazer: "Leve a ficha: a devolutiva e a entrega acontecem no mesmo encontro.",
-      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+      data: "2026-11-26", hora: null, disciplina: "Hist. Dir.", tipo: "ENTREGA",
+      titulo: "Entrega das fichas — 20% da N2, e devolutiva",
+      descricao: "Entrega das fichas dos textos do semestre, que valem 20% da N2, no mesmo encontro da devolutiva do segundo bimestre.",
+      oQueFazer: "Leve todas as fichas: é aqui que os fichamentos viram nota, e são 20% da N2. A devolutiva acontece no mesmo dia.",
+      fonte: "Cronograma e pesos informados pelo professor, repassados pelo representante da turma em 21/08/2026."
     },
     {
       data: "2026-11-28", hora: null, disciplina: "Hist. Dir.", tipo: "AVALIACAO",
