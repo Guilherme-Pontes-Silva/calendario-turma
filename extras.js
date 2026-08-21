@@ -192,9 +192,10 @@ const PAINEL = {
   /* ---------------- 8. GRUPOS DE TRABALHO ----------------
      Estrutura por período (N1 / N2), porque o aluno agora escolhe
      a etapa antes de ver o grupo. Confirmado pelo Guilherme em
-     14/08/2026: os 7 grupos de Economia Política são de N1. Desde
-     18/08/2026 são 5 duplas e 2 trios, com a entrada do David no
-     grupo 2 e da Melissa no grupo 4.
+     14/08/2026: os 7 grupos de Economia Política são de N1. Em
+     18/08/2026 entraram o David no grupo 2 e a Melissa no grupo 4;
+     em 20/08/2026 a Giulia saiu de todos os grupos, por transferência
+     para o matutino, e o grupo 4 voltou a ser dupla.
 
      Atenção ao caso de História do Direito: os grupos ficam em n1,
      que é quando o trabalho acontece. Isso é independente do
@@ -207,7 +208,7 @@ const PAINEL = {
         { grupo:"Dupla 1", integrantes:"Andressa de Souza Grana e Thiago Richard de Souza Pereira", tema:"Aporofobia, a Aversão ao Pobre: Um Desafio para a Democracia", autor:"Adela Cortina" },
         { grupo:"Trio 2", integrantes:"David Bottcher Curvello, Emilly Pereira da Silva e Ryan de Sá Santos", tema:"Capitalismo e Pulsão de Morte", autor:"Gilles Dostaler e Bernard Maris" },
         { grupo:"Dupla 3", integrantes:"Gabriele de Carvalho Fontenele e Pedro de Oliveira Mafra", tema:"O Código do Capital: Como o Direito Cria Riqueza e Desigualdade", autor:"Katharina Pistor" },
-        { grupo:"Trio 4", integrantes:"Giulia Grintaci Bertolini, Melissa Scaff Puerta e Pamela Cristina Barreto Reis Rosa", tema:"Fascismo e Liberalismo: Afinidades Seletivas", autor:"Alvaro Bianchi" },
+        { grupo:"Dupla 4", integrantes:"Melissa Scaff Puerta e Pamela Cristina Barreto Reis Rosa", tema:"Fascismo e Liberalismo: Afinidades Seletivas", autor:"Alvaro Bianchi" },
         { grupo:"Dupla 5", integrantes:"Guilherme Pontes da Silva e Luiza Santos Gonçalves", tema:"Parcelado: Dinâmicas de Consumo na Periferia", autor:"Kauê Lopes dos Santos" },
         { grupo:"Dupla 6", integrantes:"Heloísa Farias Barbieri e Luiza Corbetta de Souza", tema:"Os Bilionários Não Pagam Imposto de Renda e Nós Vamos Acabar Com Isso", autor:"Gabriel Zucman" },
         { grupo:"Dupla 7", integrantes:"Louise dos Reis de Sousa e Luís Henrique Oliveira Penteado Vargas", tema:"Tecno Feudalismo: O que Matou o Capitalismo", autor:"Yanis Varoufakis" }
@@ -215,15 +216,15 @@ const PAINEL = {
       n2: []
     },
     "TGD": {
-      avisoPeriodo: "Grupos formados: 4 grupos de 4 alunos cada, divisão simétrica, com os 16 alunos da turma alocados. A troca de grupo ainda é possível durante o semestre, desde que o professor seja avisado antes.",
+      avisoPeriodo: "Quatro grupos formados. Desde 20/08/2026 os seminários 2 e 4 estão com três integrantes, após duas saídas da turma — a recomposição ainda será definida. A troca de grupo é possível durante o semestre, desde que o professor seja avisado antes.",
       n1: [
         { grupo:"Seminário 1", integrantes:"Andressa de Souza Grana, David Bottcher Curvello, Pamela Cristina Barreto Reis Rosa e Thiago Richard de Souza Pereira", tema:"Norma Jurídica", autor:"Norberto Bobbio",
           dataSeminario:"31/08 (segunda)", dataEntrega:"31/08, até 23h59" },
-        { grupo:"Seminário 2", integrantes:"Emilly Pereira da Silva, Guilherme Pontes da Silva, Melissa Scaff Puerta e Ryan de Sá Santos", tema:"Julgamento de Nuremberg", autor:"",
+        { grupo:"Seminário 2", integrantes:"Emilly Pereira da Silva, Guilherme Pontes da Silva e Ryan de Sá Santos", tema:"Julgamento de Nuremberg", autor:"",
           dataSeminario:"03/09 (quinta)", dataEntrega:"03/09, até 23h59" },
         { grupo:"Seminário 3", integrantes:"Gabriele de Carvalho Fontenele, Heloísa Farias Barbieri, Luís Henrique Oliveira Penteado Vargas e Luiza Santos Gonçalves", tema:"Direito Natural e Direito Positivo", autor:"",
           dataSeminario:"03/09 (quinta), na mesma aula do Seminário 2", dataEntrega:"03/09, até 23h59" },
-        { grupo:"Seminário 4", integrantes:"Giulia Grintaci Bertolini, Louise dos Reis de Sousa, Luiza Corbetta de Souza e Pedro de Oliveira Mafra", tema:"Tipos de Normas Jurídicas: norma legal, norma jurisdicional, norma negocial e norma costumeira", autor:"",
+        { grupo:"Seminário 4", integrantes:"Louise dos Reis de Sousa, Luiza Corbetta de Souza e Pedro de Oliveira Mafra", tema:"Tipos de Normas Jurídicas: norma legal, norma jurisdicional, norma negocial e norma costumeira", autor:"",
           dataSeminario:"10/09 (quinta)", dataEntrega:"10/09, até 23h59 — prazo final da tarefa no Moodle" }
       ],
       n2: []

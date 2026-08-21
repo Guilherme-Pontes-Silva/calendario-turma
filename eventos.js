@@ -7,6 +7,10 @@
    Campos de cada evento:
      data       "AAAA-MM-DD"  (obrigatório)
      hora       "HH:MM" ou null  — null = dia todo, sem hora marcada
+     dataFim    (opcional) "AAAA-MM-DD" — para o que atravessa vários
+                dias, como a Semana Jurídica. Vira um compromisso só,
+                e não um registro por dia.
+     horaFim    (opcional) "HH:MM" — término no último dia
      disciplina "TGD" | "Econ. Pol." | "Prát. Ext." | "Antrop. Jur." |
                 "Ciên. Pol." | "Hist. Dir." | "CTS" | "Geral"
      tipo       PROVA | AVALIACAO | ENTREGA | TAREFA | MANUSCRITO |
@@ -21,7 +25,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-08-20T14:37:00-03:00",
+  atualizadoEm: "2026-08-21T11:22:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -92,10 +96,22 @@ const CALENDARIO = {
       fonte: "Texto e arquivo: PDF “Ciência Política - Paulo Bonavides - Cap. 3 - 63-79”, publicado na sala do Moodle em 17/08/2026. Data de entrega: regra da semana seguinte, do arquivo “Aula 1 — Plano de Aulas, Avaliações e Conceitos Fundamentais.pdf”."
     },
     {
-      data: "2026-08-24", hora: null, disciplina: "Prát. Ext.", tipo: "EVENTO",
+      data: "2026-08-24", hora: "18:30",
+      dataFim: "2026-08-26", horaFim: "22:50",
+      disciplina: "Geral", tipo: "EVENTO",
       titulo: "Semana Jurídica",
-      descricao: "Atividade da universidade no lugar da aula normal. Aparece tanto no cronograma da Prática Extensionista quanto no da Teoria Geral do Direito.",
-      oQueFazer: "Acompanhe a programação da Semana Jurídica divulgada pela universidade. Atenção: o cronograma diz que não há aula comum, mas a professora Gisele marcou para hoje, no horário da Prática Extensionista, uma orientação sobre a organização da Semana Jurídica — é o compromisso das 18h30 deste mesmo dia. O aviso dela é mais recente que o cronograma."
+      descricao: "Semana Jurídica da universidade, de 24 a 26 de agosto. É um compromisso só, do começo do primeiro dia ao fim do último, e não um registro por dia. Durante todo o período não há aulas.",
+      oQueFazer: "Comparecer às palestras: a participação conta como presença. Acompanhe a programação divulgada pela universidade para saber o que assistir em cada dia.",
+      fonte: "Informado pelo representante da turma em 20/08/2026, fixando as datas que os cronogramas das disciplinas divergiam."
+    },
+    {
+      data: "2026-08-27", hora: "18:30",
+      dataFim: "2026-08-28", horaFim: "22:50",
+      disciplina: "Geral", tipo: "EVENTO",
+      titulo: "Encontro Internacional de Direitos Humanos",
+      descricao: "Encontro Internacional de Direitos Humanos, nos dias 27 e 28 de agosto. Também é um compromisso único, do começo do primeiro dia ao fim do segundo. Durante o período não há aulas.",
+      oQueFazer: "Comparecer às palestras: a participação conta como presença.",
+      fonte: "Informado pelo representante da turma em 20/08/2026, fixando as datas que os cronogramas das disciplinas divergiam."
     },
     {
       data: "2026-08-24", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
@@ -111,57 +127,10 @@ const CALENDARIO = {
       fonte: "Anotado pelo representante da turma, 18/08/2026. Não consta no Moodle nem no Portal do Aluno."
     },
     {
-      data: "2026-08-25", hora: null, disciplina: "Geral", tipo: "AVALIACAO",
-      titulo: "Provas institucionais da universidade — 1º dia",
-      descricao: "Primeiro dos três dias das provas institucionais recorrentes da universidade. São avaliações enviadas por link, que o próprio aluno responde. O objetivo é institucional: medir o desenvolvimento acadêmico dos estudantes conforme os anos do curso passam, e não avaliar o conteúdo de uma disciplina específica.",
-      oQueFazer: "Fique atento ao link, que chega pelos canais da universidade. Não é prova de matéria nenhuma, então não há o que estudar — o que importa é não perder o prazo de resposta.",
-      fonte: "Anotado pelo representante da turma, 18/08/2026."
-    },
-    {
-      data: "2026-08-26", hora: null, disciplina: "Geral", tipo: "AVALIACAO",
-      titulo: "Provas institucionais da universidade — 2º dia",
-      descricao: "Segundo dia das provas institucionais recorrentes da universidade, respondidas por link enviado ao aluno.",
-      oQueFazer: "Cai no mesmo dia do segundo dia da Semana Jurídica. São coisas diferentes: a prova é respondida por link, no seu tempo, e não substitui nem depende da programação da Semana Jurídica.",
-      fonte: "Anotado pelo representante da turma, 18/08/2026."
-    },
-    {
-      data: "2026-08-27", hora: null, disciplina: "Geral", tipo: "AVALIACAO",
-      titulo: "Provas institucionais da universidade — 3º dia",
-      descricao: "Terceiro e último dia das provas institucionais recorrentes da universidade, respondidas por link enviado ao aluno.",
-      oQueFazer: "Último dia da série. Se ainda faltou responder algum link dos dias anteriores, resolva hoje. Cai junto com o Encontro Internacional de Direitos Humanos e com o prazo do manuscrito do Montoro, em TGD — são três compromissos diferentes no mesmo dia.",
-      fonte: "Anotado pelo representante da turma, 18/08/2026."
-    },
-    {
-      data: "2026-08-26", hora: null, disciplina: "Prát. Ext.", tipo: "EVENTO",
-      titulo: "Semana Jurídica",
-      descricao: "Segundo dia da Semana Jurídica. Atividade da universidade no lugar da aula normal, também marcada no plano de aulas de Economia Política.",
-      oQueFazer: "Não haverá aula comum."
-    },
-    {
-      data: "2026-08-27", hora: null, disciplina: "TGD", tipo: "EVENTO",
-      titulo: "Encontro Internacional de Direitos Humanos",
-      descricao: "Atividade da universidade que substitui a aula, conforme o cronograma de aulas da disciplina.",
-      oQueFazer: "Comparecer ao evento no lugar da aula de TGD."
-    },
-    {
       data: "2026-08-27", hora: null, disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Montoro, Introdução à Ciência do Direito — cap. 1",
       descricao: "Resumo manuscrito do capítulo 1 (“Conceito de direito”) de MONTORO, André Franco. Introdução à ciência do direito.",
       oQueFazer: "Escrever à mão e enviar a digitalização pelo Moodle. Cai no mesmo dia do Encontro Internacional de Direitos Humanos, que substitui a aula."
-    },
-    {
-      data: "2026-08-28", hora: null, disciplina: "Ciên. Pol.", tipo: "EVENTO",
-      titulo: "Semana Jurídica, sem aula",
-      descricao: "A aula 4 de Ciência Política é substituída pela Semana Jurídica.",
-      oQueFazer: "Não haverá aula de Ciência Política. Atenção: os cronogramas oficiais discordam sobre a data da Semana Jurídica. O da Prática Extensionista marca 24 e 26/08, o de TGD marca 24/08, e os de Ciência Política e CTS marcam 27 e 28/08. Todas as datas ficaram no calendário, cada uma na sua disciplina, porque não há como saber qual está certa — confirme com a coordenação do curso.",
-      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 4 do cronograma."
-    },
-    {
-      data: "2026-08-28", hora: null, disciplina: "CTS", tipo: "EVENTO",
-      titulo: "Semana Jurídica, sem aula",
-      descricao: "A aula 4 de Ciência, Tecnologia e Sociedade no Direito é substituída pela Semana Jurídica.",
-      oQueFazer: "Não haverá aula de CTS. É o mesmo dia em que Ciência Política também perde a aula — as duas disciplinas são do mesmo professor e caem na sexta. Atenção: os cronogramas oficiais discordam sobre a data da Semana Jurídica, e o de CTS repete o de Ciência Política. Como os dois vêm do mesmo professor, pode ser uma fonte só contada duas vezes — confirme com a coordenação.",
-      fonte: "Plano de Ensino da disciplina (arquivo 1017334), aula 4 do cronograma, publicado na sala do Moodle."
     },
     {
       data: "2026-08-31", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
@@ -194,7 +163,7 @@ const CALENDARIO = {
     {
       data: "2026-09-03", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
       titulo: "Seminário 2 — Julgamento de Nuremberg",
-      descricao: "Segundo seminário de Teoria Geral do Direito. Cai no mesmo dia do Seminário 3: são dois grupos apresentando na mesma aula. Apresentam Emilly Pereira da Silva, Guilherme Pontes da Silva, Melissa Scaff Puerta e Ryan de Sá Santos.",
+      descricao: "Segundo seminário de Teoria Geral do Direito. Cai no mesmo dia do Seminário 3: são dois grupos apresentando na mesma aula. Apresentam Emilly Pereira da Silva, Guilherme Pontes da Silva e Ryan de Sá Santos.",
       oQueFazer: "Arquivo no Moodle antes de apresentar (no mínimo 1 dia de antecedência, pelo enunciado). Apresentação de 10 a 15 minutos.",
       fonte: "Cronograma dos seminários exibido pelo professor em sala, 12/08/2026."
     },
@@ -267,7 +236,7 @@ const CALENDARIO = {
     {
       data: "2026-09-10", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
       titulo: "Seminário 4 — Tipos de Normas Jurídicas",
-      descricao: "Último dos quatro seminários de Teoria Geral do Direito. Tema: norma legal, norma jurisdicional, norma negocial e norma costumeira. Apresentam Giulia Grintaci Bertolini, Louise dos Reis de Sousa, Luiza Corbetta de Souza e Pedro de Oliveira Mafra.",
+      descricao: "Último dos quatro seminários de Teoria Geral do Direito. Tema: norma legal, norma jurisdicional, norma negocial e norma costumeira. Apresentam Louise dos Reis de Sousa, Luiza Corbetta de Souza e Pedro de Oliveira Mafra.",
       oQueFazer: "Arquivo no Moodle antes de apresentar. Apresentação de 10 a 15 minutos. Este é o dia mais carregado do semestre em TGD: caem também o manuscrito do Kelsen e o prazo final da tarefa dos seminários.",
       fonte: "Cronograma dos seminários exibido pelo professor em sala, 12/08/2026."
     },
@@ -740,6 +709,117 @@ const CALENDARIO = {
       data: "2026-12-14", hora: null, disciplina: "Geral", tipo: "FERIADO",
       titulo: "Aniversário de Campinas (feriado municipal)",
       descricao: "Feriado municipal de Campinas. Não há aula."
+    },
+
+    /* ---------- HISTÓRIA DO DIREITO — cronograma da disciplina ----------
+       Fichamentos, atividades em sala, exames, devolutivas e as datas de
+       N1 e N2, informados pelo representante da turma em 20/08/2026.
+       Ficam juntos aqui, e não espalhados pelos meses, porque são o
+       cronograma de uma disciplina só — a página ordena por data. */
+    {
+      data: "2026-08-20", hora: null, disciplina: "Hist. Dir.", tipo: "ENTREGA",
+      titulo: "Fichamento — Civilizações Antigas",
+      descricao: "Fichamento do texto sobre as civilizações antigas: ROCHA, José Manuel de S. História do Direito no Ocidente. Grupo GEN, 2015, páginas 73 a 86, disponível na Minha Biblioteca.",
+      oQueFazer: "Manuscrito, em ficha, frente e verso, caneta azul ou preta, entregue em mãos ao professor. O modelo e as exigências estão na aba Fichamento e Trabalhos.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+    {
+      data: "2026-09-03", hora: null, disciplina: "Hist. Dir.", tipo: "ENTREGA",
+      titulo: "Fichamento — Direito na Grécia",
+      descricao: "Fichamento do texto do Direito na Grécia, tema apresentado nesta mesma aula.",
+      oQueFazer: "Manuscrito, em ficha, entregue em mãos ao professor.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+    {
+      data: "2026-09-10", hora: null, disciplina: "Hist. Dir.", tipo: "ENTREGA",
+      titulo: "Fichamento — Direito em Roma",
+      descricao: "Fichamento do texto do Direito em Roma, tema apresentado nesta mesma aula.",
+      oQueFazer: "Manuscrito, em ficha, entregue em mãos ao professor.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+    {
+      data: "2026-09-17", hora: null, disciplina: "Hist. Dir.", tipo: "ENTREGA",
+      titulo: "Fichamento — Direito na Idade Média",
+      descricao: "Fichamento do texto do Direito na Idade Média, tema apresentado nesta mesma aula.",
+      oQueFazer: "Manuscrito, em ficha, entregue em mãos ao professor.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+    {
+      data: "2026-09-24", hora: null, disciplina: "Hist. Dir.", tipo: "AVALIACAO",
+      titulo: "Atividade em sala",
+      descricao: "Atividade avaliativa feita durante a própria aula, em grupo de 2 a 3 alunos: o professor dá as orientações no início, o texto é produzido em sala e a entrega acontece ao fim do encontro.",
+      oQueFazer: "É feita e entregue na hora — não dá para repor depois. Quem falta perde a atividade.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+    {
+      data: "2026-10-01", hora: null, disciplina: "Hist. Dir.", tipo: "PROVA",
+      titulo: "Exame — 1º bimestre",
+      descricao: "Exame de História do Direito do primeiro bimestre.",
+      oQueFazer: "Quinta-feira, no horário da disciplina, das 21h10 às 22h50.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+    {
+      data: "2026-10-03", hora: null, disciplina: "Hist. Dir.", tipo: "AVALIACAO",
+      titulo: "N1",
+      descricao: "Data de N1 no cronograma da disciplina, dois dias depois do exame do primeiro bimestre.",
+      oQueFazer: "Cai num sábado, quando não há aula — pelo lugar que ocupa no cronograma, é a data de fechamento da nota, e não uma avaliação presencial. Confirme com o professor antes de contar com isso.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+    {
+      data: "2026-10-15", hora: null, disciplina: "Hist. Dir.", tipo: "AULA",
+      titulo: "Devolutiva do 1º bimestre",
+      descricao: "Aula de devolutiva do primeiro bimestre, com a correção do que foi avaliado.",
+      oQueFazer: "É a chance de conferir a correção e pedir revisão. Quem falta perde a devolutiva.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+    {
+      data: "2026-10-22", hora: null, disciplina: "Hist. Dir.", tipo: "ENTREGA",
+      titulo: "Fichamento — Direito na América Espanhola e Portuguesa",
+      descricao: "Fichamento do texto do Direito na América Espanhola e Portuguesa.",
+      oQueFazer: "Manuscrito, em ficha, entregue em mãos ao professor.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+    {
+      data: "2026-10-29", hora: null, disciplina: "Hist. Dir.", tipo: "ENTREGA",
+      titulo: "Fichamento — Revolução Francesa e Direito Moderno",
+      descricao: "Fichamento do texto da Revolução Francesa e do Direito Moderno.",
+      oQueFazer: "Manuscrito, em ficha, entregue em mãos ao professor.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+    {
+      data: "2026-11-05", hora: null, disciplina: "Hist. Dir.", tipo: "ENTREGA",
+      titulo: "Fichamento — Direito no Império",
+      descricao: "Fichamento do texto do Direito no Império.",
+      oQueFazer: "Manuscrito, em ficha, entregue em mãos ao professor. É o último fichamento do cronograma.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+    {
+      data: "2026-11-12", hora: null, disciplina: "Hist. Dir.", tipo: "AVALIACAO",
+      titulo: "Atividade em sala",
+      descricao: "Segunda atividade avaliativa feita durante a aula, no mesmo formato da de 24/09: orientação no início, texto produzido em sala e entrega ao fim do encontro.",
+      oQueFazer: "É feita e entregue na hora — não dá para repor depois.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+    {
+      data: "2026-11-19", hora: null, disciplina: "Hist. Dir.", tipo: "PROVA",
+      titulo: "Exame — 2º bimestre",
+      descricao: "Exame de História do Direito do segundo bimestre.",
+      oQueFazer: "Quinta-feira, no horário da disciplina, das 21h10 às 22h50.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+    {
+      data: "2026-11-26", hora: null, disciplina: "Hist. Dir.", tipo: "AULA",
+      titulo: "Devolutiva e entrega da ficha",
+      descricao: "Aula de devolutiva do segundo bimestre, com entrega da ficha.",
+      oQueFazer: "Leve a ficha: a devolutiva e a entrega acontecem no mesmo encontro.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+    {
+      data: "2026-11-28", hora: null, disciplina: "Hist. Dir.", tipo: "AVALIACAO",
+      titulo: "N2",
+      descricao: "Data de N2 no cronograma da disciplina, dois dias depois da devolutiva do segundo bimestre.",
+      oQueFazer: "Também cai num sábado, sem aula — mesma leitura da N1: é a data de fechamento da nota. Confirme com o professor.",
+      fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
     }
   ]
 };

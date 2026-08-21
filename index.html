@@ -1237,6 +1237,15 @@ body.menu-aberto{overflow:hidden}
     return (PRAZO.indexOf(ev.tipo) >= 0 ? "até " : "às ") + ev.hora.replace(":", "h");
   }
 
+  /* "24 a 26 de agosto" para o que atravessa mais de um dia. */
+  function rotuloPeriodo(ev){
+    var a = ev.data.split("-"), b = ev.dataFim.split("-");
+    var d1 = +a[2], m1 = +a[1] - 1, d2 = +b[2], m2 = +b[1] - 1;
+    return (m1 === m2)
+      ? d1 + " a " + d2 + " de " + MESES[m1]
+      : d1 + " de " + MESES[m1] + " a " + d2 + " de " + MESES[m2];
+  }
+
   /* Para onde o cronômetro conta quando o evento não traz hora própria.
 
      Entrega, tarefa e manuscrito fecham 23h59, que é o prazo do Moodle.
@@ -1288,10 +1297,21 @@ body.menu-aberto{overflow:hidden}
     var e = Object.create(ev);
     e.__i = i;
     e.alvo = montar(ev.data, horaAlvo(ev));
+
     /* O item deixa de ser "o que vem" no mesmo instante em que acaba.
        Feriado é a exceção: dura o dia inteiro, ainda que a contagem
-       aponte para a meia-noite. */
-    e.fim  = (ev.tipo === "FERIADO") ? montar(ev.data, "23:59") : e.alvo;
+       aponte para a meia-noite.
+
+       Quando o evento traz dataFim, ele atravessa mais de um dia — a
+       Semana Jurídica, por exemplo. Aí o cronômetro conta até o começo
+       e o compromisso segue em curso até o término do último dia, em
+       vez de virar um registro por dia. */
+    if (ev.dataFim){
+      e.varios = true;
+      e.fim = montar(ev.dataFim, ev.horaFim || "23:59");
+    } else {
+      e.fim = (ev.tipo === "FERIADO") ? montar(ev.data, "23:59") : e.alvo;
+    }
     var p = ev.data.split("-");
     e.ano = +p[0]; e.mes = +p[1]-1; e.dia = +p[2];
     e.semana = DIAS[e.alvo.getDay()];
@@ -1396,7 +1416,7 @@ body.menu-aberto{overflow:hidden}
     $("hero-titulo").textContent = ev.titulo;
 
     var partes = [
-      ev.semana + ", " + ev.dia + " de " + MESES[ev.mes],
+      ev.varios ? rotuloPeriodo(ev) : (ev.semana + ", " + ev.dia + " de " + MESES[ev.mes]),
       ev.disciplina,
       ROTULO[ev.tipo] || ev.tipo
     ];
@@ -1507,14 +1527,20 @@ body.menu-aberto{overflow:hidden}
     });
   }
 
+  var LOCAL = "Universidade Presbiteriana Mackenzie, Campus Campinas, "
+            + "Av. Brasil, 1220, Jardim Guanabara, Campinas/SP, CEP 13073-148";
+
   function linkGoogle(ev){
     var ini, fim;
     if (ev.hora){
       ini = iso(ev.alvo);
-      fim = iso(new Date(ev.alvo.getTime() + 3600000));
+      /* Evento de vários dias termina no fim do último dia; os demais
+         recebem uma hora de duração, que é o padrão do Google. */
+      fim = iso(ev.varios ? ev.fim : new Date(ev.alvo.getTime() + 3600000));
     } else {
       var d = ev.data.replace(/-/g,"");
-      var prox = new Date(ev.alvo.getFullYear(), ev.alvo.getMonth(), ev.alvo.getDate()+1);
+      var ultimo = ev.varios ? ev.fim : ev.alvo;
+      var prox = new Date(ultimo.getFullYear(), ultimo.getMonth(), ultimo.getDate()+1);
       var pd = prox.getFullYear() + String(prox.getMonth()+1).padStart(2,"0") + String(prox.getDate()).padStart(2,"0");
       ini = d; fim = pd;
     }
@@ -1523,6 +1549,7 @@ body.menu-aberto{overflow:hidden}
          + "&text=" + encodeURIComponent(titulo)
          + "&dates=" + ini + "/" + fim
          + "&details=" + encodeURIComponent(ev.descricao)
+         + "&location=" + encodeURIComponent(LOCAL)
          + "&ctz=America/Sao_Paulo";
   }
 
@@ -1677,6 +1704,7 @@ body.menu-aberto{overflow:hidden}
           + '<div class="tags">'
             + '<span class="tag t-' + ev.tipo + '">' + (ROTULO[ev.tipo] || ev.tipo) + '</span>'
             + '<span class="tag disc">' + esc(ev.disciplina) + '</span>'
+            + (ev.varios ? '<span class="tag disc">' + rotuloPeriodo(ev) + '</span>' : "")
             + (ev.hora ? '<span class="tag disc">' + rotuloHora(ev) + '</span>' : "")
           + '</div>'
           + '<h3>' + esc(ev.titulo) + '</h3>'
