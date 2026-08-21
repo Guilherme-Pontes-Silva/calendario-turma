@@ -1232,9 +1232,30 @@ body.menu-aberto{overflow:hidden}
     { id:"feriados", nome:"Feriados",          tipos:["FERIADO"] }
   ];
 
-  var PRAZO = ["TAREFA", "ENTREGA"];
+  /* Tipos cuja hora é prazo-limite, e não horário de começo: a etiqueta
+     escreve "até 23h59" em vez de "às 23h59". */
+  var PRAZO = ["TAREFA", "ENTREGA", "MANUSCRITO"];
   function rotuloHora(ev){
     return (PRAZO.indexOf(ev.tipo) >= 0 ? "até " : "às ") + ev.hora.replace(":", "h");
+  }
+
+  /* As etiquetas de quando o compromisso acontece.
+     Vários dias: o intervalo de datas, mais a hora em que começa.
+     Mesmo dia com término: a faixa, "17h00 às 18h30".
+     Só com hora: "até 23h59" nos prazos, "às 19h00" no resto. */
+  function etiquetasQuando(ev){
+    var partes = [];
+    if (ev.varios){
+      partes.push(rotuloPeriodo(ev));
+      if (ev.hora) partes.push(rotuloHora(ev));
+    } else if (ev.hora && ev.horaFim){
+      partes.push(ev.hora.replace(":", "h") + " às " + ev.horaFim.replace(":", "h"));
+    } else if (ev.hora){
+      partes.push(rotuloHora(ev));
+    }
+    return partes.map(function(t){
+      return '<span class="tag disc">' + esc(t) + '</span>';
+    }).join("");
   }
 
   /* "24 a 26 de agosto" para o que atravessa mais de um dia. */
@@ -1307,7 +1328,10 @@ body.menu-aberto{overflow:hidden}
        e o compromisso segue em curso até o término do último dia, em
        vez de virar um registro por dia. */
     if (ev.dataFim){
-      e.varios = true;
+      /* Só é "vários dias" se mudar de dia. Um evento que começa e
+         termina no mesmo dia usa dataFim apenas para ter hora de
+         término — mostrar "1 a 1 de setembro" seria absurdo. */
+      e.varios = (ev.dataFim !== ev.data);
       e.fim = montar(ev.dataFim, ev.horaFim || "23:59");
     } else {
       e.fim = (ev.tipo === "FERIADO") ? montar(ev.data, "23:59") : e.alvo;
@@ -1534,9 +1558,11 @@ body.menu-aberto{overflow:hidden}
     var ini, fim;
     if (ev.hora){
       ini = iso(ev.alvo);
-      /* Evento de vários dias termina no fim do último dia; os demais
-         recebem uma hora de duração, que é o padrão do Google. */
-      fim = iso(ev.varios ? ev.fim : new Date(ev.alvo.getTime() + 3600000));
+      /* Quando o evento tem término próprio — de vários dias ou com
+         hora de fim no mesmo dia — vale o término real. Só quando não
+         há término (um prazo, que é um instante) usa-se a hora de
+         duração padrão do Google. */
+      fim = iso(ev.fim > ev.alvo ? ev.fim : new Date(ev.alvo.getTime() + 3600000));
     } else {
       var d = ev.data.replace(/-/g,"");
       var ultimo = ev.varios ? ev.fim : ev.alvo;
@@ -1704,8 +1730,7 @@ body.menu-aberto{overflow:hidden}
           + '<div class="tags">'
             + '<span class="tag t-' + ev.tipo + '">' + (ROTULO[ev.tipo] || ev.tipo) + '</span>'
             + '<span class="tag disc">' + esc(ev.disciplina) + '</span>'
-            + (ev.varios ? '<span class="tag disc">' + rotuloPeriodo(ev) + '</span>' : "")
-            + (ev.hora ? '<span class="tag disc">' + rotuloHora(ev) + '</span>' : "")
+            + etiquetasQuando(ev)
           + '</div>'
           + '<h3>' + esc(ev.titulo) + '</h3>'
           + '<p class="card-desc">' + esc(ev.descricao) + '</p>'
