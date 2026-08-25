@@ -217,20 +217,21 @@ const PAINEL = {
         { grupo:"Dupla 4", integrantes:"Melissa Scaff Puerta e Pamela Cristina Barreto Reis Rosa", tema:"Fascismo e Liberalismo: Afinidades Seletivas", autor:"Alvaro Bianchi" },
         { grupo:"Dupla 5", integrantes:"Guilherme Pontes da Silva e Luiza Santos Gonçalves", tema:"Parcelado: Dinâmicas de Consumo na Periferia", autor:"Kauê Lopes dos Santos" },
         { grupo:"Dupla 6", integrantes:"Heloísa Farias Barbieri e Luiza Corbetta de Souza", tema:"Os Bilionários Não Pagam Imposto de Renda e Nós Vamos Acabar Com Isso", autor:"Gabriel Zucman" },
-        { grupo:"Dupla 7", integrantes:"Louise dos Reis de Sousa e Luís Henrique Oliveira Penteado Vargas", tema:"Tecno Feudalismo: O que Matou o Capitalismo", autor:"Yanis Varoufakis" }
+        { grupo:"Dupla 7", integrantes:"Louise dos Reis de Sousa e Luís Henrique Oliveira Penteado Vargas", tema:"Tecno Feudalismo: O que Matou o Capitalismo", autor:"Yanis Varoufakis" },
+        { grupo:"Dupla 8", integrantes:"Daniely Franco Lansoni e Yasmin Lozano", tema:"Utopia Autoritária Brasileira: Como os Militares Ameaçam a Democracia Brasileira desde o Nascimento da República até Hoje", autor:"Carlos Fico" }
       ],
       n2: []
     },
     "TGD": {
-      avisoPeriodo: "Quatro grupos formados. Desde 20/08/2026 os seminários 2 e 4 estão com três integrantes, após duas saídas da turma — a recomposição ainda será definida. A troca de grupo é possível durante o semestre, desde que o professor seja avisado antes.",
+      avisoPeriodo: "Quatro grupos formados. A troca de grupo é possível durante o semestre, desde que o professor seja avisado antes.",
       n1: [
         { grupo:"Seminário 1", integrantes:"Andressa de Souza Grana, David Bottcher Curvello, Pamela Cristina Barreto Reis Rosa e Thiago Richard de Souza Pereira", tema:"Norma Jurídica", autor:"Norberto Bobbio",
           dataSeminario:"31/08 (segunda)", dataEntrega:"31/08, até 23h59" },
-        { grupo:"Seminário 2", integrantes:"Emilly Pereira da Silva, Guilherme Pontes da Silva e Ryan de Sá Santos", tema:"Julgamento de Nuremberg", autor:"",
+        { grupo:"Seminário 2", integrantes:"Emilly Pereira da Silva, Guilherme Pontes da Silva, Maria Camillie Manzani Alves, Ryan de Sá Santos e Yasmin Lozano", tema:"Julgamento de Nuremberg", autor:"",
           dataSeminario:"03/09 (quinta)", dataEntrega:"03/09, até 23h59" },
-        { grupo:"Seminário 3", integrantes:"Gabriele de Carvalho Fontenele, Heloísa Farias Barbieri, Luís Henrique Oliveira Penteado Vargas e Luiza Santos Gonçalves", tema:"Direito Natural e Direito Positivo", autor:"",
+        { grupo:"Seminário 3", integrantes:"Gabriele de Carvalho Fontenele, Heloísa Farias Barbieri, Kelly Oliveira Santos, Luís Henrique Oliveira Penteado Vargas e Luiza Santos Gonçalves", tema:"Direito Natural e Direito Positivo", autor:"",
           dataSeminario:"03/09 (quinta), na mesma aula do Seminário 2", dataEntrega:"03/09, até 23h59" },
-        { grupo:"Seminário 4", integrantes:"Louise dos Reis de Sousa, Luiza Corbetta de Souza e Pedro de Oliveira Mafra", tema:"Tipos de Normas Jurídicas: norma legal, norma jurisdicional, norma negocial e norma costumeira", autor:"",
+        { grupo:"Seminário 4", integrantes:"Gustavo Rebeschini Patella Silva, Louise dos Reis de Sousa, Luiza Corbetta de Souza e Pedro de Oliveira Mafra", tema:"Tipos de Normas Jurídicas: norma legal, norma jurisdicional, norma negocial e norma costumeira", autor:"",
           dataSeminario:"10/09 (quinta)", dataEntrega:"10/09, até 23h59 — prazo final da tarefa no Moodle" }
       ],
       n2: []
