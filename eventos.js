@@ -25,7 +25,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-08-25T12:35:00-03:00",
+  atualizadoEm: "2026-09-01T14:55:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -648,10 +648,24 @@ const CALENDARIO = {
       oQueFazer: "É a aula de encerramento. Boa hora para resolver qualquer pendência de entrega da disciplina."
     },
     {
+      data: "2026-11-29", hora: null, disciplina: "Geral", tipo: "EVENTO", confirmar: true,
+      titulo: "ENADE — cursos de bacharelado",
+      descricao: "Data do ENADE para os cursos de bacharelado, divulgada no banner do Portal do Aluno. A participação é obrigatória pelo MEC para quem está na lista de avaliados.",
+      oQueFazer: "Confira no Portal do Aluno se você está entre os alunos convocados. O exame costuma avaliar concluintes, então é provável que não alcance o 1º período — mas confirme, porque a ausência de quem foi convocado trava a colação de grau.",
+      fonte: "Banner do Portal do Aluno, seção ENADE: “Cursos de Bacharelado e Superiores de Tecnologia — 29 de novembro de 2026”."
+    },
+    {
       data: "2026-11-30", hora: null, disciplina: "Prát. Ext.", tipo: "PROVA",
       titulo: "Período de prova substitutiva",
       descricao: "Início do período de prova substitutiva da Prática Extensionista.",
       oQueFazer: "Só faz quem perdeu alguma avaliação. Confirme com a secretaria se precisa solicitar."
+    },
+    {
+      data: "2026-11-30", hora: null, disciplina: "TGD", tipo: "PROVA", confirmar: true,
+      titulo: "Período das avaliações substitutivas",
+      descricao: "Início do período das avaliações substitutivas de Teoria Geral do Direito.",
+      oQueFazer: "Só faz quem perdeu a A1 ou a A2. O próprio cronograma avisa que a data vale conforme o calendário oficial, que ainda será divulgado.",
+      fonte: "Arquivo “CRONOGRAMA DE AULAS” da disciplina: “AV. SUBSTITUTIVAS E AV. FINAIS CONFORME CALENDÁRIO OFICIAL A SER DIVULGADO”."
     },
 
     /* ---------------- DEZEMBRO DE 2026 ---------------- */
@@ -666,6 +680,13 @@ const CALENDARIO = {
       titulo: "Período de prova substitutiva",
       descricao: "Período de prova substitutiva da Prática Extensionista.",
       oQueFazer: "Só faz quem perdeu alguma avaliação."
+    },
+    {
+      data: "2026-12-03", hora: null, disciplina: "TGD", tipo: "PROVA", confirmar: true,
+      titulo: "Período das avaliações substitutivas",
+      descricao: "Segundo dia do período das avaliações substitutivas de Teoria Geral do Direito.",
+      oQueFazer: "Só faz quem perdeu a A1 ou a A2. O próprio cronograma avisa que a data vale conforme o calendário oficial, que ainda será divulgado.",
+      fonte: "Arquivo “CRONOGRAMA DE AULAS” da disciplina: “AV. SUBSTITUTIVAS E AV. FINAIS CONFORME CALENDÁRIO OFICIAL A SER DIVULGADO”."
     },
     {
       data: "2026-12-04", hora: null, disciplina: "Ciên. Pol.", tipo: "PROVA",
@@ -686,6 +707,13 @@ const CALENDARIO = {
       titulo: "Período de prova final",
       descricao: "Período de prova final da Prática Extensionista.",
       oQueFazer: "Só faz quem não atingiu a média. Confira sua situação no Portal do Aluno."
+    },
+    {
+      data: "2026-12-07", hora: null, disciplina: "TGD", tipo: "PROVA", confirmar: true,
+      titulo: "Período das avaliações finais",
+      descricao: "Início do período das avaliações finais de Teoria Geral do Direito.",
+      oQueFazer: "Só faz quem não atingiu a média. O próprio cronograma avisa que a data vale conforme o calendário oficial, que ainda será divulgado.",
+      fonte: "Arquivo “CRONOGRAMA DE AULAS” da disciplina: “AV. SUBSTITUTIVAS E AV. FINAIS CONFORME CALENDÁRIO OFICIAL A SER DIVULGADO”."
     },
     {
       data: "2026-12-09", hora: null, disciplina: "Econ. Pol.", tipo: "PROVA",
@@ -712,6 +740,13 @@ const CALENDARIO = {
       descricao: "Período das avaliações finais de CTS.",
       oQueFazer: "Só faz quem não atingiu a média. Confira sua situação no Portal do Aluno.",
       fonte: "Plano de Ensino da disciplina (arquivo 1017334), aula 17 do cronograma."
+    },
+    {
+      data: "2026-12-10", hora: null, disciplina: "TGD", tipo: "PROVA", confirmar: true,
+      titulo: "Período das avaliações finais",
+      descricao: "Último dia do período das avaliações finais de Teoria Geral do Direito.",
+      oQueFazer: "Só faz quem não atingiu a média. O próprio cronograma avisa que a data vale conforme o calendário oficial, que ainda será divulgado.",
+      fonte: "Arquivo “CRONOGRAMA DE AULAS” da disciplina: “AV. SUBSTITUTIVAS E AV. FINAIS CONFORME CALENDÁRIO OFICIAL A SER DIVULGADO”."
     },
     {
       data: "2026-12-14", hora: null, disciplina: "Geral", tipo: "FERIADO",
