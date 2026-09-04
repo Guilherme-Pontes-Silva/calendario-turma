@@ -25,7 +25,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-09-01T14:55:00-03:00",
+  atualizadoEm: "2026-09-04T13:35:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -242,6 +242,13 @@ const CALENDARIO = {
       oQueFazer: "Enviar pelo Moodle. A data da nossa turma, a 1P, é 09/09 — no plano de aula aparece também 10/09, mas essa é da turma 1F."
     },
     {
+      data: "2026-09-09", hora: "23:59", disciplina: "Econ. Pol.", tipo: "TAREFA",
+      titulo: "Fichamento — Revista Piauí",
+      descricao: "Leitura e fichamento de dois artigos da Revista Piauí sobre políticas públicas: “Luz, câmera, internação” e “Como o Bope virou o Bope”. Os dois links estão no enunciado da tarefa no Moodle.",
+      oQueFazer: "Entrega pelo Moodle até 23h59. A tarefa abriu em 02/09.",
+      fonte: "Tarefa publicada pelo professor na sala de Economia Política no Moodle, aberta em 02/09/2026."
+    },
+    {
       data: "2026-09-10", hora: "23:59", disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Kelsen — caps. 2 e 3",
       descricao: "Resumo manuscrito de dois capítulos do Kelsen (versão condensada): capítulo 2 (“Direito e moral”) e capítulo 3 (“o conceito de direito e a proposição jurídica”).",
@@ -295,6 +302,13 @@ const CALENDARIO = {
       oQueFazer: "Enviar pelo Moodle."
     },
     {
+      data: "2026-09-16", hora: "23:59", disciplina: "Econ. Pol.", tipo: "TAREFA",
+      titulo: "Fichamento — As políticas keynesianas na atualidade",
+      descricao: "Fichamento do texto “O fim do laissez-faire”, de John Maynard Keynes, publicado no site A Terra é Redonda. O link está no enunciado da tarefa no Moodle.",
+      oQueFazer: "Entrega pelo Moodle até 23h59. A tarefa abre em 09/09.",
+      fonte: "Tarefa publicada pelo professor na sala de Economia Política no Moodle."
+    },
+    {
       data: "2026-09-18", hora: null, disciplina: "Ciên. Pol.", tipo: "PROVA",
       titulo: "Prova escrita NI1",
       descricao: "Prova escrita e individual de Ciência Política, peso 7 da primeira nota intermediária. É permitida consulta a uma folha manuscrita.",
@@ -333,6 +347,13 @@ const CALENDARIO = {
       titulo: "Correção e vista da prova A1",
       descricao: "Aula em que o professor corrige a prova A1 e a turma tem vista da prova.",
       oQueFazer: "É a chance de conferir a correção e pedir revisão de questão. Quem falta perde a vista."
+    },
+    {
+      data: "2026-09-22", hora: "23:59", disciplina: "Econ. Pol.", tipo: "TAREFA",
+      titulo: "Fichamento — Descrédito Democrático",
+      descricao: "Fichamento do artigo da Revista Piauí “Do crédito público ao descrédito democrático”. O PDF está anexado ao enunciado da tarefa no Moodle.",
+      oQueFazer: "Entrega pelo Moodle até 23h59. A tarefa abre em 16/09. Cai numa terça, e não no dia da aula.",
+      fonte: "Tarefa publicada pelo professor na sala de Economia Política no Moodle."
     },
     {
       data: "2026-09-23", hora: null, disciplina: "Prát. Ext.", tipo: "APRESENTACAO",
