@@ -212,13 +212,14 @@ const PAINEL = {
     "Econ. Pol.": {
       n1: [
         { grupo:"Dupla 1", integrantes:"Andressa de Souza Grana e Thiago Richard de Souza Pereira", tema:"Aporofobia, a Aversão ao Pobre: Um Desafio para a Democracia", autor:"Adela Cortina" },
-        { grupo:"Trio 2", integrantes:"David Bottcher Curvello, Emilly Pereira da Silva e Ryan de Sá Santos", tema:"Capitalismo e Pulsão de Morte", autor:"Gilles Dostaler e Bernard Maris" },
+        { grupo:"Dupla 2", integrantes:"David Bottcher Curvello e Ryan de Sá Santos", tema:"Teorema da Expropriação Capitalista", autor:"Klaus Dörre" },
         { grupo:"Dupla 3", integrantes:"Gabriele de Carvalho Fontenele e Pedro de Oliveira Mafra", tema:"O Código do Capital: Como o Direito Cria Riqueza e Desigualdade", autor:"Katharina Pistor" },
         { grupo:"Dupla 4", integrantes:"Melissa Scaff Puerta e Pamela Cristina Barreto Reis Rosa", tema:"Fascismo e Liberalismo: Afinidades Seletivas", autor:"Alvaro Bianchi" },
         { grupo:"Dupla 5", integrantes:"Guilherme Pontes da Silva e Luiza Santos Gonçalves", tema:"Parcelado: Dinâmicas de Consumo na Periferia", autor:"Kauê Lopes dos Santos" },
         { grupo:"Dupla 6", integrantes:"Heloísa Farias Barbieri e Luiza Corbetta de Souza", tema:"Os Bilionários Não Pagam Imposto de Renda e Nós Vamos Acabar Com Isso", autor:"Gabriel Zucman" },
         { grupo:"Dupla 7", integrantes:"Louise dos Reis de Sousa e Luís Henrique Oliveira Penteado Vargas", tema:"Tecno Feudalismo: O que Matou o Capitalismo", autor:"Yanis Varoufakis" },
-        { grupo:"Dupla 8", integrantes:"Daniely Franco Lansoni e Yasmin Lozano", tema:"Utopia Autoritária Brasileira: Como os Militares Ameaçam a Democracia Brasileira desde o Nascimento da República até Hoje", autor:"Carlos Fico" }
+        { grupo:"Dupla 8", integrantes:"Daniely Franco Lansoni e Yasmin Lozano", tema:"Utopia Autoritária Brasileira: Como os Militares Ameaçam a Democracia Brasileira desde o Nascimento da República até Hoje", autor:"Carlos Fico" },
+        { grupo:"Dupla 9", integrantes:"Emilly Pereira da Silva e Victoria Raphaella Sergio Ubida", tema:"Autoritarismo e Golpes na América Latina: Breve Ensaio Sobre Jurisdição e Exceção", autor:"Pedro Estevam Alves Pinto Serrano" }
       ],
       n2: []
     },
