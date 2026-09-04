@@ -142,3 +142,25 @@ precisar de volta, ele está no histórico do git.
 A página não traz nota, falta nem situação de entrega de ninguém — só as datas
 da turma. Como o repositório é público, mantenha assim: nada de dado pessoal de
 colega ali dentro.
+
+---
+
+## Versão dos scripts e carimbo de atualização
+
+O `index.html` carrega `eventos.js?v=AAAAMMDD` e `extras.js?v=AAAAMMDD`.
+Esse `?v=` é o que obriga o navegador da turma a baixar o arquivo novo
+em vez de servir a cópia antiga do cache — sem ele, uma data corrigida
+pode levar horas para aparecer no celular de quem já abriu o site.
+
+Antes de commitar qualquer mudança de dados, rode na pasta do repositório:
+
+```bash
+./atualizar-versao.sh
+```
+
+O script troca a data nos dois `?v=` e atualiza o `atualizadoEm` de
+`eventos.js` para agora. Depois é só commitar os três arquivos juntos.
+
+Se estiver editando direto pelo site do GitHub, sem terminal, faça o
+mesmo à mão: troque os dois `?v=` no `index.html` pela data de hoje no
+formato `AAAAMMDD` e o `atualizadoEm` no `eventos.js`.

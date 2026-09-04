@@ -197,42 +197,44 @@ const PAINEL = {
 
   /* ---------------- 8. GRUPOS DE TRABALHO ----------------
      Estrutura por período (N1 / N2), porque o aluno agora escolhe
-     a etapa antes de ver o grupo. Confirmado pelo Guilherme em
-     14/08/2026: os 7 grupos de Economia Política são de N1. Em
-     18/08/2026 entraram o David no grupo 2 e a Melissa no grupo 4;
-     em 20/08/2026 a Giulia saiu de todos os grupos, por transferência
-     para o matutino, e o grupo 4 voltou a ser dupla.
+     a etapa antes de ver o grupo. Os grupos de Economia Política são
+     de N1 (confirmado pelo representante em 14/08/2026).
+
+     Os integrantes aparecem só com primeiro nome e inicial do
+     sobrenome. É de propósito: o repositório é público e a página
+     não deve expor nome completo de aluno. Quem quiser sair da lista
+     fala com o representante.
 
      Atenção ao caso de História do Direito: os grupos ficam em n1,
      que é quando o trabalho acontece. Isso é independente do
      lançamento das notas, que nessa disciplina o professor faz todo
      em N2 — uma coisa é quando se apresenta, outra é onde a nota
-     entra. Confirmado pelo Guilherme em 18/08/2026. */
+     entra. Confirmado pelo representante em 18/08/2026. */
   grupos: {
     "Econ. Pol.": {
       n1: [
-        { grupo:"Dupla 1", integrantes:"Andressa de Souza Grana e Thiago Richard de Souza Pereira", tema:"Aporofobia, a Aversão ao Pobre: Um Desafio para a Democracia", autor:"Adela Cortina" },
-        { grupo:"Dupla 2", integrantes:"David Bottcher Curvello e Ryan de Sá Santos", tema:"Teorema da Expropriação Capitalista", autor:"Klaus Dörre" },
-        { grupo:"Dupla 3", integrantes:"Gabriele de Carvalho Fontenele e Pedro de Oliveira Mafra", tema:"O Código do Capital: Como o Direito Cria Riqueza e Desigualdade", autor:"Katharina Pistor" },
-        { grupo:"Dupla 4", integrantes:"Melissa Scaff Puerta e Pamela Cristina Barreto Reis Rosa", tema:"Fascismo e Liberalismo: Afinidades Seletivas", autor:"Alvaro Bianchi" },
-        { grupo:"Dupla 5", integrantes:"Guilherme Pontes da Silva e Luiza Santos Gonçalves", tema:"Parcelado: Dinâmicas de Consumo na Periferia", autor:"Kauê Lopes dos Santos" },
-        { grupo:"Dupla 6", integrantes:"Heloísa Farias Barbieri e Luiza Corbetta de Souza", tema:"Os Bilionários Não Pagam Imposto de Renda e Nós Vamos Acabar Com Isso", autor:"Gabriel Zucman" },
-        { grupo:"Dupla 7", integrantes:"Louise dos Reis de Sousa e Luís Henrique Oliveira Penteado Vargas", tema:"Tecno Feudalismo: O que Matou o Capitalismo", autor:"Yanis Varoufakis" },
-        { grupo:"Dupla 8", integrantes:"Daniely Franco Lansoni e Yasmin Lozano", tema:"Utopia Autoritária Brasileira: Como os Militares Ameaçam a Democracia Brasileira desde o Nascimento da República até Hoje", autor:"Carlos Fico" },
-        { grupo:"Dupla 9", integrantes:"Emilly Pereira da Silva e Victoria Raphaella Sergio Ubida", tema:"Autoritarismo e Golpes na América Latina: Breve Ensaio Sobre Jurisdição e Exceção", autor:"Pedro Estevam Alves Pinto Serrano" }
+        { grupo:"Dupla 1", integrantes:"Andressa S. e Thiago R.", tema:"Aporofobia, a Aversão ao Pobre: Um Desafio para a Democracia", autor:"Adela Cortina" },
+        { grupo:"Dupla 2", integrantes:"David B. e Ryan S.", tema:"Teorema da Expropriação Capitalista", autor:"Klaus Dörre" },
+        { grupo:"Dupla 3", integrantes:"Gabriele C. e Pedro O.", tema:"O Código do Capital: Como o Direito Cria Riqueza e Desigualdade", autor:"Katharina Pistor" },
+        { grupo:"Dupla 4", integrantes:"Melissa S. e Pamela C.", tema:"Fascismo e Liberalismo: Afinidades Seletivas", autor:"Alvaro Bianchi" },
+        { grupo:"Dupla 5", integrantes:"Guilherme P. e Luiza S.", tema:"Parcelado: Dinâmicas de Consumo na Periferia", autor:"Kauê Lopes dos Santos" },
+        { grupo:"Dupla 6", integrantes:"Heloísa F. e Luiza C.", tema:"Os Bilionários Não Pagam Imposto de Renda e Nós Vamos Acabar Com Isso", autor:"Gabriel Zucman" },
+        { grupo:"Dupla 7", integrantes:"Louise R. e Luís H.", tema:"Tecno Feudalismo: O que Matou o Capitalismo", autor:"Yanis Varoufakis" },
+        { grupo:"Dupla 8", integrantes:"Daniely F. e Yasmin L.", tema:"Utopia Autoritária Brasileira: Como os Militares Ameaçam a Democracia Brasileira desde o Nascimento da República até Hoje", autor:"Carlos Fico" },
+        { grupo:"Dupla 9", integrantes:"Emilly P. e Victoria R.", tema:"Autoritarismo e Golpes na América Latina: Breve Ensaio Sobre Jurisdição e Exceção", autor:"Pedro Estevam Alves Pinto Serrano" }
       ],
       n2: []
     },
     "TGD": {
       avisoPeriodo: "Quatro grupos formados. A troca de grupo é possível durante o semestre, desde que o professor seja avisado antes.",
       n1: [
-        { grupo:"Seminário 1", integrantes:"Andressa de Souza Grana, David Bottcher Curvello, Pamela Cristina Barreto Reis Rosa e Thiago Richard de Souza Pereira", tema:"Norma Jurídica", autor:"Norberto Bobbio",
+        { grupo:"Seminário 1", integrantes:"Andressa S., David B., Pamela C. e Thiago R.", tema:"Norma Jurídica", autor:"Norberto Bobbio",
           dataSeminario:"31/08 (segunda)", dataEntrega:"31/08, até 23h59" },
-        { grupo:"Seminário 2", integrantes:"Emilly Pereira da Silva, Guilherme Pontes da Silva, Maria Camillie Manzani Alves, Ryan de Sá Santos e Yasmin Lozano", tema:"Julgamento de Nuremberg", autor:"",
+        { grupo:"Seminário 2", integrantes:"Emilly P., Guilherme P., Maria C., Ryan S. e Yasmin L.", tema:"Julgamento de Nuremberg", autor:"",
           dataSeminario:"03/09 (quinta)", dataEntrega:"03/09, até 23h59" },
-        { grupo:"Seminário 3", integrantes:"Gabriele de Carvalho Fontenele, Heloísa Farias Barbieri, Kelly Oliveira Santos, Luís Henrique Oliveira Penteado Vargas e Luiza Santos Gonçalves", tema:"Direito Natural e Direito Positivo", autor:"",
+        { grupo:"Seminário 3", integrantes:"Gabriele C., Heloísa F., Kelly O., Luís H. e Luiza S.", tema:"Direito Natural e Direito Positivo", autor:"",
           dataSeminario:"03/09 (quinta), na mesma aula do Seminário 2", dataEntrega:"03/09, até 23h59" },
-        { grupo:"Seminário 4", integrantes:"Gustavo Rebeschini Patella Silva, Louise dos Reis de Sousa, Luiza Corbetta de Souza e Pedro de Oliveira Mafra", tema:"Tipos de Normas Jurídicas: norma legal, norma jurisdicional, norma negocial e norma costumeira", autor:"",
+        { grupo:"Seminário 4", integrantes:"Gustavo R., Louise R., Luiza C. e Pedro O.", tema:"Tipos de Normas Jurídicas: norma legal, norma jurisdicional, norma negocial e norma costumeira", autor:"",
           dataSeminario:"10/09 (quinta)", dataEntrega:"10/09, até 23h59 — prazo final da tarefa no Moodle" }
       ],
       n2: []
@@ -240,17 +242,17 @@ const PAINEL = {
     "Hist. Dir.": {
       avisoPeriodo: "Seis grupos, um para cada tema. As datas são oficiais: o professor publicou o cronograma na sala do Moodle em 20/08/2026, e elas deixaram de ser estimativa. O tema “Direito na República” saiu do cronograma, e o grupo que o apresentaria foi desfeito em 21/08/2026 — a realocação dos dois alunos ainda será definida. Não confunda o período do trabalho com o do lançamento: as apresentações são de N1, mas o professor lança todas as notas da disciplina em N2. O representante precisa enviar ao professor a composição dos grupos em ordem cronológica das aulas.",
       n1: [
-        { grupo:"Apresentação 1", integrantes:"David Bottcher Curvello, Emilly Pereira da Silva e Pamela Cristina Barreto Reis Rosa", tema:"Direito na Grécia", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 31-42",
+        { grupo:"Apresentação 1", integrantes:"David B., Emilly P. e Pamela C.", tema:"Direito na Grécia", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 31-42",
           dataSeminario:"03/09 (quinta)", material:"Direito na Grécia Antiga (slides no Moodle)" },
-        { grupo:"Apresentação 2", integrantes:"Guilherme Pontes da Silva e Melissa Scaff Puerta", tema:"Direito em Roma", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 44-55",
+        { grupo:"Apresentação 2", integrantes:"Guilherme P. e Melissa S.", tema:"Direito em Roma", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 44-55",
           dataSeminario:"10/09 (quinta)", material:"Direito em Roma (slides no Moodle)" },
-        { grupo:"Apresentação 3", integrantes:"Luís Henrique Oliveira Penteado Vargas e Luiza Santos Gonçalves", tema:"Direito na Idade Média", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 57-76",
+        { grupo:"Apresentação 3", integrantes:"Luís H. e Luiza S.", tema:"Direito na Idade Média", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 57-76",
           dataSeminario:"17/09 (quinta)", material:"O Direito na Idade Média (slides no Moodle)" },
-        { grupo:"Apresentação 4", integrantes:"Luiza Corbetta de Souza e Pedro de Oliveira Mafra", tema:"Direito na América Espanhola e Portuguesa", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, e texto disponibilizado no Moodle",
+        { grupo:"Apresentação 4", integrantes:"Luiza C. e Pedro O.", tema:"Direito na América Espanhola e Portuguesa", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, e texto disponibilizado no Moodle",
           dataSeminario:"22/10 (quinta)", material:"Direito e barbárie na conquista da América indígena (texto em PDF e slides no Moodle)" },
-        { grupo:"Apresentação 5", integrantes:"Louise dos Reis de Sousa e Ryan de Sá Santos", tema:"Revolução Francesa e Direito Moderno", autor:"GRIVOT, Débora C. H. et al. História do Direito. Grupo A, 2017 (Minha Biblioteca), pp. 127-150",
+        { grupo:"Apresentação 5", integrantes:"Louise R. e Ryan S.", tema:"Revolução Francesa e Direito Moderno", autor:"GRIVOT, Débora C. H. et al. História do Direito. Grupo A, 2017 (Minha Biblioteca), pp. 127-150",
           dataSeminario:"29/10 (quinta)", material:"A Revolução Francesa e a Evolução do Estado Liberal ao Estado Democrático de Direito (slides no Moodle)" },
-        { grupo:"Apresentação 6", integrantes:"Heloísa Farias Barbieri e Thiago Richard de Souza Pereira", tema:"Direito no Império", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 128-143",
+        { grupo:"Apresentação 6", integrantes:"Heloísa F. e Thiago R.", tema:"Direito no Império", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 128-143",
           dataSeminario:"05/11 (quinta)", material:"Brasil Império — História do Direito (slides no Moodle)" }
       ],
       n2: []
@@ -305,7 +307,7 @@ const PAINEL = {
     },
     {
       titulo: "O que este calendário não contém",
-      texto: "O documento é da turma e não traz nota, falta nem situação de entrega de ninguém. Nenhuma informação individual de qualquer aluno é registrada, exibida ou coletada aqui. A lista de grupos de trabalho reproduz apenas a composição já divulgada em sala para fins de organização acadêmica."
+      texto: "O documento é da turma e não traz nota, falta nem situação de entrega de ninguém. Os grupos exibem apenas primeiro nome e inicial do sobrenome de cada integrante, reproduzindo a composição já divulgada em sala. Se quiser ser removido da lista, fale com o representante."
     },
     {
       titulo: "Como corrigir ou completar uma informação",

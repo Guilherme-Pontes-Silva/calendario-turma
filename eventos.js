@@ -138,7 +138,7 @@ const CALENDARIO = {
     {
       data: "2026-08-31", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
       titulo: "Seminário 1 — Norma Jurídica (Norberto Bobbio)",
-      descricao: "Primeiro dos quatro seminários de Teoria Geral do Direito, que compõem o peso 2 da nota A1. Apresentação oral em sala, de 10 a 15 minutos por grupo. Apresentam Andressa de Souza Grana, David Bottcher Curvello, Pamela Cristina Barreto Reis Rosa e Thiago Richard de Souza Pereira.",
+      descricao: "Primeiro dos quatro seminários de Teoria Geral do Direito, que compõem o peso 2 da nota A1. Apresentação oral em sala, de 10 a 15 minutos por grupo. Apresentam Andressa S., David B., Pamela C. e Thiago R.",
       oQueFazer: "O arquivo da apresentação precisa estar no Moodle antes de subir para apresentar — o enunciado pede no mínimo 1 dia de antecedência. Basta 1 integrante postar pelo grupo inteiro.",
       fonte: "Cronograma dos seminários exibido pelo professor em sala, 12/08/2026."
     },
@@ -177,7 +177,7 @@ const CALENDARIO = {
     {
       data: "2026-09-03", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
       titulo: "Seminário 2 — Julgamento de Nuremberg",
-      descricao: "Segundo seminário de Teoria Geral do Direito. Cai no mesmo dia do Seminário 3: são dois grupos apresentando na mesma aula. Apresentam Emilly Pereira da Silva, Guilherme Pontes da Silva e Ryan de Sá Santos.",
+      descricao: "Segundo seminário de Teoria Geral do Direito. Cai no mesmo dia do Seminário 3: são dois grupos apresentando na mesma aula. Apresentam Emilly P., Guilherme P. e Ryan S.",
       oQueFazer: "Arquivo no Moodle antes de apresentar (no mínimo 1 dia de antecedência, pelo enunciado). Apresentação de 10 a 15 minutos.",
       fonte: "Cronograma dos seminários exibido pelo professor em sala, 12/08/2026."
     },
@@ -191,7 +191,7 @@ const CALENDARIO = {
     {
       data: "2026-09-03", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
       titulo: "Seminário 3 — Direito Natural e Direito Positivo",
-      descricao: "Terceiro seminário de Teoria Geral do Direito, na mesma aula do Seminário 2. Apresentam Gabriele de Carvalho Fontenele, Heloísa Farias Barbieri, Luís Henrique Oliveira Penteado Vargas e Luiza Santos Gonçalves.",
+      descricao: "Terceiro seminário de Teoria Geral do Direito, na mesma aula do Seminário 2. Apresentam Gabriele C., Heloísa F., Luís H. e Luiza S.",
       oQueFazer: "Arquivo no Moodle antes de apresentar. Apresentação de 10 a 15 minutos.",
       fonte: "Cronograma dos seminários exibido pelo professor em sala, 12/08/2026."
     },
@@ -205,21 +205,21 @@ const CALENDARIO = {
     {
       data: "2026-09-03", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 1 — Direito na Grécia",
-      descricao: "Primeira apresentação em grupo de História do Direito, de 10 a 15 minutos. Apresentam David Bottcher Curvello, Emilly Pereira da Silva e Pamela Cristina Barreto Reis Rosa. Material: “Direito na Grécia Antiga” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 31-42.",
+      descricao: "Primeira apresentação em grupo de História do Direito, de 10 a 15 minutos. Apresentam David B., Emilly P. e Pamela C. Material: “Direito na Grécia Antiga” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 31-42.",
       oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle. A apresentação do grupo vale 20% da N2.",
       fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
       data: "2026-09-10", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 2 — Direito em Roma",
-      descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Guilherme Pontes da Silva e Melissa Scaff Puerta. Material: “Direito em Roma” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 44-55.",
+      descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Guilherme P. e Melissa S. Material: “Direito em Roma” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 44-55.",
       oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle. A apresentação do grupo vale 20% da N2.",
       fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
       data: "2026-09-17", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 3 — Direito na Idade Média",
-      descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Luís Henrique Oliveira Penteado Vargas e Luiza Santos Gonçalves. Material: “O Direito na Idade Média” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 57-76.",
+      descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Luís H. e Luiza S. Material: “O Direito na Idade Média” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 57-76.",
       oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle. A apresentação do grupo vale 20% da N2.",
       fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
@@ -258,7 +258,7 @@ const CALENDARIO = {
     {
       data: "2026-09-10", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
       titulo: "Seminário 4 — Tipos de Normas Jurídicas",
-      descricao: "Último dos quatro seminários de Teoria Geral do Direito. Tema: norma legal, norma jurisdicional, norma negocial e norma costumeira. Apresentam Louise dos Reis de Sousa, Luiza Corbetta de Souza e Pedro de Oliveira Mafra.",
+      descricao: "Último dos quatro seminários de Teoria Geral do Direito. Tema: norma legal, norma jurisdicional, norma negocial e norma costumeira. Apresentam Louise R., Luiza C. e Pedro O.",
       oQueFazer: "Arquivo no Moodle antes de apresentar. Apresentação de 10 a 15 minutos. Este é o dia mais carregado do semestre em TGD: caem também o manuscrito do Kelsen e o prazo final da tarefa dos seminários.",
       fonte: "Cronograma dos seminários exibido pelo professor em sala, 12/08/2026."
     },
@@ -470,14 +470,14 @@ const CALENDARIO = {
     {
       data: "2026-10-22", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 4 — Direito na América Espanhola e Portuguesa",
-      descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Luiza Corbetta de Souza e Pedro de Oliveira Mafra. Material: “Direito e barbárie na conquista da América indígena” (texto em PDF e slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, e texto disponibilizado no Moodle.",
+      descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Luiza C. e Pedro O. Material: “Direito e barbárie na conquista da América indígena” (texto em PDF e slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, e texto disponibilizado no Moodle.",
       oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle. A apresentação do grupo vale 20% da N2.",
       fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
       data: "2026-10-29", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 5 — Revolução Francesa e Direito Moderno",
-      descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Louise dos Reis de Sousa e Ryan de Sá Santos. Material: “A Revolução Francesa e a Evolução do Estado Liberal ao Estado Democrático de Direito” (slides no Moodle). Bibliografia: GRIVOT, Débora C. H. et al. História do Direito. Grupo A, 2017 (Minha Biblioteca), pp. 127-150.",
+      descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Louise R. e Ryan S. Material: “A Revolução Francesa e a Evolução do Estado Liberal ao Estado Democrático de Direito” (slides no Moodle). Bibliografia: GRIVOT, Débora C. H. et al. História do Direito. Grupo A, 2017 (Minha Biblioteca), pp. 127-150.",
       oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle. A apresentação do grupo vale 20% da N2.",
       fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
@@ -507,7 +507,7 @@ const CALENDARIO = {
     {
       data: "2026-11-05", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
       titulo: "Apresentação 6 — Direito no Império",
-      descricao: "Última apresentação em grupo do cronograma, de 10 a 15 minutos. Apresentam Heloísa Farias Barbieri e Thiago Richard de Souza Pereira. Material: “Brasil Império — História do Direito” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 128-143.",
+      descricao: "Última apresentação em grupo do cronograma, de 10 a 15 minutos. Apresentam Heloísa F. e Thiago R. Material: “Brasil Império — História do Direito” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 128-143.",
       oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle. A apresentação do grupo vale 20% da N2.",
       fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
