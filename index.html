@@ -302,20 +302,23 @@ select:focus{outline:none;border-color:var(--accent)}
 .data .s{display:block;font-size:var(--fs-1);color:var(--muted-2);margin-top:4px;text-transform:lowercase}
 
 /* ---------- card em dois estados ----------
-   Fechado, duas linhas: tags e "faltam X" em cima; título, + Google
-   Agenda e o botão Detalhes embaixo. Aberto, o <details> desce para
-   uma terceira linha de largura inteira, com o texto corrido. Nada
-   é cortado por max-height: ou está visível, ou está recolhido. */
+   Quatro linhas, sempre na mesma ordem, em qualquer largura de tela:
+   tipo e matéria; o título inteiro; + Google Agenda e Detalhes lado a
+   lado; quanto falta. Aberto, o <details> desce para uma linha
+   própria, de largura inteira, com o texto corrido. Nada é cortado
+   por max-height: ou está visível, ou está recolhido. */
 .corpo{
-  min-width:0;display:grid;grid-template-columns:minmax(0,1fr) auto auto;
-  column-gap:10px;row-gap:6px;align-items:center;
+  min-width:0;display:grid;grid-template-columns:auto minmax(0,1fr);
+  grid-template-areas:"tags tags" "titulo titulo" "agenda detalhes" "falta falta";
+  column-gap:12px;row-gap:8px;align-items:center;
 }
-.card .tags{grid-column:1;grid-row:1;margin:0}
-.card .falta{grid-column:2/-1;grid-row:1;justify-self:end}
-.card h3{grid-column:1;grid-row:2}
-.card .add{grid-column:2;grid-row:2;white-space:nowrap}
-.card-detalhes{grid-column:3;grid-row:2;min-width:0}
-.card-detalhes[open]{grid-column:1/-1;grid-row:3}
+.card .tags{grid-area:tags;margin:0}
+.card h3{grid-area:titulo}
+.card .add{grid-area:agenda;white-space:nowrap;justify-self:start}
+.card-detalhes{grid-area:detalhes;min-width:0;justify-self:start}
+.card.sem-agenda .card-detalhes{grid-column:1/-1}
+.card .falta{grid-area:falta;justify-self:start}
+.card-detalhes[open]{grid-column:1/-1;grid-row:5;justify-self:stretch}
 .card .tags .aviso{margin-top:0}
 
 /* O summary tem o mesmo visual dos .card-link: pill, borda fina. A
@@ -1480,7 +1483,7 @@ window.mostrarErroCarga = function(){
 
   function textoFalta(ev){
     var agora = new Date();
-    if (agora > ev.fim) return { txt:"já passou", cls:"fim" };
+    if (agora > ev.fim) return { txt:"Já passou", cls:"fim" };
 
     var ms = ev.alvo - agora;
     var f = faixaPorMs(ms, { emCurso: ms <= 0, hoje: ehHojeLocal(ev.alvo) });
@@ -1488,18 +1491,25 @@ window.mostrarErroCarga = function(){
 
     if (ms <= 0) return { txt:"É agora", cls:cls };
 
+    /* Texto por extenso, como se diz: "Faltam 6 horas", "Falta 1 hora
+       e 12 minutos", "Começa em 8 minutos", "É amanhã", "Faltam 3 dias". */
     var horas = ms/3600000;
-    if (horas < 1)  return { txt:"Começa em breve · " + Math.max(1, Math.round(ms/60000)) + " min", cls:cls };
-    if (f.rotulo === "Hoje"){
-      return { txt:"Hoje · faltam " + Math.floor(horas) + "h" + (ev.hora ? String(Math.floor(ms%3600000/60000)).padStart(2,"0") : ""), cls:cls };
+    if (horas < 1){
+      var min = Math.max(1, Math.round(ms/60000));
+      return { txt:"Começa em " + plural(min, "minuto", "minutos"), cls:cls };
     }
-    if (horas < 24) return { txt:"faltam " + Math.floor(horas) + "h" + (ev.hora ? String(Math.floor(ms%3600000/60000)).padStart(2,"0") : ""), cls:cls };
+    if (horas < 24){
+      var h = Math.floor(horas), m = Math.floor(ms%3600000/60000);
+      var txt = (h === 1 ? "Falta " : "Faltam ") + plural(h, "hora", "horas");
+      if (ev.hora && m > 0) txt += " e " + plural(m, "minuto", "minutos");
+      return { txt:txt, cls:cls };
+    }
 
     var d = diasCorridos(ev.alvo);
-    if (d === 1) return { txt:"é amanhã", cls:cls };
-    if (d <= 30) return { txt:"faltam " + d + " dias", cls:cls };
+    if (d === 1) return { txt:"É amanhã", cls:cls };
+    if (d <= 30) return { txt:"Faltam " + d + " dias", cls:cls };
     var sem = Math.round(d/7);
-    return { txt:"faltam " + d + " dias (" + sem + " semanas)", cls:cls };
+    return { txt:"Faltam " + d + " dias (" + sem + " semanas)", cls:cls };
   }
 
   /* O cronômetro segue a matéria escolhida no seletor. Sem seleção, é
@@ -1843,11 +1853,11 @@ window.mostrarErroCarga = function(){
       var id = idDoEvento(ev);
       var aberto = abertos.indexOf(id) >= 0 || casaSoNosDetalhes(ev);
 
-      /* Cabeçalho sempre visível: data, tags, título, "faltam X",
-         + Google Agenda e o aviso de data não confirmada. O resto
-         fica recolhido em <details>: descrição, o que fazer, fonte
-         (menor, por último) e os links do card. */
-      html += '<article class="card' + (passou ? " passado" : "") + (eHoje && !passou ? " hoje" : "") + '">'
+      /* Cabeçalho sempre visível, nesta ordem: tags (tipo e matéria),
+         título inteiro, + Google Agenda e Detalhes lado a lado, e
+         quanto falta. O resto fica recolhido em <details>: descrição,
+         o que fazer, fonte (menor, por último) e os links do card. */
+      html += '<article class="card' + (passou ? " passado sem-agenda" : "") + (eHoje && !passou ? " hoje" : "") + '">'
         + '<div class="data">'
           + '<span class="d">' + String(ev.dia).padStart(2,"0") + '</span>'
           + '<span class="m">' + MES_ABREV[ev.mes] + '</span>'
@@ -1860,7 +1870,6 @@ window.mostrarErroCarga = function(){
             + etiquetasQuando(ev)
             + (ev.confirmar ? '<span class="aviso">Data ainda não confirmada pelo professor</span>' : "")
           + '</div>'
-          + '<span class="falta ' + t.cls + '" data-falta="' + eventos.indexOf(ev) + '">' + t.txt + '</span>'
           + '<h3>' + esc(ev.titulo) + '</h3>'
           + (passou ? "" : '<a class="add" href="' + linkGoogle(ev) + '" target="_blank" rel="noopener">+ Google Agenda</a>')
           + '<details class="card-detalhes" data-id="' + esc(id) + '"' + (aberto ? ' open' : '') + '>'
@@ -1872,6 +1881,7 @@ window.mostrarErroCarga = function(){
               + linksCard(ev)
             + '</div>'
           + '</details>'
+          + '<span class="falta ' + t.cls + '" data-falta="' + eventos.indexOf(ev) + '">' + t.txt + '</span>'
         + '</div>'
       + '</article>';
     });
