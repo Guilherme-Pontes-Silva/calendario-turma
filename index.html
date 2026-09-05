@@ -431,6 +431,17 @@ select:focus{outline:none;border-color:var(--accent)}
   .data .d{font-size:var(--fs-6)}
   .hero{padding:18px}
   .unid{min-width:0;padding:10px 4px 8px}
+
+  /* Filtros no celular: os chips repartem a largura da linha entre si,
+     em vez de ficarem encostados à esquerda com sobra à direita; o
+     seletor de matéria ocupa a linha inteira; e a caixa "mostrar o que
+     já passou" fica de um lado com "Expandir todos" do outro. */
+  .chips{gap:6px}
+  .chip{flex:1 1 auto;text-align:center;padding:8px 10px}
+  .linha2{gap:8px 12px}
+  .linha2 select{flex:1 1 100%;width:100%;text-align:center}
+  .linha2 .toggle{flex:1 1 auto}
+  .btn-expandir{margin-left:auto;padding:0}
 }
 
 /* ============================================================
@@ -1050,9 +1061,9 @@ body.menu-aberto{overflow:hidden}
   <section class="secao-extra on" id="tab-calendario">
 
     <div class="acoes">
-      <button class="btn" id="btn-share">Compartilhar link</button>
-      <button class="btn" id="btn-resumo">Copiar resumo da semana</button>
-      <button class="btn" id="btn-grade">Grade de Aulas</button>
+      <button class="btn" id="btn-share">Compartilhar Link</button>
+      <button class="btn" id="btn-resumo">Copiar Resumo da Semana</button>
+      <button class="btn" id="btn-exportar" title="Baixa um arquivo .ics com todos os compromissos, para importar na agenda do celular ou do computador">Exportar para a Agenda</button>
     </div>
 
     <section class="hoje" id="hoje" hidden>
@@ -1249,7 +1260,7 @@ body.menu-aberto{overflow:hidden}
 
 <div class="toast" id="toast"></div>
 
-<script src="eventos.js?v=20260904"></script>
+<script src="eventos.js?v=20260905"></script>
 <script>
 /* ================================================================
    Script do calendário — igual ao publicado, com duas remoções:
@@ -1784,35 +1795,11 @@ window.mostrarErroCarga = function(){
     return out.length ? '<div class="card-links">' + out.join("") + '</div>' : "";
   }
 
-  /* ---------- cards abertos: memória ----------
-     Guarda em localStorage quais cards a pessoa abriu (chave
-     cards-abertos-v1, id = data|titulo) e reabre ao repintar. Tudo em
-     try/catch: em navegador sem armazenamento, o card só não lembra. */
-  var CHAVE_ABERTOS = "cards-abertos-v1";
+  /* Os cards nascem sempre fechados: abrir é ação da pessoa, um a um
+     ou pelo "Expandir todos". Nada fica guardado entre visitas — a
+     chave antiga é apagada para quem chegou a usá-la. */
+  try { localStorage.removeItem("cards-abertos-v1"); } catch (e){}
   function idDoEvento(ev){ return ev.data + "|" + ev.titulo; }
-  function lerAbertos(){
-    try {
-      var v = JSON.parse(localStorage.getItem(CHAVE_ABERTOS) || "[]");
-      return Array.isArray(v) ? v : [];
-    } catch (e){ return []; }
-  }
-  function gravarAbertos(lista){
-    try { localStorage.setItem(CHAVE_ABERTOS, JSON.stringify(lista)); } catch (e){}
-  }
-  function marcarAberto(id, aberto){
-    var lista = lerAbertos();
-    var i = lista.indexOf(id);
-    if (aberto && i < 0) lista.push(id);
-    if (!aberto && i >= 0) lista.splice(i, 1);
-    gravarAbertos(lista);
-  }
-
-  /* A busca bateu só no texto escondido: o card abre sozinho, sem
-     gravar — foi a busca que abriu, não a pessoa. */
-  function casaSoNosDetalhes(ev){
-    if (!filtro.texto) return false;
-    return ev.buscaCabeca.indexOf(filtro.texto) < 0 && ev.busca.indexOf(filtro.texto) >= 0;
-  }
 
   function atualizarBotaoExpandir(){
     var b = $("btn-expandir");
@@ -1838,7 +1825,6 @@ window.mostrarErroCarga = function(){
     var hojeStr = isoLocal(agora);
     var html = "";
     var mesAtual = "";
-    var abertos = lerAbertos();
 
     lista.forEach(function(ev){
       var chave = ev.ano + "-" + ev.mes;
@@ -1851,7 +1837,6 @@ window.mostrarErroCarga = function(){
       var t = textoFalta(ev);
       var eHoje = ev.data === hojeStr;
       var id = idDoEvento(ev);
-      var aberto = abertos.indexOf(id) >= 0 || casaSoNosDetalhes(ev);
 
       /* Cabeçalho sempre visível, nesta ordem: tags (tipo e matéria),
          título inteiro, + Google Agenda e Detalhes lado a lado, e
@@ -1872,7 +1857,7 @@ window.mostrarErroCarga = function(){
           + '</div>'
           + '<h3>' + esc(ev.titulo) + '</h3>'
           + (passou ? "" : '<a class="add" href="' + linkGoogle(ev) + '" target="_blank" rel="noopener">+ Google Agenda</a>')
-          + '<details class="card-detalhes" data-id="' + esc(id) + '"' + (aberto ? ' open' : '') + '>'
+          + '<details class="card-detalhes" data-id="' + esc(id) + '">'
             + '<summary><span class="pill">Detalhes</span></summary>'
             + '<div class="card-texto">'
               + '<p>' + esc(ev.descricao) + '</p>'
@@ -1991,6 +1976,86 @@ window.mostrarErroCarga = function(){
     copiarTexto(txt, "Resumo copiado. É só colar no grupo.");
   }
 
+  /* ---------- exportar tudo para a agenda ----------
+     Gera um .ics com um VEVENT por compromisso, no fuso de Campinas, e
+     dispara o download. No celular o arquivo abre direto na agenda;
+     no computador, importa-se no Google Agenda, Outlook ou Apple
+     Calendar. Prazos sem hora viram eventos de dia inteiro. */
+  function icsEscapar(s){
+    return String(s || "").replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
+  }
+  /* RFC 5545: linhas de no máximo 75 octetos, continuação com espaço. */
+  function icsDobrar(linha){
+    var enc = (typeof TextEncoder !== "undefined") ? new TextEncoder() : null;
+    if (!enc || enc.encode(linha).length <= 75) return linha;
+    var partes = [], atual = "", limite = 75;
+    for (var i = 0; i < linha.length; i++){
+      var ch = linha[i];
+      if (enc.encode(atual + ch).length > limite){ partes.push(atual); atual = ""; limite = 74; }
+      atual += ch;
+    }
+    partes.push(atual);
+    return partes.join("\r\n ");
+  }
+  function icsCompacto(data, hhmm){ return data.replace(/-/g, "") + "T" + hhmm.replace(":", "") + "00"; }
+  function icsUid(ev){
+    var s = ev.data + "|" + ev.titulo, h = 5381;
+    for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0;
+    return (h >>> 0).toString(16) + "@calendario-turma";
+  }
+
+  function gerarICS(){
+    var agora = new Date();
+    var carimbo = agora.getUTCFullYear() + String(agora.getUTCMonth()+1).padStart(2,"0") + String(agora.getUTCDate()).padStart(2,"0")
+      + "T" + String(agora.getUTCHours()).padStart(2,"0") + String(agora.getUTCMinutes()).padStart(2,"0") + String(agora.getUTCSeconds()).padStart(2,"0") + "Z";
+    var L = [
+      "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//calendario-turma//Direito 1P noturno//PT",
+      "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
+      "X-WR-CALNAME:" + icsEscapar("Calendário da Turma — " + CALENDARIO.turma),
+      "X-WR-TIMEZONE:America/Sao_Paulo",
+      "BEGIN:VTIMEZONE", "TZID:America/Sao_Paulo", "BEGIN:STANDARD", "DTSTART:19700101T000000",
+      "TZOFFSETFROM:-0300", "TZOFFSETTO:-0300", "TZNAME:-03", "END:STANDARD", "END:VTIMEZONE"
+    ];
+    eventos.forEach(function(ev){
+      L.push("BEGIN:VEVENT", "UID:" + icsUid(ev), "DTSTAMP:" + carimbo);
+      if (ev.hora){
+        var fim;
+        if (ev.dataFim || ev.horaFim) fim = icsCompacto(ev.dataFim || ev.data, ev.horaFim || "23:59");
+        else {
+          var f = new Date(ev.alvo.getTime() + 3600000);
+          fim = icsCompacto(isoLocal(f), String(f.getHours()).padStart(2,"0") + ":" + String(f.getMinutes()).padStart(2,"0"));
+        }
+        L.push("DTSTART;TZID=America/Sao_Paulo:" + icsCompacto(ev.data, ev.hora));
+        L.push("DTEND;TZID=America/Sao_Paulo:" + fim);
+      } else {
+        var ult = (ev.dataFim || ev.data).split("-");
+        var prox = new Date(+ult[0], +ult[1]-1, +ult[2] + 1);
+        L.push("DTSTART;VALUE=DATE:" + ev.data.replace(/-/g, ""));
+        L.push("DTEND;VALUE=DATE:" + isoLocal(prox).replace(/-/g, ""));
+      }
+      var resumo = (ROTULO[ev.tipo] || ev.tipo) + " · " + ev.disciplina + " — " + ev.titulo + (ev.confirmar ? " (data a confirmar)" : "");
+      var desc = [ev.descricao, ev.oQueFazer ? "O que fazer: " + ev.oQueFazer : "", ev.fonte ? "Fonte: " + ev.fonte : ""].filter(Boolean).join("\n\n");
+      L.push("SUMMARY:" + icsEscapar(resumo), "DESCRIPTION:" + icsEscapar(desc),
+             "LOCATION:" + icsEscapar(LOCAL), "CATEGORIES:" + icsEscapar(ev.disciplina), "END:VEVENT");
+    });
+    L.push("END:VCALENDAR");
+    return L.map(icsDobrar).join("\r\n") + "\r\n";
+  }
+
+  function exportarAgenda(){
+    try {
+      var blob = new Blob([gerarICS()], { type:"text/calendar;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url; a.download = "calendario-turma.ics";
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+      aviso("Arquivo gerado com " + eventos.length + " compromissos. Abra-o para importar na sua agenda.");
+    } catch (e){
+      aviso("Não consegui gerar o arquivo neste navegador.");
+    }
+  }
+
   function compartilhar(){
     var dados = {
       title: "Calendário da Turma — Direito 1º período noturno",
@@ -2050,13 +2115,14 @@ window.mostrarErroCarga = function(){
     $("btn-resumo").addEventListener("click", copiarResumo);
 
     /* toggle não borbulha: escuta na fase de captura, uma vez só para
-       a lista inteira, e grava quem abriu ou fechou. */
+       a lista inteira, e mantém o rótulo do botão em dia. */
     $("lista").addEventListener("toggle", function(e){
       var d = e.target;
       if (!d || !d.classList || !d.classList.contains("card-detalhes")) return;
-      marcarAberto(d.getAttribute("data-id"), d.open);
       atualizarBotaoExpandir();
     }, true);
+
+    $("btn-exportar").addEventListener("click", exportarAgenda);
 
     $("btn-expandir").addEventListener("click", function(){
       var todos = Array.prototype.slice.call($("lista").querySelectorAll(".card-detalhes"));
@@ -2084,7 +2150,7 @@ window.mostrarErroCarga = function(){
 })();
 </script>
 
-<script src="extras.js?v=20260904"></script>
+<script src="extras.js?v=20260905"></script>
 <script>
 /* ================================================================
    Script das abas novas: menu hambúrguer, contatos, grupos,
@@ -2282,12 +2348,6 @@ window.mostrarErroCarga = function(){
     abaAtual = id;
     rolar(id, {});
   });
-
-  /* Atalho para a Grade dentro do calendário: é uma das seções mais
-     abertas pela turma. Não tem data-secao de propósito, para não ser
-     marcado como item de navegação ativo. */
-  var btnGradeAcoes = $("btn-grade");
-  if (btnGradeAcoes) btnGradeAcoes.addEventListener("click", function(){ mostrarAba("grade"); });
 
   /* Um handler só, para tudo que declara para onde quer ir. */
   document.addEventListener("click", function(e){

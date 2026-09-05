@@ -25,7 +25,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-09-04T13:35:00-03:00",
+  atualizadoEm: "2026-09-05T00:13:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -222,13 +222,6 @@ const CALENDARIO = {
       descricao: "Apresentação em grupo de 10 a 15 minutos. Apresentam Luís H. e Luiza S. Material: “O Direito na Idade Média” (slides no Moodle). Bibliografia: BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 57-76.",
       oQueFazer: "O fichamento deste mesmo texto é entregue na aula da apresentação. Apresentação de 10 a 15 minutos, avaliada pela ficha do Moodle. A apresentação do grupo vale 20% da N2.",
       fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
-    },
-    {
-      data: "2026-09-04", hora: null, disciplina: "Ciên. Pol.", tipo: "AULA",
-      titulo: "Aula em que o texto do fichamento 2 é passado",
-      descricao: "Aula 5 do cronograma, sobre a segunda parte da evolução do pensamento político moderno. É dela que sai o texto do segundo fichamento.",
-      oQueFazer: "Anote qual é o texto passado nesta aula: é ele que você vai fichar para a entrega seguinte.",
-      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 5 do cronograma."
     },
     {
       data: "2026-09-07", hora: null, disciplina: "Geral", tipo: "FERIADO",
