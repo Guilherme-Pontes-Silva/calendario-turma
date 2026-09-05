@@ -226,7 +226,6 @@ const PAINEL = {
       n2: []
     },
     "TGD": {
-      avisoPeriodo: "Quatro grupos formados. A troca de grupo é possível durante o semestre, desde que o professor seja avisado antes.",
       n1: [
         { grupo:"Seminário 1", integrantes:"Andressa S., David B., Pamela C. e Thiago R.", tema:"Norma Jurídica", autor:"Norberto Bobbio",
           dataSeminario:"31/08 (segunda)", dataEntrega:"31/08, até 23h59" },
@@ -240,7 +239,6 @@ const PAINEL = {
       n2: []
     },
     "Hist. Dir.": {
-      avisoPeriodo: "Seis grupos, um para cada tema. As datas são oficiais: o professor publicou o cronograma na sala do Moodle em 20/08/2026, e elas deixaram de ser estimativa. O tema “Direito na República” saiu do cronograma, e o grupo que o apresentaria foi desfeito em 21/08/2026 — a realocação dos dois alunos ainda será definida. Não confunda o período do trabalho com o do lançamento: as apresentações são de N1, mas o professor lança todas as notas da disciplina em N2. O representante precisa enviar ao professor a composição dos grupos em ordem cronológica das aulas.",
       n1: [
         { grupo:"Apresentação 1", integrantes:"David B., Emilly P. e Pamela C.", tema:"Direito na Grécia", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 31-42",
           dataSeminario:"03/09 (quinta)", material:"Direito na Grécia Antiga (slides no Moodle)" },

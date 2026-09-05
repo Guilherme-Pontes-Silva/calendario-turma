@@ -2411,7 +2411,6 @@ window.mostrarErroCarga = function(){
         + '<summary><span class="titulo-acc"><span class="n">' + esc(sig) + '</span></span>'
         + '<span class="info">' + total + ' grupo' + (total>1?'s':'') + '</span></summary>'
         + '<div class="corpo">'
-          + (g.avisoPeriodo ? '<span class="aviso">' + esc(g.avisoPeriodo) + '</span>' : '')
           + '<div class="periodo-toggle">'
             + '<button type="button" class="periodo-btn" data-periodo="n1">N1 <span class="cnt">(' + n1.length + ')</span></button>'
             + '<button type="button" class="periodo-btn" data-periodo="n2">N2 <span class="cnt">(' + n2.length + ')</span></button>'
@@ -2424,16 +2423,28 @@ window.mostrarErroCarga = function(){
     document.querySelectorAll(".periodo-btn").forEach(function(btn){
       btn.addEventListener("click", function(){
         var acc = btn.closest(".grupo-acc");
-        var sigla = acc.getAttribute("data-sigla");
-        var periodo = btn.getAttribute("data-periodo");
-        acc.querySelectorAll(".periodo-btn").forEach(function(b){ b.classList.toggle("ativo", b === btn); });
-
-        var lista = (PAINEL.grupos[sigla] || {})[periodo] || [];
-        acc.querySelector(".periodo-lista").innerHTML = lista.length
-          ? lista.map(renderDupla).join("")
-          : '<p class="vazio-txt">Sem grupos cadastrados para ' + periodo.toUpperCase() + '.</p>';
+        /* Clicar no período já escolhido desmarca e volta ao estado
+           sem seleção; clicar no outro troca. */
+        selecionarPeriodo(acc, btn.classList.contains("ativo") ? null : btn.getAttribute("data-periodo"));
       });
     });
+  }
+
+  var PLACEHOLDER_PERIODO = '<p class="vazio-txt">Escolha N1 ou N2 acima.</p>';
+
+  function selecionarPeriodo(acc, periodo){
+    var sigla = acc.getAttribute("data-sigla");
+    acc.querySelectorAll(".periodo-btn").forEach(function(b){
+      var ativo = periodo !== null && b.getAttribute("data-periodo") === periodo;
+      b.classList.toggle("ativo", ativo);
+      b.setAttribute("aria-pressed", ativo ? "true" : "false");
+    });
+    var caixa = acc.querySelector(".periodo-lista");
+    if (periodo === null){ caixa.innerHTML = PLACEHOLDER_PERIODO; return; }
+    var lista = (PAINEL.grupos[sigla] || {})[periodo] || [];
+    caixa.innerHTML = lista.length
+      ? lista.map(renderDupla).join("")
+      : '<p class="vazio-txt">Sem grupos cadastrados para ' + periodo.toUpperCase() + '.</p>';
   }
 
   /* ---------------- fichamento ---------------- */
@@ -2595,10 +2606,9 @@ window.mostrarErroCarga = function(){
       if (!g) return;
       g.open = true;
       var per = acharPeriodo(sigla, el.getAttribute("data-titulo"), el.getAttribute("data-data"));
-      if (per){
-        var btn = g.querySelector('.periodo-btn[data-periodo="' + per + '"]');
-        if (btn) btn.click();
-      }
+      /* Seleciona direto, sem simular clique: o clique agora alterna, e
+         se o período já estivesse ativo ele seria desmarcado. */
+      if (per) selecionarPeriodo(g, per);
       g.scrollIntoView({ block:"center" });
     }
   }
