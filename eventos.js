@@ -25,7 +25,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-09-05T00:48:00-03:00",
+  atualizadoEm: "2026-09-10T00:40:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -269,11 +269,11 @@ const CALENDARIO = {
       oQueFazer: "Regras do enunciado: arquivo em PDF; nome completo de todos os integrantes do grupo; postado no mínimo 1 dia antes da apresentação em sala; basta 1 integrante postar pelo grupo inteiro. Passou das 23h59, o envio fecha sozinho."
     },
     {
-      data: "2026-09-11", hora: null, disciplina: "Ciên. Pol.", tipo: "ENTREGA", confirmar: true,
-      titulo: "Fichamento 2",
-      descricao: "Fichamento do texto passado na aula de 04/09, sobre a segunda parte da evolução do pensamento político moderno. Manuscrito, em ficha própria.",
-      oQueFazer: "A data vem da regra de entrega na semana seguinte, não de anúncio do professor. Confirme com ele.",
-      fonte: "Cronograma do plano de ensino, aula 5, mais a regra de entrega na semana seguinte."
+      data: "2026-09-11", hora: null, disciplina: "Ciên. Pol.", tipo: "MANUSCRITO",
+      titulo: "Fichamento 2 — Bonavides, capítulo 10",
+      descricao: "Fichamento do texto “Ciência Política — Paulo Bonavides — Cap. 10 — páginas 170 a 188”. O professor confirmou a data e a forma: manuscrito, entregue em mãos na aula desta sexta-feira. Não é envio pelo Moodle.",
+      oQueFazer: "Escrever à mão e levar a ficha para a aula. Sexta-feira a Ciência Política é das 20h10 às 21h00 — sem aula não há a quem entregar, então faltar significa perder a nota.",
+      fonte: "Comunicado do professor, confirmando a data que antes vinha só da regra de entrega na semana seguinte."
     },
     {
       data: "2026-09-11", hora: null, disciplina: "CTS", tipo: "APRESENTACAO",
@@ -324,10 +324,10 @@ const CALENDARIO = {
     },
     {
       data: "2026-09-20", hora: "23:59", disciplina: "IDP", tipo: "ENTREGA",
-      titulo: "Trabalho em grupo — N1",
-      descricao: "Trabalho em grupo de Introdução ao Direito Privado, postado no Moodle. É um dos dois instrumentos da N1, junto com a prova de 23/09; os dois têm o mesmo peso dentro do bimestre.",
-      oQueFazer: "Postar no Moodle até 23h59. Cai num domingo, e o prazo do Moodle fecha sozinho — não deixe para o fim de semana. A prova da mesma nota é três dias depois, em 23/09.",
-      fonte: "Quadro de avaliações da disciplina, informado pelo representante da turma em 18/08/2026."
+      titulo: "Trabalho da N1 — Direitos Morais de Autor",
+      descricao: "Trabalho de Introdução ao Direito Privado sobre o tema “Direitos Morais de Autor”, postado no Moodle. A entrega abriu na quarta-feira, 02/09/2026, às 00h00, e fecha no domingo, 20/09/2026, às 23h59. É um dos dois instrumentos da N1, junto com a prova de 23/09; os dois têm o mesmo peso dentro do bimestre.",
+      oQueFazer: "Regras do enunciado: até cinco páginas; individual ou em grupo de no máximo quatro alunos; fonte Arial ou Times New Roman tamanho 12; referências bibliográficas completas de todas as obras citadas no texto; nomes completos de todos os integrantes do grupo; apenas um integrante posta pelo grupo inteiro; arquivo em Word ou PDF. Cai num domingo, e o prazo do Moodle fecha sozinho — não deixe para o fim de semana. A prova da mesma nota é três dias depois, em 23/09.",
+      fonte: "Enunciado da tarefa na sala de IDP no Moodle, publicado em 02/09/2026, e o quadro de avaliações da disciplina, informado pelo representante da turma em 18/08/2026."
     },
     {
       data: "2026-09-21", hora: null, disciplina: "Antrop. Jur.", tipo: "AVALIACAO",
@@ -357,7 +357,7 @@ const CALENDARIO = {
     {
       data: "2026-09-23", hora: null, disciplina: "IDP", tipo: "PROVA",
       titulo: "1ª Prova (N1)",
-      descricao: "Primeira prova de Introdução ao Direito Privado, Pessoas e Bens. Cobre 100% do conteúdo do bimestre e é um dos dois instrumentos da N1, junto com o trabalho em grupo entregue em 20/09.",
+      descricao: "Primeira prova de Introdução ao Direito Privado, Pessoas e Bens. Cobre 100% do conteúdo do bimestre e é um dos dois instrumentos da N1, junto com o trabalho sobre Direitos Morais de Autor, entregue em 20/09.",
       oQueFazer: "Estudar o conteúdo do bimestre inteiro — a prova não é por recorte. É quarta-feira, dia de aula da disciplina, das 21h10 às 22h50. Cai no mesmo dia da apresentação da proposta do produto extensionista.",
       fonte: "Quadro de avaliações da disciplina, informado pelo representante da turma em 18/08/2026."
     },
@@ -577,7 +577,7 @@ const CALENDARIO = {
     {
       data: "2026-11-11", hora: null, disciplina: "IDP", tipo: "PROVA",
       titulo: "2ª Prova (N2)",
-      descricao: "Segunda prova de Introdução ao Direito Privado, Pessoas e Bens. Cobre 100% do conteúdo do bimestre e é um dos dois instrumentos da N2, junto com o trabalho em grupo entregue em 15/11. A N2 pesa mais que a N1 no fechamento da disciplina.",
+      descricao: "Segunda prova de Introdução ao Direito Privado, Pessoas e Bens. Cobre 100% do conteúdo do bimestre e é um dos dois instrumentos da N2, junto com o trabalho sobre Domicílio da Pessoa Natural, entregue em 15/11. A N2 pesa mais que a N1 no fechamento da disciplina.",
       oQueFazer: "Estudar o conteúdo do segundo bimestre inteiro. É quarta-feira, dia de aula da disciplina. Cai no mesmo dia da avaliação NI2-A de Economia Política — são duas provas no mesmo dia.",
       fonte: "Quadro de avaliações da disciplina, informado pelo representante da turma em 18/08/2026."
     },
@@ -599,7 +599,7 @@ const CALENDARIO = {
       data: "2026-11-15", hora: null, disciplina: "Geral", tipo: "FERIADO",
       titulo: "Proclamação da República",
       descricao: "Feriado nacional, que este ano cai num domingo.",
-      oQueFazer: "Cuidado: três entregas vencem hoje mesmo, às 23h59 — os dois fichamentos de Economia Política e o trabalho em grupo de Introdução ao Direito Privado. Ser feriado e domingo não adia o prazo do Moodle."
+      oQueFazer: "Cuidado: três entregas vencem hoje mesmo, às 23h59 — os dois fichamentos de Economia Política e o trabalho da N2 de Introdução ao Direito Privado. Ser feriado e domingo não adia o prazo do Moodle."
     },
     {
       data: "2026-11-15", hora: "23:59", disciplina: "Econ. Pol.", tipo: "TAREFA",
@@ -615,10 +615,10 @@ const CALENDARIO = {
     },
     {
       data: "2026-11-15", hora: "23:59", disciplina: "IDP", tipo: "ENTREGA",
-      titulo: "Trabalho em grupo — N2",
-      descricao: "Trabalho em grupo de Introdução ao Direito Privado, postado no Moodle. Fecha a N2 junto com a prova de 11/11; os dois têm o mesmo peso dentro do bimestre.",
-      oQueFazer: "Postar no Moodle até 23h59. É o terceiro prazo do mesmo domingo — os dois fichamentos de Economia Política vencem no mesmo horário. Feriado e domingo não adiam nada.",
-      fonte: "Quadro de avaliações da disciplina, informado pelo representante da turma em 18/08/2026."
+      titulo: "Trabalho da N2 — Domicílio da Pessoa Natural",
+      descricao: "Trabalho de Introdução ao Direito Privado sobre o tema “Domicílio da Pessoa Natural”, postado no Moodle. A entrega abriu na quarta-feira, 02/09/2026, às 00h00, e fecha no domingo, 15/11/2026, às 23h59. Fecha a N2 junto com a prova de 11/11; os dois têm o mesmo peso dentro do bimestre.",
+      oQueFazer: "Regras do enunciado, as mesmas do trabalho da N1: até cinco páginas; individual ou em grupo de no máximo quatro alunos; fonte Arial ou Times New Roman tamanho 12; referências bibliográficas completas de todas as obras citadas no texto; nomes completos de todos os integrantes do grupo; apenas um integrante posta pelo grupo inteiro; arquivo em Word ou PDF. Já está aberto desde 02/09 — dá para adiantar. É o terceiro prazo do mesmo domingo: os dois fichamentos de Economia Política vencem no mesmo horário. Feriado e domingo não adiam nada.",
+      fonte: "Enunciado da tarefa na sala de IDP no Moodle, publicado em 02/09/2026, e o quadro de avaliações da disciplina, informado pelo representante da turma em 18/08/2026."
     },
     {
       data: "2026-11-16", hora: null, disciplina: "Antrop. Jur.", tipo: "AVALIACAO",

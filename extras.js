@@ -59,8 +59,8 @@ const PAINEL = {
     { sigla:"Antrop. Jur.",disciplina:"Antropologia Jurídica", confirmado:false, resumo:"", faltaConfirmar:"Nenhuma fórmula de aprovação confirmada ainda.", fonte:"" },
     {
       sigla:"IDP", disciplina:"Introdução ao Direito Privado, Pessoas e Bens", confirmado:false,
-      resumo:"Cada bimestre tem dois instrumentos, uma prova e um trabalho em grupo, e cada um deles cobre 100% do conteúdo do bimestre. N1: trabalho postado no Moodle até 20/09 e prova em 23/09, ambos de peso 4. N2: prova em 11/11 e trabalho postado até 15/11, ambos de peso 6. Como os dois instrumentos de um mesmo bimestre têm peso igual, dentro do bimestre a divisão é meio a meio; e como a N1 pesa 4 contra 6 da N2, o segundo bimestre vale mais no fechamento.",
-      faltaConfirmar:"Se os pesos 4 e 6 são mesmo do bimestre inteiro, e não de cada instrumento separadamente — o quadro marca “100%” nos dois instrumentos do mesmo bimestre, o que não fecha e precisa ser esclarecido com o professor. Falta também a nota mínima para aprovação e o tema do trabalho em grupo.",
+      resumo:"Cada bimestre tem dois instrumentos, uma prova e um trabalho, e cada um deles cobre 100% do conteúdo do bimestre. N1: trabalho sobre Direitos Morais de Autor, postado no Moodle até 20/09, e prova em 23/09, ambos de peso 4. N2: prova em 11/11 e trabalho sobre Domicílio da Pessoa Natural, postado até 15/11, ambos de peso 6. Os dois trabalhos podem ser feitos individualmente ou em grupo de até quatro alunos. Como os dois instrumentos de um mesmo bimestre têm peso igual, dentro do bimestre a divisão é meio a meio; e como a N1 pesa 4 contra 6 da N2, o segundo bimestre vale mais no fechamento.",
+      faltaConfirmar:"Se os pesos 4 e 6 são mesmo do bimestre inteiro, e não de cada instrumento separadamente — o quadro marca “100%” nos dois instrumentos do mesmo bimestre, o que não fecha e precisa ser esclarecido com o professor. Falta também a nota mínima para aprovação.",
       fonte:"Quadro de avaliações da disciplina, informado pelo representante da turma em 18/08/2026."
     },
     {
