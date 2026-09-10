@@ -25,7 +25,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-09-10T00:40:00-03:00",
+  atualizadoEm: "2026-09-10T00:55:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -287,6 +287,13 @@ const CALENDARIO = {
       titulo: "Prova A1 (N1)",
       descricao: "Prova dissertativa de Teoria Geral do Direito. Pelo plano de aula, a nota A1 se compõe de três instrumentos: a prova, com peso 7; o seminário, com peso 2; e os manuscritos, com peso 1. Cada um é pontuado de 0 a 10.",
       oQueFazer: "É de longe o que mais pesa na nota. Estudar o conteúdo dos manuscritos entregues até aqui: Betioli (Lições IV, V e XI), Montoro (cap. 1) e Kelsen (caps. 1 a 3)."
+    },
+    {
+      data: "2026-09-15", hora: null, disciplina: "Ética", tipo: "MANUSCRITO",
+      titulo: "Atividade manuscrita — três perguntas sobre “Autonomia Que Salva Vidas e Ajuda Mulheres”",
+      descricao: "Respostas às três perguntas que o professor fez em sala sobre o conteúdo “Autonomia Que Salva Vidas e Ajuda Mulheres”. Manuscrita, entregue em mãos ao professor na aula desta terça-feira. Não é envio pelo Moodle.",
+      oQueFazer: "Escrever à mão e responder às três perguntas. As perguntas foram ditadas em sala e não estão anotadas aqui — copie do seu caderno ou peça a um colega antes de terça. Terça-feira a Ética é das 21h10 às 22h50, a última aula do dia; sem aula não há a quem entregar.",
+      fonte: "Informado pelo representante da turma em 10/09/2026, a partir do pedido do professor em sala."
     },
     {
       data: "2026-09-16", hora: null, disciplina: "Prát. Ext.", tipo: "ENTREGA",

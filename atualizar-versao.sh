@@ -14,7 +14,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-HOJE="$(date +%Y%m%d)"
+HOJE="$(date +%Y%m%d)"   # publicando duas vezes no mesmo dia? acrescente um sufixo: AAAAMMDD02
 AGORA="$(date +%Y-%m-%dT%H:%M):00-03:00"
 
 sed -i -E "s/(eventos\.js\?v=)[0-9]{8}/\1${HOJE}/; s/(extras\.js\?v=)[0-9]{8}/\1${HOJE}/" index.html
