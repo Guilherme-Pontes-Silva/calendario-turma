@@ -59,7 +59,7 @@ const PAINEL = {
     { sigla:"Antrop. Jur.",disciplina:"Antropologia Jurídica", confirmado:false, resumo:"", faltaConfirmar:"Nenhuma fórmula de aprovação confirmada ainda.", fonte:"" },
     {
       sigla:"IDP", disciplina:"Introdução ao Direito Privado, Pessoas e Bens", confirmado:false,
-      resumo:"Cada bimestre tem dois instrumentos, uma prova e um trabalho, e cada um deles cobre 100% do conteúdo do bimestre. N1: trabalho sobre Direitos Morais de Autor, postado no Moodle até 20/09, e prova em 23/09, ambos de peso 4. N2: prova em 11/11 e trabalho sobre Domicílio da Pessoa Natural, postado até 15/11, ambos de peso 6. Os dois trabalhos podem ser feitos individualmente ou em grupo de até quatro alunos. Como os dois instrumentos de um mesmo bimestre têm peso igual, dentro do bimestre a divisão é meio a meio; e como a N1 pesa 4 contra 6 da N2, o segundo bimestre vale mais no fechamento.",
+      resumo:"Cada bimestre tem dois instrumentos, uma prova e um trabalho, e cada um deles cobre 100% do conteúdo do bimestre. N1: trabalho sobre Direitos Morais de Autor, postado no Moodle até 20/09, e prova em 23/09, ambos de peso 4. N2: prova em 11/11 e trabalho sobre Domicílio da Pessoa Natural, postado até 15/11, ambos de peso 6. Os dois trabalhos podem ser feitos individualmente ou em grupo de até quatro alunos; os grupos da N1 já estão definidos na aba Grupos de Trabalho, e os da N2 ainda não foram organizados. Como os dois instrumentos de um mesmo bimestre têm peso igual, dentro do bimestre a divisão é meio a meio; e como a N1 pesa 4 contra 6 da N2, o segundo bimestre vale mais no fechamento.",
       faltaConfirmar:"Se os pesos 4 e 6 são mesmo do bimestre inteiro, e não de cada instrumento separadamente — o quadro marca “100%” nos dois instrumentos do mesmo bimestre, o que não fecha e precisa ser esclarecido com o professor. Falta também a nota mínima para aprovação.",
       fonte:"Quadro de avaliações da disciplina, informado pelo representante da turma em 18/08/2026."
     },
@@ -72,13 +72,13 @@ const PAINEL = {
     { sigla:"Ética",       disciplina:"Ética e Cidadania", confirmado:false, resumo:"", faltaConfirmar:"Nenhuma fórmula de aprovação confirmada ainda.", fonte:"" },
     {
       sigla:"CTS", disciplina:"Ciência, Tecnologia e Sociedade no Direito", confirmado:false,
-      resumo:"NI1: prova escrita individual (peso 7), aplicada em 18/09, com consulta permitida a uma folha manuscrita, mais os seminários em grupo (peso 3), apresentados em 11/09. NI2: prova prática feita em grupo (peso 7), em 30/10, mais os seminários em grupo (peso 3), em 06/11. As duas etapas fecham 10 pontos cada, sem componente indefinido.",
+      resumo:"NI1: prova escrita individual (peso 7), aplicada em 25/09 junto com a prova de Ciência Política, com consulta permitida a uma folha manuscrita feita pelo próprio aluno, mais os seminários em grupo (peso 3), apresentados em 11/09. NI2: prova prática feita em grupo (peso 7), em 30/10, mais os seminários em grupo (peso 3), em 06/11. As duas etapas fecham 10 pontos cada, sem componente indefinido.",
       faltaConfirmar:"A nota mínima para aprovação e a fórmula que combina NI1 e NI2 na média final do semestre.",
       fonte:"Plano de Ensino da disciplina (arquivo 1017334), cronograma e critérios de avaliação, publicado na sala do Moodle em 17/08/2026. Confirma e detalha o que o representante da turma já tinha anotado em aula em 12/08/2026."
     },
     {
       sigla:"Ciên. Pol.", disciplina:"Ciência Política", confirmado:false,
-      resumo:"NI1: prova escrita individual (peso 7), aplicada em 18/09, com consulta permitida a uma folha manuscrita. NI2: prova escrita individual (peso 7), em 06/11, mesmo formato, mais os seminários em grupo (peso 3), em 30/10. Os fichamentos são individuais e manuscritos, entregues na semana seguinte à aula do texto.",
+      resumo:"NI1: prova escrita individual (peso 7), aplicada em 25/09 junto com a prova de CTS, com consulta permitida a uma folha manuscrita feita pelo próprio aluno. NI2: prova escrita individual (peso 7), em 06/11, mesmo formato, mais os seminários em grupo (peso 3), em 30/10. Os fichamentos são individuais e manuscritos, entregues na semana seguinte à aula do texto.",
       faltaConfirmar:"O que compõe os 3 pontos restantes da NI1 — provavelmente os fichamentos, mas o plano não diz. Também falta a nota mínima para aprovação e a fórmula da média final.",
       fonte:"Arquivos “Plano de Ensino — Ciência Política.pdf” e “Aula 1 — Plano de Aulas, Avaliações e Conceitos Fundamentais.pdf”, publicados em 14/08/2026."
     }
@@ -117,7 +117,7 @@ const PAINEL = {
 
     { sigla:"CTS", blocos:[
       { titulo:"Avaliação", texto:"A disciplina é avaliada em dois momentos, cada um composto por dois elementos e cada um fechando dez pontos. A NI1 é formada pela prova escrita individual, com peso 7, em que se permite consulta a uma folha de anotações manuscrita, utilizável em frente e verso, somada ao seminário em grupo, com peso 3. A NI2 muda o formato da prova: em vez de escrita e individual, ela é prática e feita em grupo, mantendo o peso 7, e também se soma a um seminário em grupo de peso 3." },
-      { titulo:"Datas", texto:"Os seminários da NI1 são apresentados em 11 de setembro e a prova escrita individual é aplicada em 18 de setembro, com vista de prova em 25 de setembro. Na segunda etapa, a oficina de análise crítica de uma aplicação de inteligência artificial acontece em 23 de outubro e prepara a prova prática em grupo, aplicada em 30 de outubro; os seminários da NI2 vêm em 6 de novembro e a vista da prova em 13 de novembro. As substitutivas ficam em 4 de dezembro e as finais em 11 de dezembro. Não há aula em 28 de agosto, por causa da Semana Jurídica, nem em 9 de outubro, por causa da Semana Internacional de Direitos Humanos." },
+      { titulo:"Datas", texto:"Os seminários da NI1 são apresentados em 11 de setembro. A prova escrita individual, que o plano de ensino marcava em 18 de setembro, foi remarcada pelo professor para 25 de setembro, aplicada junto com a prova de Ciência Política e ocupando as três aulas dele naquela sexta, das 18h30 às 21h00; os fichamentos das duas disciplinas são entregues no mesmo dia. A vista de prova, que o plano punha em 25 de setembro, ainda não tem data nova. Na segunda etapa, a oficina de análise crítica de uma aplicação de inteligência artificial acontece em 23 de outubro e prepara a prova prática em grupo, aplicada em 30 de outubro; os seminários da NI2 vêm em 6 de novembro e a vista da prova em 13 de novembro. As substitutivas ficam em 4 de dezembro e as finais em 11 de dezembro. Não há aula em 28 de agosto, por causa da Semana Jurídica, nem em 9 de outubro, por causa da Semana Internacional de Direitos Humanos." },
       { titulo:"A oficina de 23/10 não é avaliação, mas conta", texto:"A aula de 23 de outubro é uma oficina prática de análise crítica de uma aplicação de inteligência artificial. Ela não vale nota por si, mas é o ensaio direto da prova prática em grupo da semana seguinte, que vale peso 7 da NI2. Quem falta chega na prova sem o método de análise que será cobrado." }
     ], fonte:"Plano de Ensino da disciplina (arquivo 1017334), publicado na sala do Moodle em 17 de agosto de 2026, e orientações do professor em aula, 12 de agosto de 2026." },
 
@@ -205,7 +205,9 @@ const PAINEL = {
      não deve expor nome completo de aluno. Quem quiser sair da lista
      fala com o representante.
 
-     Atenção ao caso de História do Direito: os grupos ficam em n1,
+     Em História do Direito, n1 guarda duas coisas diferentes: as seis
+     apresentações do semestre e os cinco trios da atividade avaliativa
+     de 24/09, estes com o prefixo "Atividade 24/09". Os grupos ficam em n1,
      que é quando o trabalho acontece. Isso é independente do
      lançamento das notas, que nessa disciplina o professor faz todo
      em N2 — uma coisa é quando se apresenta, outra é onde a nota
@@ -236,7 +238,14 @@ const PAINEL = {
         { grupo:"Seminário 4", integrantes:"Gustavo R., Louise R., Luiza C. e Pedro O.", tema:"Tipos de Normas Jurídicas: norma legal, norma jurisdicional, norma negocial e norma costumeira", autor:"",
           dataSeminario:"10/09 (quinta)", dataEntrega:"10/09, até 23h59 — prazo final da tarefa no Moodle" }
       ],
-      n2: []
+      n2: [
+        { grupo:"Trio 1",     integrantes:"Emilly P., Guilherme P. e Luiza C.",   tema:"Tema ainda não divulgado" },
+        { grupo:"Trio 2",     integrantes:"Gabriele C., Louise R. e Pamela C.",   tema:"Tema ainda não divulgado" },
+        { grupo:"Trio 3",     integrantes:"Gustavo R., Luís H. e Luiza S.",       tema:"Tema ainda não divulgado" },
+        { grupo:"Trio 4",     integrantes:"David B., Heloísa F. e Thiago R.",     tema:"Tema ainda não divulgado" },
+        { grupo:"Trio 5",     integrantes:"Andressa S., Pedro O. e Ryan S.",      tema:"Tema ainda não divulgado" },
+        { grupo:"Quarteto 6", integrantes:"Andrielly L., Kelly O., Maria C. e Yasmin L.", tema:"Tema ainda não divulgado" }
+      ]
     },
     "Hist. Dir.": {
       n1: [
@@ -251,16 +260,46 @@ const PAINEL = {
         { grupo:"Apresentação 5", integrantes:"Louise R. e Ryan S.", tema:"Revolução Francesa e Direito Moderno", autor:"GRIVOT, Débora C. H. et al. História do Direito. Grupo A, 2017 (Minha Biblioteca), pp. 127-150",
           dataSeminario:"29/10 (quinta)", material:"A Revolução Francesa e a Evolução do Estado Liberal ao Estado Democrático de Direito (slides no Moodle)" },
         { grupo:"Apresentação 6", integrantes:"Heloísa F. e Thiago R.", tema:"Direito no Império", autor:"BAGNOLI; BARBOSA; OLIVEIRA. Introdução à História do Direito. São Paulo: Atlas, 2014, pp. 128-143",
-          dataSeminario:"05/11 (quinta)", material:"Brasil Império — História do Direito (slides no Moodle)" }
+          dataSeminario:"05/11 (quinta)", material:"Brasil Império — História do Direito (slides no Moodle)" },
+
+        { grupo:"Atividade 24/09 — Trio 1", integrantes:"Andressa S., Emilly P. e Luiza C.",  tema:"Atividade avaliativa em grupo, 40% da N1", dataSeminario:"24/09 (quinta), feita e entregue na própria aula" },
+        { grupo:"Atividade 24/09 — Trio 2", integrantes:"David B., Louise R. e Pamela C.",    tema:"Atividade avaliativa em grupo, 40% da N1", dataSeminario:"24/09 (quinta), feita e entregue na própria aula" },
+        { grupo:"Atividade 24/09 — Trio 3", integrantes:"Gabriele C., Luís H. e Luiza S.",    tema:"Atividade avaliativa em grupo, 40% da N1", dataSeminario:"24/09 (quinta), feita e entregue na própria aula" },
+        { grupo:"Atividade 24/09 — Trio 4", integrantes:"Guilherme P., Pedro O. e Ryan S.",   tema:"Atividade avaliativa em grupo, 40% da N1", dataSeminario:"24/09 (quinta), feita e entregue na própria aula" },
+        { grupo:"Atividade 24/09 — Trio 5", integrantes:"Heloísa F., Melissa S. e Thiago R.", tema:"Atividade avaliativa em grupo, 40% da N1", dataSeminario:"24/09 (quinta), feita e entregue na própria aula" }
       ],
       n2: []
     },
     "Prát. Ext.":   { n1:[], n2:[] },
     "Antrop. Jur.": { n1:[], n2:[] },
-    "IDP":          { n1:[], n2:[] },
+    "IDP": {
+      n1: [
+        { grupo:"Trio 1",     integrantes:"David B., Louise R. e Ryan S.",              tema:"Direitos Morais de Autor", dataEntrega:"20/09, até 23h59, pelo Moodle" },
+        { grupo:"Quarteto 2", integrantes:"Emilly P., Guilherme P., Pedro O. e Thiago R.", tema:"Direitos Morais de Autor", dataEntrega:"20/09, até 23h59, pelo Moodle" },
+        { grupo:"Quarteto 3", integrantes:"Gabriele C., Heloísa F., Luís H. e Luiza S.",   tema:"Direitos Morais de Autor", dataEntrega:"20/09, até 23h59, pelo Moodle" },
+        { grupo:"Quarteto 4", integrantes:"Andressa S., Luiza C., Melissa S. e Pamela C.", tema:"Direitos Morais de Autor", dataEntrega:"20/09, até 23h59, pelo Moodle" }
+      ],
+      n2: []
+    },
     "Ética":        { n1:[], n2:[] },
-    "CTS":          { n1:[], n2:[] },
-    "Ciên. Pol.":   { n1:[], n2:[] }
+    "CTS": {
+      n1: [],
+      n2: [
+        { grupo:"Quarteto 1", integrantes:"Andressa S., Emilly P., Guilherme P. e Luiza C.", tema:"Tema ainda não divulgado" },
+        { grupo:"Quarteto 2", integrantes:"David B., Heloísa F., Luís H. e Pedro O.",        tema:"Tema ainda não divulgado" },
+        { grupo:"Quarteto 3", integrantes:"Gabriele C., Karolainy G., Luiza S. e Ryan S.",   tema:"Tema ainda não divulgado" },
+        { grupo:"Quarteto 4", integrantes:"Andrielly L., Louise R., Pamela C. e Thiago R.",  tema:"Tema ainda não divulgado" }
+      ]
+    },
+    "Ciên. Pol.": {
+      n1: [],
+      n2: [
+        { grupo:"Quarteto 1", integrantes:"Andressa S., Emilly P., Guilherme P. e Luiza C.", tema:"Tema ainda não divulgado" },
+        { grupo:"Quarteto 2", integrantes:"David B., Heloísa F., Luís H. e Pedro O.",        tema:"Tema ainda não divulgado" },
+        { grupo:"Quarteto 3", integrantes:"Gabriele C., Luiza S., Nayana M. e Ryan S.",      tema:"Tema ainda não divulgado" },
+        { grupo:"Quarteto 4", integrantes:"Andrielly L., Louise R., Pamela C. e Thiago R.",  tema:"Tema ainda não divulgado" }
+      ]
+    }
   },
 
   /* ---------------- 5. CONTADOR DE FÉRIAS ----------------

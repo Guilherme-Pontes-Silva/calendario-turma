@@ -25,7 +25,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-09-10T00:55:00-03:00",
+  atualizadoEm: "2026-09-20T01:05:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -278,7 +278,7 @@ const CALENDARIO = {
     {
       data: "2026-09-11", hora: null, disciplina: "CTS", tipo: "APRESENTACAO",
       titulo: "Seminários em grupo (peso 3 da NI1)",
-      descricao: "Apresentação dos seminários em grupo de Ciência, Tecnologia e Sociedade no Direito. Valem peso 3 da primeira nota intermediária; os outros 7 vêm da prova escrita de 18/09.",
+      descricao: "Apresentação dos seminários em grupo de Ciência, Tecnologia e Sociedade no Direito. Valem peso 3 da primeira nota intermediária; os outros 7 vêm da prova escrita, que passou de 18/09 para 25/09.",
       oQueFazer: "Organize o grupo com antecedência — o seminário vale 3 dos 10 pontos da NI1, e a apresentação é uma semana antes da prova. O tema e a composição dos grupos ainda não estão registrados neste calendário: assim que forem definidos, entram na aba Grupos de Trabalho.",
       fonte: "Plano de Ensino da disciplina (arquivo 1017334), aula 6 do cronograma, e critérios de avaliação do mesmo arquivo."
     },
@@ -309,25 +309,32 @@ const CALENDARIO = {
       fonte: "Tarefa publicada pelo professor na sala de Economia Política no Moodle."
     },
     {
-      data: "2026-09-18", hora: null, disciplina: "Ciên. Pol.", tipo: "PROVA",
+      data: "2026-09-25", hora: null, disciplina: "Ciên. Pol.", tipo: "PROVA",
       titulo: "Prova escrita NI1",
-      descricao: "Prova escrita e individual de Ciência Política, peso 7 da primeira nota intermediária. É permitida consulta a uma folha manuscrita.",
-      oQueFazer: "Prepare a folha de consulta manuscrita com antecedência — ela é permitida e faz diferença.",
-      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 7 do cronograma."
+      descricao: "Prova escrita e individual de Ciência Política, peso 7 da primeira nota intermediária. É aplicada junto com a prova de CTS: as duas disciplinas são do mesmo professor, e a avaliação ocupa as três aulas dele nesta sexta, das 18h30 às 21h00. A prova é com consulta, limitada a material feito pelo próprio aluno.",
+      oQueFazer: "Prepare a sua folha de consulta com antecedência. Você pode levar uma folha para Ciência Política e outra para CTS, de tipo e tamanho à sua escolha, com anotações manuscritas em frente e verso, contendo o que julgar mais importante. Só vale material que você mesmo fez. No mesmo dia entram a prova de CTS e os fichamentos das duas disciplinas.",
+      fonte: "Informado pelo professor em sala e repassado pelo representante da turma em 20/09/2026. Substitui a data de 18/09 que vinha do cronograma do plano de ensino."
     },
     {
-      data: "2026-09-18", hora: null, disciplina: "Ciên. Pol.", tipo: "ENTREGA", confirmar: true,
+      data: "2026-09-25", hora: null, disciplina: "Ciên. Pol.", tipo: "MANUSCRITO",
       titulo: "Fichamento 3",
-      descricao: "Fichamento do texto da aula de 11/09, sobre a primeira parte da evolução do Estado moderno. Manuscrito, em ficha própria.",
-      oQueFazer: "Cai no mesmo dia da prova NI1. A data vem da regra de entrega na semana seguinte, não de anúncio do professor — confirme com ele.",
-      fonte: "Cronograma do plano de ensino, aula 6, mais a regra de entrega na semana seguinte."
+      descricao: "Fichamento do texto da aula de 11/09, sobre a primeira parte da evolução do Estado moderno. Manuscrito, em ficha própria, entregue em mãos ao professor. O professor mudou a data: passa a ser entregue no dia das provas, junto com o fichamento de CTS.",
+      oQueFazer: "Entregar junto com o fichamento de CTS, no mesmo dia da prova. Não é envio pelo Moodle: quem falta precisa combinar a reposição direto com o professor.",
+      fonte: "Informado pelo professor em sala e repassado pelo representante da turma em 20/09/2026. Substitui a data de 18/09, que vinha da regra de entrega na semana seguinte."
     },
     {
-      data: "2026-09-18", hora: null, disciplina: "CTS", tipo: "PROVA",
+      data: "2026-09-25", hora: null, disciplina: "CTS", tipo: "MANUSCRITO",
+      titulo: "Fichamentos de CTS",
+      descricao: "Entrega dos fichamentos de Ciência, Tecnologia e Sociedade, em mãos ao professor, no mesmo dia das provas e junto com o fichamento de Ciência Política. Quais textos entram nesta entrega não foi registrado aqui.",
+      oQueFazer: "Confirme com o professor ou com o representante quais textos entram nesta entrega — a lista não chegou a este calendário. A forma é a mesma da outra disciplina do professor: manuscrito, em mãos, sem envio pelo Moodle.",
+      fonte: "Informado pelo professor em sala e repassado pelo representante da turma em 20/09/2026."
+    },
+    {
+      data: "2026-09-25", hora: null, disciplina: "CTS", tipo: "PROVA",
       titulo: "Prova escrita individual NI1 (peso 7)",
-      descricao: "Prova escrita e individual de Ciência, Tecnologia e Sociedade no Direito, peso 7 da primeira nota intermediária. É permitida consulta a uma folha manuscrita.",
-      oQueFazer: "Prepare a folha de consulta manuscrita com antecedência — ela é permitida e faz diferença. Cuidado com o acúmulo: neste mesmo dia caem a prova NI1 de Ciência Política e o fichamento 3, também do mesmo professor.",
-      fonte: "Plano de Ensino da disciplina (arquivo 1017334), aula 7 do cronograma, e critérios de avaliação do mesmo arquivo."
+      descricao: "Prova escrita e individual de Ciência, Tecnologia e Sociedade no Direito, peso 7 da primeira nota intermediária. É aplicada junto com a prova de Ciência Política: as duas disciplinas são do mesmo professor, e a avaliação ocupa as três aulas dele nesta sexta, das 18h30 às 21h00. A prova é com consulta, limitada a material feito pelo próprio aluno.",
+      oQueFazer: "Prepare a sua folha de consulta com antecedência. Você pode levar uma folha para CTS e outra para Ciência Política, de tipo e tamanho à sua escolha, com anotações manuscritas em frente e verso, contendo o que julgar mais importante. Só vale material que você mesmo fez. É o dia mais pesado do mês: duas provas e os fichamentos das duas disciplinas.",
+      fonte: "Informado pelo professor em sala e repassado pelo representante da turma em 20/09/2026. Substitui a data de 18/09 que vinha do plano de ensino."
     },
     {
       data: "2026-09-20", hora: "23:59", disciplina: "IDP", tipo: "ENTREGA",
@@ -338,9 +345,17 @@ const CALENDARIO = {
     },
     {
       data: "2026-09-21", hora: null, disciplina: "Antrop. Jur.", tipo: "AVALIACAO",
-      titulo: "1ª avaliação",
-      descricao: "Avaliação de Antropologia Jurídica em duas partes: prova individual sem consulta e trabalho sobre “Raízes do Brasil”.",
-      oQueFazer: "São duas coisas no mesmo dia. Estudar para a prova sem consulta e ter o trabalho de “Raízes do Brasil” pronto."
+      titulo: "1ª avaliação — prova e entrega do trabalho",
+      descricao: "Avaliação de Antropologia Jurídica em duas partes no mesmo dia: prova individual sem consulta e entrega presencial do trabalho sobre “Raízes do Brasil”. O trabalho tem de ser impresso e formatado estritamente segundo as normas da ABNT.",
+      oQueFazer: "Imprima o trabalho antes da aula: a entrega é em mãos, em papel, e não pelo Moodle. Revise a formatação ABNT com cuidado, porque o professor foi explícito quanto ao rigor: capa, margens, fonte, espaçamento, citações e referências. E estude para a prova, que é sem consulta.",
+      fonte: "Data confirmada pelos professores no cronograma de avaliações e repassada pelo representante da turma em 20/09/2026; exigência de impressão e de ABNT informada pelo professor em sala."
+    },
+    {
+      data: "2026-09-22", hora: null, disciplina: "Ética", tipo: "PROVA",
+      titulo: "Prova de Ética e Cidadania",
+      descricao: "Prova de Ética e Cidadania, na terça-feira, dentro do novo cronograma de avaliações combinado entre os professores. É a segunda de três avaliações em quatro dias: Antropologia Jurídica na segunda, Ética na terça e História do Direito na quinta.",
+      oQueFazer: "O formato da prova, a permissão de consulta e o peso na nota não foram divulgados — confirme com o professor. A disciplina é a última aula de terça, das 21h10 às 22h50.",
+      fonte: "Novo cronograma de avaliações, informado pelos professores e repassado pelo representante da turma em 20/09/2026."
     },
     {
       data: "2026-09-21", hora: null, disciplina: "TGD", tipo: "AULA",
@@ -376,18 +391,18 @@ const CALENDARIO = {
       fonte: "Tarefa 1022926 na sala de TGD no Moodle (curso 39157), com prazo até 23h59."
     },
     {
-      data: "2026-09-25", hora: null, disciplina: "Ciên. Pol.", tipo: "AULA",
+      data: "2026-09-25", hora: null, disciplina: "Ciên. Pol.", tipo: "AULA", confirmar: true,
       titulo: "Vista da prova NI1",
-      descricao: "Aula de vista da prova NI1, seguida do conteúdo sobre análise teórica do Estado moderno.",
-      oQueFazer: "É a chance de conferir a correção e pedir revisão de questão. Quem falta perde a vista.",
-      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 8 do cronograma."
+      descricao: "Aula de vista da prova NI1, seguida do conteúdo sobre análise teórica do Estado moderno. A data vem do plano de ensino, que previa a prova em 18/09 e a vista em 25/09. Com a prova remarcada para 25/09, a vista não cabe mais neste dia e deve escorregar para a aula seguinte.",
+      oQueFazer: "Não conte com a vista nesta data: o professor ainda não anunciou a nova. Pergunte a ele no dia da prova. Quando a data sair, ela entra aqui.",
+      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 8 do cronograma — anterior à remarcação da prova."
     },
     {
-      data: "2026-09-25", hora: null, disciplina: "CTS", tipo: "AULA",
+      data: "2026-09-25", hora: null, disciplina: "CTS", tipo: "AULA", confirmar: true,
       titulo: "Vista da prova NI1",
-      descricao: "Aula de vista da prova NI1 de CTS, seguida do conteúdo sobre mudança social e participação democrática.",
-      oQueFazer: "É a chance de conferir a correção e pedir revisão de questão. Quem falta perde a vista. Cai no mesmo dia da vista de Ciência Política, do mesmo professor — as duas são na sexta.",
-      fonte: "Plano de Ensino da disciplina (arquivo 1017334), aula 8 do cronograma."
+      descricao: "Aula de vista da prova NI1 de CTS, seguida do conteúdo sobre mudança social e participação democrática. Mesma situação da vista de Ciência Política: a data vem do plano de ensino, que punha a prova em 18/09, e a prova passou justamente para 25/09.",
+      oQueFazer: "Não conte com a vista nesta data. Pergunte ao professor no dia da prova qual será a nova.",
+      fonte: "Plano de Ensino da disciplina (arquivo 1017334), aula 8 do cronograma — anterior à remarcação da prova."
     },
     {
       data: "2026-09-30", hora: null, disciplina: "Econ. Pol.", tipo: "AVALIACAO",
@@ -811,9 +826,9 @@ const CALENDARIO = {
     {
       data: "2026-09-24", hora: null, disciplina: "Hist. Dir.", tipo: "AVALIACAO",
       titulo: "Atividade em grupo — 40% da N1",
-      descricao: "Atividade avaliativa feita durante a própria aula, em grupo de 2 a 3 alunos: o professor dá as orientações no início, o texto é produzido em sala e a entrega acontece ao fim do encontro. Vale 40% da N1; os outros 60% saem da prova individual de 01/10.",
-      oQueFazer: "É feita e entregue na hora — não dá para repor depois. Quem falta perde 40% da primeira nota.",
-      fonte: "Cronograma e pesos informados pelo professor, repassados pelo representante da turma em 21/08/2026."
+      descricao: "Atividade avaliativa feita durante a própria aula: o professor dá as orientações no início, o texto é produzido em sala e a entrega acontece ao fim do encontro. Vale 40% da N1; os outros 60% saem da prova individual de 01/10. O professor divulgou novas diretrizes e já fechou os cinco grupos, de três alunos cada — veja o seu na aba Grupos de Trabalho.",
+      oQueFazer: "É feita e entregue na hora — não dá para repor depois. Quem falta perde 40% da primeira nota e ainda deixa o grupo desfalcado, porque a composição agora está definida.",
+      fonte: "Cronograma e pesos informados pelo professor, repassados pelo representante da turma em 21/08/2026. Grupos e novas diretrizes divulgados pelo Prof. Dr. Alexandre Aparecido de Lima e repassados em 20/09/2026."
     },
     {
       data: "2026-10-01", hora: null, disciplina: "Hist. Dir.", tipo: "PROVA",
