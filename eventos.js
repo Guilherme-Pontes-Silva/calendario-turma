@@ -25,7 +25,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-09-20T01:05:00-03:00",
+  atualizadoEm: "2026-09-20T02:10:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -310,38 +310,24 @@ const CALENDARIO = {
     },
     {
       data: "2026-09-25", hora: null, disciplina: "Ciên. Pol.", tipo: "PROVA",
-      titulo: "Prova escrita NI1",
-      descricao: "Prova escrita e individual de Ciência Política, peso 7 da primeira nota intermediária. É aplicada junto com a prova de CTS: as duas disciplinas são do mesmo professor, e a avaliação ocupa as três aulas dele nesta sexta, das 18h30 às 21h00. A prova é com consulta, limitada a material feito pelo próprio aluno.",
-      oQueFazer: "Prepare a sua folha de consulta com antecedência. Você pode levar uma folha para Ciência Política e outra para CTS, de tipo e tamanho à sua escolha, com anotações manuscritas em frente e verso, contendo o que julgar mais importante. Só vale material que você mesmo fez. No mesmo dia entram a prova de CTS e os fichamentos das duas disciplinas.",
-      fonte: "Informado pelo professor em sala e repassado pelo representante da turma em 20/09/2026. Substitui a data de 18/09 que vinha do cronograma do plano de ensino."
-    },
-    {
-      data: "2026-09-25", hora: null, disciplina: "Ciên. Pol.", tipo: "MANUSCRITO",
-      titulo: "Fichamento 3",
-      descricao: "Fichamento do texto da aula de 11/09, sobre a primeira parte da evolução do Estado moderno. Manuscrito, em ficha própria, entregue em mãos ao professor. O professor mudou a data: passa a ser entregue no dia das provas, junto com o fichamento de CTS.",
-      oQueFazer: "Entregar junto com o fichamento de CTS, no mesmo dia da prova. Não é envio pelo Moodle: quem falta precisa combinar a reposição direto com o professor.",
-      fonte: "Informado pelo professor em sala e repassado pelo representante da turma em 20/09/2026. Substitui a data de 18/09, que vinha da regra de entrega na semana seguinte."
-    },
-    {
-      data: "2026-09-25", hora: null, disciplina: "CTS", tipo: "MANUSCRITO",
-      titulo: "Fichamentos de CTS",
-      descricao: "Entrega dos fichamentos de Ciência, Tecnologia e Sociedade, em mãos ao professor, no mesmo dia das provas e junto com o fichamento de Ciência Política. Quais textos entram nesta entrega não foi registrado aqui.",
-      oQueFazer: "Confirme com o professor ou com o representante quais textos entram nesta entrega — a lista não chegou a este calendário. A forma é a mesma da outra disciplina do professor: manuscrito, em mãos, sem envio pelo Moodle.",
-      fonte: "Informado pelo professor em sala e repassado pelo representante da turma em 20/09/2026."
+      titulo: "Prova escrita NI1 e entrega do fichamento",
+      descricao: "Dois compromissos na mesma aula. A prova escrita e individual de Ciência Política, peso 7 da primeira nota intermediária, aplicada junto com a de CTS: as duas disciplinas são do mesmo professor, e a avaliação ocupa as três aulas dele nesta sexta, das 18h30 às 21h00. É com consulta, limitada a material feito pelo próprio aluno. No mesmo dia entra a entrega do fichamento 3, sobre o texto da aula de 11/09, a primeira parte da evolução do Estado moderno: manuscrito, em ficha própria, em mãos ao professor.",
+      oQueFazer: "Prepare a sua folha de consulta com antecedência. Você pode levar uma folha para Ciência Política e outra para CTS, de tipo e tamanho à sua escolha, com anotações manuscritas em frente e verso, contendo o que julgar mais importante. Só vale material que você mesmo fez. Leve o fichamento pronto: a entrega é em mãos, sem Moodle, e quem falta precisa combinar a reposição direto com o professor.",
+      fonte: "Informado pelo professor em sala e repassado pelo representante da turma em 20/09/2026. Substitui a data de 18/09, que vinha do cronograma do plano de ensino e da regra de entrega na semana seguinte."
     },
     {
       data: "2026-09-25", hora: null, disciplina: "CTS", tipo: "PROVA",
-      titulo: "Prova escrita individual NI1 (peso 7)",
-      descricao: "Prova escrita e individual de Ciência, Tecnologia e Sociedade no Direito, peso 7 da primeira nota intermediária. É aplicada junto com a prova de Ciência Política: as duas disciplinas são do mesmo professor, e a avaliação ocupa as três aulas dele nesta sexta, das 18h30 às 21h00. A prova é com consulta, limitada a material feito pelo próprio aluno.",
-      oQueFazer: "Prepare a sua folha de consulta com antecedência. Você pode levar uma folha para CTS e outra para Ciência Política, de tipo e tamanho à sua escolha, com anotações manuscritas em frente e verso, contendo o que julgar mais importante. Só vale material que você mesmo fez. É o dia mais pesado do mês: duas provas e os fichamentos das duas disciplinas.",
+      titulo: "Prova escrita individual NI1 (peso 7) e entrega dos fichamentos",
+      descricao: "Dois compromissos na mesma aula. A prova escrita e individual de Ciência, Tecnologia e Sociedade no Direito, peso 7 da primeira nota intermediária, aplicada junto com a de Ciência Política: as duas disciplinas são do mesmo professor, e a avaliação ocupa as três aulas dele nesta sexta, das 18h30 às 21h00. É com consulta, limitada a material feito pelo próprio aluno. No mesmo dia entram os fichamentos da disciplina, manuscritos e entregues em mãos.",
+      oQueFazer: "Prepare a sua folha de consulta com antecedência. Você pode levar uma folha para CTS e outra para Ciência Política, de tipo e tamanho à sua escolha, com anotações manuscritas em frente e verso, contendo o que julgar mais importante. Só vale material que você mesmo fez. Separe os fichamentos na véspera: é o dia mais pesado do mês, com as duas provas e as duas entregas.",
       fonte: "Informado pelo professor em sala e repassado pelo representante da turma em 20/09/2026. Substitui a data de 18/09 que vinha do plano de ensino."
     },
     {
-      data: "2026-09-20", hora: "23:59", disciplina: "IDP", tipo: "ENTREGA",
+      data: "2026-09-27", hora: "23:59", disciplina: "IDP", tipo: "ENTREGA",
       titulo: "Trabalho da N1 — Direitos Morais de Autor",
-      descricao: "Trabalho de Introdução ao Direito Privado sobre o tema “Direitos Morais de Autor”, postado no Moodle. A entrega abriu na quarta-feira, 02/09/2026, às 00h00, e fecha no domingo, 20/09/2026, às 23h59. É um dos dois instrumentos da N1, junto com a prova de 23/09; os dois têm o mesmo peso dentro do bimestre.",
-      oQueFazer: "Regras do enunciado: até cinco páginas; individual ou em grupo de no máximo quatro alunos; fonte Arial ou Times New Roman tamanho 12; referências bibliográficas completas de todas as obras citadas no texto; nomes completos de todos os integrantes do grupo; apenas um integrante posta pelo grupo inteiro; arquivo em Word ou PDF. Cai num domingo, e o prazo do Moodle fecha sozinho — não deixe para o fim de semana. A prova da mesma nota é três dias depois, em 23/09.",
-      fonte: "Enunciado da tarefa na sala de IDP no Moodle, publicado em 02/09/2026, e o quadro de avaliações da disciplina, informado pelo representante da turma em 18/08/2026."
+      descricao: "Trabalho de Introdução ao Direito Privado sobre o tema “Direitos morais de autor”, postado no Moodle. A entrega abriu na quarta-feira, 02/09/2026, às 00h00, e o professor estendeu o prazo de 20/09 para 27/09, às 23h59. É um dos dois instrumentos da N1, junto com a prova de 23/09; os dois têm o mesmo peso dentro do bimestre.",
+      oQueFazer: "Regras do enunciado: até cinco páginas; individual ou em grupo de no máximo quatro alunos; fonte Arial ou Times New Roman tamanho 12; referências bibliográficas completas de todas as obras citadas no texto; nomes completos de todos os integrantes do grupo; apenas um integrante posta pelo grupo inteiro; arquivo em Word ou PDF. O prazo do Moodle fecha sozinho, e agora cai depois da prova da mesma nota, que é em 23/09 — não vale a pena deixar o trabalho para depois de estudar. Bibliografia recomendada: AFONSO, Otávio. Direito autoral: conceitos essenciais. Barueri: Manole, 2009; BITTAR, Carlos Alberto. Direito de autor. 7. ed. rev., atual. e ampl. por Eduardo C. B. Bittar. Rio de Janeiro: Forense, 2019; COSTA NETTO, José Carlos. Direito autoral no Brasil. 5. ed. São Paulo: SaraivaJur, 2025; MENEZES, Elisângela Dias. Curso de direito autoral. Belo Horizonte: Del Rey, 2007; ZANINI, Leonardo Estevam de Assis. Direito de autor. São Paulo: Saraiva, 2015.",
+      fonte: "Enunciado da tarefa na sala de IDP no Moodle, aberto em 02/09/2026, com o novo prazo e a bibliografia repassados pelo representante da turma em 20/09/2026."
     },
     {
       data: "2026-09-21", hora: null, disciplina: "Antrop. Jur.", tipo: "AVALIACAO",
@@ -379,7 +365,7 @@ const CALENDARIO = {
     {
       data: "2026-09-23", hora: null, disciplina: "IDP", tipo: "PROVA",
       titulo: "1ª Prova (N1)",
-      descricao: "Primeira prova de Introdução ao Direito Privado, Pessoas e Bens. Cobre 100% do conteúdo do bimestre e é um dos dois instrumentos da N1, junto com o trabalho sobre Direitos Morais de Autor, entregue em 20/09.",
+      descricao: "Primeira prova de Introdução ao Direito Privado, Pessoas e Bens. Cobre 100% do conteúdo do bimestre e é um dos dois instrumentos da N1, junto com o trabalho sobre Direitos morais de autor, cujo prazo o professor estendeu para 27/09 — ou seja, a prova vem antes da entrega.",
       oQueFazer: "Estudar o conteúdo do bimestre inteiro — a prova não é por recorte. É quarta-feira, dia de aula da disciplina, das 21h10 às 22h50. Cai no mesmo dia da apresentação da proposta do produto extensionista.",
       fonte: "Quadro de avaliações da disciplina, informado pelo representante da turma em 18/08/2026."
     },
@@ -389,20 +375,6 @@ const CALENDARIO = {
       descricao: "Resumo manuscrito da lição do Betioli sobre “ordenamento jurídico” (Introdução ao Direito, 16ª ed., Saraiva, 2023). O cronograma não numera esta lição.",
       oQueFazer: "Escrever o resumo à mão, você mesmo, e enviar a digitalização pelo Moodle.",
       fonte: "Tarefa 1022926 na sala de TGD no Moodle (curso 39157), com prazo até 23h59."
-    },
-    {
-      data: "2026-09-25", hora: null, disciplina: "Ciên. Pol.", tipo: "AULA", confirmar: true,
-      titulo: "Vista da prova NI1",
-      descricao: "Aula de vista da prova NI1, seguida do conteúdo sobre análise teórica do Estado moderno. A data vem do plano de ensino, que previa a prova em 18/09 e a vista em 25/09. Com a prova remarcada para 25/09, a vista não cabe mais neste dia e deve escorregar para a aula seguinte.",
-      oQueFazer: "Não conte com a vista nesta data: o professor ainda não anunciou a nova. Pergunte a ele no dia da prova. Quando a data sair, ela entra aqui.",
-      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 8 do cronograma — anterior à remarcação da prova."
-    },
-    {
-      data: "2026-09-25", hora: null, disciplina: "CTS", tipo: "AULA", confirmar: true,
-      titulo: "Vista da prova NI1",
-      descricao: "Aula de vista da prova NI1 de CTS, seguida do conteúdo sobre mudança social e participação democrática. Mesma situação da vista de Ciência Política: a data vem do plano de ensino, que punha a prova em 18/09, e a prova passou justamente para 25/09.",
-      oQueFazer: "Não conte com a vista nesta data. Pergunte ao professor no dia da prova qual será a nova.",
-      fonte: "Plano de Ensino da disciplina (arquivo 1017334), aula 8 do cronograma — anterior à remarcação da prova."
     },
     {
       data: "2026-09-30", hora: null, disciplina: "Econ. Pol.", tipo: "AVALIACAO",

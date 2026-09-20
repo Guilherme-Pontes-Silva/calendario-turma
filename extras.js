@@ -59,7 +59,7 @@ const PAINEL = {
     { sigla:"Antrop. Jur.",disciplina:"Antropologia Jurídica", confirmado:false, resumo:"", faltaConfirmar:"Nenhuma fórmula de aprovação confirmada ainda.", fonte:"" },
     {
       sigla:"IDP", disciplina:"Introdução ao Direito Privado, Pessoas e Bens", confirmado:false,
-      resumo:"Cada bimestre tem dois instrumentos, uma prova e um trabalho, e cada um deles cobre 100% do conteúdo do bimestre. N1: trabalho sobre Direitos Morais de Autor, postado no Moodle até 20/09, e prova em 23/09, ambos de peso 4. N2: prova em 11/11 e trabalho sobre Domicílio da Pessoa Natural, postado até 15/11, ambos de peso 6. Os dois trabalhos podem ser feitos individualmente ou em grupo de até quatro alunos; os grupos da N1 já estão definidos na aba Grupos de Trabalho, e os da N2 ainda não foram organizados. Como os dois instrumentos de um mesmo bimestre têm peso igual, dentro do bimestre a divisão é meio a meio; e como a N1 pesa 4 contra 6 da N2, o segundo bimestre vale mais no fechamento.",
+      resumo:"Cada bimestre tem dois instrumentos, uma prova e um trabalho, e cada um deles cobre 100% do conteúdo do bimestre. N1: prova em 23/09 e trabalho sobre Direitos morais de autor, postado no Moodle até 27/09 (prazo estendido pelo professor, que era 20/09), ambos de peso 4. N2: prova em 11/11 e trabalho sobre Domicílio da Pessoa Natural, postado até 15/11, ambos de peso 6. Os dois trabalhos podem ser feitos individualmente ou em grupo de até quatro alunos; os grupos da N1 já estão definidos na aba Grupos de Trabalho, e os da N2 ainda não foram organizados. Como os dois instrumentos de um mesmo bimestre têm peso igual, dentro do bimestre a divisão é meio a meio; e como a N1 pesa 4 contra 6 da N2, o segundo bimestre vale mais no fechamento.",
       faltaConfirmar:"Se os pesos 4 e 6 são mesmo do bimestre inteiro, e não de cada instrumento separadamente — o quadro marca “100%” nos dois instrumentos do mesmo bimestre, o que não fecha e precisa ser esclarecido com o professor. Falta também a nota mínima para aprovação.",
       fonte:"Quadro de avaliações da disciplina, informado pelo representante da turma em 18/08/2026."
     },
@@ -178,7 +178,7 @@ const PAINEL = {
     { sigla:"Antrop. Jur.",  a1:null, a2:null },
     { sigla:"IDP",
       a1:{ nome:"N1", componentes:[
-        { nome:"1ª Prova (23/09)", peso:50 }, { nome:"Trabalho em grupo (20/09)", peso:50 }
+        { nome:"1ª Prova (23/09)", peso:50 }, { nome:"Trabalho (27/09)", peso:50 }
       ], pesosConfirmados:false },
       a2:{ nome:"N2", componentes:[
         { nome:"2ª Prova (11/11)", peso:50 }, { nome:"Trabalho em grupo (15/11)", peso:50 }
@@ -274,10 +274,10 @@ const PAINEL = {
     "Antrop. Jur.": { n1:[], n2:[] },
     "IDP": {
       n1: [
-        { grupo:"Trio 1",     integrantes:"David B., Louise R. e Ryan S.",              tema:"Direitos Morais de Autor", dataEntrega:"20/09, até 23h59, pelo Moodle" },
-        { grupo:"Quarteto 2", integrantes:"Emilly P., Guilherme P., Pedro O. e Thiago R.", tema:"Direitos Morais de Autor", dataEntrega:"20/09, até 23h59, pelo Moodle" },
-        { grupo:"Quarteto 3", integrantes:"Gabriele C., Heloísa F., Luís H. e Luiza S.",   tema:"Direitos Morais de Autor", dataEntrega:"20/09, até 23h59, pelo Moodle" },
-        { grupo:"Quarteto 4", integrantes:"Andressa S., Luiza C., Melissa S. e Pamela C.", tema:"Direitos Morais de Autor", dataEntrega:"20/09, até 23h59, pelo Moodle" }
+        { grupo:"Trio 1",     integrantes:"David B., Louise R. e Ryan S.",              tema:"Direitos Morais de Autor", dataEntrega:"27/09, até 23h59, pelo Moodle" },
+        { grupo:"Quarteto 2", integrantes:"Emilly P., Guilherme P., Pedro O. e Thiago R.", tema:"Direitos Morais de Autor", dataEntrega:"27/09, até 23h59, pelo Moodle" },
+        { grupo:"Quarteto 3", integrantes:"Gabriele C., Heloísa F., Luís H. e Luiza S.",   tema:"Direitos Morais de Autor", dataEntrega:"27/09, até 23h59, pelo Moodle" },
+        { grupo:"Quarteto 4", integrantes:"Andressa S., Luiza C., Melissa S. e Pamela C.", tema:"Direitos Morais de Autor", dataEntrega:"27/09, até 23h59, pelo Moodle" }
       ],
       n2: []
     },
