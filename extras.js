@@ -59,7 +59,7 @@ const PAINEL = {
     { sigla:"Antrop. Jur.",disciplina:"Antropologia Jurídica", confirmado:false, resumo:"", faltaConfirmar:"Nenhuma fórmula de aprovação confirmada ainda.", fonte:"" },
     {
       sigla:"IDP", disciplina:"Introdução ao Direito Privado, Pessoas e Bens", confirmado:false,
-      resumo:"Cada bimestre tem dois instrumentos, uma prova e um trabalho, e cada um deles cobre 100% do conteúdo do bimestre. N1: prova em 23/09 e trabalho sobre Direitos morais de autor, postado no Moodle até 27/09 (prazo estendido pelo professor, que era 20/09), ambos de peso 4. N2: prova em 11/11 e trabalho sobre Domicílio da Pessoa Natural, postado até 15/11, ambos de peso 6. Os dois trabalhos podem ser feitos individualmente ou em grupo de até quatro alunos; os grupos da N1 já estão definidos na aba Grupos de Trabalho, e os da N2 ainda não foram organizados. Como os dois instrumentos de um mesmo bimestre têm peso igual, dentro do bimestre a divisão é meio a meio; e como a N1 pesa 4 contra 6 da N2, o segundo bimestre vale mais no fechamento.",
+      resumo:"Cada bimestre tem dois instrumentos, uma prova e um trabalho, e cada um deles cobre 100% do conteúdo do bimestre. N1: prova em 23/09 e trabalho sobre Direitos morais de autor, postado no Moodle até 27/09 (prazo estendido pelo professor, que era 20/09), ambos de peso 4. N2: prova em 11/11 e trabalho sobre Domicílio da Pessoa Natural, postado até 15/11, ambos de peso 6. Os dois trabalhos podem ser feitos individualmente ou em grupo de até quatro alunos; os grupos estão na aba Grupos de Trabalho, e os da N2 são os mesmos da N1. Como os dois instrumentos de um mesmo bimestre têm peso igual, dentro do bimestre a divisão é meio a meio; e como a N1 pesa 4 contra 6 da N2, o segundo bimestre vale mais no fechamento.",
       faltaConfirmar:"Se os pesos 4 e 6 são mesmo do bimestre inteiro, e não de cada instrumento separadamente — o quadro marca “100%” nos dois instrumentos do mesmo bimestre, o que não fecha e precisa ser esclarecido com o professor. Falta também a nota mínima para aprovação.",
       fonte:"Quadro de avaliações da disciplina, informado pelo representante da turma em 18/08/2026."
     },
@@ -239,12 +239,22 @@ const PAINEL = {
           dataSeminario:"10/09 (quinta)", dataEntrega:"10/09, até 23h59 — prazo final da tarefa no Moodle" }
       ],
       n2: [
-        { grupo:"Trio 1",     integrantes:"Emilly P., Guilherme P. e Luiza C.",   tema:"Tema ainda não divulgado" },
-        { grupo:"Trio 2",     integrantes:"Gabriele C., Louise R. e Pamela C.",   tema:"Tema ainda não divulgado" },
-        { grupo:"Trio 3",     integrantes:"Gustavo R., Luís H. e Luiza S.",       tema:"Tema ainda não divulgado" },
-        { grupo:"Trio 4",     integrantes:"David B., Heloísa F. e Thiago R.",     tema:"Tema ainda não divulgado" },
-        { grupo:"Trio 5",     integrantes:"Andressa S., Pedro O. e Ryan S.",      tema:"Tema ainda não divulgado" },
-        { grupo:"Quarteto 6", integrantes:"Andrielly L., Kelly O., Maria C. e Yasmin L.", tema:"Tema ainda não divulgado" }
+        { grupo:"Quarteto 1", integrantes:"Andrielly L., Kelly O., Maria C. e Yasmin L.", tema:"Escolas da Hermenêutica Jurídica",
+          dataSeminario:"01/10 (quinta), das 18h30 às 20h10" },
+        { grupo:"Trio 2",     integrantes:"David B., Heloísa F. e Thiago R.",     tema:"Estrutura Tridimensional do Direito",
+          dataSeminario:"01/10 (quinta), na mesma aula do Quarteto 1" },
+        { grupo:"Trio 3",     integrantes:"Andressa S., Pedro O. e Ryan S.",      tema:"Métodos de Interpretação",
+          dataSeminario:"15/10 (quinta), das 18h30 às 20h10" },
+        { grupo:"Trio 4",     integrantes:"Gustavo R., Luís H. e Luiza S.",       tema:"Neoconstitucionalismo",
+          dataSeminario:"19/10 (segunda), das 21h10 às 22h50" },
+        { grupo:"Quarteto 1", integrantes:"Andrielly L., Kelly O., Maria C. e Yasmin L.", tema:"Banalidade do Mal em Hannah Arendt",
+          dataSeminario:"22/10 (quinta) — segunda apresentação do grupo" },
+        { grupo:"Trio 5",     integrantes:"Gabriele C., Louise R. e Pamela C.",   tema:"Dworkin: Levando os Direitos a Sério",
+          dataSeminario:"26/10 (segunda), das 21h10 às 22h50" },
+        { grupo:"Trio 6",     integrantes:"Emilly P., Guilherme P. e Luiza C.",   tema:"LINDB: aplicação da lei no tempo e no espaço",
+          dataSeminario:"29/10 (quinta), das 18h30 às 20h10" },
+        { grupo:"Trio 6",     integrantes:"Emilly P., Guilherme P. e Luiza C.",   tema:"Justice, de Michael Sandel",
+          dataSeminario:"05/11 (quinta) — segunda apresentação do grupo" }
       ]
     },
     "Hist. Dir.": {
@@ -279,7 +289,12 @@ const PAINEL = {
         { grupo:"Quarteto 3", integrantes:"Gabriele C., Heloísa F., Luís H. e Luiza S.",   tema:"Direitos Morais de Autor", dataEntrega:"27/09, até 23h59, pelo Moodle" },
         { grupo:"Quarteto 4", integrantes:"Andressa S., Luiza C., Melissa S. e Pamela C.", tema:"Direitos Morais de Autor", dataEntrega:"27/09, até 23h59, pelo Moodle" }
       ],
-      n2: []
+      n2: [
+        { grupo:"Trio 1",     integrantes:"David B., Louise R. e Ryan S.",                 tema:"Domicílio da Pessoa Natural", dataEntrega:"15/11, até 23h59, pelo Moodle" },
+        { grupo:"Quarteto 2", integrantes:"Emilly P., Guilherme P., Pedro O. e Thiago R.", tema:"Domicílio da Pessoa Natural", dataEntrega:"15/11, até 23h59, pelo Moodle" },
+        { grupo:"Quarteto 3", integrantes:"Gabriele C., Heloísa F., Luís H. e Luiza S.",   tema:"Domicílio da Pessoa Natural", dataEntrega:"15/11, até 23h59, pelo Moodle" },
+        { grupo:"Quarteto 4", integrantes:"Andressa S., Luiza C., Melissa S. e Pamela C.", tema:"Domicílio da Pessoa Natural", dataEntrega:"15/11, até 23h59, pelo Moodle" }
+      ]
     },
     "Ética":        { n1:[], n2:[] },
     "CTS": {
@@ -294,10 +309,14 @@ const PAINEL = {
     "Ciên. Pol.": {
       n1: [],
       n2: [
-        { grupo:"Quarteto 1", integrantes:"Andressa S., Emilly P., Guilherme P. e Luiza C.", tema:"Tema ainda não divulgado" },
-        { grupo:"Quarteto 2", integrantes:"David B., Heloísa F., Luís H. e Pedro O.",        tema:"Tema ainda não divulgado" },
-        { grupo:"Quarteto 3", integrantes:"Gabriele C., Luiza S., Nayana M. e Ryan S.",      tema:"Tema ainda não divulgado" },
-        { grupo:"Quarteto 4", integrantes:"Andrielly L., Louise R., Pamela C. e Thiago R.",  tema:"Tema ainda não divulgado" }
+        { grupo:"Quarteto 1", integrantes:"Andrielly L., Louise R., Pamela C. e Thiago R.",  tema:"Sufrágio (capítulo 16)",
+          dataSeminario:"29 ou 30 de outubro — o professor ainda não fechou o dia" },
+        { grupo:"Quarteto 2", integrantes:"Andressa S., Emilly P., Guilherme P. e Luiza C.", tema:"Sistemas Eleitorais e Mandato (capítulos 17 e 18)",
+          dataSeminario:"29 ou 30 de outubro — o professor ainda não fechou o dia" },
+        { grupo:"Quarteto 3", integrantes:"David B., Heloísa F., Luís H. e Pedro O.",        tema:"Parlamentarismo (capítulo 22)",
+          dataSeminario:"29 ou 30 de outubro — o professor ainda não fechou o dia" },
+        { grupo:"Quarteto 4", integrantes:"Gabriele C., Luiza S., Nayana M. e Ryan S.",      tema:"Partidos Políticos (capítulos 23 e 24)",
+          dataSeminario:"29 ou 30 de outubro — o professor ainda não fechou o dia" }
       ]
     }
   },

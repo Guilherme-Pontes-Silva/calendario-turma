@@ -25,7 +25,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-09-20T02:10:00-03:00",
+  atualizadoEm: "2026-10-04T01:20:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -499,11 +499,11 @@ const CALENDARIO = {
       fonte: "Cronograma publicado pelo professor na sala do Moodle em 20/08/2026."
     },
     {
-      data: "2026-10-30", hora: null, disciplina: "Ciên. Pol.", tipo: "APRESENTACAO",
-      titulo: "Seminários em grupo",
-      descricao: "Apresentação dos seminários em grupo de Ciência Política, peso 3 da segunda nota intermediária.",
-      oQueFazer: "Organize o grupo com antecedência — o seminário vale 3 dos 10 pontos da NI2.",
-      fonte: "Arquivo “Plano de Ensino — Ciência Política.pdf”, linha 13 do cronograma."
+      data: "2026-10-30", hora: null, disciplina: "Ciên. Pol.", tipo: "APRESENTACAO", confirmar: true,
+      titulo: "Seminários em grupo — quatro temas",
+      descricao: "Apresentação dos seminários em grupo de Ciência Política, peso 3 da segunda nota intermediária. São quatro grupos, cada um com um tema do livro: Sufrágio, capítulo 16; Sistemas Eleitorais e Mandato, capítulos 17 e 18; Parlamentarismo, capítulo 22; e Partidos Políticos, capítulos 23 e 24. O professor falou em 29 ou 30 de outubro, sem fechar o dia.",
+      oQueFazer: "Veja o seu grupo e o seu tema na aba Grupos de Trabalho, em NI2. Prepare para os dois dias: o professor deu 29 ou 30 de outubro, e a disciplina tem aula na quinta e na sexta, das 20h10 às 21h00. Confirme a data com ele.",
+      fonte: "Temas e grupos informados pelo professor e repassados pelo representante da turma em 04/10/2026. A data de 30/10 vem do arquivo “Plano de Ensino — Ciência Política.pdf”, linha 13 do cronograma."
     },
     {
       data: "2026-10-30", hora: null, disciplina: "CTS", tipo: "PROVA",
@@ -610,7 +610,7 @@ const CALENDARIO = {
     {
       data: "2026-11-15", hora: "23:59", disciplina: "IDP", tipo: "ENTREGA",
       titulo: "Trabalho da N2 — Domicílio da Pessoa Natural",
-      descricao: "Trabalho de Introdução ao Direito Privado sobre o tema “Domicílio da Pessoa Natural”, postado no Moodle. A entrega abriu na quarta-feira, 02/09/2026, às 00h00, e fecha no domingo, 15/11/2026, às 23h59. Fecha a N2 junto com a prova de 11/11; os dois têm o mesmo peso dentro do bimestre.",
+      descricao: "Trabalho de Introdução ao Direito Privado sobre o tema “Domicílio da Pessoa Natural”, postado no Moodle. A entrega abriu na quarta-feira, 02/09/2026, às 00h00, e fecha no domingo, 15/11/2026, às 23h59. Os grupos são os mesmos do trabalho da N1 — veja o seu na aba Grupos de Trabalho. Fecha a N2 junto com a prova de 11/11; os dois têm o mesmo peso dentro do bimestre.",
       oQueFazer: "Regras do enunciado, as mesmas do trabalho da N1: até cinco páginas; individual ou em grupo de no máximo quatro alunos; fonte Arial ou Times New Roman tamanho 12; referências bibliográficas completas de todas as obras citadas no texto; nomes completos de todos os integrantes do grupo; apenas um integrante posta pelo grupo inteiro; arquivo em Word ou PDF. Já está aberto desde 02/09 — dá para adiantar. É o terceiro prazo do mesmo domingo: os dois fichamentos de Economia Política vencem no mesmo horário. Feriado e domingo não adiam nada.",
       fonte: "Enunciado da tarefa na sala de IDP no Moodle, publicado em 02/09/2026, e o quadro de avaliações da disciplina, informado pelo representante da turma em 18/08/2026."
     },
@@ -871,6 +871,70 @@ const CALENDARIO = {
       descricao: "Data de N2 no cronograma da disciplina, dois dias depois da devolutiva do segundo bimestre.",
       oQueFazer: "Também cai num sábado, sem aula — mesma leitura da N1: é a data de fechamento da nota. Confirme com o professor.",
       fonte: "Cronograma da disciplina, informado pelo representante da turma em 20/08/2026."
+    },
+
+    /* ---------- TGD — seminários da N2 ----------
+       Cronograma e temas atualizados pelo Prof. Dr. Luiz Eduardo de Almeida
+       e repassados pelo representante da turma em 04/10/2026. Oito
+       apresentações em sete datas: o Quarteto 1 e o Trio 6 apresentam duas
+       vezes, com temas diferentes. Ficam juntos aqui porque são o
+       cronograma de uma disciplina só — a página ordena por data.
+       Horário de TGD: quinta das 18h30 às 20h10, segunda das 21h10 às 22h50. */
+    {
+      data: "2026-10-01", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
+      titulo: "Seminário N2 — Escolas da Hermenêutica Jurídica",
+      descricao: "Primeiro seminário da N2 de Teoria Geral do Direito, que compõe o peso 2 da nota A2. Apresentam Andrielly L., Kelly O., Maria C. e Yasmin L. Cai na mesma aula do seminário sobre a Estrutura Tridimensional do Direito: são dois grupos na mesma quinta.",
+      oQueFazer: "Apresentação oral de 10 a 15 minutos, no horário da disciplina, das 18h30 às 20h10. Dia carregado: no mesmo dia caem a prova de História do Direito e o manuscrito do Kelsen, que fecha às 23h59.",
+      fonte: "Cronograma dos seminários da N2, atualizado pelo professor e repassado pelo representante da turma em 04/10/2026."
+    },
+    {
+      data: "2026-10-01", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
+      titulo: "Seminário N2 — Estrutura Tridimensional do Direito",
+      descricao: "Segundo seminário da N2, na mesma aula do seminário sobre as Escolas da Hermenêutica Jurídica. Apresentam David B., Heloísa F. e Thiago R.",
+      oQueFazer: "Apresentação oral de 10 a 15 minutos, das 18h30 às 20h10. São dois grupos na mesma quinta: combinem a ordem antes.",
+      fonte: "Cronograma dos seminários da N2, atualizado pelo professor e repassado pelo representante da turma em 04/10/2026."
+    },
+    {
+      data: "2026-10-15", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
+      titulo: "Seminário N2 — Métodos de Interpretação",
+      descricao: "Seminário da N2 de Teoria Geral do Direito. Apresentam Andressa S., Pedro O. e Ryan S.",
+      oQueFazer: "Apresentação oral de 10 a 15 minutos, na quinta, das 18h30 às 20h10. No mesmo dia vence o manuscrito da Lição XXX do Betioli, às 23h59.",
+      fonte: "Cronograma dos seminários da N2, atualizado pelo professor e repassado pelo representante da turma em 04/10/2026."
+    },
+    {
+      data: "2026-10-19", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
+      titulo: "Seminário N2 — Neoconstitucionalismo",
+      descricao: "Seminário da N2 de Teoria Geral do Direito. Apresentam Gustavo R., Luís H. e Luiza S. É o único seminário da N2 numa segunda-feira, junto com o do Dworkin.",
+      oQueFazer: "Atenção ao horário: na segunda, Teoria Geral do Direito é a última aula, das 21h10 às 22h50, e não das 18h30 como nas quintas. O manuscrito do Barroso sobre neoconstitucionalismo vence só em 29/10.",
+      fonte: "Cronograma dos seminários da N2, atualizado pelo professor e repassado pelo representante da turma em 04/10/2026."
+    },
+    {
+      data: "2026-10-22", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
+      titulo: "Seminário N2 — Banalidade do Mal em Hannah Arendt",
+      descricao: "Segunda apresentação do Quarteto 1 na N2, agora sobre a banalidade do mal em Hannah Arendt. Apresentam Andrielly L., Kelly O., Maria C. e Yasmin L.",
+      oQueFazer: "Apresentação oral de 10 a 15 minutos, na quinta, das 18h30 às 20h10. Dia cheio: também caem a apresentação e o fichamento de História do Direito e o manuscrito da Lição XXXI do Betioli.",
+      fonte: "Cronograma dos seminários da N2, atualizado pelo professor e repassado pelo representante da turma em 04/10/2026."
+    },
+    {
+      data: "2026-10-26", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
+      titulo: "Seminário N2 — Dworkin: Levando os Direitos a Sério",
+      descricao: "Seminário da N2 de Teoria Geral do Direito sobre “Levando os Direitos a Sério”, de Ronald Dworkin. Apresentam Gabriele C., Louise R. e Pamela C.",
+      oQueFazer: "Cai numa segunda-feira: a aula é das 21h10 às 22h50, a última do dia.",
+      fonte: "Cronograma dos seminários da N2, atualizado pelo professor e repassado pelo representante da turma em 04/10/2026."
+    },
+    {
+      data: "2026-10-29", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
+      titulo: "Seminário N2 — LINDB: aplicação da lei no tempo e no espaço",
+      descricao: "Seminário da N2 sobre a Lei de Introdução às Normas do Direito Brasileiro, aplicação da lei no tempo e no espaço. Apresentam Emilly P., Guilherme P. e Luiza C.",
+      oQueFazer: "Apresentação oral de 10 a 15 minutos, na quinta, das 18h30 às 20h10. No mesmo dia caem a apresentação e o fichamento de História do Direito e o manuscrito do Barroso, às 23h59.",
+      fonte: "Cronograma dos seminários da N2, atualizado pelo professor e repassado pelo representante da turma em 04/10/2026."
+    },
+    {
+      data: "2026-11-05", hora: null, disciplina: "TGD", tipo: "APRESENTACAO",
+      titulo: "Seminário N2 — Justice, de Michael Sandel",
+      descricao: "Último seminário da N2 de Teoria Geral do Direito, segunda apresentação do Trio 6. Apresentam Emilly P., Guilherme P. e Luiza C.",
+      oQueFazer: "Apresentação oral de 10 a 15 minutos, na quinta, das 18h30 às 20h10. Fecha a série de seminários da N2. No mesmo dia caem a apresentação e o fichamento de História do Direito e o manuscrito da Lição XLI do Betioli.",
+      fonte: "Cronograma dos seminários da N2, atualizado pelo professor e repassado pelo representante da turma em 04/10/2026."
     }
   ]
 };
