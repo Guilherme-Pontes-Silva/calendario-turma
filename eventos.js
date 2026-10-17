@@ -25,7 +25,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-10-04T01:20:00-03:00",
+  atualizadoEm: "2026-10-17T18:35:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -453,6 +453,13 @@ const CALENDARIO = {
       descricao: "Resumo manuscrito da Lição XXX (“Hermenêutica jurídica”) do Betioli, Introdução ao Direito, 16ª ed., Saraiva, 2023.",
       oQueFazer: "Escrever à mão e enviar a digitalização pelo Moodle. Começa aqui o bloco de hermenêutica e interpretação, que continua em 22/10.",
       fonte: "Tarefa 1022937 na sala de TGD no Moodle (curso 39157), com prazo até 23h59."
+    },
+    {
+      data: "2026-10-18", hora: "23:59", disciplina: "Prát. Ext.", tipo: "ENTREGA",
+      titulo: "Entrega do Produto Extensionista",
+      descricao: "Entrega de um documento em PDF, em formato de rascunho, pelo Moodle. Não há exigência de ABNT nem de qualquer outra norma de formatação. A atividade abriu em 14/10/2026, às 00h00, e vence em 18/10/2026, às 23h59.\n\nOrientações oficiais da atividade, reproduzidas sem alteração:\n\n1ª Entrega do produto extensionista no Moodle\nTurma:\nData:\nNome dos integrantes do grupo:\n1.1. Público-alvo específico (Geral: estudantes de ensino médio, cursinho, ensino fundamental II ou pessoas em geral com interesse em seguir com estudos em nível técnico e de graduação. Escola pública ou privada. Outra característica desse público?)\n1.2. Tipo de conhecimento específico (Qual será o conteúdo a ser compartilhado?)\n1.3. Tipo de produto (Qual será a modalidade do produto? Opções: vídeos, jogo, podcast, pôster, cartilhas, folder, planejamento de dinâmica etc.)\n2. Quando o produto estiver pronto, onde pretendem apresentá-lo? Onde encontrarão o público-alvo?\n3. Esboço do produto (coloquem a seguir tudo o que já fizeram até agora sobre o produto extensionista).",
+      oQueFazer: "Postar o PDF no Moodle até 23h59. Cai num domingo e o prazo fecha sozinho. Como é rascunho, o que vale é responder a todos os itens, não a formatação.",
+      fonte: "Orientações oficiais da atividade, repassadas pelo representante da turma em 17/10/2026."
     },
     {
       data: "2026-10-22", hora: null, disciplina: "Hist. Dir.", tipo: "APRESENTACAO",
