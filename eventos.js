@@ -25,7 +25,7 @@
 const CALENDARIO = {
   turma: "Direito · 1º período noturno · Campus Campinas",
   semestre: "2º semestre de 2026",
-  atualizadoEm: "2026-10-17T18:35:00-03:00",
+  atualizadoEm: "2026-10-26T16:45:00-03:00",
   fonte: "calendário do Moodle, salas das disciplinas, enunciados das tarefas, planos de ensino e cronogramas dos professores, o mural do Portal do Aluno, e anotações de aula do representante da turma",
   fusoHorario: "-03:00",
 
@@ -490,6 +490,20 @@ const CALENDARIO = {
       fonte: "Plano de Ensino da disciplina (arquivo 1017334), aula 12 do cronograma."
     },
     {
+      data: "2026-10-26", hora: null, disciplina: "Prát. Ext.", tipo: "AULA",
+      titulo: "Roda de conversa com o professor Carlos",
+      descricao: "Roda de conversa com o professor Carlos, no horário da Prática Extensionista.",
+      oQueFazer: "Segunda-feira, das 18h30 às 19h20, a primeira aula do dia. É encontro em sala, então vale chegar no horário.",
+      fonte: "Informado pelo representante da turma em 26/10/2026."
+    },
+    {
+      data: "2026-10-28", hora: null, disciplina: "Prát. Ext.", tipo: "AULA",
+      titulo: "Retomada do trabalho em sala",
+      descricao: "Retomada do trabalho do produto extensionista durante a aula. A professora passa de grupo em grupo para acompanhar como cada um está.",
+      oQueFazer: "Quarta-feira, das 20h10 às 21h00. Leve o que o grupo já produziu: é a chance de tirar dúvida direto com a professora antes da entrega de 09/11.",
+      fonte: "Informado pelo representante da turma em 26/10/2026."
+    },
+    {
       data: "2026-10-29", hora: "23:59", disciplina: "TGD", tipo: "MANUSCRITO",
       titulo: "Barroso — Neoconstitucionalismo",
       descricao: "Resumo manuscrito do texto de BARROSO, Luiz Roberto, sobre neoconstitucionalismo. É o único item do cronograma que não sai de livro.",
@@ -565,9 +579,17 @@ const CALENDARIO = {
     },
     {
       data: "2026-11-09", hora: null, disciplina: "Prát. Ext.", tipo: "ENTREGA",
-      titulo: "Produto extensionista",
-      descricao: "Entrega do produto extensionista, em grupo. É a primeira das duas avaliações que compõem a nota N2 da disciplina.",
-      oQueFazer: "Entrega em grupo, pelo Moodle. Cai no mesmo dia da prova A2 de TGD — organize o grupo com antecedência. A data da 1P é 09/11; 05/11 no plano é da turma 1F."
+      titulo: "Entrega do Projeto/Produto",
+      descricao: "Entrega do projeto e do produto extensionista, em grupo, com prazo até 09/11. É a primeira das duas avaliações que compõem a nota N2 da disciplina.",
+      oQueFazer: "Entrega em grupo, pelo Moodle. Cai no mesmo dia da prova A2 de TGD — organize o grupo com antecedência. A data da 1P é 09/11; 05/11 no plano é da turma 1F. A partir deste dia começa o período de elaboração do material do Evento, que vai até 23/11.",
+      fonte: "Informado pelo representante da turma em 26/10/2026, fixando o nome e o prazo da entrega."
+    },
+    {
+      data: "2026-11-09", dataFim: "2026-11-23", hora: null, disciplina: "Prát. Ext.", tipo: "TAREFA",
+      titulo: "Elaboração e entrega do material do Evento",
+      descricao: "Período para elaborar e entregar o material do Evento, de 09/11 a 23/11. É um compromisso só, do começo do primeiro dia ao fim do último, e não um registro por dia.",
+      oQueFazer: "Comece assim que o projeto e o produto forem entregues, em 09/11: são duas semanas para preparar o material, e o prazo termina em 23/11, no mesmo dia da entrega do relatório de impacto. Que material é esse e por onde ele é entregue não foi informado — confirme com a professora.",
+      fonte: "Informado pelo representante da turma em 26/10/2026."
     },
     {
       data: "2026-11-11", hora: null, disciplina: "Econ. Pol.", tipo: "AVALIACAO",

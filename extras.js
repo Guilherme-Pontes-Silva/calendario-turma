@@ -218,9 +218,9 @@ const PAINEL = {
         { grupo:"Dupla 1", integrantes:"Andressa S. e Thiago R.", tema:"Aporofobia, a Aversão ao Pobre: Um Desafio para a Democracia", autor:"Adela Cortina" },
         { grupo:"Dupla 2", integrantes:"David B. e Ryan S.", tema:"Teorema da Expropriação Capitalista", autor:"Klaus Dörre" },
         { grupo:"Dupla 3", integrantes:"Gabriele C. e Pedro O.", tema:"O Código do Capital: Como o Direito Cria Riqueza e Desigualdade", autor:"Katharina Pistor" },
-        { grupo:"Dupla 4", integrantes:"Melissa S. e Pamela C.", tema:"Fascismo e Liberalismo: Afinidades Seletivas", autor:"Alvaro Bianchi" },
+        { grupo:"Dupla 4", integrantes:"", tema:"Fascismo e Liberalismo: Afinidades Seletivas", autor:"Alvaro Bianchi" },
         { grupo:"Dupla 5", integrantes:"Guilherme P. e Luiza S.", tema:"Parcelado: Dinâmicas de Consumo na Periferia", autor:"Kauê Lopes dos Santos" },
-        { grupo:"Dupla 6", integrantes:"Heloísa F. e Luiza C.", tema:"Os Bilionários Não Pagam Imposto de Renda e Nós Vamos Acabar Com Isso", autor:"Gabriel Zucman" },
+        { grupo:"Trio 6", integrantes:"Heloísa F., Luiza C. e Pamela C.", tema:"Os Bilionários Não Pagam Imposto de Renda e Nós Vamos Acabar Com Isso", autor:"Gabriel Zucman" },
         { grupo:"Dupla 7", integrantes:"Louise R. e Luís H.", tema:"Tecno Feudalismo: O que Matou o Capitalismo", autor:"Yanis Varoufakis" },
         { grupo:"Dupla 8", integrantes:"Daniely F. e Yasmin L.", tema:"Utopia Autoritária Brasileira: Como os Militares Ameaçam a Democracia Brasileira desde o Nascimento da República até Hoje", autor:"Carlos Fico" },
         { grupo:"Dupla 9", integrantes:"Emilly P. e Victoria R.", tema:"Autoritarismo e Golpes na América Latina: Breve Ensaio Sobre Jurisdição e Exceção", autor:"Pedro Estevam Alves Pinto Serrano" }
